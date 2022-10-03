@@ -1,0 +1,56 @@
+FROM php:8.1-fpm-alpine
+
+RUN apk add --no-cache --virtual .build-deps \
+        $PHPIZE_DEPS \
+        curl-dev \
+        imagemagick-dev \
+        libtool \
+        libxml2-dev \
+        postgresql-dev \
+        sqlite-dev
+
+RUN apk add --no-cache \
+        curl \
+        git \
+        imagemagick \
+        mysql-client \
+        postgresql-libs \
+        libintl \
+        icu \
+        icu-dev \
+        libzip-dev \
+        oniguruma-dev \
+        librdkafka-dev \
+        freetype-dev \
+        libjpeg-turbo-dev \
+        libpng \
+        libpng-dev
+
+RUN docker-php-ext-install \
+        bcmath \
+        curl \
+        mbstring \
+        pdo \
+        pdo_mysql \
+        pdo_pgsql \
+        pdo_sqlite \
+        pcntl \
+        xml \
+        zip \
+        intl \
+        gd
+
+RUN apk del -f .build-deps
+
+
+RUN curl -s https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin/ --filename=composer
+
+RUN echo 'memory_limit = 10G' >> /usr/local/etc/php/conf.d/docker-php-memlimit.ini;
+RUN echo 'max_execution_time = 0' >> /usr/local/etc/php/conf.d/docker-php-max_execution_time.ini;
+
+RUN mkdir docker
+
+COPY start-laravel.sh /start-laravel.sh
+
+RUN chmod +x /start-laravel.sh
+

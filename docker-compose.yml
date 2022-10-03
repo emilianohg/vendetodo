@@ -1,0 +1,31 @@
+version: '3'
+services:
+  mariadb:
+    image: mariadb:10.9.3
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=condominios
+    ports:
+      - 3306:3306
+    volumes:
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+  laravel:
+    build:
+      context: docker/
+      dockerfile: Dockerfile-laravel-9
+    depends_on:
+      - mariadb
+    environment:
+      - DB_HOST=mariadb
+      - DB_USERNAME=root
+      - DB_DATABASE=vendetodo
+      - DB_PASSWORD=password
+    working_dir: /app
+    ports:
+      - 8000:8000
+    volumes:
+      - ./laravel-vendetodo:/app
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    command: sh /start-laravel.sh
