@@ -1,6 +1,6 @@
 # Sistema Vende Todo
 
-## ⚙ Configuracion de servidor laravel
+## ⚙ Configuración de servidor laravel
 
 Dentro de la carpeta `laravel-vendetodo` debemos crear el archivo `.env` a partir de `.env.example`.
 
@@ -13,7 +13,7 @@ Posteriormente generamos la `APP_KEY` dentro del archivo `.env` con el comando:
 php artisan key:generate
 ```
 
-## Encender el sistema
+## ⚡ Encender el sistema
 
 Ejecutar el comando:
 ```
