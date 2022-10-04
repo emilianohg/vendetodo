@@ -4,7 +4,7 @@ services:
     image: mariadb:10.9.3
     environment:
       - MYSQL_ROOT_PASSWORD=password
-      - MYSQL_DATABASE=condominios
+      - MYSQL_DATABASE=vendetodo
     ports:
       - 3306:3306
   laravel:
