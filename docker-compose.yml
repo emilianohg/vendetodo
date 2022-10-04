@@ -7,9 +7,6 @@ services:
       - MYSQL_DATABASE=condominios
     ports:
       - 3306:3306
-    volumes:
-      - /etc/timezone:/etc/timezone:ro
-      - /etc/localtime:/etc/localtime:ro
   laravel:
     build:
       context: docker/
@@ -26,6 +23,4 @@ services:
       - 8000:8000
     volumes:
       - ./laravel-vendetodo:/app
-      - /etc/timezone:/etc/timezone:ro
-      - /etc/localtime:/etc/localtime:ro
     command: sh /start-laravel.sh
