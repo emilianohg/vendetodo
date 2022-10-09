@@ -23,4 +23,4 @@ services:
       - 8000:8000
     volumes:
       - ./laravel-vendetodo:/app
-    command: sh /start-laravel.sh
+    command: ["php","artisan","serve", "--host", "0.0.0.0"]
