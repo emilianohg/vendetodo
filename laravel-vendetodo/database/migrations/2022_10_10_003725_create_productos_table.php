@@ -19,6 +19,7 @@ class CreateProductosTable extends Migration
             $table->decimal('alto');
             $table->string('imagen_url')->nullable();
             $table->timestamps();
+            
             $table->foreign('marca_id')
                 ->on('marcas')
                 ->references('id');
