@@ -23,3 +23,6 @@ docker compose up
 ```
 docker-compose up
 ```
+
+# Pendientes
+[] Agregar el sail
