@@ -7,16 +7,16 @@ use Illuminate\Support\Facades\Schema;
 class CreateMarcasTable extends Migration
 {
 
-    public function up()
-    {
-        Schema::create('marcas', function (Blueprint $table) {
-            $table->id();
-            $table->string('nombre');
-        });
-    }
+  public function up()
+  {
+    Schema::create('marcas', function (Blueprint $table) {
+      $table->id();
+      $table->string('nombre');
+    });
+  }
 
-    public function down()
-    {
-        Schema::dropIfExists('marcas');
-    }
+  public function down()
+  {
+    Schema::dropIfExists('marcas');
+  }
 }
