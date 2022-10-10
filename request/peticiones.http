@@ -1,0 +1,13 @@
+POST http://localhost:8000/api/productos/
+content-type: application/json
+
+{
+    "nombre": "xbox",
+    "descripcion": "Wed, 21 Oct 2015 18:27:50 GMT",
+    "precio":123,
+    "marca_id":1,
+    "largo":929.1,
+    "ancho":29,
+    "alto":21.1,
+    "imagen_url":"ww.sony.com"
+}
