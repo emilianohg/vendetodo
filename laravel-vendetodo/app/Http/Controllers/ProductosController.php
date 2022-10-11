@@ -9,7 +9,7 @@ use App\Domain\DominioProductos;
 class ProductosController extends Controller
 {
 
- protected $dominio;
+  protected $dominio;
 
   function __construct()
   {
@@ -37,10 +37,7 @@ class ProductosController extends Controller
     return response()->json($producto);
   }
 
-  public function destroy($id){
-
-
-
+  public function destroy($id)
+  {
   }
-
 }
