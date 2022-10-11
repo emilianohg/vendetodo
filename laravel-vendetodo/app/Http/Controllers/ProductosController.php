@@ -37,8 +37,7 @@ class ProductosController extends Controller
     return response()->json($producto);
   }
 
-  public function destroy($id)
-  {
+  public function destroy($id){
     $this->dominio->Eliminar($id);
   }
 }

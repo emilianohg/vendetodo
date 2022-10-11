@@ -34,4 +34,5 @@ class DominioProductos
     $producto = Producto::query()->findOrFail($id);
     $producto->delete();
   }
+
 }
