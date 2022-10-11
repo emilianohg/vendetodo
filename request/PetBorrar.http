@@ -1,0 +1,2 @@
+DELETE http://localhost:8000/api/productos/11
+content-type: application/json

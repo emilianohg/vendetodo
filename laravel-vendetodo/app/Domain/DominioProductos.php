@@ -14,14 +14,14 @@ class DominioProductos{
       return $productos;
       //return response()->json($productos);
     }
-  
+
     public function ConsultarXId($id)
     {
       $producto = Producto::query()->findOrFail($id);
       return $producto;
       //return response()->json($producto);
     }
-  
+
     public function Crear(StoreProductoRequest $request)
     {
       $producto = Producto::query()->create($request->all());
@@ -29,4 +29,9 @@ class DominioProductos{
       //return response()->json($producto);
     }
 
+    public function Eliminar($id){
+        $producto = Producto::query()->findOrFail($id);
+        $producto->delete();
+
+    }
 }
