@@ -5,33 +5,34 @@ namespace App\Domain;
 use App\Http\Requests\StoreProductoRequest;
 use App\Models\Producto;
 
-class DominioProductos{
+class DominioProductos
+{
 
 
-    public function Consultar()
-    {
-      $productos = Producto::query()->get();
-      return $productos;
-      //return response()->json($productos);
-    }
+  public function Consultar()
+  {
+    $productos = Producto::query()->get();
+    return $productos;
+    //return response()->json($productos);
+  }
 
-    public function ConsultarXId($id)
-    {
-      $producto = Producto::query()->findOrFail($id);
-      return $producto;
-      //return response()->json($producto);
-    }
+  public function ConsultarXId($id)
+  {
+    $producto = Producto::query()->findOrFail($id);
+    return $producto;
+    //return response()->json($producto);
+  }
 
-    public function Crear(StoreProductoRequest $request)
-    {
-      $producto = Producto::query()->create($request->all());
-      return $producto;
-      //return response()->json($producto);
-    }
+  public function Crear(StoreProductoRequest $request)
+  {
+    $producto = Producto::query()->create($request->all());
+    return $producto;
+    //return response()->json($producto);
+  }
+  public function Eliminar($id)
+  {
+    $producto = Producto::query()->findOrFail($id);
+    $producto->delete();
+  }
 
-    public function Eliminar($id){
-        $producto = Producto::query()->findOrFail($id);
-        $producto->delete();
-
-    }
 }

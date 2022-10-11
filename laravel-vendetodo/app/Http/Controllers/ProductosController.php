@@ -9,7 +9,7 @@ use App\Domain\DominioProductos;
 class ProductosController extends Controller
 {
 
- protected $dominio;
+  protected $dominio;
 
   function __construct()
   {
@@ -40,5 +40,4 @@ class ProductosController extends Controller
   public function destroy($id){
     $this->dominio->Eliminar($id);
   }
-
 }
