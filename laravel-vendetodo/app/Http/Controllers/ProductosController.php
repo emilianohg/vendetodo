@@ -39,5 +39,6 @@ class ProductosController extends Controller
 
   public function destroy($id)
   {
+    $this->dominio->Eliminar($id);
   }
 }
