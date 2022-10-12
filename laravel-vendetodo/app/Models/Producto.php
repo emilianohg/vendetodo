@@ -18,4 +18,10 @@ class Producto extends Model
     'alto',
     'imagen_url'
   ];
+
+  public function marca()
+  {
+    return $this->belongsTo(Marca::class,'marca_id','id');
+  }
+
 }

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('tittle','Editar Productos')
+@section('tittle','Añadir Producto')
 
 @section('content')
 <div class="w-full max-w-xs mx-auto">
@@ -9,7 +9,7 @@
     @csrf
     @method('put')
     <h2 class="text-2xl text-center py-4 mb-4 font-bold font-mono">
-      Editar Productos {{$product->name}}
+      Añadir Producto
     </h2>
     <div class="mb-4">
       <label class="block text-gray-700 text-sm font-bold mb-2" for="name">Nombre del producto:</label>

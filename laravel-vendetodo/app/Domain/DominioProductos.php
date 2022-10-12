@@ -9,27 +9,24 @@ class DominioProductos
 {
 
 
-  public function Consultar()
+  public function consultar()
   {
     $productos = Producto::query()->get();
     return $productos;
-    //return response()->json($productos);
   }
 
-  public function ConsultarXId($id)
+  public function consultarPorId($id)
   {
     $producto = Producto::query()->findOrFail($id);
     return $producto;
-    //return response()->json($producto);
   }
 
-  public function Crear(StoreProductoRequest $request)
+  public function crear(StoreProductoRequest $request)
   {
     $producto = Producto::query()->create($request->all());
     return $producto;
-    //return response()->json($producto);
   }
-  public function Eliminar($id)
+  public function eliminar($id)
   {
     $producto = Producto::query()->findOrFail($id);
     $producto->delete();

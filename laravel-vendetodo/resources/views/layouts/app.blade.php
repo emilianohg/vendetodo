@@ -10,7 +10,7 @@
   <body>
       <nav class="h-16 flex justify-end py-4 px-16">
       <a href="{{route('products.crud')}}" class="border border-blue-500 rounded px-4 pt-1 h-10 bg-white text-blue-500 font-semibold mx-2">Vende Todo</a>
-      <a href="{{route('products.create')}}" class="border border-blue-500 rounded px-4 pt-1 h-10 bg-white text-blue-500 font-semibold mx-2">Añadir</a>
+      <a href="{{route('productos.create')}}" class="border border-blue-500 rounded px-4 pt-1 h-10 bg-white text-blue-500 font-semibold mx-2">Añadir</a>
     </nav>
     <main>@yield('content')</main>
   </body>
