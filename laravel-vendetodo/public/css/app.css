@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter');
+@import url(https://fonts.googleapis.com/css2?family=Inter);
 * {
     font-family: 'Inter';
 }
@@ -54,7 +54,7 @@ input:focus {
     margin: 0 auto;
 }
 .card-image-not-found {
-    background: url(images/image_not_available.png);
+    background: url(/images/image_not_available.png?70ac66a44a9b3620e193add8d8bb9101);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
