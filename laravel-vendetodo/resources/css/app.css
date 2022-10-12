@@ -17,6 +17,7 @@
 
 .navbar input {
     background: #EDEDF0;
+    width: 275px;
 }
 
 input:focus {
@@ -27,7 +28,8 @@ input:focus {
     display: grid;
     grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
     gap: 10px;
-    margin: 0 3rem;
+    margin: 0 auto;
+    max-width: 1000px;
 }
 .card {
     margin: 10px;
