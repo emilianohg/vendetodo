@@ -9,15 +9,22 @@ class DominioProductos
 {
 
 
-  public function consultar()
+  public function consultar($busqueda)
   {
-    $productos = Producto::query()->get();
+    $productosQuery = Producto::with(['marca']);
+
+    if ($busqueda != null) {
+        $productosQuery->where('nombre', 'LIKE', '%'.$busqueda.'%');
+    }
+
+    $productos = $productosQuery->get();
+
     return $productos;
   }
 
   public function consultarPorId($id)
   {
-    $producto = Producto::query()->findOrFail($id);
+    $producto = Producto::with(['marca'])->findOrFail($id);
     return $producto;
   }
 

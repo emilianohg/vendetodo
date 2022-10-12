@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreProductoRequest;
 use App\Domain\DominioProductos;
+use Illuminate\Http\Request;
 
 class ProductosController extends Controller
 {
@@ -15,10 +16,11 @@ class ProductosController extends Controller
     $this->dominio = new DominioProductos();
   }
 
-  public function index()
+  public function index(Request $request)
   {
-    $productos = $this->dominio->consultar();
-    return view('products.index');
+    $busqueda = $request->get('busqueda');
+    $productos = $this->dominio->consultar($busqueda);
+    return view('products.index', compact('productos', 'busqueda'));
   }
 
   public function show($id)
