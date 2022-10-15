@@ -4,10 +4,16 @@
     
 @section('content')
 
-    <form class="navbar" action="{{ route('productos.index') }}">
-        <i class="fa fa-search"></i>
-        <input name="busqueda" type="text" value="{{ $busqueda }}">
-    </form>
+    <div class="controls-products">
+        <form class="navbar" action="{{ route('productos.index') }}">
+            <i class="fa fa-search"></i>
+            <input name="busqueda" type="text" value="{{ $busqueda }}">
+        </form>
+
+        <a class="btn" href="{{route('productos.create')}}">
+            <i class="fa fa-add"></i> Añadir
+        </a>
+    </div>
 
     <div class="list-products">
         @foreach($productos as $producto)

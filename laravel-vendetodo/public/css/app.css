@@ -3,25 +3,75 @@
     font-family: 'Inter';
 }
 
+.main-navbar {
+    background: #fbfbfb;
+    box-shadow: 1px 1px 5px #cfcfcf;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+            user-select: none;
+}
+
+.main-navbar-content {
+    display: flex;
+    max-width: 1000px;
+    margin: 0 auto;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.controls-products {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
 .navbar {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 15px;
-    width: 340px;
+    min-width: 340px;
     background: #EDEDF0;
     padding: 5px 10px;
     border-radius: 100px;
-    margin: 10px auto 30px;
+    margin: 30px auto;
+    max-width: 500px;
+    width: 50%;
 }
 
 .navbar input {
     background: #EDEDF0;
-    width: 275px;
+    width: calc(100% - 40px);
+    height: 35px;
 }
 
 input:focus {
     outline: none;
+}
+
+.btn {
+    padding: 10px;
+    border: solid 1px #EDEDF0;
+    border-radius: 6px;
+    transition: background-color 0.5s;
+    background-color: #fff;
+}
+
+.btn:hover {
+    background-color: #f8f7f7;
+}
+
+.btn-user .user-name {
+    margin-left: 4px;
+    font-size: 1.1rem;
 }
 
 .list-products {
