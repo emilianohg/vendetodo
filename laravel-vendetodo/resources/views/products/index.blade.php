@@ -4,11 +4,9 @@
     
 @section('content')
 
-    <form action="{{ route('productos.index') }}">
-        <div class="navbar">
-            <i class="fa fa-search"></i>
-            <input name="busqueda" type="text" value="{{ $busqueda }}">
-        </div>
+    <form class="navbar" action="{{ route('productos.index') }}">
+        <i class="fa fa-search"></i>
+        <input name="busqueda" type="text" value="{{ $busqueda }}">
     </form>
 
     <div class="list-products">
@@ -27,8 +25,8 @@
                     <p class="card-brand">{{ $producto->marca->nombre }}</p>
                 </div>
                 <div class="card-actions">
-                    <a class="btn-action" href="#"><i class="fa fa-pencil"></i> Editar</a>
-                    <a class="btn-action" href="#"><i class="fa fa-trash"></i> Eliminar</a>
+                    <a class="btn-action btn-action-primary" href="#"><i class="fa fa-pencil"></i></a>
+                    <a class="btn-action btn-action-danger" href="#"><i class="fa fa-trash"></i></a>
                 </div>
             </article>
         @endforeach
