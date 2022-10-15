@@ -23,7 +23,7 @@ class ProductosSeeder extends Seeder
         $imagenes = collect($recordsImagenes)->keyBy('producto_id');
 
         foreach ($recordsProductos as $record) {
-            $marca = Marca::query()->where('nombre', '=', $record['nombre'])->first();
+            $marca = Marca::query()->where('nombre', '=', $record['marca'])->first();
 
             if ($marca == null) {
                 $marca = Marca::query()->create([
