@@ -19,4 +19,6 @@ class Marca extends Model
         return $this->hasMany(Producto::class,'marca_id','id');
       }
 
+      public $timestamps = false;
+
 }

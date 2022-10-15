@@ -20,7 +20,7 @@
                     </div>
                 @endif
                 <div class="card-info">
-                    <h1 class="card-title">{{ $producto->nombre }}</h1>
+                    <h1 class="card-title" title="{{ $producto->nombre }}">{{ $producto->nombre }}</h1>
                     <p class="card-price">${{ number_format($producto->precio, 2) }}</p>
                     <p class="card-brand">{{ $producto->marca->nombre }}</p>
                 </div>
@@ -30,5 +30,8 @@
                 </div>
             </article>
         @endforeach
+    </div>
+    <div class="pagination">
+        {{ $productos->appends($_GET)->links() }}
     </div>
 @endsection

@@ -98,3 +98,7 @@ input:focus {
 .btn-action:hover {
     opacity: 1;
 }
+.pagination {
+    margin: 20px auto;
+    max-width: 1000px;
+}

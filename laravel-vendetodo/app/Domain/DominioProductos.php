@@ -17,7 +17,7 @@ class DominioProductos
         $productosQuery->where('nombre', 'LIKE', '%'.$busqueda.'%');
     }
 
-    $productos = $productosQuery->get();
+    $productos = $productosQuery->paginate(24);
 
     return $productos;
   }

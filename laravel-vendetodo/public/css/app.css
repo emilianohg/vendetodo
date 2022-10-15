@@ -12,8 +12,7 @@
     background: #EDEDF0;
     padding: 5px 10px;
     border-radius: 100px;
-    margin: 10px auto;
-    margin-bottom: 30px;
+    margin: 10px auto 30px;
 }
 
 .navbar input {
@@ -98,4 +97,8 @@ input:focus {
 }
 .btn-action:hover {
     opacity: 1;
+}
+.pagination {
+    margin: 20px auto;
+    max-width: 1000px;
 }
