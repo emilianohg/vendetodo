@@ -33,7 +33,7 @@
                     <p class="card-brand">{{ $producto->marca->nombre }}</p>
                 </div>
                 <div class="card-actions">
-                    <a class="btn-action btn-action-primary" href="#"><i class="fa fa-pencil"></i></a>
+                    <a class="btn-action btn-action-primary" href="{{route('productos.edit', ['producto' => $producto->id])}}"><i class="fa fa-pencil"></i></a>
                     <a class="btn-action btn-action-danger" href="#"><i class="fa fa-trash"></i></a>
                 </div>
             </article>

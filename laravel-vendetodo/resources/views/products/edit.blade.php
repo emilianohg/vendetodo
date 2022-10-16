@@ -1,39 +1,90 @@
 @extends('layouts.app')
 
-@section('tittle','Editar Producto')
-    
+@section('style')
+  <link rel="stylesheet" href="/css/productos-create.css">
+@endsection
+
 @section('content')
-<div class="w-full max-w-xs mx-auto">
-  <form action="{{route('products.update',$product->id)}}" method="POST"
-   class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" >
-    @csrf
-    @method('put')
-    <h2 class="text-2xl text-center py-4 mb-4 font-bold font-mono">
-      Editar Producto {{$product->name}}
-    </h2>
-    <div class="mb-4">
-      <label class="block text-gray-700 text-sm font-bold mb-2" for="name">Nombre del producto:</label>
-      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" type="text" placeholder="Nombre del producto" name="name" value="{{$product->name}}">
-    </div>
-    <div class="mb-4">
-      <label class="block text-gray-700 text-sm font-bold mb-2" for="brand">Marca del producto:</label>
-      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="brand" type="text" placeholder="Marca del producto" name="brand" value="{{$product->brand}}">
-    </div>
-    <div class="mb-4">
-      <label class="block text-gray-700 text-sm font-bold mb-2" for="description">Descripción del producto:</label>
-      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="description" type="text" placeholder="Descripción del producto" name="description" value="{{$product->description}}">
-    </div>
-    <div class="mb-4">
-      <label class="block text-gray-700 text-sm font-bold mb-2" for="price">Precio del producto:</label>
-      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="price"  placeholder="Precio del producto" name="price" value="{{$product->price}}">
-    </div>
-    <div class="mb-4">
-      <label class="block text-gray-700 text-sm font-bold mb-2" for="size">Tamaño del producto:</label>
-      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="size" placeholder="Tamaño del producto" name="size" value="{{$product->size}}">
-    </div>
-    <div class="flex justify-center">
-      <button class="bg-green-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">Editar datos</button>
-    </div>
-  </form>
-</div>
+  <div class="form-container">
+    <h1>Editar producto</h1>
+    <hr>
+    <form action="{{route('productos.update', ['producto' => $producto->id])}}" method="POST" enctype="multipart/form-data">
+      @csrf
+      {{method_field('PATCH')}}
+
+      <div class="input-container">
+        <label class="required" for="nombre">Nombre:</label>
+        <input type="text" name="nombre" id="nombre" placeholder="Nombre" value="{{$producto->nombre}}">
+        @if($errors->has('nombre'))
+          <div class="error">{{ $errors->first('nombre') }}</div>
+        @endif
+      </div>
+      <div class="input-container">
+        <label for="descripcion">Descripción:</label>
+        <textarea name="descripcion" id="descripcion" rows="5">{{$producto->descripcion}}</textarea>
+        @if($errors->has('descripcion'))
+          <div class="error">{{ $errors->first('descripcion') }}</div>
+        @endif
+      </div>
+      <div class="input-container">
+        <label class="required" for="precio">Precio:</label>
+        <input type="number" name="precio" id="precio" placeholder="Ingresa la marca" value="{{$producto->precio}}">
+        @if($errors->has('precio'))
+          <div class="error">{{ $errors->first('precio') }}</div>
+        @endif
+      </div>
+      <div class="input-container">
+        <label class="required" for="marca_id">Marca:</label>
+        <select class="form-select" name="marca_id" id="marca_id" >
+        <option value="" disabled selected>-- Selecciona una marca --</option>
+        @foreach ($marcas as $marca)
+            <option value="{{$marca->id}}" @if($producto->marca_id == $marca->id) selected @endif>{{$marca->nombre}}</option>
+        @endforeach
+        </select>
+        @if($errors->has('marca_id'))
+          <div class="error">{{ $errors->first('marca_id') }}</div>
+        @endif
+      </div>
+      <div class="input-container">
+        <label class="required" for="largo">Largo:</label>
+        <input type="number" name="largo" id="largo" placeholder="Ingresa el largo" value="{{$producto->largo}}">
+        @if($errors->has('largo'))
+          <div class="error">{{ $errors->first('largo') }}</div>
+        @endif
+      </div>
+      <div class="input-container">
+        <label class="required" for="ancho">Ancho:</label>
+        <input type="number" name="ancho" id="ancho" placeholder="Ingresa el ancho" value="{{$producto->ancho}}">
+        @if($errors->has('ancho'))
+          <div class="error">{{ $errors->first('ancho') }}</div>
+        @endif
+      </div>
+      <div class="input-container">
+        <label class="required" for="alto">Alto:</label>
+        <input type="number" name="alto" id="alto" placeholder="Ingresa el alto" value="{{$producto->alto}}">
+        @if($errors->has('alto'))
+          <div class="error">{{ $errors->first('alto') }}</div>
+        @endif
+      </div>
+      <div class="input-container">
+        <label class="required" for="imagen_url">Imagen:</label>
+        <input type="file" name="imagen" id="imagen_url" accept="image/png, image/jpg">
+        @if($errors->has('imagen_url'))
+          <div class="error">{{ $errors->first('imagen_url') }}</div>
+        @endif
+
+        @if($producto->imagen_url == null)
+            <div class="card-image card-image-not-found"></div>
+        @else
+            <div class="card-image">
+            <img src="{{ $producto->imagen_url }}" alt="{{ $producto->nombre }}">
+            </div>
+        @endif
+
+      </div>
+      <div class="mt-4">
+        <button type="submit" class="btn btn-primary">Actualizar</button>
+      </div>      
+    </form>
+  </div>
 @endsection
