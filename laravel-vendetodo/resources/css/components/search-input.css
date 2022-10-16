@@ -1,0 +1,19 @@
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    min-width: 340px;
+    background: #EDEDF0;
+    padding: 5px 10px;
+    border-radius: 100px;
+    margin: 30px auto;
+    max-width: 500px;
+    width: 50%;
+}
+
+.navbar input {
+    background: #EDEDF0;
+    width: calc(100% - 40px);
+    height: 35px;
+}

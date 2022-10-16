@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
-@section('tittle','CRUD')
-    
+@section('style')
+    <link rel="stylesheet" href="/css/productos-index.css">
+@endsection
+
 @section('content')
 
     <div class="controls-products">

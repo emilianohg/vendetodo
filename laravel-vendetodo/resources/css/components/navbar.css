@@ -1,0 +1,33 @@
+.main-navbar {
+    background: #fbfbfb;
+    box-shadow: 1px 1px 5px #cfcfcf;
+    user-select: none;
+}
+
+.main-navbar-content {
+    display: flex;
+    max-width: 1000px;
+    margin: 0 auto;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 2rem;
+}
+.logo-text {
+    display: none;
+    margin-left: 10px;
+}
+@media (min-width:450px) {
+    .logo-text {
+        display: inline-block;
+    }
+}
+
+.btn-user .user-name {
+    margin-left: 4px;
+    font-size: 1.1rem;
+}

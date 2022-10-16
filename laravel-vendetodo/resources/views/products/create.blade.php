@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
-@section('tittle','Añadir Producto')
+@section('style')
+  <link rel="stylesheet" href="/css/productos-create.css">
+@endsection
 
 @section('content')
   <div class="form-container">
@@ -10,7 +12,7 @@
       @csrf
       <div class="input-container">
         <label class="required" for="nombre">Nombre:</label>
-        <input type="text" name="nombre" id="nombre" placeholder="Ingresa el nombre" autofocus>
+        <input type="text" name="nombre" id="nombre" autofocus>
         @if($errors->has('nombre'))
           <div class="error">{{ $errors->first('nombre') }}</div>
         @endif
@@ -24,7 +26,7 @@
       </div>
       <div class="input-container">
         <label class="required" for="precio">Precio:</label>
-        <input type="number" name="precio" id="precio" placeholder="Ingresa la marca">
+        <input type="number" name="precio" id="precio">
         @if($errors->has('precio'))
           <div class="error">{{ $errors->first('precio') }}</div>
         @endif
@@ -43,21 +45,21 @@
       </div>
       <div class="input-container">
         <label class="required" for="largo">Largo:</label>
-        <input type="number" name="largo" id="largo" placeholder="Ingresa el largo">
+        <input type="number" name="largo" id="largo">
         @if($errors->has('largo'))
           <div class="error">{{ $errors->first('largo') }}</div>
         @endif
       </div>
       <div class="input-container">
         <label class="required" for="ancho">Ancho:</label>
-        <input type="number" name="ancho" id="ancho" placeholder="Ingresa el ancho">
+        <input type="number" name="ancho" id="ancho">
         @if($errors->has('ancho'))
           <div class="error">{{ $errors->first('ancho') }}</div>
         @endif
       </div>
       <div class="input-container">
         <label class="required" for="alto">Alto:</label>
-        <input type="number" name="alto" id="alto" placeholder="Ingresa el alto">
+        <input type="number" name="alto" id="alto">
         @if($errors->has('alto'))
           <div class="error">{{ $errors->first('alto') }}</div>
         @endif
@@ -69,8 +71,8 @@
           <div class="error">{{ $errors->first('imagen') }}</div>
         @endif
       </div>
-      <div class="input-container">
-        <button type="submit" class="btn">Agregar</button>
+      <div class="mt-4">
+        <button type="submit" class="btn btn-primary">Agregar</button>
       </div>      
     </form>
   </div>

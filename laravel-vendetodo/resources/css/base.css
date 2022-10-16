@@ -1,0 +1,35 @@
+* {
+    font-family: 'Inter';
+}
+
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+}
+
+
+/* Botones */
+.btn {
+    padding: 10px;
+    border: solid 1px #EDEDF0;
+    border-radius: 6px;
+    transition: background-color 0.5s;
+    background-color: #fff;
+}
+
+.btn:hover {
+    background-color: #f8f7f7;
+}
+
+.btn-primary {
+    background-color: #1A83E4 !important;
+    color: #fff;
+}
