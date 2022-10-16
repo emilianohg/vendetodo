@@ -1,16 +1,15 @@
 @extends('layouts.app')
 
-@section('tittle','Añadir Producto')
-
 @section('content')
   <div class="form-container">
     <h1>Registrar producto</h1>
     <hr>
     <form action="{{route('productos.store')}}" method="POST" enctype="multipart/form-data">
       @csrf
+      
       <div class="input-container">
         <label class="required" for="nombre">Nombre:</label>
-        <input type="text" name="nombre" id="nombre" placeholder="Ingresa el nombre" autofocus>
+        <input type="text" name="nombre" id="nombre" placeholder="Nombre" autofocus>
         @if($errors->has('nombre'))
           <div class="error">{{ $errors->first('nombre') }}</div>
         @endif
@@ -24,7 +23,7 @@
       </div>
       <div class="input-container">
         <label class="required" for="precio">Precio:</label>
-        <input type="number" name="precio" id="precio" placeholder="Ingresa la marca">
+        <input type="number" name="precio" id="precio" placeholder="Precio">
         @if($errors->has('precio'))
           <div class="error">{{ $errors->first('precio') }}</div>
         @endif
@@ -43,21 +42,21 @@
       </div>
       <div class="input-container">
         <label class="required" for="largo">Largo:</label>
-        <input type="number" name="largo" id="largo" placeholder="Ingresa el largo">
+        <input type="number" name="largo" id="largo" placeholder="Largo">
         @if($errors->has('largo'))
           <div class="error">{{ $errors->first('largo') }}</div>
         @endif
       </div>
       <div class="input-container">
         <label class="required" for="ancho">Ancho:</label>
-        <input type="number" name="ancho" id="ancho" placeholder="Ingresa el ancho">
+        <input type="number" name="ancho" id="ancho" placeholder="Ancho">
         @if($errors->has('ancho'))
           <div class="error">{{ $errors->first('ancho') }}</div>
         @endif
       </div>
       <div class="input-container">
         <label class="required" for="alto">Alto:</label>
-        <input type="number" name="alto" id="alto" placeholder="Ingresa el alto">
+        <input type="number" name="alto" id="alto" placeholder="Alto">
         @if($errors->has('alto'))
           <div class="error">{{ $errors->first('alto') }}</div>
         @endif

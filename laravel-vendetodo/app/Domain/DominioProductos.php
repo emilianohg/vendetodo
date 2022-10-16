@@ -32,7 +32,7 @@ class DominioProductos
     return $producto;
   }
 
-  public function crear($producto, File $imagen)
+  public function crear($producto, File $imagen = null)
   {
       if ($imagen != null) {
           $carpeta = 'public/productos';
@@ -55,14 +55,43 @@ class DominioProductos
 
       Producto::query()->create($producto);
   }
+
   public function eliminar($id)
   {
     $producto = Producto::query()->findOrFail($id);
     $producto->delete();
   }
+
+  
   public function getMarcas()
   {
     $marcas = Marca::query()->orderBy('nombre')->get();
     return $marcas;
+  }
+
+  public function actualizar($id, $producto, File $imagen = null)
+  {
+      if ($imagen != null) {
+        $carpeta = 'public/productos';
+
+        $extension = '.jpg';
+        if ($imagen->getMimeType() == 'image/png') 
+        {
+            $extension = '.png';
+        }
+        if ($imagen->getMimeType() == 'image/gif') 
+        {
+            $extension = '.gif';
+        }
+
+        $nombreArchivo = Uuid::uuid4() . $extension;
+
+        Storage::putFileAs($carpeta, $imagen, $nombreArchivo);
+        $imagen_url = Storage::url('productos/' . $nombreArchivo);
+
+        $producto['imagen_url'] = $imagen_url;
+      }
+
+    Producto::where('id', '=', $id)->update($producto);
   }
 }
