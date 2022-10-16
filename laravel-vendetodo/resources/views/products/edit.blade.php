@@ -16,7 +16,7 @@
       </div>
       <div class="input-container">
         <label for="descripcion">Descripción:</label>
-        <textarea name="descripcion" id="descripcion" rows="5">{{$producto->descripcion}}</textarea>
+        <textarea name="descripcion" id="descripcion" rows="5" >{{$producto->descripcion}}</textarea>
         @if($errors->has('descripcion'))
           <div class="error">{{ $errors->first('descripcion') }}</div>
         @endif
