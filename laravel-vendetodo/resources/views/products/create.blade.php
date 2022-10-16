@@ -3,37 +3,51 @@
 @section('tittle','Añadir Producto')
 
 @section('content')
-<div class="w-full max-w-xs mx-auto">
-  <form action="{{route('products.update',$product->id)}}" method="POST"
-   class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" >
-    @csrf
-    @method('put')
-    <h2 class="text-2xl text-center py-4 mb-4 font-bold font-mono">
-      Añadir Producto
-    </h2>
-    <div class="mb-4">
-      <label class="block text-gray-700 text-sm font-bold mb-2" for="name">Nombre del producto:</label>
-      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" type="text" placeholder="Nombre del producto" name="name" value="{{$product->name}}">
-    </div>
-    <div class="mb-4">
-      <label class="block text-gray-700 text-sm font-bold mb-2" for="brand">Marca del producto:</label>
-      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="brand" type="text" placeholder="Marca del producto" name="brand" value="{{$product->brand}}">
-    </div>
-    <div class="mb-4">
-      <label class="block text-gray-700 text-sm font-bold mb-2" for="description">Descripción del producto:</label>
-      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="description" type="text" placeholder="Descripción del producto" name="description" value="{{$product->description}}">
-    </div>
-    <div class="mb-4">
-      <label class="block text-gray-700 text-sm font-bold mb-2" for="price">Precio del producto:</label>
-      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="price"  placeholder="Precio del producto" name="price" value="{{$product->price}}">
-    </div>
-    <div class="mb-4">
-      <label class="block text-gray-700 text-sm font-bold mb-2" for="size">Tamaño del producto:</label>
-      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="size" placeholder="Tamaño del producto" name="size" value="{{$product->size}}">
-    </div>
-    <div class="flex justify-center">
-      <button class="bg-green-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">Editar datos</button>
-    </div>
-  </form>
-</div>
+  <div class="form-container">
+    <h2>Añadir Productos</h2>
+    <form action="{{route('productos.store')}}" method="POST" enctype="multipart/form-data">
+@csrf
+      <div class="input-container">
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" id="nombre" placeholder="Ingresa el nombre">
+      </div>
+      <div class="input-container">
+        <label for="descripcion">Descripción:</label>
+        <input type="text" name="descripcion" id="descripcion" placeholder="Ingresa la descripción">
+      </div>
+      <div class="input-container">
+        <label for="precio">Precio:</label>
+        <input type="number" name="precio" id="precio" placeholder="Ingresa la marca">
+      </div>
+      <div class="input-container">
+        <label for="marca_id">Marca:</label>
+        <select class="form-select" name="marca_id" id="marca_id">
+        @foreach ($marcas as $marca)
+            <option value="{{$marca->id}}">{{$marca->nombre}}</option>
+        @endforeach
+        </select>
+      </div>
+      <div class="input-container">
+        <label for="largo">Largo:</label>
+        <input type="number" name="largo" id="largo" placeholder="Ingresa el largo">
+      </div>
+      <div class="input-container">
+        <label for="ancho">Ancho:</label>
+        <input type="number" name="ancho" id="ancho" placeholder="Ingresa el ancho">
+      </div>
+      <div class="input-container">
+        <label for="alto">Alto:</label>
+        <input type="number" name="alto" id="alto" placeholder="Ingresa el alto">
+      </div>
+      <div class="input-container">
+        <label for="imagen_url">Imagen:</label>
+        <input type="file" name="imagen" id="imagen_url" accept="image/png, image/jpg">
+      </div>
+      <div class="input-container">
+        <button type="submit"  >Agregar</button>
+      </div>      
+    </form>
+  </div>
+    
+
 @endsection

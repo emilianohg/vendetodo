@@ -1,6 +1,34 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter');
+@import url(https://fonts.googleapis.com/css2?family=Inter);
 * {
     font-family: 'Inter';
+}
+
+.main-navbar {
+    background: #fbfbfb;
+    box-shadow: 1px 1px 5px #cfcfcf;
+    user-select: none;
+}
+
+.main-navbar-content {
+    display: flex;
+    max-width: 1000px;
+    margin: 0 auto;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.controls-products {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 .navbar {
@@ -8,20 +36,40 @@
     justify-content: center;
     align-items: center;
     gap: 15px;
-    width: 340px;
+    min-width: 340px;
     background: #EDEDF0;
     padding: 5px 10px;
     border-radius: 100px;
-    margin: 10px auto;
+    margin: 30px auto;
+    max-width: 500px;
+    width: 50%;
 }
 
 .navbar input {
     background: #EDEDF0;
-    width: 275px;
+    width: calc(100% - 40px);
+    height: 35px;
 }
 
 input:focus {
     outline: none;
+}
+
+.btn {
+    padding: 10px;
+    border: solid 1px #EDEDF0;
+    border-radius: 6px;
+    transition: background-color 0.5s;
+    background-color: #fff;
+}
+
+.btn:hover {
+    background-color: #f8f7f7;
+}
+
+.btn-user .user-name {
+    margin-left: 4px;
+    font-size: 1.1rem;
 }
 
 .list-products {
@@ -33,6 +81,7 @@ input:focus {
 }
 .card {
     margin: 10px;
+    position: relative;
 }
 .card-title {
     font-size: 16px;
@@ -53,8 +102,11 @@ input:focus {
     text-align: center;
     margin: 0 auto;
 }
+.card-image img {
+    max-height: 100%;
+}
 .card-image-not-found {
-    background: url(images/image_not_available.png);
+    background: url(/images/image_not_available.png?70ac66a44a9b3620e193add8d8bb9101);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -68,14 +120,36 @@ input:focus {
     margin-bottom: 10px;
 }
 .card-actions {
+    position: absolute;
     display: flex;
     justify-content: space-around;
+    top: 0;
+    right: 0;
+    gap: 5px;
 }
 .btn-action {
-    min-width: 100px;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
     padding: 3px;
-    border-radius: 5px;
+    border-radius: 100%;
+    opacity: 0.5;
+    transition: opacity 0.5s;
+}
+.btn-action-primary {
     border: solid 1px #9DC2FF;
     color: #2264D1;
+}
+.btn-action-danger {
+    border: solid 1px #ff9d9d;
+    color: #d12222;
+}
+.btn-action:hover {
+    opacity: 1;
+}
+.pagination {
+    margin: 20px auto;
+    max-width: 1000px;
 }

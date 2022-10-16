@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreProductoRequest;
 use App\Domain\DominioProductos;
 use Illuminate\Http\Request;
+use Illuminate\Http\File;
 
 class ProductosController extends Controller
 {
@@ -31,16 +32,26 @@ class ProductosController extends Controller
 
   public function store(StoreProductoRequest $request)
   {
-    $producto = $this->dominio->crear($request);
-    return response()->json($producto);
+    $producto = $request->except(['_token', 'imagen']);
+    $imagen = $request->file('imagen');
+
+    if ($imagen != null) {
+        $imagen = new File($imagen);
+    }
+
+    $this->dominio->crear($producto, $imagen);
+    return redirect()->route('products.index');
   }
 
-  public function destroy($id){
+  public function destroy($id)
+  {
     $this->dominio->eliminar($id);
   }
 
   public function create()
   {
-    return view('products.create');
+    $marcas = $this->dominio->getMarcas();
+    return view('products.create', ['marcas' => $marcas]);
+    //return response()->json($marcas);
   }
 }
