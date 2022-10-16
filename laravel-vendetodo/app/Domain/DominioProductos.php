@@ -4,6 +4,8 @@ namespace App\Domain;
 
 use App\Http\Requests\StoreProductoRequest;
 use App\Models\Producto;
+use App\Models\Marca;
+
 
 class DominioProductos
 {
@@ -14,7 +16,7 @@ class DominioProductos
     $productosQuery = Producto::with(['marca']);
 
     if ($busqueda != null) {
-        $productosQuery->where('nombre', 'LIKE', '%'.$busqueda.'%');
+      $productosQuery->where('nombre', 'LIKE', '%' . $busqueda . '%');
     }
 
     $productos = $productosQuery->paginate(24);
@@ -28,15 +30,18 @@ class DominioProductos
     return $producto;
   }
 
-  public function crear(StoreProductoRequest $request)
+  public function crear($producto)
   {
-    $producto = Producto::query()->create($request->all());
-    return $producto;
+    Producto::insert($producto);
   }
   public function eliminar($id)
   {
     $producto = Producto::query()->findOrFail($id);
     $producto->delete();
   }
-
+  public function getMarcas()
+  {
+    $marcas = Marca::query()->orderBy('nombre')->get();
+    return $marcas;
+  }
 }

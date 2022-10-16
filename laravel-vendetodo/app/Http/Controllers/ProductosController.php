@@ -31,16 +31,20 @@ class ProductosController extends Controller
 
   public function store(StoreProductoRequest $request)
   {
-    $producto = $this->dominio->crear($request);
-    return response()->json($producto);
+    $producto = request()->except('_token');
+    $this->dominio->crear($producto);
+    return redirect()->route('products.index');
   }
 
-  public function destroy($id){
+  public function destroy($id)
+  {
     $this->dominio->eliminar($id);
   }
 
   public function create()
   {
-    return view('products.create');
+    $marcas = $this->dominio->getMarcas();
+    return view('products.create', ['marcas' => $marcas]);
+    //return response()->json($marcas);
   }
 }
