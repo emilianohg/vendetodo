@@ -1,5 +1,5 @@
 @extends('layouts.app')
-    
+
 @section('content')
 
     <div class="controls-products">
@@ -30,7 +30,11 @@
                 </div>
                 <div class="card-actions">
                     <a class="btn-action btn-action-primary" href="{{route('productos.edit', ['producto' => $producto->id])}}"><i class="fa fa-pencil"></i></a>
-                    <a class="btn-action btn-action-danger" href="#"><i class="fa fa-trash"></i></a>
+                    <form action="{{route('productos.destroy', $producto->id)}}"  method="POST">
+                        @csrf
+                        {{ method_field('DELETE') }}
+                        <input class="fa fa-trash" type="submit" onclick="return confirm('¿Quieres borrar?')">
+                    </form>
                 </div>
             </article>
         @endforeach
