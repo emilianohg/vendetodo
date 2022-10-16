@@ -30,7 +30,7 @@ class ProductosController extends Controller
     $imagen = $request->file('imagen');
 
     if ($imagen != null) {
-        $imagen = new File($imagen);
+      $imagen = new File($imagen);
     }
 
     $this->dominio->crear($producto, $imagen);
@@ -63,12 +63,10 @@ class ProductosController extends Controller
     $imagen = $request->file('imagen');
 
     if ($imagen != null) {
-        $imagen = new File($imagen);
+      $imagen = new File($imagen);
     }
 
     $this->dominio->actualizar($id, $producto, $imagen);
     return redirect()->route('products.index');
-
   }
-
 }

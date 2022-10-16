@@ -166,8 +166,10 @@ input:focus, select:focus, textarea:focus {
     border: solid 1px #9DC2FF;
     color: #2264D1;
 }
+
 .btn-action-danger {
     border: solid 1px #ff9d9d;
+    justify-content: center;
     color: #d12222;
 }
 .btn-action:hover {

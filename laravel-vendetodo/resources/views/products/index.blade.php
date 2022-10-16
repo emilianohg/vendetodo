@@ -30,10 +30,10 @@
                 </div>
                 <div class="card-actions">
                     <a class="btn-action btn-action-primary" href="{{route('productos.edit', ['producto' => $producto->id])}}"><i class="fa fa-pencil"></i></a>
-                    <form action="{{route('productos.destroy', $producto->id)}}"  method="POST">
+                    <form action="{{route('productos.destroy', $producto->id)}}"  method="POST" >
                         @csrf
                         {{ method_field('DELETE') }}
-                        <input class="fa fa-trash" type="submit" onclick="return confirm('¿Quieres borrar?')">
+                        <input class="btn-action btn-action-danger" type="submit" onclick="return confirm('¿Quieres borrar?')" value="🗑️">
                     </form>
                 </div>
             </article>
