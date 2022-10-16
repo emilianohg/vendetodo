@@ -45,4 +45,7 @@
     border-radius: 4px;
     width: 100%;
 }
-
+.producto-imagen, .producto-imagen img {
+    max-width: 300px;
+    max-height: 300px;
+}
