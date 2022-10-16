@@ -24,12 +24,6 @@ class ProductosController extends Controller
     return view('products.index', compact('productos', 'busqueda'));
   }
 
-  public function show($id)
-  {
-    $producto = $this->dominio->consultarPorId($id);
-    return response()->json($producto);
-  }
-
   public function store(StoreProductoRequest $request)
   {
     $producto = $request->except(['_token', 'imagen']);
@@ -52,6 +46,32 @@ class ProductosController extends Controller
   {
     $marcas = $this->dominio->getMarcas();
     return view('products.create', ['marcas' => $marcas]);
-    //return response()->json($marcas);
   }
+
+  public function edit($id)
+  {
+    $producto = $this->dominio->consultarPorId($id);
+    $marcas = $this->dominio->getMarcas();
+    return view('products.edit', ['producto' => $producto, 'marcas' => $marcas]);
+  }
+
+  public function update(StoreProductoRequest $request, $nombre)
+  { 
+    /*
+    $producto = $request->except(['_token', 'imagen']);
+    $imagen = $request->file('imagen');
+    return response()->json($producto);
+    */
+    return redirect()->route('products.index');
+    
+    /*
+    if ($imagen != null) {
+        $imagen = new File($imagen);
+    }
+
+    $this->dominio->actualizar($producto, $imagen);
+    return redirect()->route('products.index');
+    */
+  }
+
 }

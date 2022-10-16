@@ -16,7 +16,7 @@ class StoreProductoRequest extends FormRequest
   {
     return [
       'nombre' => 'required',
-      'descripcion' => 'required',
+      'descripcion' => '',
       'precio' => 'required|numeric',
       'marca_id' => 'required|exists:marcas,id',
       'largo' => 'required|numeric',

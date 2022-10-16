@@ -1,7 +1,5 @@
 @extends('layouts.app')
 
-@section('tittle','Añadir Producto')
-
 @section('content')
   <div class="form-container">
     <h2>Añadir Productos</h2>
@@ -9,15 +7,15 @@
 @csrf
       <div class="input-container">
         <label for="nombre">Nombre:</label>
-        <input type="text" name="nombre" id="nombre" placeholder="Ingresa el nombre">
+        <input type="text" name="nombre" id="nombre" placeholder="Nombre">
       </div>
       <div class="input-container">
         <label for="descripcion">Descripción:</label>
-        <input type="text" name="descripcion" id="descripcion" placeholder="Ingresa la descripción">
+        <input type="text" name="descripcion" id="descripcion" placeholder="Descripción">
       </div>
       <div class="input-container">
         <label for="precio">Precio:</label>
-        <input type="number" name="precio" id="precio" placeholder="Ingresa la marca">
+        <input type="number" name="precio" id="precio" placeholder="Marca">
       </div>
       <div class="input-container">
         <label for="marca_id">Marca:</label>
@@ -29,15 +27,15 @@
       </div>
       <div class="input-container">
         <label for="largo">Largo:</label>
-        <input type="number" name="largo" id="largo" placeholder="Ingresa el largo">
+        <input type="number" name="largo" id="largo" placeholder="Largo">
       </div>
       <div class="input-container">
         <label for="ancho">Ancho:</label>
-        <input type="number" name="ancho" id="ancho" placeholder="Ingresa el ancho">
+        <input type="number" name="ancho" id="ancho" placeholder="Ancho">
       </div>
       <div class="input-container">
         <label for="alto">Alto:</label>
-        <input type="number" name="alto" id="alto" placeholder="Ingresa el alto">
+        <input type="number" name="alto" id="alto" placeholder="Alto">
       </div>
       <div class="input-container">
         <label for="imagen_url">Imagen:</label>
