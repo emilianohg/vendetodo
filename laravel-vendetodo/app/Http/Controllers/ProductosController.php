@@ -30,7 +30,7 @@ class ProductosController extends Controller
     $imagen = $request->file('imagen');
 
     if ($imagen != null) {
-        $imagen = new File($imagen);
+      $imagen = new File($imagen);
     }
 
     $this->dominio->crear($producto, $imagen);
@@ -40,6 +40,7 @@ class ProductosController extends Controller
   public function destroy($id)
   {
     $this->dominio->eliminar($id);
+    return redirect()->route('products.index');
   }
 
   public function create()
@@ -56,18 +57,16 @@ class ProductosController extends Controller
   }
 
   public function update(StoreProductoRequest $request, $id)
-  { 
+  {
 
     $producto = $request->except(['_token', 'imagen', '_method']);
     $imagen = $request->file('imagen');
 
     if ($imagen != null) {
-        $imagen = new File($imagen);
+      $imagen = new File($imagen);
     }
 
     $this->dominio->actualizar($id, $producto, $imagen);
     return redirect()->route('products.index');
-    
   }
-
 }
