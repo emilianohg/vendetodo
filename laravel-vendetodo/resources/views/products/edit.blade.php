@@ -73,10 +73,8 @@
           <div class="error">{{ $errors->first('imagen_url') }}</div>
         @endif
 
-        @if($producto->imagen_url == null)
-            <div class="card-image card-image-not-found"></div>
-        @else
-            <div class="producto-imagen">
+        @if($producto->imagen_url != null)
+            <div class="producto-imagen mt-4">
             <img src="{{ $producto->imagen_url }}" alt="{{ $producto->nombre }}">
             </div>
         @endif
