@@ -55,23 +55,19 @@ class ProductosController extends Controller
     return view('products.edit', ['producto' => $producto, 'marcas' => $marcas]);
   }
 
-  public function update(StoreProductoRequest $request, $nombre)
+  public function update(StoreProductoRequest $request, $id)
   { 
-    /*
-    $producto = $request->except(['_token', 'imagen']);
+
+    $producto = $request->except(['_token', 'imagen', '_method']);
     $imagen = $request->file('imagen');
-    return response()->json($producto);
-    */
-    return redirect()->route('products.index');
-    
-    /*
+
     if ($imagen != null) {
         $imagen = new File($imagen);
     }
 
-    $this->dominio->actualizar($producto, $imagen);
+    $this->dominio->actualizar($id, $producto, $imagen);
     return redirect()->route('products.index');
-    */
+    
   }
 
 }

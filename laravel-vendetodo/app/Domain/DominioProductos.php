@@ -32,7 +32,7 @@ class DominioProductos
     return $producto;
   }
 
-  public function crear($producto, File $imagen)
+  public function crear($producto, File $imagen = null)
   {
       if ($imagen != null) {
           $carpeta = 'public/productos';
@@ -69,7 +69,7 @@ class DominioProductos
     return $marcas;
   }
 
-  public function actualizar($producto, File $imagen)
+  public function actualizar($id, $producto, File $imagen = null)
   {
       if ($imagen != null) {
         $carpeta = 'public/productos';
@@ -92,6 +92,6 @@ class DominioProductos
         $producto['imagen_url'] = $imagen_url;
       }
 
-    Producto::where('id', '=', $producto)->update($producto);
+    Producto::where('id', '=', $id)->update($producto);
   }
 }
