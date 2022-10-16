@@ -22,7 +22,7 @@ class StoreProductoRequest extends FormRequest
       'largo' => 'required|numeric',
       'alto' => 'required|numeric',
       'ancho' => 'required|numeric',
-      'imagen_url' => 'mimes:jpg,png',
+      'imagen' => 'mimes:jpg,png',
     ];
   }
 }
