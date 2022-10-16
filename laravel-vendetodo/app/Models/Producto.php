@@ -24,4 +24,6 @@ class Producto extends Model
     return $this->belongsTo(Marca::class,'marca_id','id');
   }
 
+  public $timestamps = true;
+
 }

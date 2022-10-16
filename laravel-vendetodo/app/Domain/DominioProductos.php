@@ -15,7 +15,7 @@ class DominioProductos
 
   public function consultar($busqueda)
   {
-    $productosQuery = Producto::with(['marca']);
+    $productosQuery = Producto::with(['marca'])->orderByDesc('created_at');
 
     if ($busqueda != null) {
       $productosQuery->where('nombre', 'LIKE', '%' . $busqueda . '%');
@@ -53,7 +53,7 @@ class DominioProductos
           $producto['imagen_url'] = $imagen_url;
       }
 
-      Producto::query()->insert($producto);
+      Producto::query()->create($producto);
   }
   public function eliminar($id)
   {
