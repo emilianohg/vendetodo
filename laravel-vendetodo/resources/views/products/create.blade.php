@@ -41,7 +41,7 @@
       </div>
       <div class="input-container">
         <label for="imagen_url">Imagen:</label>
-        <input type="file" name="imagen" id="imagen_url">
+        <input type="file" name="imagen" id="imagen_url" accept="image/png, image/jpg">
       </div>
       <div class="input-container">
         <button type="submit"  >Agregar</button>

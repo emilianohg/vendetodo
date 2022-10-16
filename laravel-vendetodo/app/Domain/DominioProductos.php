@@ -41,6 +41,10 @@ class DominioProductos
           if ($imagen->getMimeType() == 'image/png') {
               $extension = '.png';
           }
+          if ($imagen->getMimeType() == 'image/gif') {
+              $extension = '.gif';
+          }
+
           $nombreArchivo = Uuid::uuid4() . $extension;
 
           Storage::putFileAs($carpeta, $imagen, $nombreArchivo);
