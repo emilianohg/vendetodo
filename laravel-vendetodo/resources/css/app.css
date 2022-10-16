@@ -102,6 +102,9 @@ input:focus {
     text-align: center;
     margin: 0 auto;
 }
+.card-image img {
+    max-height: 100%;
+}
 .card-image-not-found {
     background: url(/images/image_not_available.png?70ac66a44a9b3620e193add8d8bb9101);
     background-size: contain;

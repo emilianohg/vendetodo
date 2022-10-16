@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreProductoRequest;
 use App\Domain\DominioProductos;
 use Illuminate\Http\Request;
+use Illuminate\Http\File;
 
 class ProductosController extends Controller
 {
@@ -31,8 +32,14 @@ class ProductosController extends Controller
 
   public function store(StoreProductoRequest $request)
   {
-    $producto = request()->except('_token');
-    $this->dominio->crear($producto);
+    $producto = $request->except(['_token', 'imagen']);
+    $imagen = $request->file('imagen');
+
+    if ($imagen != null) {
+        $imagen = new File($imagen);
+    }
+
+    $this->dominio->crear($producto, $imagen);
     return redirect()->route('products.index');
   }
 

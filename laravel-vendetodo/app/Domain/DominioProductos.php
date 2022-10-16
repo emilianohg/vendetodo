@@ -2,9 +2,11 @@
 
 namespace App\Domain;
 
-use App\Http\Requests\StoreProductoRequest;
 use App\Models\Producto;
 use App\Models\Marca;
+use Illuminate\Support\Facades\Storage;
+use Ramsey\Uuid\Nonstandard\Uuid;
+use Symfony\Component\HttpFoundation\File\File;
 
 
 class DominioProductos
@@ -30,9 +32,24 @@ class DominioProductos
     return $producto;
   }
 
-  public function crear($producto)
+  public function crear($producto, File $imagen)
   {
-    Producto::insert($producto);
+      if ($imagen != null) {
+          $carpeta = 'public/productos';
+
+          $extension = '.jpg';
+          if ($imagen->getMimeType() == 'image/png') {
+              $extension = '.png';
+          }
+          $nombreArchivo = Uuid::uuid4() . $extension;
+
+          Storage::putFileAs($carpeta, $imagen, $nombreArchivo);
+          $imagen_url = Storage::url('productos/' . $nombreArchivo);
+
+          $producto['imagen_url'] = $imagen_url;
+      }
+
+      Producto::query()->insert($producto);
   }
   public function eliminar($id)
   {
