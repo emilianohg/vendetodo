@@ -1,8 +1,13 @@
 @extends('layouts.app')
-    
+
+@section('style')
+  <link rel="stylesheet" href="/css/productos-create.css">
+@endsection
+
 @section('content')
   <div class="form-container">
-    <h2>Editar Producto </h2>
+    <h1>Editar producto</h1>
+    <hr>
     <form action="{{route('productos.update', ['producto' => $producto->id])}}" method="POST" enctype="multipart/form-data">
       @csrf
       {{method_field('PATCH')}}
@@ -23,7 +28,7 @@
       </div>
       <div class="input-container">
         <label class="required" for="precio">Precio:</label>
-        <input type="number" name="precio" id="precio" placeholder="Ingresa la marca" value="{{$producto->precio}}">
+        <input type="number" name="precio" id="precio" placeholder="Ingresa la marca" value="{{$producto->precio}}" step="any">
         @if($errors->has('precio'))
           <div class="error">{{ $errors->first('precio') }}</div>
         @endif
@@ -42,27 +47,27 @@
       </div>
       <div class="input-container">
         <label class="required" for="largo">Largo:</label>
-        <input type="number" name="largo" id="largo" placeholder="Ingresa el largo" value="{{$producto->largo}}">
+        <input type="number" name="largo" id="largo" placeholder="Ingresa el largo" value="{{$producto->largo}}" step="any">
         @if($errors->has('largo'))
           <div class="error">{{ $errors->first('largo') }}</div>
         @endif
       </div>
       <div class="input-container">
         <label class="required" for="ancho">Ancho:</label>
-        <input type="number" name="ancho" id="ancho" placeholder="Ingresa el ancho" value="{{$producto->ancho}}">
+        <input type="number" name="ancho" id="ancho" placeholder="Ingresa el ancho" value="{{$producto->ancho}}" step="any">
         @if($errors->has('ancho'))
           <div class="error">{{ $errors->first('ancho') }}</div>
         @endif
       </div>
       <div class="input-container">
         <label class="required" for="alto">Alto:</label>
-        <input type="number" name="alto" id="alto" placeholder="Ingresa el alto" value="{{$producto->alto}}">
+        <input type="number" name="alto" id="alto" placeholder="Ingresa el alto" value="{{$producto->alto}}" step="any">
         @if($errors->has('alto'))
           <div class="error">{{ $errors->first('alto') }}</div>
         @endif
       </div>
       <div class="input-container">
-        <label class="required" for="imagen_url">Imagen:</label>
+        <label for="imagen_url">Imagen:</label>
         <input type="file" name="imagen" id="imagen_url" accept="image/png, image/jpg">
         @if($errors->has('imagen_url'))
           <div class="error">{{ $errors->first('imagen_url') }}</div>
@@ -71,14 +76,14 @@
         @if($producto->imagen_url == null)
             <div class="card-image card-image-not-found"></div>
         @else
-            <div class="card-image">
+            <div class="producto-imagen">
             <img src="{{ $producto->imagen_url }}" alt="{{ $producto->nombre }}">
             </div>
         @endif
 
       </div>
-      <div class="input-container">
-        <button type="submit"  >Actualizar</button>
+      <div class="mt-4">
+        <button type="submit" class="btn btn-primary">Actualizar</button>
       </div>      
     </form>
   </div>

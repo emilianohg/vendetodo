@@ -1,0 +1,51 @@
+.required {
+    position: relative;
+}
+.required:after {
+    content: "*";
+    color: #ff5555;
+    margin-left: 5px;
+    font-size: 0.8rem;
+    top: -3px;
+    position: absolute;
+}
+.error {
+    color: #f00;
+    font-size: 0.8rem;
+}
+.form-container {
+    max-width: 1000px;
+    margin: 10px auto;
+}
+
+.form-container h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.form-container hr {
+    margin: 10px 0;
+}
+
+.input-container {
+    margin: 5px;
+}
+
+.input-container label {
+    font-weight: bold;
+    font-size: 1rem;
+    width: 100%;
+}
+
+.input-container input, .input-container select, .input-container textarea {
+    display: block;
+    background-color: #f4f4f4;
+    border: solid 1px #b5b5b5;
+    padding: 5px 10px;
+    border-radius: 4px;
+    width: 100%;
+}
+.producto-imagen, .producto-imagen img {
+    max-width: 300px;
+    max-height: 300px;
+}
