@@ -1,0 +1,24 @@
+.pagination {
+    margin: 40px auto;
+    max-width: 1000px;
+    text-align: center;
+}
+.page-number {
+    display: inline-flex;
+    width: 30px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    color: #1A83E4;
+}
+
+.page-actions {
+    display: inline-flex;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    color: #1A83E4;
+}
+.page-number-selected {
+    border: solid 2px;
+}

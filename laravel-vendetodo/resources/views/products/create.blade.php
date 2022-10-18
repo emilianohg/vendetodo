@@ -12,21 +12,21 @@
       @csrf
       <div class="input-container">
         <label class="required" for="nombre">Nombre:</label>
-        <input type="text" name="nombre" id="nombre" placeholder="Nombre" value="{{ isset($producto->nombre)? $producto->nombre:old('nombre') }}" autofocus>
+        <input type="text" name="nombre" id="nombre" placeholder="Nombre" value="{{ old('nombre') }}" autofocus>
         @if($errors->has('nombre'))
           <div class="error">{{ $errors->first('nombre') }}</div>
         @endif
       </div>
       <div class="input-container">
         <label for="descripcion">Descripción:</label>
-        <textarea name="descripcion" id="descripcion" rows="5">{{ isset($producto->descripcion)? $producto->descripcion:old('descripcion') }}</textarea>
+        <textarea name="descripcion" id="descripcion" rows="5">{{ old('descripcion') }}</textarea>
         @if($errors->has('descripcion'))
           <div class="error">{{ $errors->first('descripcion') }}</div>
         @endif
       </div>
       <div class="input-container">
         <label class="required" for="precio">Precio:</label>
-        <input type="number" name="precio" id="precio" placeholder="Precio" value="{{ isset($producto->precio)? $producto->precio:old('precio') }}" step="any">
+        <input type="number" name="precio" id="precio" placeholder="Precio" value="{{ old('precio') }}" step="any">
         @if($errors->has('precio'))
           <div class="error">{{ $errors->first('precio') }}</div>
         @endif
@@ -36,7 +36,7 @@
         <select class="form-select" name="marca_id" id="marca_id">
           <option value="" disabled selected>-- Selecciona una marca --</option>
           @foreach ($marcas as $marca)
-            <option value="{{$marca->id}}">{{$marca->nombre}}</option>
+            <option value="{{ $marca->getId() }}">{{ $marca->getNombre() }}</option>
           @endforeach
         </select>
         @if($errors->has('marca_id'))
@@ -45,21 +45,21 @@
       </div>
       <div class="input-container">
         <label class="required" for="largo">Largo:</label>
-        <input type="number" name="largo" id="largo" placeholder="Largo" value="{{ isset($producto->largo)? $producto->largo:old('largo') }}" step="any">
+        <input type="number" name="largo" id="largo" placeholder="Largo" value="{{ old('largo') }}" step="any">
         @if($errors->has('largo'))
           <div class="error">{{ $errors->first('largo') }}</div>
         @endif
       </div>
       <div class="input-container">
         <label class="required" for="ancho">Ancho:</label>
-        <input type="number" name="ancho" id="ancho" placeholder="Ancho" value="{{ isset($producto->ancho)? $producto->ancho:old('ancho') }}" step="any">
+        <input type="number" name="ancho" id="ancho" placeholder="Ancho" value="{{ old('ancho') }}" step="any">
         @if($errors->has('ancho'))
           <div class="error">{{ $errors->first('ancho') }}</div>
         @endif
       </div>
       <div class="input-container">
         <label class="required" for="alto">Alto:</label>
-        <input type="number" name="alto" id="alto" placeholder="Alto" value="{{ isset($producto->alto)? $producto->alto:old('alto') }}" step="any">
+        <input type="number" name="alto" id="alto" placeholder="Alto" value="{{ old('alto') }}" step="any">
         @if($errors->has('alto'))
           <div class="error">{{ $errors->first('alto') }}</div>
         @endif

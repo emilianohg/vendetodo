@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Domain\Producto;
 use App\Http\Requests\StoreProductoRequest;
 use App\Domain\DominioProductos;
 use Illuminate\Http\Request;
@@ -21,19 +22,19 @@ class ProductosController extends Controller
   {
     $busqueda = $request->get('busqueda');
     $productos = $this->dominio->consultar($busqueda);
-    return view('products.index', compact('productos', 'busqueda'));
+    return view('products.index', ['productos' => $productos, 'busqueda' => $busqueda]);
   }
 
   public function store(StoreProductoRequest $request)
   {
-    $producto = $request->except(['_token', 'imagen']);
+    $datos = $request->except(['_token', 'imagen']);
     $imagen = $request->file('imagen');
 
     if ($imagen != null) {
       $imagen = new File($imagen);
     }
 
-    $this->dominio->crear($producto, $imagen);
+    $this->dominio->crear($datos, $imagen);
     return redirect()->route('products.index');
   }
 
@@ -59,14 +60,14 @@ class ProductosController extends Controller
   public function update(StoreProductoRequest $request, $id)
   {
 
-    $producto = $request->except(['_token', 'imagen', '_method']);
+    $datos = $request->except(['_token', 'imagen', '_method']);
     $imagen = $request->file('imagen');
 
     if ($imagen != null) {
       $imagen = new File($imagen);
     }
 
-    $this->dominio->actualizar($id, $producto, $imagen);
+    $this->dominio->actualizar($id, $datos, $imagen);
     return redirect()->route('products.index');
   }
 }

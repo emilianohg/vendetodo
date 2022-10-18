@@ -1,74 +1,102 @@
 <?php
+namespace App\Domain;
 
+use App\Domain\Common\DomainElement;
 
-class Producto {
-    private $nombre;
-    private $descripcion;
-    private $precio;
-    private $marca_id;
-    private $largo;
-    private $ancho;
-    private $alto;
-    private $foto;
+class Producto extends DomainElement {
 
     public function __construct(
-        $nombre, 
-        $descripcion,
-        $precio, 
-        $marca_id,
-        $largo,
-        $ancho,
-        $alto,
-        $foto)
+        private int $id,
+        private string $nombre,
+        private float $precio,
+        private int $marca_id,
+        private float $largo,
+        private float $ancho,
+        private float $alto,
+        private string $created_at,
+        private string $updated_at,
+        private ?string $descripcion = null,
+        private ?string $imagen_url = null,
+        private ?Marca $marca = null
+    )
+    {}
+
+    /**
+     * @param array $listValues
+     * @return Producto[]
+     */
+    public static function fromArray(array $listValues): array
     {
-        $this->nombre = $nombre;
-        $this->descripcion = $descripcion;
-        $this->precio = $precio;
-        $this->marca_id = $marca_id;
-        $this->largo = $largo;
-        $this->ancho = $ancho;
-        $this->alto = $alto;
-        $this->foto = $foto;
+        $items = [];
+        foreach ($listValues as $values) {
+            $items[] = self::from($values);
+        }
+        return $items;
     }
 
-    public function getNombre()
+    public static function from(array $values): Producto
+    {
+        return self::make(Producto::class, $values);
+    }
+
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    public function getNombre(): string
     {
         return $this->nombre;
     }
 
-    public function getDescripcion()
+    public function getDescripcion(): ?string
     {
         return $this->descripcion;
     }
 
-    public function getPrecio()
+    public function getPrecio(): float
     {
         return $this->precio;
     }
 
-    public function getMarcaId()
+    public function getMarcaId(): int
     {
         return $this->marca_id;
     }
 
-    public function getLargo()
+    public function getLargo(): float
     {
         return $this->largo;
     }
 
-    public function getAncho()
+    public function getAncho(): float
     {
         return $this->ancho;
     }
 
-    public function getAlto()
+    public function getAlto(): float
     {
         return $this->alto;
     }
 
-    public function getFoto()
+    public function getCreatedAt(): string
     {
-        return $this->foto;
+        return $this->created_at;
+    }
+
+    public function getUpdatedAt(): string
+    {
+        return $this->updated_at;
+    }
+
+    public function getImagenUrl(): ?string
+    {
+        return $this->imagen_url;
+    }
+
+    public function getMarca(): ?Marca
+    {
+        return $this->marca;
     }
     
 }

@@ -1,0 +1,26 @@
+---
+- hosts: all
+  tasks:
+  - name: Install Docker
+    ansible.builtin.shell: cd ~ && curl -fsSL https://get.docker.com -o get-docker.sh && sudo sh get-docker.sh
+
+  - name: update apt list
+    apt:
+      update_cache: yes
+    become: yes
+
+  - name: Install git
+    apt:
+      name: git
+      state: present
+      update_cache: yes
+    become: yes
+
+  - name: Clone repo
+    ansible.builtin.git:
+      repo: https://github.com/emilianohg/vendetodo
+      dest: /app/vendetodo
+      separate_git_dir: /app/vendetodo.git
+      clone: yes
+      update: yes
+    become: yes
