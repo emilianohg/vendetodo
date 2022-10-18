@@ -27,14 +27,14 @@ class ProductosController extends Controller
 
   public function store(StoreProductoRequest $request)
   {
-    $producto = $request->except(['_token', 'imagen']);
+    $datos = $request->except(['_token', 'imagen']);
     $imagen = $request->file('imagen');
 
     if ($imagen != null) {
       $imagen = new File($imagen);
     }
 
-    $this->dominio->crear($producto, $imagen);
+    $this->dominio->crear($datos, $imagen);
     return redirect()->route('products.index');
   }
 
@@ -60,14 +60,14 @@ class ProductosController extends Controller
   public function update(StoreProductoRequest $request, $id)
   {
 
-    $producto = $request->except(['_token', 'imagen', '_method']);
+    $datos = $request->except(['_token', 'imagen', '_method']);
     $imagen = $request->file('imagen');
 
     if ($imagen != null) {
       $imagen = new File($imagen);
     }
 
-    $this->dominio->actualizar($id, $producto, $imagen);
+    $this->dominio->actualizar($id, $datos, $imagen);
     return redirect()->route('products.index');
   }
 }

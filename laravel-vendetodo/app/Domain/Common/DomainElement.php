@@ -18,7 +18,7 @@ abstract class DomainElement
     /**
      * @template T
      * @param class-string<T> $className
-     * @return T
+     * @return object
      */
     protected static function make(string $className, array $value): object
     {
@@ -47,14 +47,12 @@ abstract class DomainElement
 
             // Si es un arreglo
             if ($typeParameter == 'array') {
-                \Log::info('Es un parametro de tipo arreglo');
                 $arrayOfClasses = $value[$parameter->getName()];
                 $arrayObjective = [];
 
                 foreach ($arrayOfClasses as $classOfArray) {
                     $attributeClass = new ReflectionClass($classOfArray);
-                    if ($attributeClass->isSubclassOf(DomainElement::class)) {
-                        \Log::info($attributeClass->getName());
+                    if ($attributeClass->isSubclassOf(DomainElement::class)) { 
                         $instance = $attributeClass->newInstanceWithoutConstructor();
                         $arrayObjective[] = $instance->from($value[$parameter->getName()]);
                     }

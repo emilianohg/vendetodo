@@ -38,7 +38,7 @@
         <select class="form-select" name="marca_id" id="marca_id" >
         <option value="" disabled selected>-- Selecciona una marca --</option>
         @foreach ($marcas as $marca)
-            <option value="{{$marca->id}}" @if($producto->getMarcaId() == $marca->id) selected @endif>{{$marca->nombre}}</option>
+            <option value="{{$marca->getId()}}" @if($producto->getMarcaId() == $marca->getId()) selected @endif>{{$marca->getNombre()}}</option>
         @endforeach
         </select>
         @if($errors->has('marca_id'))

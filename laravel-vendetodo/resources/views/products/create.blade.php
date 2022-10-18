@@ -36,7 +36,7 @@
         <select class="form-select" name="marca_id" id="marca_id">
           <option value="" disabled selected>-- Selecciona una marca --</option>
           @foreach ($marcas as $marca)
-            <option value="{{$marca->id}}">{{$marca->nombre}}</option>
+            <option value="{{ $marca->getId() }}">{{ $marca->getNombre() }}</option>
           @endforeach
         </select>
         @if($errors->has('marca_id'))
