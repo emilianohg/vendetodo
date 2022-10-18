@@ -116,7 +116,7 @@ class Pagination {
 
     public function getLeftBound(): int
     {
-        return max(1, min($this->getCurrentPage() - 4, $this->getCurrentPage() - 2));
+        return max(1, $this->getRightBound() - 4);
     }
 
     public function getRightBound(): int

@@ -46,7 +46,7 @@
     <div class="pagination">
         <div class="container-page-numbers">
             @if ($productos->getPrevPageUrl() != null)
-                <a href="{{ route('productos.index', ['page' => $productos->getCurrentPage() - 1, 'busqueda' => $busqueda ]) }}" class="page-actions">Anterior</a>
+                <a href="{{ route('productos.index', ['page' => $productos->getCurrentPage() - 1, 'busqueda' => $busqueda ]) }}" class="page-actions mr-4">Anterior</a>
             @endif
             @foreach(range($productos->getLeftBound(), $productos->getRightBound()) as $numberPage)
                 <a class="page-number
@@ -57,7 +57,7 @@
                 </a>
             @endforeach
             @if ($productos->getNextPageUrl() != null)
-                <a href="{{ route('productos.index', ['page' => $productos->getCurrentPage() + 1, 'busqueda' => $busqueda ]) }}" class="page-actions">Siguiente</a>
+                <a href="{{ route('productos.index', ['page' => $productos->getCurrentPage() + 1, 'busqueda' => $busqueda ]) }}" class="page-actions  ml-4">Siguiente</a>
             @endif
         </div>
     </div>
