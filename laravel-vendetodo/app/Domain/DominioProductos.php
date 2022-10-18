@@ -2,7 +2,8 @@
 
 namespace App\Domain;
 
-use App\Models\Producto;
+use App\Domain\Common\Pagination;
+use App\Models\Producto as ProductoBaseDatos;
 use App\Models\Marca;
 use Illuminate\Support\Facades\Storage;
 use Ramsey\Uuid\Nonstandard\Uuid;
@@ -12,10 +13,9 @@ use Symfony\Component\HttpFoundation\File\File;
 class DominioProductos
 {
 
-
   public function consultar($busqueda)
   {
-    $productosQuery = Producto::with(['marca'])->orderByDesc('created_at');
+    $productosQuery = ProductoBaseDatos::with(['marca'])->orderByDesc('created_at');
 
     if ($busqueda != null) {
       $productosQuery->where('nombre', 'LIKE', '%' . $busqueda . '%');
@@ -23,13 +23,13 @@ class DominioProductos
 
     $productos = $productosQuery->paginate(24);
 
-    return $productos;
+    return Pagination::fromPaginator($productos, Producto::class);
   }
 
   public function consultarPorId($id)
   {
-    $producto = Producto::with(['marca'])->findOrFail($id);
-    return $producto;
+    $producto = ProductoBaseDatos::with(['marca'])->findOrFail($id);
+    return Producto::from($producto->toArray());
   }
 
   public function crear($producto, File $imagen = null)
@@ -41,9 +41,6 @@ class DominioProductos
           if ($imagen->getMimeType() == 'image/png') {
               $extension = '.png';
           }
-          if ($imagen->getMimeType() == 'image/gif') {
-              $extension = '.gif';
-          }
 
           $nombreArchivo = Uuid::uuid4() . $extension;
 
@@ -53,12 +50,12 @@ class DominioProductos
           $producto['imagen_url'] = $imagen_url;
       }
 
-      Producto::query()->create($producto);
+      ProductoBaseDatos::query()->create($producto);
   }
 
   public function eliminar($id)
   {
-    $producto = Producto::query()->findOrFail($id);
+    $producto = ProductoBaseDatos::query()->findOrFail($id);
     $producto->delete();
   }
 
@@ -92,6 +89,6 @@ class DominioProductos
         $producto['imagen_url'] = $imagen_url;
       }
 
-    Producto::where('id', '=', $id)->update($producto);
+      ProductoBaseDatos::where('id', '=', $id)->update($producto);
   }
 }

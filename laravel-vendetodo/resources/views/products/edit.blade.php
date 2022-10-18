@@ -8,27 +8,27 @@
   <div class="form-container">
     <h1>Editar producto</h1>
     <hr>
-    <form action="{{route('productos.update', ['producto' => $producto->id])}}" method="POST" enctype="multipart/form-data">
+    <form action="{{route('productos.update', [ 'producto' => $producto->getId() ])}}" method="POST" enctype="multipart/form-data">
       @csrf
       {{method_field('PATCH')}}
 
       <div class="input-container">
         <label class="required" for="nombre">Nombre:</label>
-        <input type="text" name="nombre" id="nombre" placeholder="Nombre" value="{{$producto->nombre}}">
+        <input type="text" name="nombre" id="nombre" placeholder="Nombre" value="{{ $producto->getNombre() }}">
         @if($errors->has('nombre'))
           <div class="error">{{ $errors->first('nombre') }}</div>
         @endif
       </div>
       <div class="input-container">
         <label for="descripcion">Descripción:</label>
-        <textarea name="descripcion" id="descripcion" rows="5" >{{$producto->descripcion}}</textarea>
+        <textarea name="descripcion" id="descripcion" rows="5" >{{ $producto->getDescripcion() }}</textarea>
         @if($errors->has('descripcion'))
           <div class="error">{{ $errors->first('descripcion') }}</div>
         @endif
       </div>
       <div class="input-container">
         <label class="required" for="precio">Precio:</label>
-        <input type="number" name="precio" id="precio" placeholder="Ingresa la marca" value="{{$producto->precio}}" step="any">
+        <input type="number" name="precio" id="precio" placeholder="Ingresa la marca" value="{{ $producto->getPrecio() }}" step="any">
         @if($errors->has('precio'))
           <div class="error">{{ $errors->first('precio') }}</div>
         @endif
@@ -38,7 +38,7 @@
         <select class="form-select" name="marca_id" id="marca_id" >
         <option value="" disabled selected>-- Selecciona una marca --</option>
         @foreach ($marcas as $marca)
-            <option value="{{$marca->id}}" @if($producto->marca_id == $marca->id) selected @endif>{{$marca->nombre}}</option>
+            <option value="{{$marca->id}}" @if($producto->getMarcaId() == $marca->id) selected @endif>{{$marca->nombre}}</option>
         @endforeach
         </select>
         @if($errors->has('marca_id'))
@@ -47,21 +47,21 @@
       </div>
       <div class="input-container">
         <label class="required" for="largo">Largo:</label>
-        <input type="number" name="largo" id="largo" placeholder="Ingresa el largo" value="{{$producto->largo}}" step="any">
+        <input type="number" name="largo" id="largo" placeholder="Ingresa el largo" value="{{ $producto->getLargo() }}" step="any">
         @if($errors->has('largo'))
           <div class="error">{{ $errors->first('largo') }}</div>
         @endif
       </div>
       <div class="input-container">
         <label class="required" for="ancho">Ancho:</label>
-        <input type="number" name="ancho" id="ancho" placeholder="Ingresa el ancho" value="{{$producto->ancho}}" step="any">
+        <input type="number" name="ancho" id="ancho" placeholder="Ingresa el ancho" value="{{ $producto->getAncho() }}" step="any">
         @if($errors->has('ancho'))
           <div class="error">{{ $errors->first('ancho') }}</div>
         @endif
       </div>
       <div class="input-container">
         <label class="required" for="alto">Alto:</label>
-        <input type="number" name="alto" id="alto" placeholder="Ingresa el alto" value="{{$producto->alto}}" step="any">
+        <input type="number" name="alto" id="alto" placeholder="Ingresa el alto" value="{{ $producto->getAlto() }}" step="any">
         @if($errors->has('alto'))
           <div class="error">{{ $errors->first('alto') }}</div>
         @endif
@@ -73,9 +73,9 @@
           <div class="error">{{ $errors->first('imagen_url') }}</div>
         @endif
 
-        @if($producto->imagen_url != null)
+        @if($producto->getImagenUrl() != null)
             <div class="producto-imagen mt-4">
-            <img src="{{ $producto->imagen_url }}" alt="{{ $producto->nombre }}">
+            <img src="{{ $producto->getImagenUrl() }}" alt="{{ $producto->getNombre() }}">
             </div>
         @endif
 

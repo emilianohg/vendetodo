@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Domain\Producto;
 use App\Http\Requests\StoreProductoRequest;
 use App\Domain\DominioProductos;
 use Illuminate\Http\Request;
@@ -21,7 +22,7 @@ class ProductosController extends Controller
   {
     $busqueda = $request->get('busqueda');
     $productos = $this->dominio->consultar($busqueda);
-    return view('products.index', compact('productos', 'busqueda'));
+    return view('products.index', ['productos' => $productos, 'busqueda' => $busqueda]);
   }
 
   public function store(StoreProductoRequest $request)
