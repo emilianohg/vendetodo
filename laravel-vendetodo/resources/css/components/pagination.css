@@ -1,24 +1,32 @@
 .pagination {
-    margin: 40px auto;
-    max-width: 1000px;
-    text-align: center;
+  margin: 40px auto;
+  max-width: 1000px;
+  text-align: center;
+  border-radius: 10px;
+  background: #f5f5f5;
+  box-shadow: 1px 1px 5px #cfcfcf;
+  padding: 10px;
 }
+
 .page-number {
-    display: inline-flex;
-    width: 30px;
-    height: 30px;
-    justify-content: center;
-    align-items: center;
-    color: #1A83E4;
+  display: inline-flex;
+  width: 30px;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+  color: #1A83E4;
+  border-radius: 10px;
 }
 
 .page-actions {
-    display: inline-flex;
-    height: 30px;
-    justify-content: center;
-    align-items: center;
-    color: #1A83E4;
+  display: inline-flex;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+  color: #1A83E4;
+  border-radius: 10px;
 }
+
 .page-number-selected {
-    border: solid 2px;
+  border: solid 2px;
 }

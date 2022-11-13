@@ -2,7 +2,6 @@
 
 @section('style')
     <link rel="stylesheet" href="/css/productos-index.css">
-    <script src="js/index.js"></script>
 @endsection
 
 @section('content')
@@ -10,20 +9,14 @@
     <div class="controls-products">
         <form class="navbar" action="{{ route('productos.index') }}">
             <i class="fa fa-search"></i>
-            <input name="busqueda" type="text" value="{{ $busqueda }}" placeholder="Buscar productos...">
+            <input name="busqueda" type="text" value="{{ $busqueda }}" >
         </form>
+
+        <a class="btn" href="{{route('productos.create')}}">
+            <i class="fa fa-add"></i> Añadir
+        </a>
     </div>
-    <!--Patron NEWS-->
-    <div class="news-pattern">
-      <div class="news-pattern-content">
-        <img class="news-pattern-img" src="https://media.discordapp.net/attachments/1031018534416941168/1041184441772552282/Diseno_sin_titulo.jpg">
-      </div>
-    </div>
-    <hr>
-    <div class="tittle-products-container">
-      <h1 class="list-products-tittle">Catalogo de Productos</h1>
-    </div>
-    
+
     <div class="list-products">
         @foreach($productos->getData() as $producto)
             <article class="card">
@@ -38,6 +31,14 @@
                     <h1 class="card-title" title="{{ $producto->getNombre() }}">{{ $producto->getNombre() }}</h1>
                     <p class="card-price">${{ number_format($producto->getPrecio(), 2) }}</p>
                     <p class="card-brand">{{ $producto->getMarca()->getNombre() }}</p>
+                </div>
+                <div class="card-actions">
+                    <a class="btn-action btn-action-primary" href="{{route('productos.edit', [ 'producto' => $producto->getId() ])}}"><i class="fa fa-pencil"></i></a>
+                    <form action="{{route('productos.destroy', $producto->getId())}}"  method="POST" >
+                        @csrf
+                        {{ method_field('DELETE') }}
+                        <input class="btn-action btn-action-danger" type="submit" onclick="return confirm('¿Quieres borrar?')" value="🗑️">
+                    </form>
                 </div>
             </article>
         @endforeach

@@ -1,19 +1,28 @@
 .navbar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    min-width: 340px;
-    background: #EDEDF0;
-    padding: 5px 10px;
-    border-radius: 100px;
-    margin: 30px auto;
-    max-width: 500px;
-    width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  min-width: 340px;
+  background: #fff;
+  padding: 5px 10px;
+  border-radius: 100px;
+  margin: 30px auto;
+  max-width: 500px;
+  width: 50%;
+  border-color: #DFE9F3;
+  box-shadow: 1px 1px 5px #929191;
+}
+
+.navbar:hover {
+  background: #fff;
+  scale: 1.125;
+  transition: 1s;
 }
 
 .navbar input {
-    background: #EDEDF0;
-    width: calc(100% - 40px);
-    height: 35px;
+  background: #fff;
+  width: calc(100% - 40px);
+  height: 35px;
+  font-weight: 800;
 }
