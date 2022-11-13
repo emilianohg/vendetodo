@@ -1,18 +1,23 @@
 @import "../components/card-producto.css";
 @import "../components/search-input.css";
 
+body {
+  background-image: linear-gradient(to top,
+      #EEF1FF, #d0deff, #D2DAFF);
+}
+
 .controls-products {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1000px;
-    margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .list-products {
-    display: grid;
-    grid-template-columns: repeat( auto-fill, minmax(250px, 1fr) );
-    gap: 10px;
-    margin: 0 auto;
-    max-width: 1000px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 10px;
+  margin: 0 auto;
+  max-width: 1000px;
 }

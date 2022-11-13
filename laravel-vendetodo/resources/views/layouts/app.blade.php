@@ -12,16 +12,25 @@
       @yield('style')
       <nav class="main-navbar">
           <div class="main-navbar-content">
-              <a href="{{route('products.index')}}" class="logo">
-                  <i class="fa fa-shopping-cart"></i><span class="logo-text">VENDETODO</span>
-              </a>
-              <span class="btn-user">
-                  <i class="fa fa-user"></i> <span class="user-name">Administrador</span>
-              </span>
+              <img src="css/images/logo.png" class="logo-img">
+              <a href="{{route('products.index')}}" class="logo">Vende Todo</a>
           </div>
-    </nav>
+          <div class="right-side-navbar-content">
+            <div class="btn-user-panel">
+                <a href="#" class="btn-user">
+                  </i><span class="user-name-login">Iniciar Sesión</span>
+                </a>
+            </div>
+            <div href="#" class="btn-shoppingcart">
+              <i class="btn-shoppingcart-icon">🛒</i>
+            </div>
+          </div>
+          </div>
+        </nav>
     <main>
-        @yield('content')
+        <div class="divider">
+          @yield('content')
+        </div>
     </main>
   </body>
 </html>
