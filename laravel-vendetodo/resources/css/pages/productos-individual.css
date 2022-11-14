@@ -1,7 +1,13 @@
+@import "../components/search-input.css";
+@import "../components/navbar.css";
 p {}
 
 body {
   background-color: #dae0fb;
+}
+
+.divider-individual{
+  padding-top: 80px;
 }
 
 
@@ -10,7 +16,7 @@ body {
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
   margin: 0 auto;
-  margin-top: 80px;
+  margin-top: 60px;
   margin-bottom: 50px;
   max-width: 70%;
   background-color: #fff;

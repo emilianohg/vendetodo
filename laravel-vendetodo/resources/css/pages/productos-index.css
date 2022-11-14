@@ -1,17 +1,10 @@
 @import "../components/card-producto.css";
 @import "../components/search-input.css";
+@import "../components/navbar.css";
 
 body {
   background-image: linear-gradient(to top,
       #EEF1FF, #d0deff, #D2DAFF);
-}
-
-.controls-products {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1000px;
-  margin: 0 auto;
 }
 
 .list-products {
