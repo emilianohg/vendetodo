@@ -26,20 +26,22 @@
     
     <div class="list-products">
         @foreach($productos->getData() as $producto)
-            <article class="card">
-                @if($producto->getImagenUrl() == null)
-                <div class="card-image card-image-not-found"></div>
-                @else
-                    <div class="card-image">
-                        <img src="{{ $producto->getImagenUrl() }}" alt="{{ $producto->getNombre() }}">
+            <a href="{{route('productos.show', [ 'producto' => $producto->getId() ])}}">
+                <article class="card">
+                    @if($producto->getImagenUrl() == null)
+                    <div class="card-image card-image-not-found"></div>
+                    @else
+                        <div class="card-image">
+                            <img src="{{ $producto->getImagenUrl() }}" alt="{{ $producto->getNombre() }}">
+                        </div>
+                    @endif
+                    <div class="card-info">
+                        <h1 class="card-title" title="{{ $producto->getNombre() }}">{{ $producto->getNombre() }}</h1>
+                        <p class="card-price">${{ number_format($producto->getPrecio(), 2) }}</p>
+                        <p class="card-brand">{{ $producto->getMarca()->getNombre() }}</p>
                     </div>
-                @endif
-                <div class="card-info">
-                    <h1 class="card-title" title="{{ $producto->getNombre() }}">{{ $producto->getNombre() }}</h1>
-                    <p class="card-price">${{ number_format($producto->getPrecio(), 2) }}</p>
-                    <p class="card-brand">{{ $producto->getMarca()->getNombre() }}</p>
-                </div>
-            </article>
+                </article>
+            </a>
         @endforeach
     </div>
     <div class="pagination">

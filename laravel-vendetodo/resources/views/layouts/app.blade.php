@@ -12,7 +12,7 @@
       @yield('style')
       <nav class="main-navbar">
           <div class="main-navbar-content">
-              <img src="css/images/logo.png" class="logo-img">
+              <img src="https://media.discordapp.net/attachments/1031018534416941168/1035346439989117049/logo.png?width=472&height=472" class="logo-img">
               <a href="{{route('products.index')}}" class="logo">Vende Todo</a>
           </div>
           <div class="right-side-navbar-content">
@@ -26,7 +26,7 @@
             </div>
           </div>
           </div>
-        </nav>
+        </nav> 
     <main>
         <div class="divider">
           @yield('content')
