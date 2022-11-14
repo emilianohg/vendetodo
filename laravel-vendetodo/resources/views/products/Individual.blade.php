@@ -6,7 +6,7 @@
 
 @section('content')
 
-    <div class="servicios">
+    <div class="servicios card">
          @if($producto->getImagenUrl() == null)
             <div class="card-image card-image-not-found"></div>
         @else
@@ -14,7 +14,7 @@
                 <img src="{{ $producto->getImagenUrl() }}" alt="{{ $producto->getNombre() }}">
             </div>
         @endif
-        <article class="">
+        <div class="product-info">
                 <h1 class="titulo" title="{{ $producto->getNombre() }}">{{ $producto->getNombre() }}</h1>
                 @if($producto->getDescripcion() == null)
                     <p class="">Sin descripción</p>
@@ -38,6 +38,6 @@
                 @endforeach
                 </select>
                 <button type="submit" class="btn btn-primary">Agregar al carrito</button>
-        </article>
+            </div>
     </div>
 @endsection
