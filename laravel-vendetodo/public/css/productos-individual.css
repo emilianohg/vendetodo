@@ -1,47 +1,90 @@
-p{
-    
-}
+p {}
 
-body{
-    background-color: #dae0fb;
+body {
+  background-color: #dae0fb;
 }
 
 
 .servicios {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    margin: 0 auto;
-    margin-top: 80px;
-    max-width: 70%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin: 0 auto;
+  margin-top: 80px;
+  max-width: 70%;
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
 }
 
-.imagen{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.imagen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.product-info {
+  margin: 20px;
+  margin-top: 30px;
+  display: list-item;
+  list-style-type: none;
+  justify-content: space-around;
+}
+
+.product-info-container {
+  margin-top: 30px;
+  margin: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 8px;
+}
+
+.price-product {
+  font-size: 30px;
+  font-weight: 800;
+  margin: 10px;
+  color: #c10000;
+}
+
+.form-select {
+  margin-top: 8px;
+  border-color: #000000;
+  border-style: dotted;
+  background-color: #D2DAFF;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.info {
+  margin-top: 8px;
 }
 
 .card-image-not-found {
-    background: url(/images/image_not_available.png?70ac66a44a9b3620e193add8d8bb9101);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-  }
-
-.titulo{
-    font-size: 20px;
-    font-weight: bold;
+  background: url(/images/image_not_available.png?70ac66a44a9b3620e193add8d8bb9101);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-label{
-    font-weight: bold;
+.titulo {
+  font-size: 24px;
+  font-weight: bold;
 }
 
+.description {
+  margin-bottom: 10px;
+}
 
+label {
+  font-weight: bold;
+}
 
+.btn {
+  margin-top: 20px;
+}
 
-
-
-
-
+hr {
+  margin: 10px;
+}
