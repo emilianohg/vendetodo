@@ -2,5 +2,6 @@
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
     "/css/productos-index.css": "/css/productos-index.css",
-    "/css/productos-create.css": "/css/productos-create.css"
+    "/css/productos-create.css": "/css/productos-create.css",
+    "/css/productos-individual.css": "/css/productos-individual.css"
 }

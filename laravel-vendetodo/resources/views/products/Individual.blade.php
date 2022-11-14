@@ -6,16 +6,16 @@
 
 @section('content')
 
-    <div class="">
+    <div class="servicios">
          @if($producto->getImagenUrl() == null)
             <div class="card-image card-image-not-found"></div>
         @else
-            <div class="">
+            <div class="imagen">
                 <img src="{{ $producto->getImagenUrl() }}" alt="{{ $producto->getNombre() }}">
             </div>
         @endif
         <article class="">
-                <h1 class="" title="{{ $producto->getNombre() }}">{{ $producto->getNombre() }}</h1>
+                <h1 class="titulo" title="{{ $producto->getNombre() }}">{{ $producto->getNombre() }}</h1>
                 @if($producto->getDescripcion() == null)
                     <p class="">Sin descripción</p>
                 @else
