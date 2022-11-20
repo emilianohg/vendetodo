@@ -10,7 +10,7 @@ class CreateMarcasTable extends Migration
   public function up()
   {
     Schema::create('marcas', function (Blueprint $table) {
-      $table->id();
+      $table->id('marca_id');
       $table->string('nombre');
     });
   }
