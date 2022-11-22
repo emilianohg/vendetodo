@@ -39,14 +39,17 @@ class ProductosSeeder extends Seeder
                 $imagen_url = $imagen['imagen_url'];
             }
 
+            echo $marca->id;
+
             Producto::query()->create([
                 'nombre' => $record['nombre'],
                 'descripcion' => '',
                 'precio' => $record['precio'],
-                'marca_id' => $marca->id,
+                'marca_id' => $marca->marca_id,
                 'largo' => $record['largo'],
                 'ancho' => $record['ancho'],
                 'alto' => $record['alto'],
+                'status' => 'libre',
                 'imagen_url' => $imagen_url,
             ]);
         }

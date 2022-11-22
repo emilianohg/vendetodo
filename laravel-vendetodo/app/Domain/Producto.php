@@ -6,7 +6,7 @@ use App\Domain\Common\DomainElement;
 class Producto extends DomainElement {
 
     public function __construct(
-        private int $id,
+        private int $producto_id,
         private string $nombre,
         private float $precio,
         private int $marca_id,
@@ -41,7 +41,7 @@ class Producto extends DomainElement {
 
     public function getId(): int
     {
-        return $this->id;
+        return $this->producto_id;
     }
 
     public function getNombre(): string

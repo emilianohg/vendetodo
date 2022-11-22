@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Producto extends Model
 {
   protected $table = 'productos';
+  protected $primaryKey = 'producto_id';
 
   protected $fillable = [
     'nombre',
@@ -16,12 +17,13 @@ class Producto extends Model
     'largo',
     'ancho',
     'alto',
+    'status',
     'imagen_url'
   ];
 
   public function marca()
   {
-    return $this->belongsTo(Marca::class,'marca_id','id');
+    return $this->belongsTo(Marca::class,'marca_id','marca_id');
   }
 
   public $timestamps = true;

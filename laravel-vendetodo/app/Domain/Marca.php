@@ -7,14 +7,14 @@ use App\Domain\Common\DomainElement;
 class Marca extends DomainElement
 {
     public function __construct(
-        private int $id,
+        private int $marca_id,
         private string $nombre,
     )
     {}
 
     public function getId(): int
     {
-        return $this->id;
+        return $this->marca_id;
     }
 
     public function getNombre(): string

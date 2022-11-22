@@ -9,6 +9,7 @@ class Marca extends Model
 {
     
       protected $table = 'marcas';
+      protected $primaryKey = 'marca_id';
     
       protected $fillable = [
         'nombre'
@@ -16,7 +17,7 @@ class Marca extends Model
 
       public function productos()
       {
-        return $this->hasMany(Producto::class,'marca_id','id');
+        return $this->hasMany(Producto::class,'marca_id','marca_id');
       }
 
       public $timestamps = false;
