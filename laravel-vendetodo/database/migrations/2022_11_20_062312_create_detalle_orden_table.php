@@ -14,7 +14,7 @@ class CreateDetalleOrdenTable extends Migration
             $table->foreignId('proveedor_id');
             $table->integer('cantidad');
             $table->decimal('precio',10,2);
-            $table->primary('orden_id','producto_id','proveedor_id');
+            $table->primary(['orden_id','producto_id','proveedor_id']);
             $table->timestamps();
 
             $table->foreign('orden_id')

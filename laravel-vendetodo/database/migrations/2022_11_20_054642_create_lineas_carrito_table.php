@@ -12,7 +12,7 @@ class CreateLineasCarritoTable extends Migration
             $table->id('linea_carrito_id');
             $table->foreignId('usuario_id');
             $table->foreignId('producto_id');
-            $table->foreignId('proveedor_id')->nullable()->default(null);
+            $table->foreignId('proveedor_id')->nullable();
             $table->integer('cantidad'); 
             $table->timestamps();
 

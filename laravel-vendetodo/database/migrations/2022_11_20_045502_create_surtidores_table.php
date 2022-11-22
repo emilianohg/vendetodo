@@ -9,10 +9,8 @@ class CreateSurtidoresTable extends Migration
     public function up()
     {
         Schema::create('surtidores', function (Blueprint $table) {
-            //$table->foreignId('surtidor_id');
             $table->id('surtidor_id');
-            $table->foreignId('estante_id');
-            //$table->primary(['surtidor_id']);
+            $table->unsignedInteger('estante_id');
             $table->timestamps();
 
             $table->foreign('surtidor_id')

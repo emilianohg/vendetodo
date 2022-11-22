@@ -11,7 +11,7 @@ class CreateOrdenTable extends Migration
         Schema::create('orden', function (Blueprint $table) {
             $table->id('orden_id');
             $table->foreignId('usuario_id');
-            $table->foreignId('surtidor_id')->nullable()->default(null);
+            $table->foreignId('surtidor_id')->nullable();
             $table->enum('status', ['pendiente','en_proceso','surtida','cancelada','finalizada']);
             $table->foreignId('pago_id');
             $table->dateTime('fecha_creacion');

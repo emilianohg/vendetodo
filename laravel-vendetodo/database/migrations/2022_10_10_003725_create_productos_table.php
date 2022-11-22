@@ -11,14 +11,14 @@ class CreateProductosTable extends Migration
     Schema::create('productos', function (Blueprint $table) {
       $table->id('producto_id');
       $table->string('nombre');
-      $table->text('descripcion')->nullable()->default(null);
+      $table->text('descripcion')->nullable();
       $table->decimal('precio');
       $table->foreignId('marca_id');
       $table->decimal('largo');
       $table->decimal('ancho');
       $table->decimal('alto');
       $table->enum('status', ['libre','translado']);
-      $table->string('imagen_url')->nullable()->default(null);
+      $table->string('imagen_url')->nullable();
       $table->timestamps();
 
       $table->foreign('marca_id')

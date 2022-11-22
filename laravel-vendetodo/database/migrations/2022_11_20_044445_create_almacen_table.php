@@ -9,8 +9,8 @@ class CreateAlmacenTable extends Migration
     public function up()
     {
         Schema::create('almacen', function (Blueprint $table) {
-            $table->id('estante_id');
-            $table->id('seccion_id');
+            $table->unsignedInteger('estante_id');
+            $table->unsignedInteger('seccion_id');
             $table->foreignId('lote_id');
             $table->integer('cantidad');
             $table->integer('cantidad_disponible');
