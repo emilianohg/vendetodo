@@ -15,6 +15,12 @@
               <img src="https://media.discordapp.net/attachments/1031018534416941168/1035346439989117049/logo.png?width=472&height=472" class="logo-img">
               <a href="{{route('products.index')}}" class="logo">Vende Todo</a>
           </div>
+          <div class="controls-products">
+            <form class="navbar" action="{{ route('productos.index') }}">
+                <i class="fa fa-search"></i>
+                <input name="busqueda" type="text" value="{{ $busqueda ?? '' }}" placeholder="Buscar productos...">
+            </form>
+          </div>
           <div class="right-side-navbar-content">
             <div class="btn-user-panel">
                 <a href="#" class="btn-user">
@@ -28,9 +34,7 @@
           </div>
         </nav> 
     <main>
-        <div class="divider">
           @yield('content')
-        </div>
     </main>
   </body>
 </html>
