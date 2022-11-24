@@ -6,17 +6,14 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateProveedoresProductosTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('proveedores_productos', function (Blueprint $table) {
             $table->foreignId('proveedor_id');
             $table->foreignId('producto_id');
-            $table->integer('cantidad_disponible'); 
+            $table->integer('cantidad');
+            $table->integer('cantidad_disponible');
+
             $table->primary(['proveedor_id', 'producto_id']);
 
             $table->foreign('proveedor_id')
