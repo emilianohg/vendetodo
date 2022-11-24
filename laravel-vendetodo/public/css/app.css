@@ -60,6 +60,10 @@ textarea:focus {
 .text-center {
     text-align: center;
 }
+.error {
+    color: #f00;
+    font-size: 0.8rem;
+}
 .main-navbar {
   background: #608aeb;
   display: flex;

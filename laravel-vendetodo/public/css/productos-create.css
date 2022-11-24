@@ -9,10 +9,6 @@
     top: -3px;
     position: absolute;
 }
-.error {
-    color: #f00;
-    font-size: 0.8rem;
-}
 .form-container {
     max-width: 1000px;
     margin: 10px auto;

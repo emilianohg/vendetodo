@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreLoginRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\MessageBag;
 
 class LoginController extends Controller
 {
@@ -13,9 +14,11 @@ class LoginController extends Controller
 
     public function store(StoreLoginRequest $request) {
         $credentials = $request->all(['email', 'password']);
+
         if (!Auth::attempt($credentials)) {
-            // TODO: Mensaje de error en login
-            return ;
+            return redirect()->back()->with([
+                'message' => 'Correo electrónico o contraseña incorrectos.',
+            ]);
         }
 
         // TODO: Retornar pagina dependiendo el rol
