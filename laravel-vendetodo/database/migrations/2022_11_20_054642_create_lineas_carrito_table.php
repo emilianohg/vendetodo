@@ -14,7 +14,6 @@ class CreateLineasCarritoTable extends Migration
             $table->foreignId('producto_id');
             $table->foreignId('proveedor_id')->nullable();
             $table->integer('cantidad'); 
-            $table->timestamps();
 
             $table->foreign('usuario_id')
             ->on('usuarios')

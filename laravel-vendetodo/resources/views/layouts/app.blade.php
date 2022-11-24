@@ -22,18 +22,26 @@
             </form>
           </div>
           <div class="right-side-navbar-content">
+            @if(auth()->user() == null)
             <div class="btn-user-panel">
-                <a href="#" class="btn-user">
-                  </i><span class="user-name-login">Iniciar Sesión</span>
+                <a href="{{ route('login.index') }}" class="btn-user">
+                  <span class="user-name-login">Iniciar Sesión</span>
                 </a>
             </div>
+            @else
+              <div class="btn-user-panel">
+                  <a href="{{ route('perfil') }}" class="btn-user">
+                      <i class="fa fa-user"></i>
+                      <span class="user-name-login">Hola, {{ auth()->user()->nombre }}</span>
+                  </a>
+              </div>
+            @endif
             <div href="#" class="btn-shoppingcart">
               <i class="btn-shoppingcart-icon">🛒</i>
             </div>
           </div>
-          </div>
-        </nav> 
-    <main>
+        </nav>
+    <main class="main-container">
           @yield('content')
     </main>
   </body>

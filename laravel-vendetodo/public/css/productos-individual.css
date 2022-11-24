@@ -38,6 +38,7 @@
   position: fixed;
   z-index: 100;
   width: 100%;
+  top: 0;
 }
 
 .controls-products {
@@ -60,7 +61,7 @@
 .logo-img {
   max-width: 60px;
   max-height: 60px;
-  margin-left: 20px7;
+  margin-left: 20px;
 }
 
 .logo {
@@ -81,7 +82,7 @@
   display: flex;
   margin-right: 50px;
   margin-top: 25px;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .btn-user-panel {

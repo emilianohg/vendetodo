@@ -16,7 +16,6 @@ class CreateOrdenTable extends Migration
             $table->foreignId('pago_id');
             $table->dateTime('fecha_creacion');
             $table->foreignId('direccion_envio_id');
-            $table->timestamps();
 
             $table->foreign('usuario_id')
             ->on('usuarios')

@@ -1,0 +1,104 @@
+body {
+    background-color: rgb(197, 197, 197);
+    font-family: 'Poppins', sans-serif;
+}
+
+main {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-content {
+    position: relative;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    padding: 15px;
+}
+
+.login-tittle {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.email-container {
+    display: grid;
+}
+
+.password-container {
+    display: grid;
+    margin-bottom: 10px;
+}
+
+.button-container {
+    margin-top: 20px;
+    display: grid;
+}
+
+/* Componentes */
+.login-label-email {
+    font-size: 14px;
+    font-weight: 800;
+    padding: 10px 0;
+    display: block;
+}
+
+.login-input-email {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 16px;
+    color: #333;
+    outline: none;
+}
+
+.login-input-email:focus {
+    transition: 0.5s;
+    border: 1px solid rgb(19, 45, 192);
+}
+
+.login-label-password {
+    font-size: 14px;
+    font-weight: 800;
+    padding: 10px 0;
+    display: block;
+}
+
+.login-input-password {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 16px;
+    color: #333;
+    outline: none;
+}
+
+.login-input-password:focus {
+    transition: 0.5s;
+    border: 1px solid rgb(19, 45, 192);
+}
+
+.btn-login {
+    background-color: #284bc1;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+}
+
+.btn-login:hover {
+    transition: 0.5s;
+    background-color: #2d53fa;
+}

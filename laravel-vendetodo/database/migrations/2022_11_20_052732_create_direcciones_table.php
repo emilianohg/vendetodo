@@ -17,7 +17,6 @@ class CreateDireccionesTable extends Migration
             $table->foreignId('usuario_id');
             $table->foreignId('municipio_id');
             $table->enum('status',['activa','eliminada','envio']);
-            $table->timestamps();
 
             $table->foreign('usuario_id')
             ->on('usuarios')

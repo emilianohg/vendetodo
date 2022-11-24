@@ -2,7 +2,9 @@
   font-family: 'Inter';
 }
 
-
+.main-container {
+  margin-top: 85px;
+}
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

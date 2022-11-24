@@ -18,7 +18,6 @@ class CreateProveedoresProductosTable extends Migration
             $table->foreignId('producto_id');
             $table->integer('cantidad_disponible'); 
             $table->primary(['proveedor_id', 'producto_id']);
-            $table->timestamps();
 
             $table->foreign('proveedor_id')
             ->on('proveedores')

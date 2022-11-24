@@ -16,7 +16,6 @@ class CreateAlmacenTable extends Migration
             $table->integer('cantidad_disponible');
             $table->enum('status', ['libre','recolectando','ordenando'])->default('libre');
             $table->primary(['estante_id','seccion_id','lote_id']);
-            $table->timestamps();
 
             $table->foreign('lote_id')
             ->on('lotes')

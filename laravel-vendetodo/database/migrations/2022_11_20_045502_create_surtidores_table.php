@@ -11,7 +11,6 @@ class CreateSurtidoresTable extends Migration
         Schema::create('surtidores', function (Blueprint $table) {
             $table->id('surtidor_id');
             $table->unsignedInteger('estante_id');
-            $table->timestamps();
 
             $table->foreign('surtidor_id')
             ->on('usuarios')

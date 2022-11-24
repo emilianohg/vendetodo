@@ -14,7 +14,6 @@ class CreateBodegaTable extends Migration
             $table->integer('cantidad');
             $table->integer('cantidad_disponible');
             //$table->primary(['lote_id']);
-            $table->timestamps();
 
             $table->foreign('lote_id')
             ->on('lotes')

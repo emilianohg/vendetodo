@@ -17,7 +17,6 @@ class CreateRutasTable extends Migration
             $table->tinyInteger('esta_en_bodega')->default(0);
             $table->dateTime('fecha_recogido')->nullable();
             $table->primary(['orden_id','orden']);
-            $table->timestamps();
 
             $table->foreign('orden_id')
             ->on('orden')

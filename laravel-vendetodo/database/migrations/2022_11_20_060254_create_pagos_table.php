@@ -13,7 +13,6 @@ class CreatePagosTable extends Migration
             $table->foreignId('metodo_pago_id');
             $table->string('referencia');
             $table->dateTime('fecha');
-            $table->timestamps();
 
             $table->foreign('metodo_pago_id')
             ->on('metodos_pago')

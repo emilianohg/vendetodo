@@ -14,7 +14,6 @@ class CreateLotesTable extends Migration
             $table->foreignId('proveedor_id');
             $table->integer('cantidad');
             $table->dateTime('fecha');
-            $table->timestamps();
 
             $table->foreign('producto_id')
             ->on('productos')
