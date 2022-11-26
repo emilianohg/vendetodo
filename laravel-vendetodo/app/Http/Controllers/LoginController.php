@@ -20,13 +20,27 @@ class LoginController extends Controller
                 'message' => 'Correo electrónico o contraseña incorrectos.',
             ]);
         }
+        //surtidor
+        if (auth()->user()->rol_id == 2){
+            return view('surtidos.index');
+        }
+        //encargado de estante
+        if (auth()->user()->rol_id == 4){
+            return view('estantes.index');
+        }
+        //cliente
+        if (auth()->user()->rol_id == 5){
+            return redirect()->route('products.index');
+        }
+         //administrador
+         if (auth()->user()->rol_id == 1){
+            return redirect()->route('tienda.index');
+        }       
 
-        // TODO: Retornar pagina dependiendo el rol
-        return redirect(route('productos.index'));
     }
 
     public function logout() {
         Auth::logout();
-        return redirect(route('productos.index'));
+        return redirect(route('products.index'));
     }
 }

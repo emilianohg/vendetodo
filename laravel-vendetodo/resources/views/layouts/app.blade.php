@@ -16,7 +16,7 @@
               <a href="{{route('products.index')}}" class="logo">Vende Todo</a>
           </div>
           <div class="controls-products">
-            <form class="navbar" action="{{ route('productos.index') }}">
+            <form class="navbar" action="{{ route('products.index') }}">
                 <i class="fa fa-search"></i>
                 <input name="busqueda" type="text" value="{{ $busqueda ?? '' }}" placeholder="Buscar productos...">
             </form>
