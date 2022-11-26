@@ -11,6 +11,12 @@ class ProductosSeeder extends Seeder
 {
     public function run()
     {
+        $totalProductos = Producto::query()->count();
+        if ($totalProductos > 0) {
+          echo "Skipped: ProductosSeeder \n";
+          return;
+        }
+
         $csvProductos = Reader::createFromPath(storage_path('csv/productos.csv'));
         $csvProductos->setHeaderOffset(0);
 

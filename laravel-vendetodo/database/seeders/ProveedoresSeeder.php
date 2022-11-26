@@ -11,8 +11,14 @@ class ProveedoresSeeder extends Seeder
 {
     public function run()
     {
+      $totalProveedoresRegistrados = Proveedor::query()->count();
+
+      if ($totalProveedoresRegistrados > 0) {
+        echo "Skipped: ProveedoresSeeder \n";
+        return;
+      }
+
       $totalProveedores = 300;
-      $proveedoresPorProducto = 3;
 
       Proveedor::factory()
         ->count($totalProveedores)
@@ -22,6 +28,7 @@ class ProveedoresSeeder extends Seeder
 
       for ($i = 0; $i < $totalProductos; $i++) {
         $productoId = $i + 1;
+        $proveedoresPorProducto = rand(3, 6);
         $count = 0;
 
         while ($count < $proveedoresPorProducto) {

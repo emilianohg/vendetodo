@@ -1,0 +1,2464 @@
+state_id,municipality_id,name
+1,1,Aguascalientes
+1,2,Asientos
+1,3,Calvillo
+1,4,Cosío
+1,5,Jesús María
+1,6,Pabellón de Arteaga
+1,7,Rincón de Romos
+1,8,San José de Gracia
+1,9,Tepezalá
+1,10,El Llano
+1,11,San Francisco de los Romo
+2,1,Ensenada
+2,2,Mexicali
+2,3,Tecate
+2,4,Tijuana
+2,5,Playas de Rosarito
+3,1,Comondú
+3,2,Mulegé
+3,3,La Paz
+3,8,Los Cabos
+3,9,Loreto
+4,1,Calkiní
+4,2,Campeche
+4,3,Carmen
+4,4,Champotón
+4,5,Hecelchakán
+4,6,Hopelchén
+4,7,Palizada
+4,8,Tenabo
+4,9,Escárcega
+4,10,Calakmul
+4,11,Candelaria
+5,1,Abasolo
+5,2,Acuña
+5,3,Allende
+5,4,Arteaga
+5,5,Candela
+5,6,Castaños
+5,7,Cuatro Ciénegas
+5,8,Escobedo
+5,9,Francisco I. Madero
+5,10,Frontera
+5,11,General Cepeda
+5,12,Guerrero
+5,13,Hidalgo
+5,14,Jiménez
+5,15,Juárez
+5,16,Lamadrid
+5,17,Matamoros
+5,18,Monclova
+5,19,Morelos
+5,20,Múzquiz
+5,21,Nadadores
+5,22,Nava
+5,23,Ocampo
+5,24,Parras
+5,25,Piedras Negras
+5,26,Progreso
+5,27,Ramos Arizpe
+5,28,Sabinas
+5,29,Sacramento
+5,30,Saltillo
+5,31,San Buenaventura
+5,32,San Juan de Sabinas
+5,33,San Pedro
+5,34,Sierra Mojada
+5,35,Torreón
+5,36,Viesca
+5,37,Villa Unión
+5,38,Zaragoza
+6,1,Armería
+6,2,Colima
+6,3,Comala
+6,4,Coquimatlán
+6,5,Cuauhtémoc
+6,6,Ixtlahuacán
+6,7,Manzanillo
+6,8,Minatitlán
+6,9,Tecomán
+6,10,Villa de Álvarez
+7,1,Acacoyagua
+7,2,Acala
+7,3,Acapetahua
+7,4,Altamirano
+7,5,Amatán
+7,6,Amatenango de la Frontera
+7,7,Amatenango del Valle
+7,8,Angel Albino Corzo
+7,9,Arriaga
+7,10,Bejucal de Ocampo
+7,11,Bella Vista
+7,12,Berriozábal
+7,13,Bochil
+7,14,El Bosque
+7,15,Cacahoatán
+7,16,Catazajá
+7,17,Cintalapa
+7,18,Coapilla
+7,19,Comitán de Domínguez
+7,20,La Concordia
+7,21,Copainalá
+7,22,Chalchihuitán
+7,23,Chamula
+7,24,Chanal
+7,25,Chapultenango
+7,26,Chenalhó
+7,27,Chiapa de Corzo
+7,28,Chiapilla
+7,29,Chicoasén
+7,30,Chicomuselo
+7,31,Chilón
+7,32,Escuintla
+7,33,Francisco León
+7,34,Frontera Comalapa
+7,35,Frontera Hidalgo
+7,36,La Grandeza
+7,37,Huehuetán
+7,38,Huixtán
+7,39,Huitiupán
+7,40,Huixtla
+7,41,La Independencia
+7,42,Ixhuatán
+7,43,Ixtacomitán
+7,44,Ixtapa
+7,45,Ixtapangajoya
+7,46,Jiquipilas
+7,47,Jitotol
+7,48,Juárez
+7,49,Larráinzar
+7,50,La Libertad
+7,51,Mapastepec
+7,52,Las Margaritas
+7,53,Mazapa de Madero
+7,54,Mazatán
+7,55,Metapa
+7,56,Mitontic
+7,57,Motozintla
+7,58,Nicolás Ruíz
+7,59,Ocosingo
+7,60,Ocotepec
+7,61,Ocozocoautla de Espinosa
+7,62,Ostuacán
+7,63,Osumacinta
+7,64,Oxchuc
+7,65,Palenque
+7,66,Pantelhó
+7,67,Pantepec
+7,68,Pichucalco
+7,69,Pijijiapan
+7,70,El Porvenir
+7,71,Villa Comaltitlán
+7,72,Pueblo Nuevo Solistahuacán
+7,73,Rayón
+7,74,Reforma
+7,75,Las Rosas
+7,76,Sabanilla
+7,77,Salto de Agua
+7,78,San Cristóbal de las Casas
+7,79,San Fernando
+7,80,Siltepec
+7,81,Simojovel
+7,82,Sitalá
+7,83,Socoltenango
+7,84,Solosuchiapa
+7,85,Soyaló
+7,86,Suchiapa
+7,87,Suchiate
+7,88,Sunuapa
+7,89,Tapachula
+7,90,Tapalapa
+7,91,Tapilula
+7,92,Tecpatán
+7,93,Tenejapa
+7,94,Teopisca
+7,96,Tila
+7,97,Tonalá
+7,98,Totolapa
+7,99,La Trinitaria
+7,100,Tumbalá
+7,101,Tuxtla Gutiérrez
+7,102,Tuxtla Chico
+7,103,Tuzantán
+7,104,Tzimol
+7,105,Unión Juárez
+7,106,Venustiano Carranza
+7,107,Villa Corzo
+7,108,Villaflores
+7,109,Yajalón
+7,110,San Lucas
+7,111,Zinacantán
+7,112,San Juan Cancuc
+7,113,Aldama
+7,114,Benemérito de las Américas
+7,115,Maravilla Tenejapa
+7,116,Marqués de Comillas
+7,117,Montecristo de Guerrero
+7,118,San Andrés Duraznal
+7,119,Santiago el Pinar
+7,120,Capitán Luis Ángel Vidal
+7,121,Rincón Chamula San Pedro
+7,122,El Parral
+7,123,Emiliano Zapata
+7,124,Mezcalapa
+8,1,Ahumada
+8,2,Aldama
+8,3,Allende
+8,4,Aquiles Serdán
+8,5,Ascensión
+8,6,Bachíniva
+8,7,Balleza
+8,8,Batopilas de Manuel Gómez Morín
+8,9,Bocoyna
+8,10,Buenaventura
+8,11,Camargo
+8,12,Carichí
+8,13,Casas Grandes
+8,14,Coronado
+8,15,Coyame del Sotol
+8,16,La Cruz
+8,17,Cuauhtémoc
+8,18,Cusihuiriachi
+8,19,Chihuahua
+8,20,Chínipas
+8,21,Delicias
+8,22,Dr. Belisario Domínguez
+8,23,Galeana
+8,24,Santa Isabel
+8,25,Gómez Farías
+8,26,Gran Morelos
+8,27,Guachochi
+8,28,Guadalupe
+8,29,Guadalupe y Calvo
+8,30,Guazapares
+8,31,Guerrero
+8,32,Hidalgo del Parral
+8,33,Huejotitán
+8,34,Ignacio Zaragoza
+8,35,Janos
+8,36,Jiménez
+8,37,Juárez
+8,38,Julimes
+8,39,López
+8,40,Madera
+8,41,Maguarichi
+8,42,Manuel Benavides
+8,43,Matachí
+8,44,Matamoros
+8,45,Meoqui
+8,46,Morelos
+8,47,Moris
+8,48,Namiquipa
+8,49,Nonoava
+8,50,Nuevo Casas Grandes
+8,51,Ocampo
+8,52,Ojinaga
+8,53,Praxedis G. Guerrero
+8,54,Riva Palacio
+8,55,Rosales
+8,56,Rosario
+8,57,San Francisco de Borja
+8,58,San Francisco de Conchos
+8,59,San Francisco del Oro
+8,60,Santa Bárbara
+8,61,Satevó
+8,62,Saucillo
+8,63,Temósachic
+8,64,El Tule
+8,65,Urique
+8,66,Uruachi
+8,67,Valle de Zaragoza
+9,2,Azcapotzalco
+9,3,Coyoacán
+9,4,Cuajimalpa de Morelos
+9,5,Gustavo A. Madero
+9,6,Iztacalco
+9,7,Iztapalapa
+9,8,La Magdalena Contreras
+9,9,Milpa Alta
+9,10,Álvaro Obregón
+9,11,Tláhuac
+9,12,Tlalpan
+9,13,Xochimilco
+9,14,Benito Juárez
+9,15,Cuauhtémoc
+9,16,Miguel Hidalgo
+9,17,Venustiano Carranza
+10,1,Canatlán
+10,2,Canelas
+10,3,Coneto de Comonfort
+10,4,Cuencamé
+10,5,Durango
+10,6,General Simón Bolívar
+10,7,Gómez Palacio
+10,8,Guadalupe Victoria
+10,9,Guanaceví
+10,10,Hidalgo
+10,11,Indé
+10,12,Lerdo
+10,13,Mapimí
+10,14,Mezquital
+10,15,Nazas
+10,16,Nombre de Dios
+10,17,Ocampo
+10,18,El Oro
+10,19,Otáez
+10,20,Pánuco de Coronado
+10,21,Peñón Blanco
+10,22,Poanas
+10,23,Pueblo Nuevo
+10,24,Rodeo
+10,25,San Bernardo
+10,26,San Dimas
+10,27,San Juan de Guadalupe
+10,28,San Juan del Río
+10,29,San Luis del Cordero
+10,30,San Pedro del Gallo
+10,31,Santa Clara
+10,32,Santiago Papasquiaro
+10,33,Súchil
+10,34,Tamazula
+10,35,Tepehuanes
+10,36,Tlahualilo
+10,37,Topia
+10,38,Vicente Guerrero
+10,39,Nuevo Ideal
+11,1,Abasolo
+11,2,Acámbaro
+11,3,San Miguel de Allende
+11,4,Apaseo el Alto
+11,5,Apaseo el Grande
+11,6,Atarjea
+11,7,Celaya
+11,8,Manuel Doblado
+11,9,Comonfort
+11,10,Coroneo
+11,11,Cortazar
+11,12,Cuerámaro
+11,13,Doctor Mora
+11,14,Dolores Hidalgo Cuna de la Independencia Nacional
+11,15,Guanajuato
+11,16,Huanímaro
+11,17,Irapuato
+11,18,Jaral del Progreso
+11,19,Jerécuaro
+11,20,León
+11,21,Moroleón
+11,22,Ocampo
+11,23,Pénjamo
+11,24,Pueblo Nuevo
+11,25,Purísima del Rincón
+11,26,Romita
+11,27,Salamanca
+11,28,Salvatierra
+11,29,San Diego de la Unión
+11,30,San Felipe
+11,31,San Francisco del Rincón
+11,32,San José Iturbide
+11,33,San Luis de la Paz
+11,34,Santa Catarina
+11,35,Santa Cruz de Juventino Rosas
+11,36,Santiago Maravatío
+11,37,Silao de la Victoria
+11,38,Tarandacuao
+11,39,Tarimoro
+11,40,Tierra Blanca
+11,41,Uriangato
+11,42,Valle de Santiago
+11,43,Victoria
+11,44,Villagrán
+11,45,Xichú
+11,46,Yuriria
+12,1,Acapulco de Juárez
+12,2,Ahuacuotzingo
+12,3,Ajuchitlán del Progreso
+12,4,Alcozauca de Guerrero
+12,5,Alpoyeca
+12,6,Apaxtla
+12,7,Arcelia
+12,8,Atenango del Río
+12,9,Atlamajalcingo del Monte
+12,10,Atlixtac
+12,11,Atoyac de Álvarez
+12,12,Ayutla de los Libres
+12,13,Azoyú
+12,14,Benito Juárez
+12,15,Buenavista de Cuéllar
+12,16,Coahuayutla de José María Izazaga
+12,17,Cocula
+12,18,Copala
+12,19,Copalillo
+12,20,Copanatoyac
+12,21,Coyuca de Benítez
+12,22,Coyuca de Catalán
+12,23,Cuajinicuilapa
+12,24,Cualác
+12,25,Cuautepec
+12,26,Cuetzala del Progreso
+12,27,Cutzamala de Pinzón
+12,28,Chilapa de Álvarez
+12,29,Chilpancingo de los Bravo
+12,30,Florencio Villarreal
+12,31,General Canuto A. Neri
+12,32,General Heliodoro Castillo
+12,33,Huamuxtitlán
+12,34,Huitzuco de los Figueroa
+12,35,Iguala de la Independencia
+12,36,Igualapa
+12,37,Ixcateopan de Cuauhtémoc
+12,38,Zihuatanejo de Azueta
+12,39,Juan R. Escudero
+12,40,Leonardo Bravo
+12,41,Malinaltepec
+12,42,Mártir de Cuilapan
+12,43,Metlatónoc
+12,44,Mochitlán
+12,45,Olinalá
+12,46,Ometepec
+12,47,Pedro Ascencio Alquisiras
+12,48,Petatlán
+12,49,Pilcaya
+12,50,Pungarabato
+12,51,Quechultenango
+12,52,San Luis Acatlán
+12,53,San Marcos
+12,54,San Miguel Totolapan
+12,55,Taxco de Alarcón
+12,56,Tecoanapa
+12,57,Técpan de Galeana
+12,58,Teloloapan
+12,59,Tepecoacuilco de Trujano
+12,60,Tetipac
+12,61,Tixtla de Guerrero
+12,62,Tlacoachistlahuaca
+12,63,Tlacoapa
+12,64,Tlalchapa
+12,65,Tlalixtaquilla de Maldonado
+12,66,Tlapa de Comonfort
+12,67,Tlapehuala
+12,68,La Unión de Isidoro Montes de Oca
+12,69,Xalpatláhuac
+12,70,Xochihuehuetlán
+12,71,Xochistlahuaca
+12,72,Zapotitlán Tablas
+12,73,Zirándaro
+12,74,Zitlala
+12,75,Eduardo Neri
+12,76,Acatepec
+12,77,Marquelia
+12,78,Cochoapa el Grande
+12,79,José Joaquín de Herrera
+12,80,Juchitán
+12,81,Iliatenco
+13,1,Acatlán
+13,2,Acaxochitlán
+13,3,Actopan
+13,4,Agua Blanca de Iturbide
+13,5,Ajacuba
+13,6,Alfajayucan
+13,7,Almoloya
+13,8,Apan
+13,9,El Arenal
+13,10,Atitalaquia
+13,11,Atlapexco
+13,12,Atotonilco el Grande
+13,13,Atotonilco de Tula
+13,14,Calnali
+13,15,Cardonal
+13,16,Cuautepec de Hinojosa
+13,17,Chapantongo
+13,18,Chapulhuacán
+13,19,Chilcuautla
+13,20,Eloxochitlán
+13,21,Emiliano Zapata
+13,22,Epazoyucan
+13,23,Francisco I. Madero
+13,24,Huasca de Ocampo
+13,25,Huautla
+13,26,Huazalingo
+13,27,Huehuetla
+13,28,Huejutla de Reyes
+13,29,Huichapan
+13,30,Ixmiquilpan
+13,31,Jacala de Ledezma
+13,32,Jaltocán
+13,33,Juárez Hidalgo
+13,34,Lolotla
+13,35,Metepec
+13,36,San Agustín Metzquititlán
+13,37,Metztitlán
+13,38,Mineral del Chico
+13,39,Mineral del Monte
+13,40,La Misión
+13,41,Mixquiahuala de Juárez
+13,42,Molango de Escamilla
+13,43,Nicolás Flores
+13,44,Nopala de Villagrán
+13,45,Omitlán de Juárez
+13,46,San Felipe Orizatlán
+13,47,Pacula
+13,48,Pachuca de Soto
+13,49,Pisaflores
+13,50,Progreso de Obregón
+13,51,Mineral de la Reforma
+13,52,San Agustín Tlaxiaca
+13,53,San Bartolo Tutotepec
+13,54,San Salvador
+13,55,Santiago de Anaya
+13,56,Santiago Tulantepec de Lugo Guerrero
+13,57,Singuilucan
+13,58,Tasquillo
+13,59,Tecozautla
+13,60,Tenango de Doria
+13,61,Tepeapulco
+13,62,Tepehuacán de Guerrero
+13,63,Tepeji del Río de Ocampo
+13,64,Tepetitlán
+13,65,Tetepango
+13,66,Villa de Tezontepec
+13,67,Tezontepec de Aldama
+13,68,Tianguistengo
+13,69,Tizayuca
+13,70,Tlahuelilpan
+13,71,Tlahuiltepa
+13,72,Tlanalapa
+13,73,Tlanchinol
+13,74,Tlaxcoapan
+13,75,Tolcayuca
+13,76,Tula de Allende
+13,77,Tulancingo de Bravo
+13,78,Xochiatipan
+13,79,Xochicoatlán
+13,80,Yahualica
+13,81,Zacualtipán de Ángeles
+13,82,Zapotlán de Juárez
+13,83,Zempoala
+13,84,Zimapán
+14,1,Acatic
+14,2,Acatlán de Juárez
+14,3,Ahualulco de Mercado
+14,4,Amacueca
+14,5,Amatitán
+14,6,Ameca
+14,7,San Juanito de Escobedo
+14,8,Arandas
+14,9,El Arenal
+14,10,Atemajac de Brizuela
+14,11,Atengo
+14,12,Atenguillo
+14,13,Atotonilco el Alto
+14,14,Atoyac
+14,15,Autlán de Navarro
+14,16,Ayotlán
+14,17,Ayutla
+14,18,La Barca
+14,19,Bolaños
+14,20,Cabo Corrientes
+14,21,Casimiro Castillo
+14,22,Cihuatlán
+14,23,Zapotlán el Grande
+14,24,Cocula
+14,25,Colotlán
+14,26,Concepción de Buenos Aires
+14,27,Cuautitlán de García Barragán
+14,28,Cuautla
+14,29,Cuquío
+14,30,Chapala
+14,31,Chimaltitán
+14,32,Chiquilistlán
+14,33,Degollado
+14,34,Ejutla
+14,35,Encarnación de Díaz
+14,36,Etzatlán
+14,37,El Grullo
+14,38,Guachinango
+14,39,Guadalajara
+14,40,Hostotipaquillo
+14,41,Huejúcar
+14,42,Huejuquilla el Alto
+14,43,La Huerta
+14,44,Ixtlahuacán de los Membrillos
+14,45,Ixtlahuacán del Río
+14,46,Jalostotitlán
+14,47,Jamay
+14,48,Jesús María
+14,49,Jilotlán de los Dolores
+14,50,Jocotepec
+14,51,Juanacatlán
+14,52,Juchitlán
+14,53,Lagos de Moreno
+14,54,El Limón
+14,55,Magdalena
+14,56,Santa María del Oro
+14,57,La Manzanilla de la Paz
+14,58,Mascota
+14,59,Mazamitla
+14,60,Mexticacán
+14,61,Mezquitic
+14,62,Mixtlán
+14,63,Ocotlán
+14,64,Ojuelos de Jalisco
+14,65,Pihuamo
+14,66,Poncitlán
+14,67,Puerto Vallarta
+14,68,Villa Purificación
+14,69,Quitupan
+14,70,El Salto
+14,71,San Cristóbal de la Barranca
+14,72,San Diego de Alejandría
+14,73,San Juan de los Lagos
+14,74,San Julián
+14,75,San Marcos
+14,76,San Martín de Bolaños
+14,77,San Martín Hidalgo
+14,78,San Miguel el Alto
+14,79,Gómez Farías
+14,80,San Sebastián del Oeste
+14,81,Santa María de los Ángeles
+14,82,Sayula
+14,83,Tala
+14,84,Talpa de Allende
+14,85,Tamazula de Gordiano
+14,86,Tapalpa
+14,87,Tecalitlán
+14,88,Tecolotlán
+14,89,Techaluta de Montenegro
+14,90,Tenamaxtlán
+14,91,Teocaltiche
+14,92,Teocuitatlán de Corona
+14,93,Tepatitlán de Morelos
+14,94,Tequila
+14,95,Teuchitlán
+14,96,Tizapán el Alto
+14,97,Tlajomulco de Zúñiga
+14,98,San Pedro Tlaquepaque
+14,99,Tolimán
+14,100,Tomatlán
+14,101,Tonalá
+14,102,Tonaya
+14,103,Tonila
+14,104,Totatiche
+14,105,Tototlán
+14,106,Tuxcacuesco
+14,107,Tuxcueca
+14,108,Tuxpan
+14,109,Unión de San Antonio
+14,110,Unión de Tula
+14,111,Valle de Guadalupe
+14,112,Valle de Juárez
+14,113,San Gabriel
+14,114,Villa Corona
+14,115,Villa Guerrero
+14,116,Villa Hidalgo
+14,117,Cañadas de Obregón
+14,118,Yahualica de González Gallo
+14,119,Zacoalco de Torres
+14,120,Zapopan
+14,121,Zapotiltic
+14,122,Zapotitlán de Vadillo
+14,123,Zapotlán del Rey
+14,124,Zapotlanejo
+14,125,San Ignacio Cerro Gordo
+15,1,Acambay de Ruíz Castañeda
+15,2,Acolman
+15,3,Aculco
+15,4,Almoloya de Alquisiras
+15,5,Almoloya de Juárez
+15,6,Almoloya del Río
+15,7,Amanalco
+15,8,Amatepec
+15,9,Amecameca
+15,10,Apaxco
+15,11,Atenco
+15,12,Atizapán
+15,13,Atizapán de Zaragoza
+15,14,Atlacomulco
+15,15,Atlautla
+15,16,Axapusco
+15,17,Ayapango
+15,18,Calimaya
+15,19,Capulhuac
+15,20,Coacalco de Berriozábal
+15,21,Coatepec Harinas
+15,22,Cocotitlán
+15,23,Coyotepec
+15,24,Cuautitlán
+15,25,Chalco
+15,26,Chapa de Mota
+15,27,Chapultepec
+15,28,Chiautla
+15,29,Chicoloapan
+15,30,Chiconcuac
+15,31,Chimalhuacán
+15,32,Donato Guerra
+15,33,Ecatepec de Morelos
+15,34,Ecatzingo
+15,35,Huehuetoca
+15,36,Hueypoxtla
+15,37,Huixquilucan
+15,38,Isidro Fabela
+15,39,Ixtapaluca
+15,40,Ixtapan de la Sal
+15,41,Ixtapan del Oro
+15,42,Ixtlahuaca
+15,43,Xalatlaco
+15,44,Jaltenco
+15,45,Jilotepec
+15,46,Jilotzingo
+15,47,Jiquipilco
+15,48,Jocotitlán
+15,49,Joquicingo
+15,50,Juchitepec
+15,51,Lerma
+15,52,Malinalco
+15,53,Melchor Ocampo
+15,54,Metepec
+15,55,Mexicaltzingo
+15,56,Morelos
+15,57,Naucalpan de Juárez
+15,58,Nezahualcóyotl
+15,59,Nextlalpan
+15,60,Nicolás Romero
+15,61,Nopaltepec
+15,62,Ocoyoacac
+15,63,Ocuilan
+15,64,El Oro
+15,65,Otumba
+15,66,Otzoloapan
+15,67,Otzolotepec
+15,68,Ozumba
+15,69,Papalotla
+15,70,La Paz
+15,71,Polotitlán
+15,72,Rayón
+15,73,San Antonio la Isla
+15,74,San Felipe del Progreso
+15,75,San Martín de las Pirámides
+15,76,San Mateo Atenco
+15,77,San Simón de Guerrero
+15,78,Santo Tomás
+15,79,Soyaniquilpan de Juárez
+15,80,Sultepec
+15,81,Tecámac
+15,82,Tejupilco
+15,83,Temamatla
+15,84,Temascalapa
+15,85,Temascalcingo
+15,86,Temascaltepec
+15,87,Temoaya
+15,88,Tenancingo
+15,89,Tenango del Aire
+15,90,Tenango del Valle
+15,91,Teoloyucan
+15,92,Teotihuacán
+15,93,Tepetlaoxtoc
+15,94,Tepetlixpa
+15,95,Tepotzotlán
+15,96,Tequixquiac
+15,97,Texcaltitlán
+15,98,Texcalyacac
+15,99,Texcoco
+15,100,Tezoyuca
+15,101,Tianguistenco
+15,102,Timilpan
+15,103,Tlalmanalco
+15,104,Tlalnepantla de Baz
+15,105,Tlatlaya
+15,106,Toluca
+15,107,Tonatico
+15,108,Tultepec
+15,109,Tultitlán
+15,110,Valle de Bravo
+15,111,Villa de Allende
+15,112,Villa del Carbón
+15,113,Villa Guerrero
+15,114,Villa Victoria
+15,115,Xonacatlán
+15,116,Zacazonapan
+15,117,Zacualpan
+15,118,Zinacantepec
+15,119,Zumpahuacán
+15,120,Zumpango
+15,121,Cuautitlán Izcalli
+15,122,Valle de Chalco Solidaridad
+15,123,Luvianos
+15,124,San José del Rincón
+15,125,Tonanitla
+16,1,Acuitzio
+16,2,Aguililla
+16,3,Álvaro Obregón
+16,4,Angamacutiro
+16,5,Angangueo
+16,6,Apatzingán
+16,7,Aporo
+16,8,Aquila
+16,9,Ario
+16,10,Arteaga
+16,11,Briseñas
+16,12,Buenavista
+16,13,Carácuaro
+16,14,Coahuayana
+16,15,Coalcomán de Vázquez Pallares
+16,16,Coeneo
+16,17,Contepec
+16,18,Copándaro
+16,19,Cotija
+16,20,Cuitzeo
+16,21,Charapan
+16,22,Charo
+16,23,Chavinda
+16,24,Cherán
+16,25,Chilchota
+16,26,Chinicuila
+16,27,Chucándiro
+16,28,Churintzio
+16,29,Churumuco
+16,30,Ecuandureo
+16,31,Epitacio Huerta
+16,32,Erongarícuaro
+16,33,Gabriel Zamora
+16,34,Hidalgo
+16,35,La Huacana
+16,36,Huandacareo
+16,37,Huaniqueo
+16,38,Huetamo
+16,39,Huiramba
+16,40,Indaparapeo
+16,41,Irimbo
+16,42,Ixtlán
+16,43,Jacona
+16,44,Jiménez
+16,45,Jiquilpan
+16,46,Juárez
+16,47,Jungapeo
+16,48,Lagunillas
+16,49,Madero
+16,50,Maravatío
+16,51,Marcos Castellanos
+16,52,Lázaro Cárdenas
+16,53,Morelia
+16,54,Morelos
+16,55,Múgica
+16,56,Nahuatzen
+16,57,Nocupétaro
+16,58,Nuevo Parangaricutiro
+16,59,Nuevo Urecho
+16,60,Numarán
+16,61,Ocampo
+16,62,Pajacuarán
+16,63,Panindícuaro
+16,64,Parácuaro
+16,65,Paracho
+16,66,Pátzcuaro
+16,67,Penjamillo
+16,68,Peribán
+16,69,La Piedad
+16,70,Purépero
+16,71,Puruándiro
+16,72,Queréndaro
+16,73,Quiroga
+16,74,Cojumatlán de Régules
+16,75,Los Reyes
+16,76,Sahuayo
+16,77,San Lucas
+16,78,Santa Ana Maya
+16,79,Salvador Escalante
+16,80,Senguio
+16,81,Susupuato
+16,82,Tacámbaro
+16,83,Tancítaro
+16,84,Tangamandapio
+16,85,Tangancícuaro
+16,86,Tanhuato
+16,87,Taretan
+16,88,Tarímbaro
+16,89,Tepalcatepec
+16,90,Tingambato
+16,91,Tingüindín
+16,92,Tiquicheo de Nicolás Romero
+16,93,Tlalpujahua
+16,94,Tlazazalca
+16,95,Tocumbo
+16,96,Tumbiscatío
+16,97,Turicato
+16,98,Tuxpan
+16,99,Tuzantla
+16,100,Tzintzuntzan
+16,101,Tzitzio
+16,102,Uruapan
+16,103,Venustiano Carranza
+16,104,Villamar
+16,105,Vista Hermosa
+16,106,Yurécuaro
+16,107,Zacapu
+16,108,Zamora
+16,109,Zináparo
+16,110,Zinapécuaro
+16,111,Ziracuaretiro
+16,112,Zitácuaro
+16,113,José Sixto Verduzco
+17,1,Amacuzac
+17,2,Atlatlahucan
+17,3,Axochiapan
+17,4,Ayala
+17,5,Coatlán del Río
+17,6,Cuautla
+17,7,Cuernavaca
+17,8,Emiliano Zapata
+17,9,Huitzilac
+17,10,Jantetelco
+17,11,Jiutepec
+17,12,Jojutla
+17,13,Jonacatepec de Leandro Valle
+17,14,Mazatepec
+17,15,Miacatlán
+17,16,Ocuituco
+17,17,Puente de Ixtla
+17,18,Temixco
+17,19,Tepalcingo
+17,20,Tepoztlán
+17,21,Tetecala
+17,22,Tetela del Volcán
+17,23,Tlalnepantla
+17,24,Tlaltizapán de Zapata
+17,25,Tlaquiltenango
+17,26,Tlayacapan
+17,27,Totolapan
+17,28,Xochitepec
+17,29,Yautepec
+17,30,Yecapixtla
+17,31,Zacatepec
+17,32,Zacualpan de Amilpas
+17,33,Temoac
+18,1,Acaponeta
+18,2,Ahuacatlán
+18,3,Amatlán de Cañas
+18,4,Compostela
+18,5,Huajicori
+18,6,Ixtlán del Río
+18,7,Jala
+18,8,Xalisco
+18,9,Del Nayar
+18,10,Rosamorada
+18,11,Ruíz
+18,12,San Blas
+18,13,San Pedro Lagunillas
+18,14,Santa María del Oro
+18,15,Santiago Ixcuintla
+18,16,Tecuala
+18,17,Tepic
+18,18,Tuxpan
+18,19,La Yesca
+18,20,Bahía de Banderas
+19,1,Abasolo
+19,2,Agualeguas
+19,3,Los Aldamas
+19,4,Allende
+19,5,Anáhuac
+19,6,Apodaca
+19,7,Aramberri
+19,8,Bustamante
+19,9,Cadereyta Jiménez
+19,10,El Carmen
+19,11,Cerralvo
+19,12,Ciénega de Flores
+19,13,China
+19,14,Doctor Arroyo
+19,15,Doctor Coss
+19,16,Doctor González
+19,17,Galeana
+19,18,García
+19,19,San Pedro Garza García
+19,20,General Bravo
+19,21,General Escobedo
+19,22,General Terán
+19,23,General Treviño
+19,24,General Zaragoza
+19,25,General Zuazua
+19,26,Guadalupe
+19,27,Los Herreras
+19,28,Higueras
+19,29,Hualahuises
+19,30,Iturbide
+19,31,Juárez
+19,32,Lampazos de Naranjo
+19,33,Linares
+19,34,Marín
+19,35,Melchor Ocampo
+19,36,Mier y Noriega
+19,37,Mina
+19,38,Montemorelos
+19,39,Monterrey
+19,40,Parás
+19,41,Pesquería
+19,42,Los Ramones
+19,43,Rayones
+19,44,Sabinas Hidalgo
+19,45,Salinas Victoria
+19,46,San Nicolás de los Garza
+19,47,Hidalgo
+19,48,Santa Catarina
+19,49,Santiago
+19,50,Vallecillo
+19,51,Villaldama
+20,1,Abejones
+20,2,Acatlán de Pérez Figueroa
+20,3,Asunción Cacalotepec
+20,4,Asunción Cuyotepeji
+20,5,Asunción Ixtaltepec
+20,6,Asunción Nochixtlán
+20,7,Asunción Ocotlán
+20,8,Asunción Tlacolulita
+20,9,Ayotzintepec
+20,10,El Barrio de la Soledad
+20,11,Calihualá
+20,12,Candelaria Loxicha
+20,13,Ciénega de Zimatlán
+20,14,Ciudad Ixtepec
+20,15,Coatecas Altas
+20,16,Coicoyán de las Flores
+20,17,La Compañía
+20,18,Concepción Buenavista
+20,19,Concepción Pápalo
+20,20,Constancia del Rosario
+20,21,Cosolapa
+20,22,Cosoltepec
+20,23,Cuilápam de Guerrero
+20,24,Cuyamecalco Villa de Zaragoza
+20,25,Chahuites
+20,26,Chalcatongo de Hidalgo
+20,27,Chiquihuitlán de Benito Juárez
+20,28,Heroica Ciudad de Ejutla de Crespo
+20,29,Eloxochitlán de Flores Magón
+20,30,El Espinal
+20,31,Tamazulápam del Espíritu Santo
+20,32,Fresnillo de Trujano
+20,33,Guadalupe Etla
+20,34,Guadalupe de Ramírez
+20,35,Guelatao de Juárez
+20,36,Guevea de Humboldt
+20,37,Mesones Hidalgo
+20,38,Villa Hidalgo
+20,39,Heroica Ciudad de Huajuapan de León
+20,40,Huautepec
+20,41,Huautla de Jiménez
+20,42,Ixtlán de Juárez
+20,43,Heroica Ciudad de Juchitán de Zaragoza
+20,44,Loma Bonita
+20,45,Magdalena Apasco
+20,46,Magdalena Jaltepec
+20,47,Santa Magdalena Jicotlán
+20,48,Magdalena Mixtepec
+20,49,Magdalena Ocotlán
+20,50,Magdalena Peñasco
+20,51,Magdalena Teitipac
+20,52,Magdalena Tequisistlán
+20,53,Magdalena Tlacotepec
+20,54,Magdalena Zahuatlán
+20,55,Mariscala de Juárez
+20,56,Mártires de Tacubaya
+20,57,Matías Romero Avendaño
+20,58,Mazatlán Villa de Flores
+20,59,Miahuatlán de Porfirio Díaz
+20,60,Mixistlán de la Reforma
+20,61,Monjas
+20,62,Natividad
+20,63,Nazareno Etla
+20,64,Nejapa de Madero
+20,65,Ixpantepec Nieves
+20,66,Santiago Niltepec
+20,67,Oaxaca de Juárez
+20,68,Ocotlán de Morelos
+20,69,La Pe
+20,70,Pinotepa de Don Luis
+20,71,Pluma Hidalgo
+20,72,San José del Progreso
+20,73,Putla Villa de Guerrero
+20,74,Santa Catarina Quioquitani
+20,75,Reforma de Pineda
+20,76,La Reforma
+20,77,Reyes Etla
+20,78,Rojas de Cuauhtémoc
+20,79,Salina Cruz
+20,80,San Agustín Amatengo
+20,81,San Agustín Atenango
+20,82,San Agustín Chayuco
+20,83,San Agustín de las Juntas
+20,84,San Agustín Etla
+20,85,San Agustín Loxicha
+20,86,San Agustín Tlacotepec
+20,87,San Agustín Yatareni
+20,88,San Andrés Cabecera Nueva
+20,89,San Andrés Dinicuiti
+20,90,San Andrés Huaxpaltepec
+20,91,San Andrés Huayápam
+20,92,San Andrés Ixtlahuaca
+20,93,San Andrés Lagunas
+20,94,San Andrés Nuxiño
+20,95,San Andrés Paxtlán
+20,96,San Andrés Sinaxtla
+20,97,San Andrés Solaga
+20,98,San Andrés Teotilálpam
+20,99,San Andrés Tepetlapa
+20,100,San Andrés Yaá
+20,101,San Andrés Zabache
+20,102,San Andrés Zautla
+20,103,San Antonino Castillo Velasco
+20,104,San Antonino el Alto
+20,105,San Antonino Monte Verde
+20,106,San Antonio Acutla
+20,107,San Antonio de la Cal
+20,108,San Antonio Huitepec
+20,109,San Antonio Nanahuatípam
+20,110,San Antonio Sinicahua
+20,111,San Antonio Tepetlapa
+20,112,San Baltazar Chichicápam
+20,113,San Baltazar Loxicha
+20,114,San Baltazar Yatzachi el Bajo
+20,115,San Bartolo Coyotepec
+20,116,San Bartolomé Ayautla
+20,117,San Bartolomé Loxicha
+20,118,San Bartolomé Quialana
+20,119,San Bartolomé Yucuañe
+20,120,San Bartolomé Zoogocho
+20,121,San Bartolo Soyaltepec
+20,122,San Bartolo Yautepec
+20,123,San Bernardo Mixtepec
+20,124,San Blas Atempa
+20,125,San Carlos Yautepec
+20,126,San Cristóbal Amatlán
+20,127,San Cristóbal Amoltepec
+20,128,San Cristóbal Lachirioag
+20,129,San Cristóbal Suchixtlahuaca
+20,130,San Dionisio del Mar
+20,131,San Dionisio Ocotepec
+20,132,San Dionisio Ocotlán
+20,133,San Esteban Atatlahuca
+20,134,San Felipe Jalapa de Díaz
+20,135,San Felipe Tejalápam
+20,136,San Felipe Usila
+20,137,San Francisco Cahuacuá
+20,138,San Francisco Cajonos
+20,139,San Francisco Chapulapa
+20,140,San Francisco Chindúa
+20,141,San Francisco del Mar
+20,142,San Francisco Huehuetlán
+20,143,San Francisco Ixhuatán
+20,144,San Francisco Jaltepetongo
+20,145,San Francisco Lachigoló
+20,146,San Francisco Logueche
+20,147,San Francisco Nuxaño
+20,148,San Francisco Ozolotepec
+20,149,San Francisco Sola
+20,150,San Francisco Telixtlahuaca
+20,151,San Francisco Teopan
+20,152,San Francisco Tlapancingo
+20,153,San Gabriel Mixtepec
+20,154,San Ildefonso Amatlán
+20,155,San Ildefonso Sola
+20,156,San Ildefonso Villa Alta
+20,157,San Jacinto Amilpas
+20,158,San Jacinto Tlacotepec
+20,159,San Jerónimo Coatlán
+20,160,San Jerónimo Silacayoapilla
+20,161,San Jerónimo Sosola
+20,162,San Jerónimo Taviche
+20,163,San Jerónimo Tecóatl
+20,164,San Jorge Nuchita
+20,165,San José Ayuquila
+20,166,San José Chiltepec
+20,167,San José del Peñasco
+20,168,San José Estancia Grande
+20,169,San José Independencia
+20,170,San José Lachiguiri
+20,171,San José Tenango
+20,172,San Juan Achiutla
+20,173,San Juan Atepec
+20,174,Ánimas Trujano
+20,175,San Juan Bautista Atatlahuca
+20,176,San Juan Bautista Coixtlahuaca
+20,177,San Juan Bautista Cuicatlán
+20,178,San Juan Bautista Guelache
+20,179,San Juan Bautista Jayacatlán
+20,180,San Juan Bautista Lo de Soto
+20,181,San Juan Bautista Suchitepec
+20,182,San Juan Bautista Tlacoatzintepec
+20,183,San Juan Bautista Tlachichilco
+20,184,San Juan Bautista Tuxtepec
+20,185,San Juan Cacahuatepec
+20,186,San Juan Cieneguilla
+20,187,San Juan Coatzóspam
+20,188,San Juan Colorado
+20,189,San Juan Comaltepec
+20,190,San Juan Cotzocón
+20,191,San Juan Chicomezúchil
+20,192,San Juan Chilateca
+20,193,San Juan del Estado
+20,194,San Juan del Río
+20,195,San Juan Diuxi
+20,196,San Juan Evangelista Analco
+20,197,San Juan Guelavía
+20,198,San Juan Guichicovi
+20,199,San Juan Ihualtepec
+20,200,San Juan Juquila Mixes
+20,201,San Juan Juquila Vijanos
+20,202,San Juan Lachao
+20,203,San Juan Lachigalla
+20,204,San Juan Lajarcia
+20,205,San Juan Lalana
+20,206,San Juan de los Cués
+20,207,San Juan Mazatlán
+20,208,San Juan Mixtepec
+20,209,San Juan Mixtepec
+20,210,San Juan Ñumí
+20,211,San Juan Ozolotepec
+20,212,San Juan Petlapa
+20,213,San Juan Quiahije
+20,214,San Juan Quiotepec
+20,215,San Juan Sayultepec
+20,216,San Juan Tabaá
+20,217,San Juan Tamazola
+20,218,San Juan Teita
+20,219,San Juan Teitipac
+20,220,San Juan Tepeuxila
+20,221,San Juan Teposcolula
+20,222,San Juan Yaeé
+20,223,San Juan Yatzona
+20,224,San Juan Yucuita
+20,225,San Lorenzo
+20,226,San Lorenzo Albarradas
+20,227,San Lorenzo Cacaotepec
+20,228,San Lorenzo Cuaunecuiltitla
+20,229,San Lorenzo Texmelúcan
+20,230,San Lorenzo Victoria
+20,231,San Lucas Camotlán
+20,232,San Lucas Ojitlán
+20,233,San Lucas Quiaviní
+20,234,San Lucas Zoquiápam
+20,235,San Luis Amatlán
+20,236,San Marcial Ozolotepec
+20,237,San Marcos Arteaga
+20,238,San Martín de los Cansecos
+20,239,San Martín Huamelúlpam
+20,240,San Martín Itunyoso
+20,241,San Martín Lachilá
+20,242,San Martín Peras
+20,243,San Martín Tilcajete
+20,244,San Martín Toxpalan
+20,245,San Martín Zacatepec
+20,246,San Mateo Cajonos
+20,247,Capulálpam de Méndez
+20,248,San Mateo del Mar
+20,249,San Mateo Yoloxochitlán
+20,250,San Mateo Etlatongo
+20,251,San Mateo Nejápam
+20,252,San Mateo Peñasco
+20,253,San Mateo Piñas
+20,254,San Mateo Río Hondo
+20,255,San Mateo Sindihui
+20,256,San Mateo Tlapiltepec
+20,257,San Melchor Betaza
+20,258,San Miguel Achiutla
+20,259,San Miguel Ahuehuetitlán
+20,260,San Miguel Aloápam
+20,261,San Miguel Amatitlán
+20,262,San Miguel Amatlán
+20,263,San Miguel Coatlán
+20,264,San Miguel Chicahua
+20,265,San Miguel Chimalapa
+20,266,San Miguel del Puerto
+20,267,San Miguel del Río
+20,268,San Miguel Ejutla
+20,269,San Miguel el Grande
+20,270,San Miguel Huautla
+20,271,San Miguel Mixtepec
+20,272,San Miguel Panixtlahuaca
+20,273,San Miguel Peras
+20,274,San Miguel Piedras
+20,275,San Miguel Quetzaltepec
+20,276,San Miguel Santa Flor
+20,277,Villa Sola de Vega
+20,278,San Miguel Soyaltepec
+20,279,San Miguel Suchixtepec
+20,280,Villa Talea de Castro
+20,281,San Miguel Tecomatlán
+20,282,San Miguel Tenango
+20,283,San Miguel Tequixtepec
+20,284,San Miguel Tilquiápam
+20,285,San Miguel Tlacamama
+20,286,San Miguel Tlacotepec
+20,287,San Miguel Tulancingo
+20,288,San Miguel Yotao
+20,289,San Nicolás
+20,290,San Nicolás Hidalgo
+20,291,San Pablo Coatlán
+20,292,San Pablo Cuatro Venados
+20,293,San Pablo Etla
+20,294,San Pablo Huitzo
+20,295,San Pablo Huixtepec
+20,296,San Pablo Macuiltianguis
+20,297,San Pablo Tijaltepec
+20,298,San Pablo Villa de Mitla
+20,299,San Pablo Yaganiza
+20,300,San Pedro Amuzgos
+20,301,San Pedro Apóstol
+20,302,San Pedro Atoyac
+20,303,San Pedro Cajonos
+20,304,San Pedro Coxcaltepec Cántaros
+20,305,San Pedro Comitancillo
+20,306,San Pedro el Alto
+20,307,San Pedro Huamelula
+20,308,San Pedro Huilotepec
+20,309,San Pedro Ixcatlán
+20,310,San Pedro Ixtlahuaca
+20,311,San Pedro Jaltepetongo
+20,312,San Pedro Jicayán
+20,313,San Pedro Jocotipac
+20,314,San Pedro Juchatengo
+20,315,San Pedro Mártir
+20,316,San Pedro Mártir Quiechapa
+20,317,San Pedro Mártir Yucuxaco
+20,318,San Pedro Mixtepec
+20,319,San Pedro Mixtepec
+20,320,San Pedro Molinos
+20,321,San Pedro Nopala
+20,322,San Pedro Ocopetatillo
+20,323,San Pedro Ocotepec
+20,324,San Pedro Pochutla
+20,325,San Pedro Quiatoni
+20,326,San Pedro Sochiápam
+20,327,San Pedro Tapanatepec
+20,328,San Pedro Taviche
+20,329,San Pedro Teozacoalco
+20,330,San Pedro Teutila
+20,331,San Pedro Tidaá
+20,332,San Pedro Topiltepec
+20,333,San Pedro Totolápam
+20,334,Villa de Tututepec
+20,335,San Pedro Yaneri
+20,336,San Pedro Yólox
+20,337,San Pedro y San Pablo Ayutla
+20,338,Villa de Etla
+20,339,San Pedro y San Pablo Teposcolula
+20,340,San Pedro y San Pablo Tequixtepec
+20,341,San Pedro Yucunama
+20,342,San Raymundo Jalpan
+20,343,San Sebastián Abasolo
+20,344,San Sebastián Coatlán
+20,345,San Sebastián Ixcapa
+20,346,San Sebastián Nicananduta
+20,347,San Sebastián Río Hondo
+20,348,San Sebastián Tecomaxtlahuaca
+20,349,San Sebastián Teitipac
+20,350,San Sebastián Tutla
+20,351,San Simón Almolongas
+20,352,San Simón Zahuatlán
+20,353,Santa Ana
+20,354,Santa Ana Ateixtlahuaca
+20,355,Santa Ana Cuauhtémoc
+20,356,Santa Ana del Valle
+20,357,Santa Ana Tavela
+20,358,Santa Ana Tlapacoyan
+20,359,Santa Ana Yareni
+20,360,Santa Ana Zegache
+20,361,Santa Catalina Quierí
+20,362,Santa Catarina Cuixtla
+20,363,Santa Catarina Ixtepeji
+20,364,Santa Catarina Juquila
+20,365,Santa Catarina Lachatao
+20,366,Santa Catarina Loxicha
+20,367,Santa Catarina Mechoacán
+20,368,Santa Catarina Minas
+20,369,Santa Catarina Quiané
+20,370,Santa Catarina Tayata
+20,371,Santa Catarina Ticuá
+20,372,Santa Catarina Yosonotú
+20,373,Santa Catarina Zapoquila
+20,374,Santa Cruz Acatepec
+20,375,Santa Cruz Amilpas
+20,376,Santa Cruz de Bravo
+20,377,Santa Cruz Itundujia
+20,378,Santa Cruz Mixtepec
+20,379,Santa Cruz Nundaco
+20,380,Santa Cruz Papalutla
+20,381,Santa Cruz Tacache de Mina
+20,382,Santa Cruz Tacahua
+20,383,Santa Cruz Tayata
+20,384,Santa Cruz Xitla
+20,385,Santa Cruz Xoxocotlán
+20,386,Santa Cruz Zenzontepec
+20,387,Santa Gertrudis
+20,388,Santa Inés del Monte
+20,389,Santa Inés Yatzeche
+20,390,Santa Lucía del Camino
+20,391,Santa Lucía Miahuatlán
+20,392,Santa Lucía Monteverde
+20,393,Santa Lucía Ocotlán
+20,394,Santa María Alotepec
+20,395,Santa María Apazco
+20,396,Santa María la Asunción
+20,397,Heroica Ciudad de Tlaxiaco
+20,398,Ayoquezco de Aldama
+20,399,Santa María Atzompa
+20,400,Santa María Camotlán
+20,401,Santa María Colotepec
+20,402,Santa María Cortijo
+20,403,Santa María Coyotepec
+20,404,Santa María Chachoápam
+20,405,Villa de Chilapa de Díaz
+20,406,Santa María Chilchotla
+20,407,Santa María Chimalapa
+20,408,Santa María del Rosario
+20,409,Santa María del Tule
+20,410,Santa María Ecatepec
+20,411,Santa María Guelacé
+20,412,Santa María Guienagati
+20,413,Santa María Huatulco
+20,414,Santa María Huazolotitlán
+20,415,Santa María Ipalapa
+20,416,Santa María Ixcatlán
+20,417,Santa María Jacatepec
+20,418,Santa María Jalapa del Marqués
+20,419,Santa María Jaltianguis
+20,420,Santa María Lachixío
+20,421,Santa María Mixtequilla
+20,422,Santa María Nativitas
+20,423,Santa María Nduayaco
+20,424,Santa María Ozolotepec
+20,425,Santa María Pápalo
+20,426,Santa María Peñoles
+20,427,Santa María Petapa
+20,428,Santa María Quiegolani
+20,429,Santa María Sola
+20,430,Santa María Tataltepec
+20,431,Santa María Tecomavaca
+20,432,Santa María Temaxcalapa
+20,433,Santa María Temaxcaltepec
+20,434,Santa María Teopoxco
+20,435,Santa María Tepantlali
+20,436,Santa María Texcatitlán
+20,437,Santa María Tlahuitoltepec
+20,438,Santa María Tlalixtac
+20,439,Santa María Tonameca
+20,440,Santa María Totolapilla
+20,441,Santa María Xadani
+20,442,Santa María Yalina
+20,443,Santa María Yavesía
+20,444,Santa María Yolotepec
+20,445,Santa María Yosoyúa
+20,446,Santa María Yucuhiti
+20,447,Santa María Zacatepec
+20,448,Santa María Zaniza
+20,449,Santa María Zoquitlán
+20,450,Santiago Amoltepec
+20,451,Santiago Apoala
+20,452,Santiago Apóstol
+20,453,Santiago Astata
+20,454,Santiago Atitlán
+20,455,Santiago Ayuquililla
+20,456,Santiago Cacaloxtepec
+20,457,Santiago Camotlán
+20,458,Santiago Comaltepec
+20,459,Santiago Chazumba
+20,460,Santiago Choápam
+20,461,Santiago del Río
+20,462,Santiago Huajolotitlán
+20,463,Santiago Huauclilla
+20,464,Santiago Ihuitlán Plumas
+20,465,Santiago Ixcuintepec
+20,466,Santiago Ixtayutla
+20,467,Santiago Jamiltepec
+20,468,Santiago Jocotepec
+20,469,Santiago Juxtlahuaca
+20,470,Santiago Lachiguiri
+20,471,Santiago Lalopa
+20,472,Santiago Laollaga
+20,473,Santiago Laxopa
+20,474,Santiago Llano Grande
+20,475,Santiago Matatlán
+20,476,Santiago Miltepec
+20,477,Santiago Minas
+20,478,Santiago Nacaltepec
+20,479,Santiago Nejapilla
+20,480,Santiago Nundiche
+20,481,Santiago Nuyoó
+20,482,Santiago Pinotepa Nacional
+20,483,Santiago Suchilquitongo
+20,484,Santiago Tamazola
+20,485,Santiago Tapextla
+20,486,Villa Tejúpam de la Unión
+20,487,Santiago Tenango
+20,488,Santiago Tepetlapa
+20,489,Santiago Tetepec
+20,490,Santiago Texcalcingo
+20,491,Santiago Textitlán
+20,492,Santiago Tilantongo
+20,493,Santiago Tillo
+20,494,Santiago Tlazoyaltepec
+20,495,Santiago Xanica
+20,496,Santiago Xiacuí
+20,497,Santiago Yaitepec
+20,498,Santiago Yaveo
+20,499,Santiago Yolomécatl
+20,500,Santiago Yosondúa
+20,501,Santiago Yucuyachi
+20,502,Santiago Zacatepec
+20,503,Santiago Zoochila
+20,504,Nuevo Zoquiápam
+20,505,Santo Domingo Ingenio
+20,506,Santo Domingo Albarradas
+20,507,Santo Domingo Armenta
+20,508,Santo Domingo Chihuitán
+20,509,Santo Domingo de Morelos
+20,510,Santo Domingo Ixcatlán
+20,511,Santo Domingo Nuxaá
+20,512,Santo Domingo Ozolotepec
+20,513,Santo Domingo Petapa
+20,514,Santo Domingo Roayaga
+20,515,Santo Domingo Tehuantepec
+20,516,Santo Domingo Teojomulco
+20,517,Santo Domingo Tepuxtepec
+20,518,Santo Domingo Tlatayápam
+20,519,Santo Domingo Tomaltepec
+20,520,Santo Domingo Tonalá
+20,521,Santo Domingo Tonaltepec
+20,522,Santo Domingo Xagacía
+20,523,Santo Domingo Yanhuitlán
+20,524,Santo Domingo Yodohino
+20,525,Santo Domingo Zanatepec
+20,526,Santos Reyes Nopala
+20,527,Santos Reyes Pápalo
+20,528,Santos Reyes Tepejillo
+20,529,Santos Reyes Yucuná
+20,530,Santo Tomás Jalieza
+20,531,Santo Tomás Mazaltepec
+20,532,Santo Tomás Ocotepec
+20,533,Santo Tomás Tamazulapan
+20,534,San Vicente Coatlán
+20,535,San Vicente Lachixío
+20,536,San Vicente Nuñú
+20,537,Silacayoápam
+20,538,Sitio de Xitlapehua
+20,539,Soledad Etla
+20,540,Villa de Tamazulápam del Progreso
+20,541,Tanetze de Zaragoza
+20,542,Taniche
+20,543,Tataltepec de Valdés
+20,544,Teococuilco de Marcos Pérez
+20,545,Teotitlán de Flores Magón
+20,546,Teotitlán del Valle
+20,547,Teotongo
+20,548,Tepelmeme Villa de Morelos
+20,549,"Heroica Villa Tezoatlán de Segura y Luna, Cuna de la Independencia de Oaxaca"
+20,550,San Jerónimo Tlacochahuaya
+20,551,Tlacolula de Matamoros
+20,552,Tlacotepec Plumas
+20,553,Tlalixtac de Cabrera
+20,554,Totontepec Villa de Morelos
+20,555,Trinidad Zaachila
+20,556,La Trinidad Vista Hermosa
+20,557,Unión Hidalgo
+20,558,Valerio Trujano
+20,559,San Juan Bautista Valle Nacional
+20,560,Villa Díaz Ordaz
+20,561,Yaxe
+20,562,Magdalena Yodocono de Porfirio Díaz
+20,563,Yogana
+20,564,Yutanduchi de Guerrero
+20,565,Villa de Zaachila
+20,566,San Mateo Yucutindoo
+20,567,Zapotitlán Lagunas
+20,568,Zapotitlán Palmas
+20,569,Santa Inés de Zaragoza
+20,570,Zimatlán de Álvarez
+21,1,Acajete
+21,2,Acateno
+21,3,Acatlán
+21,4,Acatzingo
+21,5,Acteopan
+21,6,Ahuacatlán
+21,7,Ahuatlán
+21,8,Ahuazotepec
+21,9,Ahuehuetitla
+21,10,Ajalpan
+21,11,Albino Zertuche
+21,12,Aljojuca
+21,13,Altepexi
+21,14,Amixtlán
+21,15,Amozoc
+21,16,Aquixtla
+21,17,Atempan
+21,18,Atexcal
+21,19,Atlixco
+21,20,Atoyatempan
+21,21,Atzala
+21,22,Atzitzihuacán
+21,23,Atzitzintla
+21,24,Axutla
+21,25,Ayotoxco de Guerrero
+21,26,Calpan
+21,27,Caltepec
+21,28,Camocuautla
+21,29,Caxhuacan
+21,30,Coatepec
+21,31,Coatzingo
+21,32,Cohetzala
+21,33,Cohuecan
+21,34,Coronango
+21,35,Coxcatlán
+21,36,Coyomeapan
+21,37,Coyotepec
+21,38,Cuapiaxtla de Madero
+21,39,Cuautempan
+21,40,Cuautinchán
+21,41,Cuautlancingo
+21,42,Cuayuca de Andrade
+21,43,Cuetzalan del Progreso
+21,44,Cuyoaco
+21,45,Chalchicomula de Sesma
+21,46,Chapulco
+21,47,Chiautla
+21,48,Chiautzingo
+21,49,Chiconcuautla
+21,50,Chichiquila
+21,51,Chietla
+21,52,Chigmecatitlán
+21,53,Chignahuapan
+21,54,Chignautla
+21,55,Chila
+21,56,Chila de la Sal
+21,57,Honey
+21,58,Chilchotla
+21,59,Chinantla
+21,60,Domingo Arenas
+21,61,Eloxochitlán
+21,62,Epatlán
+21,63,Esperanza
+21,64,Francisco Z. Mena
+21,65,General Felipe Ángeles
+21,66,Guadalupe
+21,67,Guadalupe Victoria
+21,68,Hermenegildo Galeana
+21,69,Huaquechula
+21,70,Huatlatlauca
+21,71,Huauchinango
+21,72,Huehuetla
+21,73,Huehuetlán el Chico
+21,74,Huejotzingo
+21,75,Hueyapan
+21,76,Hueytamalco
+21,77,Hueytlalpan
+21,78,Huitzilan de Serdán
+21,79,Huitziltepec
+21,80,Atlequizayan
+21,81,Ixcamilpa de Guerrero
+21,82,Ixcaquixtla
+21,83,Ixtacamaxtitlán
+21,84,Ixtepec
+21,85,Izúcar de Matamoros
+21,86,Jalpan
+21,87,Jolalpan
+21,88,Jonotla
+21,89,Jopala
+21,90,Juan C. Bonilla
+21,91,Juan Galindo
+21,92,Juan N. Méndez
+21,93,Lafragua
+21,94,Libres
+21,95,La Magdalena Tlatlauquitepec
+21,96,Mazapiltepec de Juárez
+21,97,Mixtla
+21,98,Molcaxac
+21,99,Cañada Morelos
+21,100,Naupan
+21,101,Nauzontla
+21,102,Nealtican
+21,103,Nicolás Bravo
+21,104,Nopalucan
+21,105,Ocotepec
+21,106,Ocoyucan
+21,107,Olintla
+21,108,Oriental
+21,109,Pahuatlán
+21,110,Palmar de Bravo
+21,111,Pantepec
+21,112,Petlalcingo
+21,113,Piaxtla
+21,114,Puebla
+21,115,Quecholac
+21,116,Quimixtlán
+21,117,Rafael Lara Grajales
+21,118,Los Reyes de Juárez
+21,119,San Andrés Cholula
+21,120,San Antonio Cañada
+21,121,San Diego la Mesa Tochimiltzingo
+21,122,San Felipe Teotlalcingo
+21,123,San Felipe Tepatlán
+21,124,San Gabriel Chilac
+21,125,San Gregorio Atzompa
+21,126,San Jerónimo Tecuanipan
+21,127,San Jerónimo Xayacatlán
+21,128,San José Chiapa
+21,129,San José Miahuatlán
+21,130,San Juan Atenco
+21,131,San Juan Atzompa
+21,132,San Martín Texmelucan
+21,133,San Martín Totoltepec
+21,134,San Matías Tlalancaleca
+21,135,San Miguel Ixitlán
+21,136,San Miguel Xoxtla
+21,137,San Nicolás Buenos Aires
+21,138,San Nicolás de los Ranchos
+21,139,San Pablo Anicano
+21,140,San Pedro Cholula
+21,141,San Pedro Yeloixtlahuaca
+21,142,San Salvador el Seco
+21,143,San Salvador el Verde
+21,144,San Salvador Huixcolotla
+21,145,San Sebastián Tlacotepec
+21,146,Santa Catarina Tlaltempan
+21,147,Santa Inés Ahuatempan
+21,148,Santa Isabel Cholula
+21,149,Santiago Miahuatlán
+21,150,Huehuetlán el Grande
+21,151,Santo Tomás Hueyotlipan
+21,152,Soltepec
+21,153,Tecali de Herrera
+21,154,Tecamachalco
+21,155,Tecomatlán
+21,156,Tehuacán
+21,157,Tehuitzingo
+21,158,Tenampulco
+21,159,Teopantlán
+21,160,Teotlalco
+21,161,Tepanco de López
+21,162,Tepango de Rodríguez
+21,163,Tepatlaxco de Hidalgo
+21,164,Tepeaca
+21,165,Tepemaxalco
+21,166,Tepeojuma
+21,167,Tepetzintla
+21,168,Tepexco
+21,169,Tepexi de Rodríguez
+21,170,Tepeyahualco
+21,171,Tepeyahualco de Cuauhtémoc
+21,172,Tetela de Ocampo
+21,173,Teteles de Avila Castillo
+21,174,Teziutlán
+21,175,Tianguismanalco
+21,176,Tilapa
+21,177,Tlacotepec de Benito Juárez
+21,178,Tlacuilotepec
+21,179,Tlachichuca
+21,180,Tlahuapan
+21,181,Tlaltenango
+21,182,Tlanepantla
+21,183,Tlaola
+21,184,Tlapacoya
+21,185,Tlapanalá
+21,186,Tlatlauquitepec
+21,187,Tlaxco
+21,188,Tochimilco
+21,189,Tochtepec
+21,190,Totoltepec de Guerrero
+21,191,Tulcingo
+21,192,Tuzamapan de Galeana
+21,193,Tzicatlacoyan
+21,194,Venustiano Carranza
+21,195,Vicente Guerrero
+21,196,Xayacatlán de Bravo
+21,197,Xicotepec
+21,198,Xicotlán
+21,199,Xiutetelco
+21,200,Xochiapulco
+21,201,Xochiltepec
+21,202,Xochitlán de Vicente Suárez
+21,203,Xochitlán Todos Santos
+21,204,Yaonáhuac
+21,205,Yehualtepec
+21,206,Zacapala
+21,207,Zacapoaxtla
+21,208,Zacatlán
+21,209,Zapotitlán
+21,210,Zapotitlán de Méndez
+21,211,Zaragoza
+21,212,Zautla
+21,213,Zihuateutla
+21,214,Zinacatepec
+21,215,Zongozotla
+21,216,Zoquiapan
+21,217,Zoquitlán
+22,1,Amealco de Bonfil
+22,2,Pinal de Amoles
+22,3,Arroyo Seco
+22,4,Cadereyta de Montes
+22,5,Colón
+22,6,Corregidora
+22,7,Ezequiel Montes
+22,8,Huimilpan
+22,9,Jalpan de Serra
+22,10,Landa de Matamoros
+22,11,El Marqués
+22,12,Pedro Escobedo
+22,13,Peñamiller
+22,14,Querétaro
+22,15,San Joaquín
+22,16,San Juan del Río
+22,17,Tequisquiapan
+22,18,Tolimán
+23,1,Cozumel
+23,2,Felipe Carrillo Puerto
+23,3,Isla Mujeres
+23,4,Othón P. Blanco
+23,5,Benito Juárez
+23,6,José María Morelos
+23,7,Lázaro Cárdenas
+23,8,Solidaridad
+23,9,Tulum
+23,10,Bacalar
+23,11,Puerto Morelos
+24,1,Ahualulco
+24,2,Alaquines
+24,3,Aquismón
+24,4,Armadillo de los Infante
+24,5,Cárdenas
+24,6,Catorce
+24,7,Cedral
+24,8,Cerritos
+24,9,Cerro de San Pedro
+24,10,Ciudad del Maíz
+24,11,Ciudad Fernández
+24,12,Tancanhuitz
+24,13,Ciudad Valles
+24,14,Coxcatlán
+24,15,Charcas
+24,16,Ebano
+24,17,Guadalcázar
+24,18,Huehuetlán
+24,19,Lagunillas
+24,20,Matehuala
+24,21,Mexquitic de Carmona
+24,22,Moctezuma
+24,23,Rayón
+24,24,Rioverde
+24,25,Salinas
+24,26,San Antonio
+24,27,San Ciro de Acosta
+24,28,San Luis Potosí
+24,29,San Martín Chalchicuautla
+24,30,San Nicolás Tolentino
+24,31,Santa Catarina
+24,32,Santa María del Río
+24,33,Santo Domingo
+24,34,San Vicente Tancuayalab
+24,35,Soledad de Graciano Sánchez
+24,36,Tamasopo
+24,37,Tamazunchale
+24,38,Tampacán
+24,39,Tampamolón Corona
+24,40,Tamuín
+24,41,Tanlajás
+24,42,Tanquián de Escobedo
+24,43,Tierra Nueva
+24,44,Vanegas
+24,45,Venado
+24,46,Villa de Arriaga
+24,47,Villa de Guadalupe
+24,48,Villa de la Paz
+24,49,Villa de Ramos
+24,50,Villa de Reyes
+24,51,Villa Hidalgo
+24,52,Villa Juárez
+24,53,Axtla de Terrazas
+24,54,Xilitla
+24,55,Zaragoza
+24,56,Villa de Arista
+24,57,Matlapa
+24,58,El Naranjo
+25,1,Ahome
+25,2,Angostura
+25,3,Badiraguato
+25,4,Concordia
+25,5,Cosalá
+25,6,Culiacán
+25,7,Choix
+25,8,Elota
+25,9,Escuinapa
+25,10,El Fuerte
+25,11,Guasave
+25,12,Mazatlán
+25,13,Mocorito
+25,14,Rosario
+25,15,Salvador Alvarado
+25,16,San Ignacio
+25,17,Sinaloa
+25,18,Navolato
+26,1,Aconchi
+26,2,Agua Prieta
+26,3,Alamos
+26,4,Altar
+26,5,Arivechi
+26,6,Arizpe
+26,7,Atil
+26,8,Bacadéhuachi
+26,9,Bacanora
+26,10,Bacerac
+26,11,Bacoachi
+26,12,Bácum
+26,13,Banámichi
+26,14,Baviácora
+26,15,Bavispe
+26,16,Benjamín Hill
+26,17,Caborca
+26,18,Cajeme
+26,19,Cananea
+26,20,Carbó
+26,21,La Colorada
+26,22,Cucurpe
+26,23,Cumpas
+26,24,Divisaderos
+26,25,Empalme
+26,26,Etchojoa
+26,27,Fronteras
+26,28,Granados
+26,29,Guaymas
+26,30,Hermosillo
+26,31,Huachinera
+26,32,Huásabas
+26,33,Huatabampo
+26,34,Huépac
+26,35,Imuris
+26,36,Magdalena
+26,37,Mazatán
+26,38,Moctezuma
+26,39,Naco
+26,40,Nácori Chico
+26,41,Nacozari de García
+26,42,Navojoa
+26,43,Nogales
+26,44,Onavas
+26,45,Opodepe
+26,46,Oquitoa
+26,47,Pitiquito
+26,48,Puerto Peñasco
+26,49,Quiriego
+26,50,Rayón
+26,51,Rosario
+26,52,Sahuaripa
+26,53,San Felipe de Jesús
+26,54,San Javier
+26,55,San Luis Río Colorado
+26,56,San Miguel de Horcasitas
+26,57,San Pedro de la Cueva
+26,58,Santa Ana
+26,59,Santa Cruz
+26,60,Sáric
+26,61,Soyopa
+26,62,Suaqui Grande
+26,63,Tepache
+26,64,Trincheras
+26,65,Tubutama
+26,66,Ures
+26,67,Villa Hidalgo
+26,68,Villa Pesqueira
+26,69,Yécora
+26,70,General Plutarco Elías Calles
+26,71,Benito Juárez
+26,72,San Ignacio Río Muerto
+27,1,Balancán
+27,2,Cárdenas
+27,3,Centla
+27,4,Centro
+27,5,Comalcalco
+27,6,Cunduacán
+27,7,Emiliano Zapata
+27,8,Huimanguillo
+27,9,Jalapa
+27,10,Jalpa de Méndez
+27,11,Jonuta
+27,12,Macuspana
+27,13,Nacajuca
+27,14,Paraíso
+27,15,Tacotalpa
+27,16,Teapa
+27,17,Tenosique
+28,1,Abasolo
+28,2,Aldama
+28,3,Altamira
+28,4,Antiguo Morelos
+28,5,Burgos
+28,6,Bustamante
+28,7,Camargo
+28,8,Casas
+28,9,Ciudad Madero
+28,10,Cruillas
+28,11,Gómez Farías
+28,12,González
+28,13,Güémez
+28,14,Guerrero
+28,15,Gustavo Díaz Ordaz
+28,16,Hidalgo
+28,17,Jaumave
+28,18,Jiménez
+28,19,Llera
+28,20,Mainero
+28,21,El Mante
+28,22,Matamoros
+28,23,Méndez
+28,24,Mier
+28,25,Miguel Alemán
+28,26,Miquihuana
+28,27,Nuevo Laredo
+28,28,Nuevo Morelos
+28,29,Ocampo
+28,30,Padilla
+28,31,Palmillas
+28,32,Reynosa
+28,33,Río Bravo
+28,34,San Carlos
+28,35,San Fernando
+28,36,San Nicolás
+28,37,Soto la Marina
+28,38,Tampico
+28,39,Tula
+28,40,Valle Hermoso
+28,41,Victoria
+28,42,Villagrán
+28,43,Xicoténcatl
+29,1,Amaxac de Guerrero
+29,2,Apetatitlán de Antonio Carvajal
+29,3,Atlangatepec
+29,4,Atltzayanca
+29,5,Apizaco
+29,6,Calpulalpan
+29,7,El Carmen Tequexquitla
+29,8,Cuapiaxtla
+29,9,Cuaxomulco
+29,10,Chiautempan
+29,11,Muñoz de Domingo Arenas
+29,12,Españita
+29,13,Huamantla
+29,14,Hueyotlipan
+29,15,Ixtacuixtla de Mariano Matamoros
+29,16,Ixtenco
+29,17,Mazatecochco de José María Morelos
+29,18,Contla de Juan Cuamatzi
+29,19,Tepetitla de Lardizábal
+29,20,Sanctórum de Lázaro Cárdenas
+29,21,Nanacamilpa de Mariano Arista
+29,22,Acuamanala de Miguel Hidalgo
+29,23,Natívitas
+29,24,Panotla
+29,25,San Pablo del Monte
+29,26,Santa Cruz Tlaxcala
+29,27,Tenancingo
+29,28,Teolocholco
+29,29,Tepeyanco
+29,30,Terrenate
+29,31,Tetla de la Solidaridad
+29,32,Tetlatlahuca
+29,33,Tlaxcala
+29,34,Tlaxco
+29,35,Tocatlán
+29,36,Totolac
+29,37,Ziltlaltépec de Trinidad Sánchez Santos
+29,38,Tzompantepec
+29,39,Xaloztoc
+29,40,Xaltocan
+29,41,Papalotla de Xicohténcatl
+29,42,Xicohtzinco
+29,43,Yauhquemehcan
+29,44,Zacatelco
+29,45,Benito Juárez
+29,46,Emiliano Zapata
+29,47,Lázaro Cárdenas
+29,48,La Magdalena Tlaltelulco
+29,49,San Damián Texóloc
+29,50,San Francisco Tetlanohcan
+29,51,San Jerónimo Zacualpan
+29,52,San José Teacalco
+29,53,San Juan Huactzinco
+29,54,San Lorenzo Axocomanitla
+29,55,San Lucas Tecopilco
+29,56,Santa Ana Nopalucan
+29,57,Santa Apolonia Teacalco
+29,58,Santa Catarina Ayometla
+29,59,Santa Cruz Quilehtla
+29,60,Santa Isabel Xiloxoxtla
+30,1,Acajete
+30,2,Acatlán
+30,3,Acayucan
+30,4,Actopan
+30,5,Acula
+30,6,Acultzingo
+30,7,Camarón de Tejeda
+30,8,Alpatláhuac
+30,9,Alto Lucero de Gutiérrez Barrios
+30,10,Altotonga
+30,11,Alvarado
+30,12,Amatitlán
+30,13,Naranjos Amatlán
+30,14,Amatlán de los Reyes
+30,15,Angel R. Cabada
+30,16,La Antigua
+30,17,Apazapan
+30,18,Aquila
+30,19,Astacinga
+30,20,Atlahuilco
+30,21,Atoyac
+30,22,Atzacan
+30,23,Atzalan
+30,24,Tlaltetela
+30,25,Ayahualulco
+30,26,Banderilla
+30,27,Benito Juárez
+30,28,Boca del Río
+30,29,Calcahualco
+30,30,Camerino Z. Mendoza
+30,31,Carrillo Puerto
+30,32,Catemaco
+30,33,Cazones de Herrera
+30,34,Cerro Azul
+30,35,Citlaltépetl
+30,36,Coacoatzintla
+30,37,Coahuitlán
+30,38,Coatepec
+30,39,Coatzacoalcos
+30,40,Coatzintla
+30,41,Coetzala
+30,42,Colipa
+30,43,Comapa
+30,44,Córdoba
+30,45,Cosamaloapan de Carpio
+30,46,Cosautlán de Carvajal
+30,47,Coscomatepec
+30,48,Cosoleacaque
+30,49,Cotaxtla
+30,50,Coxquihui
+30,51,Coyutla
+30,52,Cuichapa
+30,53,Cuitláhuac
+30,54,Chacaltianguis
+30,55,Chalma
+30,56,Chiconamel
+30,57,Chiconquiaco
+30,58,Chicontepec
+30,59,Chinameca
+30,60,Chinampa de Gorostiza
+30,61,Las Choapas
+30,62,Chocamán
+30,63,Chontla
+30,64,Chumatlán
+30,65,Emiliano Zapata
+30,66,Espinal
+30,67,Filomeno Mata
+30,68,Fortín
+30,69,Gutiérrez Zamora
+30,70,Hidalgotitlán
+30,71,Huatusco
+30,72,Huayacocotla
+30,73,Hueyapan de Ocampo
+30,74,Huiloapan de Cuauhtémoc
+30,75,Ignacio de la Llave
+30,76,Ilamatlán
+30,77,Isla
+30,78,Ixcatepec
+30,79,Ixhuacán de los Reyes
+30,80,Ixhuatlán del Café
+30,81,Ixhuatlancillo
+30,82,Ixhuatlán del Sureste
+30,83,Ixhuatlán de Madero
+30,84,Ixmatlahuacan
+30,85,Ixtaczoquitlán
+30,86,Jalacingo
+30,87,Xalapa
+30,88,Jalcomulco
+30,89,Jáltipan
+30,90,Jamapa
+30,91,Jesús Carranza
+30,92,Xico
+30,93,Jilotepec
+30,94,Juan Rodríguez Clara
+30,95,Juchique de Ferrer
+30,96,Landero y Coss
+30,97,Lerdo de Tejada
+30,98,Magdalena
+30,99,Maltrata
+30,100,Manlio Fabio Altamirano
+30,101,Mariano Escobedo
+30,102,Martínez de la Torre
+30,103,Mecatlán
+30,104,Mecayapan
+30,105,Medellín de Bravo
+30,106,Miahuatlán
+30,107,Las Minas
+30,108,Minatitlán
+30,109,Misantla
+30,110,Mixtla de Altamirano
+30,111,Moloacán
+30,112,Naolinco
+30,113,Naranjal
+30,114,Nautla
+30,115,Nogales
+30,116,Oluta
+30,117,Omealca
+30,118,Orizaba
+30,119,Otatitlán
+30,120,Oteapan
+30,121,Ozuluama de Mascareñas
+30,122,Pajapan
+30,123,Pánuco
+30,124,Papantla
+30,125,Paso del Macho
+30,126,Paso de Ovejas
+30,127,La Perla
+30,128,Perote
+30,129,Platón Sánchez
+30,130,Playa Vicente
+30,131,Poza Rica de Hidalgo
+30,132,Las Vigas de Ramírez
+30,133,Pueblo Viejo
+30,134,Puente Nacional
+30,135,Rafael Delgado
+30,136,Rafael Lucio
+30,137,Los Reyes
+30,138,Río Blanco
+30,139,Saltabarranca
+30,140,San Andrés Tenejapan
+30,141,San Andrés Tuxtla
+30,142,San Juan Evangelista
+30,143,Santiago Tuxtla
+30,144,Sayula de Alemán
+30,145,Soconusco
+30,146,Sochiapa
+30,147,Soledad Atzompa
+30,148,Soledad de Doblado
+30,149,Soteapan
+30,150,Tamalín
+30,151,Tamiahua
+30,152,Tampico Alto
+30,153,Tancoco
+30,154,Tantima
+30,155,Tantoyuca
+30,156,Tatatila
+30,157,Castillo de Teayo
+30,158,Tecolutla
+30,159,Tehuipango
+30,160,Álamo Temapache
+30,161,Tempoal
+30,162,Tenampa
+30,163,Tenochtitlán
+30,164,Teocelo
+30,165,Tepatlaxco
+30,166,Tepetlán
+30,167,Tepetzintla
+30,168,Tequila
+30,169,José Azueta
+30,170,Texcatepec
+30,171,Texhuacán
+30,172,Texistepec
+30,173,Tezonapa
+30,174,Tierra Blanca
+30,175,Tihuatlán
+30,176,Tlacojalpan
+30,177,Tlacolulan
+30,178,Tlacotalpan
+30,179,Tlacotepec de Mejía
+30,180,Tlachichilco
+30,181,Tlalixcoyan
+30,182,Tlalnelhuayocan
+30,183,Tlapacoyan
+30,184,Tlaquilpa
+30,185,Tlilapan
+30,186,Tomatlán
+30,187,Tonayán
+30,188,Totutla
+30,189,Tuxpan
+30,190,Tuxtilla
+30,191,Ursulo Galván
+30,192,Vega de Alatorre
+30,193,Veracruz
+30,194,Villa Aldama
+30,195,Xoxocotla
+30,196,Yanga
+30,197,Yecuatla
+30,198,Zacualpan
+30,199,Zaragoza
+30,200,Zentla
+30,201,Zongolica
+30,202,Zontecomatlán de López y Fuentes
+30,203,Zozocolco de Hidalgo
+30,204,Agua Dulce
+30,205,El Higo
+30,206,Nanchital de Lázaro Cárdenas del Río
+30,207,Tres Valles
+30,208,Carlos A. Carrillo
+30,209,Tatahuicapan de Juárez
+30,210,Uxpanapa
+30,211,San Rafael
+30,212,Santiago Sochiapan
+31,1,Abalá
+31,2,Acanceh
+31,3,Akil
+31,4,Baca
+31,5,Bokobá
+31,6,Buctzotz
+31,7,Cacalchén
+31,8,Calotmul
+31,9,Cansahcab
+31,10,Cantamayec
+31,11,Celestún
+31,12,Cenotillo
+31,13,Conkal
+31,14,Cuncunul
+31,15,Cuzamá
+31,16,Chacsinkín
+31,17,Chankom
+31,18,Chapab
+31,19,Chemax
+31,20,Chicxulub Pueblo
+31,21,Chichimilá
+31,22,Chikindzonot
+31,23,Chocholá
+31,24,Chumayel
+31,25,Dzán
+31,26,Dzemul
+31,27,Dzidzantún
+31,28,Dzilam de Bravo
+31,29,Dzilam González
+31,30,Dzitás
+31,31,Dzoncauich
+31,32,Espita
+31,33,Halachó
+31,34,Hocabá
+31,35,Hoctún
+31,36,Homún
+31,37,Huhí
+31,38,Hunucmá
+31,39,Ixil
+31,40,Izamal
+31,41,Kanasín
+31,42,Kantunil
+31,43,Kaua
+31,44,Kinchil
+31,45,Kopomá
+31,46,Mama
+31,47,Maní
+31,48,Maxcanú
+31,49,Mayapán
+31,50,Mérida
+31,51,Mocochá
+31,52,Motul
+31,53,Muna
+31,54,Muxupip
+31,55,Opichén
+31,56,Oxkutzcab
+31,57,Panabá
+31,58,Peto
+31,59,Progreso
+31,60,Quintana Roo
+31,61,Río Lagartos
+31,62,Sacalum
+31,63,Samahil
+31,64,Sanahcat
+31,65,San Felipe
+31,66,Santa Elena
+31,67,Seyé
+31,68,Sinanché
+31,69,Sotuta
+31,70,Sucilá
+31,71,Sudzal
+31,72,Suma
+31,73,Tahdziú
+31,74,Tahmek
+31,75,Teabo
+31,76,Tecoh
+31,77,Tekal de Venegas
+31,78,Tekantó
+31,79,Tekax
+31,80,Tekit
+31,81,Tekom
+31,82,Telchac Pueblo
+31,83,Telchac Puerto
+31,84,Temax
+31,85,Temozón
+31,86,Tepakán
+31,87,Tetiz
+31,88,Teya
+31,89,Ticul
+31,90,Timucuy
+31,91,Tinum
+31,92,Tixcacalcupul
+31,93,Tixkokob
+31,94,Tixmehuac
+31,95,Tixpéhual
+31,96,Tizimín
+31,97,Tunkás
+31,98,Tzucacab
+31,99,Uayma
+31,100,Ucú
+31,101,Umán
+31,102,Valladolid
+31,103,Xocchel
+31,104,Yaxcabá
+31,105,Yaxkukul
+31,106,Yobaín
+32,1,Apozol
+32,2,Apulco
+32,3,Atolinga
+32,4,Benito Juárez
+32,5,Calera
+32,6,Cañitas de Felipe Pescador
+32,7,Concepción del Oro
+32,8,Cuauhtémoc
+32,9,Chalchihuites
+32,10,Fresnillo
+32,11,Trinidad García de la Cadena
+32,12,Genaro Codina
+32,13,General Enrique Estrada
+32,14,General Francisco R. Murguía
+32,15,El Plateado de Joaquín Amaro
+32,16,General Pánfilo Natera
+32,17,Guadalupe
+32,18,Huanusco
+32,19,Jalpa
+32,20,Jerez
+32,21,Jiménez del Teul
+32,22,Juan Aldama
+32,23,Juchipila
+32,24,Loreto
+32,25,Luis Moya
+32,26,Mazapil
+32,27,Melchor Ocampo
+32,28,Mezquital del Oro
+32,29,Miguel Auza
+32,30,Momax
+32,31,Monte Escobedo
+32,32,Morelos
+32,33,Moyahua de Estrada
+32,34,Nochistlán de Mejía
+32,35,Noria de Ángeles
+32,36,Ojocaliente
+32,37,Pánuco
+32,38,Pinos
+32,39,Río Grande
+32,40,Sain Alto
+32,41,El Salvador
+32,42,Sombrerete
+32,43,Susticacán
+32,44,Tabasco
+32,45,Tepechitlán
+32,46,Tepetongo
+32,47,Teúl de González Ortega
+32,48,Tlaltenango de Sánchez Román
+32,49,Valparaíso
+32,50,Vetagrande
+32,51,Villa de Cos
+32,52,Villa García
+32,53,Villa González Ortega
+32,54,Villa Hidalgo
+32,55,Villanueva
+32,56,Zacatecas
+32,57,Trancoso
+32,58,Santa María de la Paz

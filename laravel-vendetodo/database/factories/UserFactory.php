@@ -2,8 +2,11 @@
 
 namespace Database\Factories;
 
+use App\Models\Direccion;
+use App\Models\User;
+use Faker\Provider\sv_SE\Municipality;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
 
 class UserFactory extends Factory
 {
@@ -16,4 +19,21 @@ class UserFactory extends Factory
             'rol_id' => 5, // Cliente
         ];
     }
+
+  public function configure()
+  {
+    $totalMunicipios = DB::table('municipios')->count();
+
+    return $this->afterCreating(function (User $user) use ($totalMunicipios) {
+
+      Direccion::factory()
+        ->count(rand(1, 3))
+        ->state([
+          'usuario_id' => $user->usuario_id,
+          'municipio_id' => rand(1, $totalMunicipios),
+        ])
+        ->create();
+
+    });
+  }
 }

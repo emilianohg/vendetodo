@@ -4,44 +4,67 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class UserSeeder extends Seeder
 {
     public function run()
     {
-        User::factory()
-            ->state([
-                'rol_id' => 1,
-                'nombre' => 'Administrador',
-                'email' => 'admin@example.com',
-            ])
-            ->create();
 
-        User::factory()
-            ->state([
-                'rol_id' => 2,
-                'nombre' => 'Surtidor',
-                'email' => 'surtidor@example.com',
-            ])
-            ->create();
+      User::factory()
+        ->state([
+          'rol_id' => 1,
+          'nombre' => 'Administrador',
+          'email' => 'admin@example.com',
+          'password' => bcrypt('password'),
+        ])
+        ->create();
 
-        User::factory()
-            ->state([
-                'rol_id' => 3,
-                'nombre' => 'Almacenista',
-                'email' => 'almacenista@example.com',
-            ])
-            ->create();
+      User::factory()
+        ->state([
+          'rol_id' => 2,
+          'nombre' => 'Surtidor',
+          'email' => 'surtidor@example.com',
+          'password' => bcrypt('password'),
+        ])
+        ->create();
+
+      User::factory()
+        ->state([
+          'rol_id' => 3,
+          'nombre' => 'Almacenista',
+          'email' => 'almacenista@example.com',
+          'password' => bcrypt('password'),
+        ])
+        ->create();
 
         // Administradores
-        User::factory()->count(10)
+        User::factory()->count(2)
             ->state(['rol_id' => 1])
             ->create();
 
+        $numEstantes = config('almacen.numero_estantes', 20);
+        $numSurtidores = floor($numEstantes / 5);
+
         // Surtidores
-        User::factory()->count(20)
+        $usuariosSurtidores = User::factory()->count($numSurtidores)
             ->state(['rol_id' => 2])
             ->create();
+
+        /*
+        foreach ($usuariosSurtidores as $i => $usuarioSurtidor) {
+          $estanteId = $i + 1;
+
+          if ($estanteId > $numEstantes) {
+            break;
+          }
+
+          DB::table('surtidores')->insert([
+            'surtidor_id' => $usuarioSurtidor->usuario_id,
+            'estante_id' => $i + 1,
+          ]);
+        }
+        */
 
         // Almacenista
         User::factory()->count(1)
