@@ -24,7 +24,7 @@
           <div class="right-side-navbar-content">
             @if(auth()->user() == null)
             <div class="btn-user-panel">
-                <a href="{{ route('login.index') }}" class="btn-user">
+                <a href="{{ route('login') }}" class="btn-user">
                   <span class="user-name-login">Iniciar Sesión</span>
                 </a>
             </div>
