@@ -2,16 +2,12 @@
 
 @section('style')
     <link rel="stylesheet" href="/css/productos-index.css">
+    <script src="js/index.js"></script>
 @endsection
 
 @section('content')
 
     <div class="controls-products">
-        <form class="navbar" action="{{ route('productos.index') }}">
-            <i class="fa fa-search"></i>
-            <input name="busqueda" type="text" value="{{ $busqueda }}" >
-        </form>
-
         <a class="btn" href="{{route('productos.create')}}">
             <i class="fa fa-add"></i> Añadir
         </a>
@@ -46,18 +42,18 @@
     <div class="pagination">
         <div class="container-page-numbers">
             @if ($productos->getPrevPageUrl() != null)
-                <a href="{{ route('productos.index', ['page' => $productos->getCurrentPage() - 1, 'busqueda' => $busqueda ]) }}" class="page-actions mr-4">Anterior</a>
+                <a href="{{ route('tienda.index', ['page' => $productos->getCurrentPage() - 1, 'busqueda' => $busqueda ]) }}" class="page-actions mr-4">Anterior</a>
             @endif
             @foreach(range($productos->getLeftBound(), $productos->getRightBound()) as $numberPage)
                 <a class="page-number
                    @if($productos->getCurrentPage() == $numberPage) page-number-selected @endif"
-                   href="{{ route('productos.index', ['page' => $numberPage, 'busqueda' => $busqueda ]) }}"
+                   href="{{ route('tienda.index', ['page' => $numberPage, 'busqueda' => $busqueda ]) }}"
                 >
                     {{ $numberPage }}
                 </a>
             @endforeach
             @if ($productos->getNextPageUrl() != null)
-                <a href="{{ route('productos.index', ['page' => $productos->getCurrentPage() + 1, 'busqueda' => $busqueda ]) }}" class="page-actions  ml-4">Siguiente</a>
+                <a href="{{ route('tienda.index', ['page' => $productos->getCurrentPage() + 1, 'busqueda' => $busqueda ]) }}" class="page-actions  ml-4">Siguiente</a>
             @endif
         </div>
     </div>

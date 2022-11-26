@@ -61,7 +61,7 @@ class DominioProductos
         $datos['imagen_url'] = $this->publicarImagen($imagen);
       }
 
-      ProductoBaseDatos::where('id', '=', $id)->update($datos);
+      ProductoBaseDatos::where('producto_id', '=', $id)->update($datos);
   }
 
   private function publicarImagen(?File $imagen)

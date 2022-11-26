@@ -24,14 +24,21 @@ class ProductosController extends Controller
     $productos = $this->dominio->consultar($busqueda);
     return view('products.index', ['productos' => $productos, 'busqueda' => $busqueda]);
   }
-  /* 
-  public function index(Request $request)
+
+  public function show($id)
+  {
+    $producto = $this->dominio->consultarPorId($id);
+    //será proveedores
+    $marcas = $this->dominio->getMarcas();
+    return view('products.individual', ['producto' => $producto, 'marcas' => $marcas]);
+  }
+  
+  public function indexTienda(Request $request)
   {
     $busqueda = $request->get('busqueda');
     $productos = $this->dominio->consultar($busqueda);
-    return view('products.productos', ['productos' => $productos, 'busqueda' => $busqueda]);
+    return view('crud.productos', ['productos' => $productos, 'busqueda' => $busqueda]);
   }
-  */
 
   public function store(StoreProductoRequest $request)
   {
@@ -43,34 +50,26 @@ class ProductosController extends Controller
     }
 
     $this->dominio->crear($datos, $imagen);
-    return redirect()->route('products.index');
+    return redirect()->route('tienda.index');
   }
 
   public function destroy($id)
   {
     $this->dominio->eliminar($id);
-    return redirect()->route('products.index');
+    return redirect()->route('tienda.index');
   }
 
   public function create()
   {
     $marcas = $this->dominio->getMarcas();
-    return view('products.create', ['marcas' => $marcas]);
+    return view('crud.create', ['marcas' => $marcas]);
   }
 
   public function edit($id)
   {
     $producto = $this->dominio->consultarPorId($id);
     $marcas = $this->dominio->getMarcas();
-    return view('products.edit', ['producto' => $producto, 'marcas' => $marcas]);
-  }
-  
-  public function show($id)
-  {
-    $producto = $this->dominio->consultarPorId($id);
-    //será proveedores
-    $marcas = $this->dominio->getMarcas();
-    return view('products.individual', ['producto' => $producto, 'marcas' => $marcas]);
+    return view('crud.edit', ['producto' => $producto, 'marcas' => $marcas]);
   }
 
   public function update(StoreProductoRequest $request, $id)
@@ -84,6 +83,6 @@ class ProductosController extends Controller
     }
 
     $this->dominio->actualizar($id, $datos, $imagen);
-    return redirect()->route('products.index');
+    return redirect()->route('tienda.index');
   }
 }
