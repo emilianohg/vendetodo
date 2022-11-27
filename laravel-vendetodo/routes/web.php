@@ -4,6 +4,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PerfilController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductosController;
+use App\Http\Controllers\CarritoController;
 
 
 Route::get('/', [ProductosController::class,'index'])->name('products.index');
@@ -15,3 +16,6 @@ Route::get('perfil', [PerfilController::class, 'index'])->name('perfil')->middle
 
 Route::resource('productos',ProductosController::class);
 Route::get('tienda', [ProductosController::class,'indexTienda'])->name('tienda.index');
+
+
+Route::get('carrito', [CarritoController::class, 'index'])->name('carrito');
