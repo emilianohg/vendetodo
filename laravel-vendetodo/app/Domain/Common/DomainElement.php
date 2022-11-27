@@ -4,6 +4,7 @@ namespace App\Domain\Common;
 
 use ReflectionClass;
 use ReflectionMethod;
+use stdClass;
 
 abstract class DomainElement
 {
@@ -20,8 +21,12 @@ abstract class DomainElement
      * @param class-string<T> $className
      * @return object
      */
-    protected static function make(string $className, array $value): object
+    protected static function make(string $className, array | stdClass $value): object
     {
+        if($value instanceof stdClass)
+        {
+            $value = (array)$value;
+        }
         $reflectionClass = new ReflectionClass($className);
         $constructor = new ReflectionMethod($reflectionClass->getName(), '__construct');
 

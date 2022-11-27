@@ -5,6 +5,7 @@ namespace App\Domain;
 use App\Domain\Common\Pagination;
 use App\Models\Producto as ProductoBaseDatos;
 use App\Models\Marca as MarcaBaseDatos;
+use App\Repositories\ProductosRepository;
 use Illuminate\Support\Facades\Storage;
 use Ramsey\Uuid\Nonstandard\Uuid;
 use Symfony\Component\HttpFoundation\File\File;
@@ -12,6 +13,12 @@ use Symfony\Component\HttpFoundation\File\File;
 
 class DominioProductos
 {
+
+  private ProductosRepository $productosRepository;
+  public function __construct()
+  {
+    $this->productosRepository = new ProductosRepository();
+  }
 
   public function consultar($busqueda)
   {
@@ -26,10 +33,22 @@ class DominioProductos
     return Pagination::fromPaginator($productos, Producto::class);
   }
 
-  public function consultarPorId($id)
+  public function obtenerDetalleProducto($productoId)
   {
-    $producto = ProductoBaseDatos::with(['marca'])->findOrFail($id);
-    return Producto::from($producto->toArray());
+    $producto = $this->productosRepository->consultarPorId($productoId);
+    $resumenesProveedores = $this->productosRepository->getResumenProveedores($productoId);
+
+    return ['producto' => $producto, 'resumen' => $resumenesProveedores];
+  }
+
+  public function consultarPorId($productoId)
+  {
+    return $this->productosRepository->consultarPorId($productoId);
+  }
+
+  public function getProveedorPorProductos($productoId)
+  {
+    
   }
 
   public function crear($datos, ?File $imagen = null)
