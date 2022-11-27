@@ -11,7 +11,7 @@ class LotesSeeder extends Seeder
     {
         $proveedoresProductos = DB::table('proveedores_productos')->get();
 
-        for ($i = 0; $i < count($proveedoresProductos); $i += 5) {
+        for ($i = 0; $i < count($proveedoresProductos); $i += 2) {
 
           $vendedorProducto = $proveedoresProductos[$i];
           $cantidad = 50 + rand(0, 25) * 5;

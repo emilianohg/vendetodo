@@ -35,8 +35,8 @@
                     <label class="info">Proveedor:</label>
                     <select class="form-select">
                     <option value="" disabled selected>-- Sin seleccionar --</option>
-                    @foreach ($marcas as $marca)
-                        <option class="brand-combobox" value="{{$marca->getId()}}">{{$marca->getNombre()}}</option>
+                    @foreach ($resumen as $res)
+                        <option class="brand-combobox" value="{{$res->getProveedorId()}}">{{$res->getProveedorNombre()}}</option>
                     @endforeach
                     </select>
                     <label class="info">Cantidad:</label>

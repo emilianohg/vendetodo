@@ -27,10 +27,8 @@ class ProductosController extends Controller
 
   public function show($id)
   {
-    $producto = $this->dominio->consultarPorId($id);
-    //será proveedores
-    $marcas = $this->dominio->getMarcas();
-    return view('products.individual', ['producto' => $producto, 'marcas' => $marcas]);
+    $datos = $this->dominio->obtenerDetalleProducto($id);
+    return view('products.individual', $datos);
   }
   
   public function indexTienda(Request $request)
