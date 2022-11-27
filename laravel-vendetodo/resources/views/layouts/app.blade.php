@@ -36,8 +36,10 @@
                   </a>
               </div>
             @endif
-            <div href="#" class="btn-shoppingcart">
+            <div class="btn-shoppingcart">
+                <a href="{{ route('carrito') }}">
               <i class="btn-shoppingcart-icon">🛒</i>
+                </a>
             </div>
           </div>
         </nav>

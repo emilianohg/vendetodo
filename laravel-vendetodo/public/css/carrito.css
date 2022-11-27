@@ -1,0 +1,132 @@
+@charset "UTF-8";
+
+/* Body */
+
+body {
+    font-family: source-sans-pro;
+    background-color: #dae0fb;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    font-weight: 200;
+    color: black;
+    font-family: Arial;
+}
+
+.servicios {
+    text-align: center;
+    display: grid;
+    margin: 0 auto;
+    margin-top: 160px;
+    margin-bottom: 40px;
+    max-width: 90%;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+.tabla-carrito {
+    align-content: center;
+    width: 96%;
+    background-color: #EEF1FF;
+    margin-left: 2%;
+    font-size: 18px;
+    border-radius: 15px;
+}
+
+.cabezera {
+    border-bottom: 2px solid #DDD;
+    width: 100%;
+    padding: 5px 0;
+}
+
+.linea-compra {
+    border-bottom: 2px solid #DDD;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    width: 100%;
+}
+
+.layout-inline>* {
+    display: inline-block;
+}
+
+.row>div {
+    vertical-align: middle;
+}
+
+button.btn {
+    margin-left: 10px;
+    padding: 10px 20px;
+    border: 2px solid #d5dbdb;
+    border-radius: 30px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #EEF1FF;
+    float: right;
+}
+
+button.btn-qty {
+    font-size: 25px;
+}
+
+input.cant {
+    font-size: 18px;
+    text-align: center;
+    width: 50%;
+    border: 2px solid #B1B2FF
+}
+
+.font-bold {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.font-total {
+    padding: 15px 0px;
+    font-size: 20px;
+}
+
+.col-img {
+    width: 100px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 2px;
+}
+
+.col-producto {
+    width: calc(100% - 580px);
+    padding-left: 10px;
+    text-align: left;
+}
+
+.col-num {
+    margin-inline: 12px;
+    width: 90px;
+}
+
+.col-cant {
+    margin-left: 3px;
+    width: 170px;
+}
+
+.col-del {
+    width: 10px;
+    text-align: center;
+    margin-right: 20px;
+}
+
+.frameImg {
+    width: 100px;
+    height: 80px;
+    border-radius: 1em;
+    border: 2px solid #d5dbdb;
+}
+
+.footer-carrito {
+    width: 80%;
+    text-align: right;
+    margin-left: 15%;
+}
