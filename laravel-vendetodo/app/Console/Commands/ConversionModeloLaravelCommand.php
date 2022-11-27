@@ -3,8 +3,8 @@
 namespace App\Console\Commands;
 
 use App\Domain\Common\Pagination;
-use App\Domain\Producto;
-use App\Models\Producto as ProductoBaseDatos;
+use App\Domain\Usuario;
+use App\Models\User as UsuarioTable;
 use Illuminate\Console\Command;
 
 class ConversionModeloLaravelCommand extends Command
@@ -20,21 +20,13 @@ class ConversionModeloLaravelCommand extends Command
 
     public function handle()
     {
-        /*
-        $productoModel = ProductoBaseDatos::with(['marca'])->find(1);
 
-        \Log::info($productoModel);
+        $usuarioTable = UsuarioTable::with(['rol', 'direccion', 'metodo_pago'])->find(1);
 
-        $producto = Producto::from($productoModel->toArray());
-        \Log::info((array) $producto);
-        */
+        \Log::info($usuarioTable);
 
-        $paginacionModel = ProductoBaseDatos::query()->paginate(24);
-
-        $paginacion = Pagination::fromPaginator($paginacionModel, Producto::class);
-
-        \Log::info((array) $paginacion);
-        \Log::info($paginacion->getData());
+        $usuario = Usuario::from($usuarioTable->toArray());
+        \Log::info((array) $usuario);
 
         return 0;
     }

@@ -14,7 +14,11 @@ class CreateUsuariosTable extends Migration
             $table->string('email');
             $table->string('password');
             $table->foreignId('rol_id');
+            $table->foreignId('metodo_pago_id')->nullable();
+            $table->foreignId('direccion_id')->nullable();
             $table->timestamps();
+
+            $table->index('email');
 
             $table->foreign('rol_id')
             ->on('roles')

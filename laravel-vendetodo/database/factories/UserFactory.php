@@ -17,6 +17,7 @@ class UserFactory extends Factory
             'email' => $this->faker->unique()->safeEmail(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'rol_id' => 5, // Cliente
+            'metodo_pago_id' => 1,
         ];
     }
 
@@ -31,14 +32,19 @@ class UserFactory extends Factory
       $municipios = DB::table('municipios')->where('estado_id', '=', $estadoId)->get();
       $municipio = $municipios[rand(0, count($municipios) - 1)];
 
-      Direccion::factory()
-        ->count(rand(1, 3))
-        ->state([
-          'usuario_id' => $user->usuario_id,
-          'estado_id' => $municipio->estado_id,
-          'municipio_id' => $municipio->municipio_id,
-        ])
-        ->create();
+      $direcciones = Direccion::factory()
+          ->count(rand(1, 3))
+          ->state([
+              'usuario_id' => $user->usuario_id,
+              'estado_id' => $municipio->estado_id,
+              'municipio_id' => $municipio->municipio_id,
+          ])
+          ->create();
+
+      $direccionDefault = $direcciones[0];
+
+      $user->direccion()->associate($direccionDefault);
+      $user->save();
 
     });
   }

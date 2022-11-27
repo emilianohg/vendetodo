@@ -4,16 +4,16 @@ namespace App\Domain;
 
 use App\Domain\Common\DomainElement;
 
-class Rol extends DomainElement
+class MetodoPago extends DomainElement
 {
     public function __construct(
-        private int $rol_id,
+        private int $metodo_pago_id,
         private string $nombre,
     ) { }
 
     /**
      * @param array $listValues
-     * @return Rol[]
+     * @return MetodoPago[]
      */
     public static function fromArray(array $listValues): array
     {
@@ -24,14 +24,14 @@ class Rol extends DomainElement
         return $items;
     }
 
-    public static function from(array $values): Rol
+    public static function from(array $values): MetodoPago
     {
-        return self::make(Rol::class, $values);
+        return self::make(MetodoPago::class, $values);
     }
 
-    public function getRolId(): int
+    public function getMetodoPagoId(): int
     {
-        return $this->rol_id;
+        return $this->metodo_pago_id;
     }
 
     public function getNombre(): string

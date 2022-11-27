@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class MetodoPago extends Model
 {
-    
       protected $table = 'metodos_pago';
       protected $primaryKey = 'metodo_pago_id';
     
@@ -16,5 +15,4 @@ class MetodoPago extends Model
       ];
 
       public $timestamps = false;
-
 }

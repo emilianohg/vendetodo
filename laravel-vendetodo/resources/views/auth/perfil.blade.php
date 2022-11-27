@@ -13,11 +13,15 @@
       <div class="info-user-container">
         <div class="user-name">
           <h2 class="tittle">Nombre de usuario:</h2>
-          <p>{{ auth()->user()->nombre }}</p>
+          <p>{{ $usuario->getNombre() }}</p>
         </div>
         <div class="user-email">
           <h2 class="tittle">Correo:</h2>
-          <p>{{ auth()->user()->email }}</p>
+          <p>{{ $usuario->getEmail() }}</p>
+        </div>
+        <div class="user-email">
+          <h2 class="tittle">Rol:</h2>
+          <p>{{ $usuario->getRol()->getNombre() }}</p>
         </div>
         <div class="btn-container">
               <form action="{{ route('login.logout') }}" method="POST">

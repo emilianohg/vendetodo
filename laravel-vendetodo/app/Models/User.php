@@ -15,10 +15,13 @@ class User extends Authenticatable
     protected $primaryKey = 'usuario_id';
 
     protected $fillable = [
+        'usuario_id',
         'nombre',
         'email',
         'password',
         'rol_id',
+        'metodo_pago_id',
+        'direccion_id',
     ];
 
     protected $hidden = [
@@ -32,5 +35,20 @@ class User extends Authenticatable
 
     public function rol() {
         return $this->belongsTo(Rol::class, 'rol_id', 'rol_id');
+    }
+
+    public function metodo_pago() {
+        return $this->belongsTo(MetodoPago::class, 'metodo_pago_id', 'metodo_pago_id');
+    }
+
+    public function direccion() {
+        return $this->belongsTo(Direccion::class, 'direccion_id', 'direccion_id')
+            ->select([
+                'direcciones.*',
+                'estados.nombre as estado',
+                'municipios.nombre as municipio',
+            ])
+            ->join('estados', 'direcciones.estado_id', '=', 'estados.estado_id')
+            ->join('municipios', 'direcciones.municipio_id', '=', 'municipios.municipio_id');
     }
 }
