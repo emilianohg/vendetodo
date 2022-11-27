@@ -19,10 +19,6 @@
           <h2 class="tittle">Correo:</h2>
           <p>{{ auth()->user()->email }}</p>
         </div>
-        <div class="user-role">
-          <h2 class="tittle">Rol:</h2>
-          <p>{{ auth()->user()->rol_id }}</p>
-        </div>
         <div class="btn-container">
               <form action="{{ route('login.logout') }}" method="POST">
               @csrf
