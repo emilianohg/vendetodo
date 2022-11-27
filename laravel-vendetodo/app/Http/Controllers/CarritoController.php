@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Domain\DominioCarrito;
+use App\Http\Requests\GuardarLineaCarritoRequest;
 use Illuminate\Http\Request;
 
 class CarritoController extends Controller
@@ -19,9 +20,14 @@ class CarritoController extends Controller
         return view('carrito.index');
     }
 
-    public function guardarLineaCarrito(Request $request) 
+    public function guardarLineaCarrito(GuardarLineaCarritoRequest $request) 
     {
-        //si el usuario está loguado lo guarda en BS y si no en LocalStorage
-        //$this->dominioCarrito->agregarProductoCarrito(auth()->user()->getAuthIdentifier(), );
+        //si el usuario está loguado lo guarda en BD y si no en LocalStorage
+        $this->dominioCarrito->agregarProductoCarrito(
+            auth()->user()->getAuthIdentifier(), 
+            $request->get('producto_id'), 
+            $request->get('proveedor_id'),
+            $request->get('cantidad')
+        );
     }
 }
