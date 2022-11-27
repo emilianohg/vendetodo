@@ -27,6 +27,7 @@ class EstadosYMunicipiosSeeder extends Seeder
       foreach ($csvMunicipalities->getRecords() as $record) {
         DB::table('municipios')->insert([
           'estado_id' => $record['state_id'],
+          'municipio_id' => $record['municipality_id'],
           'nombre' => $record['name'],
         ]);
       }

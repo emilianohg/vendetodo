@@ -22,15 +22,21 @@ class UserFactory extends Factory
 
   public function configure()
   {
-    $totalMunicipios = DB::table('municipios')->count();
+    $totalEstados = DB::table('estados')->count();
 
-    return $this->afterCreating(function (User $user) use ($totalMunicipios) {
+    return $this->afterCreating(function (User $user) use ($totalEstados) {
+
+      $estadoId = rand(1, $totalEstados);
+
+      $municipios = DB::table('municipios')->where('estado_id', '=', $estadoId)->get();
+      $municipio = $municipios[rand(0, count($municipios) - 1)];
 
       Direccion::factory()
         ->count(rand(1, 3))
         ->state([
           'usuario_id' => $user->usuario_id,
-          'municipio_id' => rand(1, $totalMunicipios),
+          'estado_id' => $municipio->estado_id,
+          'municipio_id' => $municipio->municipio_id,
         ])
         ->create();
 

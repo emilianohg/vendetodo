@@ -51,7 +51,6 @@ class UserSeeder extends Seeder
             ->state(['rol_id' => 2])
             ->create();
 
-        /*
         foreach ($usuariosSurtidores as $i => $usuarioSurtidor) {
           $estanteId = $i + 1;
 
@@ -64,7 +63,6 @@ class UserSeeder extends Seeder
             'estante_id' => $i + 1,
           ]);
         }
-        */
 
         // Almacenista
         User::factory()->count(1)

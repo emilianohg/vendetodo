@@ -11,15 +11,12 @@ class CreateAlmacenTable extends Migration
         Schema::create('almacen', function (Blueprint $table) {
             $table->unsignedInteger('estante_id');
             $table->unsignedInteger('seccion_id');
-            $table->foreignId('lote_id');
-            $table->integer('cantidad');
-            $table->integer('cantidad_disponible');
-            $table->enum('status', ['libre','recolectando','ordenando'])->default('libre');
-            $table->primary(['estante_id','seccion_id','lote_id']);
+            $table->foreignId('producto_id')->nullable();
+            $table->primary(['estante_id','seccion_id']);
 
-            $table->foreign('lote_id')
-            ->on('lotes')
-            ->references('lote_id');
+            $table->foreign('producto_id')
+            ->on('productos')
+            ->references('producto_id');
         });
     }
 

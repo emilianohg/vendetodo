@@ -10,10 +10,12 @@ class CreateLotesTable extends Migration
     {
         Schema::create('lotes', function (Blueprint $table) {
             $table->id('lote_id');
-            $table->foreignId('producto_id');
             $table->foreignId('proveedor_id');
+            $table->foreignId('producto_id');
             $table->integer('cantidad');
             $table->dateTime('fecha');
+
+            $table->index(['proveedor_id', 'producto_id']);
 
             $table->foreign('producto_id')
             ->on('productos')

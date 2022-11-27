@@ -16,6 +16,7 @@ class DireccionFactory extends Factory
           'codigo_postal' => $this->faker->numberBetween(10000, 99999),
           'usuario_id' => 1,
           'municipio_id' => 1,
+          'estado_id' => 1,
           'status' => 'activa',
         ];
     }

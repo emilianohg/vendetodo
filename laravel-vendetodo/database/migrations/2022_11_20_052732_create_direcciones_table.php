@@ -15,16 +15,18 @@ class CreateDireccionesTable extends Migration
             $table->string('numero_ext',10);
             $table->string('codigo_postal',5);
             $table->foreignId('usuario_id');
+            $table->foreignId('estado_id');
             $table->foreignId('municipio_id');
-            $table->enum('status',['activa','eliminada','envio']);
+            $table->enum('status', ['activa','eliminada','envio']);
 
             $table->foreign('usuario_id')
             ->on('usuarios')
             ->references('usuario_id');
 
-            $table->foreign('municipio_id')
+            $table->foreign(['estado_id', 'municipio_id'])
             ->on('municipios')
-            ->references('municipio_id');
+            ->references(['estado_id', 'municipio_id']);
+
         });
     }
 

@@ -13,7 +13,7 @@ class CreateDetalleOrdenTable extends Migration
             $table->foreignId('producto_id');
             $table->foreignId('proveedor_id');
             $table->integer('cantidad');
-            $table->decimal('precio',10,2);
+            $table->decimal('precio', 10, 2);
             $table->primary(['orden_id','producto_id','proveedor_id']);
 
             $table->foreign('orden_id')
