@@ -19,3 +19,4 @@ Route::get('tienda', [ProductosController::class,'indexTienda'])->name('tienda.i
 
 
 Route::get('carrito', [CarritoController::class, 'index'])->name('carrito');
+Route::post('carrito', [CarritoController::class, 'guardarLineaCarrito'])->name('carrito.guardarLinea');

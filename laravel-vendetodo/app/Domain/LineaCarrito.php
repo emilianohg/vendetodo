@@ -11,7 +11,8 @@ class LineaCarrito extends DomainElement
         private int $producto_id,
         private int $proveedor_id,
         private int $cantidad,
-        private ?Producto $producto,
+        private ?int $linea_carrito_id = null,
+        private ?Producto $producto = null,
     )
     {}
 
@@ -31,6 +32,16 @@ class LineaCarrito extends DomainElement
     public static function from(array $values): LineaCarrito
     {
         return self::make(LineaCarrito::class, $values);
+    }
+
+    public function sumarCantidad($cantidad): void
+    {
+        $this->cantidad = $this->cantidad + $cantidad;
+    }
+
+    public function getId(): ?int
+    {
+        return $this->linea_carrito_id;
     }
 
     public function getProductoId(): int

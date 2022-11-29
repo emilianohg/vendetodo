@@ -20,7 +20,7 @@ class CarritoController extends Controller
         return view('carrito.index');
     }
 
-    public function guardarLineaCarrito(GuardarLineaCarritoRequest $request) 
+    public function guardarLineaCarrito(Request $request) 
     {
         //si el usuario está loguado lo guarda en BD y si no en LocalStorage
         $this->dominioCarrito->agregarProductoCarrito(
@@ -29,5 +29,8 @@ class CarritoController extends Controller
             $request->get('proveedor_id'),
             $request->get('cantidad')
         );
+        
+        return back();
+        //return redirect()->route('productos.show', [ 'producto' => $request->get('producto_id') ]);
     }
 }
