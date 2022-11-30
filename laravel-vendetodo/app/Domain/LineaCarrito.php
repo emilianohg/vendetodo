@@ -8,10 +8,10 @@ use App\Domain\Producto;
 class LineaCarrito extends DomainElement
 {
     public function __construct(
+        private int $linea_carrito_id,
         private int $producto_id,
         private int $proveedor_id,
         private int $cantidad,
-        private ?int $linea_carrito_id = null,
         private ?Producto $producto = null,
     )
     {}
@@ -36,10 +36,10 @@ class LineaCarrito extends DomainElement
 
     public function sumarCantidad($cantidad): void
     {
-        $this->cantidad = $this->cantidad + $cantidad;
+        $this->cantidad += $cantidad;
     }
 
-    public function getId(): ?int
+    public function getId(): int
     {
         return $this->linea_carrito_id;
     }

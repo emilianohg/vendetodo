@@ -31,6 +31,5 @@ class CarritoController extends Controller
         );
         
         return back();
-        //return redirect()->route('productos.show', [ 'producto' => $request->get('producto_id') ]);
     }
 }

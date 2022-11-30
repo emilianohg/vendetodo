@@ -27,25 +27,25 @@ class Carrito
 
     public function agregarLineaCarrito(int $producto_id, int $proveedor_id, int $cantidad): void
     {
-        $lineaCarrito = new LineaCarrito($producto_id,$proveedor_id,$cantidad);
-        $existe = $this->existe($lineaCarrito);
-        if(!$existe)
+        if(!$this->existe($producto_id,$proveedor_id))
         {
-            $this->lineasCarrito[] = $lineaCarrito; //agregarLineaCarrito(lineaCarrito)
-            $this->carritosRepository->agregarLineaCarrito($this->usuario_id, $lineaCarrito);
+            $this->lineasCarrito[] = $this->carritosRepository->agregarLineaCarrito(
+                $this->usuario_id,
+                $producto_id, 
+                $proveedor_id, 
+                $cantidad,
+            );
+            return;
         }
-        else
+
+        foreach($this->lineasCarrito as $linea)
         {
-            foreach($this->lineasCarrito as $linea)
+            if($linea->getProductoId() == $producto_id 
+            && $linea->getProveedorId() == $proveedor_id)
             {
-                if($linea->getProductoId() == $producto_id 
-                && $linea->getProveedorId() == $proveedor_id)
-                {
-                    $linea->sumarCantidad($cantidad); //actualizarLineaCarrito(lineaCarrito)
-                    $this->carritosRepository
-                    ->actualizarLineaCarrito($this->usuario_id,$linea);
-                    break;
-                }
+                $linea->sumarCantidad($cantidad);
+                $this->carritosRepository->actualizarLineaCarrito($linea);
+                break;
             }
         }
 
@@ -53,29 +53,19 @@ class Carrito
 
     public function estaBloqueado(): bool
     {   
-        return $this->bloqueado == false ? false : true;
+        return $this->bloqueado;
     }
 
-    public function existe (LineaCarrito $lineaCarrito): bool
+    public function existe (int $producto_id, int $proveedor_id): bool
     {
-        /*
-        $lineasCarrito = collect($this->lineasCarrito);
-        if($lineasCarrito->contains($lineaCarrito))
-        {
-            return true;
-        }
-        return false;
-        */
-
         foreach($this->lineasCarrito as $linea)
         {
-            if($linea->getProductoId() == $lineaCarrito->getProductoId()
-            && $linea->getProveedorId() == $lineaCarrito->getProveedorId())
+            if($linea->getProductoId() == $producto_id
+            && $linea->getProveedorId() == $proveedor_id)
             {
                 return true;
             }
         }
-
         return false;
     }
 }

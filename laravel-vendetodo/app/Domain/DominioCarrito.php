@@ -16,11 +16,10 @@ class DominioCarrito
     public function agregarProductoCarrito(int $usuario_id, int $producto_id, int $proveedor_id, int $cantidad)
     {
         $carrito = $this->carritosRepository->buscarCarrito($usuario_id);
-        $estaBloqueado = $carrito->estaBloqueado();
-        if($estaBloqueado == false)
+        if(!$carrito->estaBloqueado())
         {
             $carrito->agregarLineaCarrito($producto_id, $proveedor_id, $cantidad);
         }
-        //regresar mensaje al usuario de que no puede agregar mientras paga.
+        return redirect()->back();
     }
 }
