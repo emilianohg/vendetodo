@@ -17,7 +17,8 @@ class CarritoController extends Controller
 
     public function index() 
     {
-        return view('carrito.index');
+        $carrito = $this->dominioCarrito->obtenerCarrito(auth()->user()->getAuthIdentifier());
+        return view('carrito.index', ['carrito' => $carrito]);
     }
 
     public function guardarLineaCarrito(Request $request) 

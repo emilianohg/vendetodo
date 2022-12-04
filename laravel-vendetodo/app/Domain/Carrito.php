@@ -16,7 +16,7 @@ class Carrito
     public function __construct(
         int $usuario_id,
         array $lineasCarrito = [],
-        bool $bloqueado,
+        bool $bloqueado = false,
     )
     {
         $this->usuario_id = $usuario_id;
@@ -67,5 +67,23 @@ class Carrito
             }
         }
         return false;
+    }
+
+    /**
+     * @return LineaCarrito[]
+     */
+    public function getLineasCarrito()
+    {
+        return $this->lineasCarrito;
+    }
+
+    public function getTotal(): float
+    {
+        $total = 0;
+        foreach($this->lineasCarrito as $linea)
+        {
+            $total += $linea->getSubtotal();
+        }
+        return $total;
     }
 }

@@ -20,7 +20,7 @@ class CarritosRepository
             'producto_id' => $producto_id,
             'proveedor_id'=> $proveedor_id,
             'cantidad' => $cantidad,
-        ]);
+        ])->load('producto','proveedor');
 
         return LineaCarrito::from($lineaCarrito->toArray());
     }
@@ -35,6 +35,7 @@ class CarritosRepository
     {
         $lineasCarritoArray = LineaCarritoBD::query()
             ->where('usuario_id', '=', $usuario_id)
+            ->with(['producto','proveedor'])
             ->get();
         
         $lineasCarritoObj = LineaCarrito::fromArray($lineasCarritoArray->toArray());

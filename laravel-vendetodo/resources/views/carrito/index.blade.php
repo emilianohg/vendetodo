@@ -21,33 +21,38 @@
 
 
 
+		@foreach($carrito->getLineasCarrito() as $lineaCarrito)
+			<div class="layout-inline row linea-compra">
+				@if($lineaCarrito->getProducto()->getImagenUrl() == null)
+                	<div class="card-image card-image-not-found"></div>
+                @else
+					<div class="col-img">
+						<img src="{{ $lineaCarrito->getProducto()->getImagenUrl() }}" alt="{{ $lineaCarrito->getProducto()->getNombre() }}" class="frameImg">
+					</div>
+                @endif
 
-		<div class="layout-inline row linea-compra">
-			<div class="col-img">
-                <img src="https://m.media-amazon.com/images/I/81IaHmQG2xL._AC_AA180_.jpg" class="frameImg">
-            </div>
+				<div class="col-producto">{{$lineaCarrito->getProducto()->getNombre()}}</div>
 
-			<div class="col-producto">TONER XEROX NEGRO PARA PHASER 6020/6022 Y WC 6025/6027</div>
+				<div class="col-cant layout-inline">
+					<button type="button" class="btn-qty">
+						<i class="fa-sharp fa-solid fa-circle-minus"></i>
+					</button>
+					<input type="numeric" class="cant" value="{{$lineaCarrito->getCantidad()}}" />
+					<button type="button" class="btn-qty">
+						<i class="fa-sharp fa-solid fa-circle-plus"></i>
+					</button>
+				</div>
 
-			<div class="col-cant layout-inline">
-				<button type="button" class="btn-qty">
-                    <i class="fa-sharp fa-solid fa-circle-minus"></i>
-                </button>
-           		 <input type="numeric" class="cant" value="0" />
-          		<button type="button" class="btn-qty">
-                    <i class="fa-sharp fa-solid fa-circle-plus"></i>
-                  </button>
+				<div class="col-num">{{number_format($lineaCarrito->getProducto()->getPrecio(),2)}}</div>
+
+				<div class="col-num">{{number_format($lineaCarrito->getSubtotal(),2)}}</div>
+
+				<div class="col-del">
+					<i class="fa-sharp fa-solid fa-trash-can"></i>
+				</div>
+
 			</div>
-
-			<div class="col-num">$9874.12</div>
-
-			<div class="col-num">$9874.12</div>
-
-			<div class="col-del">
-                <i class="fa-sharp fa-solid fa-trash-can"></i>
-            </div>
-
-		</div>
+		@endforeach
 
 
 
@@ -56,12 +61,16 @@
 
     <div class="footer-carrito layout-inline">
 		<div class="font-total font-bold">Total:</div>
-		<div class="font-total" > $200000000000000000000000.53</div>
+		<div class="font-total" >{{number_format($carrito->getTotal(),2)}}</div>
 	</div>
 
 	<div class="footer-carrito layout-inline" >
-	  <button type="button" class="btn" style="background: #abebc6 ">Pagar</button>
-	  <button type="button" class="btn">Seguir comprando</button>
+		<form action="{{ route('products.index') }}">
+			<button type="submit" class="btn">Seguir comprando</button>
+		</form>
+		<form action="{{ route('products.index') }}">
+			<button type="submit" class="btn" style="background: #abebc6 ">Pagar</button>
+		</Form>
 	</div>
 
 </div>

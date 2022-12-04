@@ -24,12 +24,12 @@ class LineaCarrito extends Model
 
     public function producto()
     {
-        return $this->belongsTo(producto::class,'producto_id','producto_id');
+        return $this->belongsTo(Producto::class,'producto_id','producto_id');
     }
 
     public function proveedor()
     {
-        return $this->belongsTo(proveedor::class,'proveedor_id','proveedor_id');
+        return $this->belongsTo(Proveedor::class,'proveedor_id','proveedor_id');
     }
 
   public $timestamps = false;

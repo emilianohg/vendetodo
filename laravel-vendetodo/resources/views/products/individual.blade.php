@@ -38,7 +38,7 @@
                 <div>
                     @if(count($resumen) > 0)
                     <form action="{{route('carrito.guardarLinea')}}" method="POST">
-                    @csrf
+                        @csrf
                         <label class="info">Proveedor:</label>
                         <select id="select-proveedor" name = "proveedor_id" class="form-select">
                             @foreach ($resumen as $res)

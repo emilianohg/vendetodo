@@ -20,6 +20,10 @@ class DominioCarrito
         {
             $carrito->agregarLineaCarrito($producto_id, $proveedor_id, $cantidad);
         }
-        return redirect()->back();
+    }
+
+    public function obtenerCarrito(int $usuario_id): Carrito
+    {
+        return $this->carritosRepository->buscarCarrito($usuario_id);
     }
 }

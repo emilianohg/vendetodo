@@ -12,7 +12,8 @@ class LineaCarrito extends DomainElement
         private int $producto_id,
         private int $proveedor_id,
         private int $cantidad,
-        private ?Producto $producto = null,
+        private Producto $producto,
+        private Proveedor $proveedor,
     )
     {}
 
@@ -59,8 +60,18 @@ class LineaCarrito extends DomainElement
         return $this->cantidad;
     }
 
-    public function getProducto(): ?Producto
+    public function getProducto(): Producto
     {
         return $this->producto;
+    }
+    
+    public function getProveedor(): Proveedor
+    {
+        return $this->proveedor;
+    }
+
+    public function getSubtotal(): float
+    {
+        return $this->cantidad * $this->producto->getPrecio();
     }
 }
