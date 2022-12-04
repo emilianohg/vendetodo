@@ -33,4 +33,10 @@ class CarritoController extends Controller
         
         return back();
     }
+
+    public function borrarLineaCarrito($id)
+    {
+        $this->dominioCarrito->borrarLineaCarrito($id);
+        return back();
+    }
 }

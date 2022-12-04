@@ -97,9 +97,13 @@ input.cant {
 }
 
 .col-producto {
-    width: calc(100% - 580px);
+    width: calc(100% - 820px);
     padding-left: 10px;
     text-align: left;
+}
+
+.col-proveedor{
+    width: 200px;
 }
 
 .col-num {

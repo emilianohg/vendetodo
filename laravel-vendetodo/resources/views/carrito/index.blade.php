@@ -12,6 +12,7 @@
 		<div class="layout-inline row cabezera font-bold">
 			<div class="col-img"></div>
 			<div class="col-producto">Producto</div>
+			<div class="col-proveedor">Proveedor</div>
 			<div class="col-cant">Cantidad</div>
 			<div class="col-num">Precio</div>
 			<div class="col-num">Subtotal</div>
@@ -33,12 +34,14 @@
 
 				<div class="col-producto">{{$lineaCarrito->getProducto()->getNombre()}}</div>
 
+				<div class="col-proveedor">{{$lineaCarrito->getProveedor()->getNombre()}}</div>
+
 				<div class="col-cant layout-inline">
-					<button type="button" class="btn-qty">
+					<button type="submit" class="btn-qty">
 						<i class="fa-sharp fa-solid fa-circle-minus"></i>
 					</button>
 					<input type="numeric" class="cant" value="{{$lineaCarrito->getCantidad()}}" />
-					<button type="button" class="btn-qty">
+					<button type="submit" class="btn-qty">
 						<i class="fa-sharp fa-solid fa-circle-plus"></i>
 					</button>
 				</div>
@@ -47,9 +50,13 @@
 
 				<div class="col-num">{{number_format($lineaCarrito->getSubtotal(),2)}}</div>
 
-				<div class="col-del">
-					<i class="fa-sharp fa-solid fa-trash-can"></i>
-				</div>
+				<form action="{{route('carrito.borrarLinea', [ 'id' => $lineaCarrito->getId() ])}}"  method="POST">
+				@csrf
+                {{method_field('DELETE')}}
+					<div class="col-del">
+						<button type="submit" class="fa-sharp fa-solid fa-trash-can"></button>
+					</div>
+				</form>
 
 			</div>
 		@endforeach

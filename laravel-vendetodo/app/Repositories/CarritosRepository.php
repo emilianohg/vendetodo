@@ -43,4 +43,10 @@ class CarritosRepository
         
         return  new Carrito($usuario_id, $lineasCarritoObj, $bloqueado);
     }
+
+    public function borrarLineaCarrito(int $linea_carrito_id): void
+    {
+        $linea_carrito = LineaCarritoBD::query()->findOrFail($linea_carrito_id);
+        $linea_carrito->delete();
+    }
 }

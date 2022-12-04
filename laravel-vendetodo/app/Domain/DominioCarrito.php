@@ -26,4 +26,9 @@ class DominioCarrito
     {
         return $this->carritosRepository->buscarCarrito($usuario_id);
     }
+
+    public function borrarLineaCarrito(int $linea_carrito_id): void
+    {
+        $this->carritosRepository->borrarLineaCarrito($linea_carrito_id);
+    }
 }
