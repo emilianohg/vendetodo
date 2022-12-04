@@ -97,7 +97,7 @@ input.cant {
 }
 
 .col-producto {
-    width: calc(100% - 820px);
+    width: calc(100% - 810px);
     padding-left: 10px;
     text-align: left;
 }
@@ -133,4 +133,8 @@ input.cant {
     width: 80%;
     text-align: right;
     margin-left: 15%;
+}
+
+.keep-buying{
+    text-decoration: underline;
 }
