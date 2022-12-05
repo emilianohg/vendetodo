@@ -23,11 +23,4 @@ class ControlAlmacenTable extends Model
   {
     return $this->belongsTo(Lote::class, 'lote_id', 'lote_id');
   }
-
-  public function producto()
-  {
-    return $this->belongsTo(Lote::class, 'lote_id', 'lote_id')
-      ->select(['productos.*'])
-      ->join('productos', 'productos.producto_id', '=', 'lotes.producto_id');
-  }
 }

@@ -10,12 +10,12 @@ class Seccion
    * @var PaqueteLote[]
    */
   private array $paquetes;
-  private Producto $producto;
+  private ?Producto $producto;
 
   public function __construct(
     int $seccionId,
     int $estanteId,
-    Producto $producto,
+    ?Producto $producto = null,
     array $paquetes = [],
   ) {
     $this->seccionId = $seccionId;
@@ -42,7 +42,7 @@ class Seccion
     return $this->paquetes;
   }
 
-  public function getProducto(): Producto
+  public function getProducto(): ?Producto
   {
     return $this->producto;
   }

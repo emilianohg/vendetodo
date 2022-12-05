@@ -16,10 +16,10 @@ class Lote extends DomainElement
     private Producto $producto,
     private int $proveedor_id,
     private int $cantidad,
-    private int $cantidaBodega,
+    private int $cantidadBodega,
     private int $cantidadAlmacen,
-    private ?int $estante = null,
-    private ?int $secccion = null,
+    private ?int $estante_id = null,
+    private ?int $seccion_id = null,
   ) {
   }
 
@@ -41,7 +41,7 @@ class Lote extends DomainElement
     return self::make(Lote::class, $values);
   }
 
-  public function getId(): int
+  public function getLoteId(): int
   {
     return $this->lote_id;
   }
@@ -73,7 +73,7 @@ class Lote extends DomainElement
 
   public function getCantidadBodega(): int
   {
-    return $this->cantidaBodega;
+    return $this->cantidadBodega;
   }
 
   public function getCantidadAlmacen(): int
@@ -81,13 +81,13 @@ class Lote extends DomainElement
     return $this->cantidadAlmacen;
   }
 
-  public function getEstante(): int
+  public function getEstanteId(): int
   {
-    return $this->estante;
+    return $this->estante_id;
   }
 
-  public function getSeccion(): int
+  public function getSeccionId(): int
   {
-    return $this->secccion;
+    return $this->seccion_id;
   }
 }

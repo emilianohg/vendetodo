@@ -21,7 +21,6 @@ class DominioEstante
 
   public function obtenerOrdenProductos($estante_id): void
   {
-    //return $this->almacenRepository->obtenerEstantes();
-    
+     $estantes = $this->almacenRepository->obtenerEstantes();
   }
 }

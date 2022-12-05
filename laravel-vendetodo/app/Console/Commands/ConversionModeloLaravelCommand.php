@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\Domain\Common\Pagination;
 use App\Domain\Usuario;
 use App\Models\User as UsuarioTable;
+use App\Repositories\AlmacenRepository;
 use Illuminate\Console\Command;
 
 class ConversionModeloLaravelCommand extends Command
@@ -21,12 +22,11 @@ class ConversionModeloLaravelCommand extends Command
     public function handle()
     {
 
-        $usuarioTable = UsuarioTable::with(['rol', 'direccion', 'metodo_pago'])->find(1);
+        $almacen = new AlmacenRepository();
 
-        \Log::info($usuarioTable);
+        $estantes = $almacen->obtenerEstantes();
 
-        $usuario = Usuario::from($usuarioTable->toArray());
-        \Log::info((array) $usuario);
+        \Log::info($estantes);
 
         return 0;
     }
