@@ -129,11 +129,16 @@ br {
 
 /* 948x300px es el tamaño de las imagenes para el news-pattern-img */
 .news-pattern-img {
-  width: 100%;
+  width: 1000px;
   height: 300px;
-  background-color: #d12222;
+  background: url(/images/BannerMobileApp.jpg?70ac66a44a9b3620e193add8d8bb9101);
   background-size: contain;
-  border-radius: 8px;
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  margin: auto;
+  border-radius: 15px-;
 }
 .navbar {
   display: flex;
