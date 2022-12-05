@@ -37,29 +37,32 @@
                 </div>
                 <div>
                     @if(count($resumen) > 0)
-                    <label class="info">Proveedor:</label>
-                    <select id="select-proveedor" class="form-select">
-                        @foreach ($resumen as $res)
-                            <option
-                                class="brand-combobox"
-                                data-cantidad="{{ $res->getCantidadDisponible() }}"
-                                value="{{ $res->getProveedorId() }}"
-                            >{{ $res->getProveedorNombre() }}</option>
-                        @endforeach
-                    </select>
-                    <p>Disponible: <span id="cantidad-disponible">{{ $resumen[0]->getCantidadDisponible() }}</span></p>
+                    <form action="{{route('carrito.guardarLinea')}}" method="POST">
+                        @csrf
+                        <label class="info">Proveedor:</label>
+                        <select id="select-proveedor" name = "proveedor_id" class="form-select">
+                            @foreach ($resumen as $res)
+                                <option
+                                    class="brand-combobox"
+                                    data-cantidad="{{ $res->getCantidadDisponible() }}"
+                                    value="{{ $res->getProveedorId() }}"
+                                >{{ $res->getProveedorNombre() }}</option>
+                            @endforeach
+                        </select>
+                        <p>Disponible: <span id="cantidad-disponible">{{ $resumen[0]->getCantidadDisponible() }}</span></p>
 
-                    <label class="info">Cantidad:</label>
-                    <select class="form-select">
-                        <option value="" selected>1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-
-                    <button type="submit" class="btn btn-primary">Agregar al carrito</button>
-
+                        <label class="info">Cantidad:</label>
+                        <select name="cantidad" class="form-select">
+                            <option value="1" selected>1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                        <input type="hidden" name="producto_id" value="{{$producto->getId()}}">
+                        <button type="submit" class="btn btn-primary">Agregar al carrito</button>
+                    </form>
+ 
                     <script>
                         $selectProveedor = document.getElementById('select-proveedor');
                         $cantidadDisponibleParagraph = document.getElementById('cantidad-disponible');
@@ -74,7 +77,6 @@
                     @endif
                 </div>
             </div>
-
-        </div>
+        </div>            
     </div>
 @endsection

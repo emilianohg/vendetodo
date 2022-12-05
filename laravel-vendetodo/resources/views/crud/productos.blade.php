@@ -31,8 +31,8 @@
                 <div class="card-actions">
                     <a class="btn-action btn-action-primary" href="{{route('productos.edit', [ 'producto' => $producto->getId() ])}}"><i class="fa fa-pencil"></i></a>
                     <form action="{{route('productos.destroy', $producto->getId())}}"  method="POST" >
-                        @csrf
-                        {{ method_field('DELETE') }}
+                    @csrf
+                    {{ method_field('DELETE') }}
                         <input class="btn-action btn-action-danger" type="submit" onclick="return confirm('¿Quieres borrar?')" value="🗑️">
                     </form>
                 </div>
