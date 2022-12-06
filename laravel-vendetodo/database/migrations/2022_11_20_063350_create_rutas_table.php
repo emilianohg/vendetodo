@@ -19,7 +19,7 @@ class CreateRutasTable extends Migration
             $table->primary(['orden_id','orden']);
 
             $table->foreign('orden_id')
-            ->on('orden')
+            ->on('ordenes')
             ->references('orden_id');
 
             $table->foreign('lote_id')

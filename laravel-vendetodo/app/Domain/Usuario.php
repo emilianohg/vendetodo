@@ -17,8 +17,8 @@ class Usuario extends DomainElement
         private string $created_at,
         private string $updated_at,
         private Rol $rol,
-        private ?Direccion $direccion,
-        private ?MetodoPago $metodo_pago,
+        private ?Direccion $direccion = null,
+        private ?MetodoPago $metodo_pago = null,
     ) {}
 
     /**
@@ -84,12 +84,12 @@ class Usuario extends DomainElement
         return $this->rol;
     }
 
-    public function getDireccion(): Direccion
+    public function getDireccion(): ?Direccion
     {
         return $this->direccion;
     }
 
-    public function getMetodoPago(): MetodoPago
+    public function getMetodoPago(): ?MetodoPago
     {
         return $this->metodo_pago;
     }
