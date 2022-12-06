@@ -29,14 +29,13 @@ class AlmacenRepository
       'bodega.cantidad as cantidadBodega',
       DB::raw('COALESCE(control_almacen.cantidad, 0) as cantidadAlmacen'),
     ])
-      ->with('producto')
-      ->leftJoin('control_almacen', function ($join) {
+      ->with(['producto', 'producto.marca'])
+      ->join('control_almacen', function ($join) {
         $join->on('control_almacen.estante_id', '=', 'almacen.estante_id')
           ->on('control_almacen.seccion_id', '=', 'almacen.seccion_id');
       })
-      ->leftJoin('bodega', 'bodega.lote_id', '=', 'control_almacen.lote_id')
-      ->leftJoin('lotes', 'lotes.lote_id', '=', 'control_almacen.lote_id')
-      ->whereNotNull('lotes.lote_id')
+      ->join('bodega', 'bodega.lote_id', '=', 'control_almacen.lote_id')
+      ->join('lotes', 'lotes.lote_id', '=', 'control_almacen.lote_id')
       ->orderBy('almacen.estante_id')
       ->orderBy('almacen.seccion_id')
       ->get();
@@ -48,7 +47,13 @@ class AlmacenRepository
 
     //createPaquetesLotes
     $paquetesLotesAlmacen = collect($lotesObj)->map(function ($lote) {
-      return new PaqueteLote($lote->getLoteId(), $lote, $lote->getCantidadAlmacen(), $lote->getEstanteId(), $lote->getSeccionId());
+      return new PaqueteLote(
+        $lote->getLoteId(), 
+        $lote, 
+        $lote->getCantidadAlmacen(), 
+        $lote->getEstanteId(), 
+        $lote->getSeccionId()
+      );
     });
 
     $totalEstantes = config('almacen.numero_estantes');

@@ -23,11 +23,17 @@ class DominioEstante
   {
     $estantes = $this->almacenRepository->obtenerEstantes();
     $productosExcluidos = $this->obtenerIdProductosExcluidos($estantes, $estante_id);
+    $reporteVentas = $this->reportesVentasRepository->generarReporteVentas(
+      now()->subDays(7)->toAtomString(),
+      now()->toAtomString(),
+      $productosExcluidos,
+      true,
+    );
   }
 
   /**
    * @param Estante[]
-   * @return int [] 
+   * @return Producto [] 
    */
   public function obtenerIdProductosExcluidos($estantes, int $estante_id)
   {
@@ -42,7 +48,7 @@ class DominioEstante
         if ($producto == null) {
           continue;
         }
-        $productosExcluidosId[] = $producto->getId();
+        $productosExcluidosId[] = $producto;
       }
     }
     return $productosExcluidosId;
