@@ -7,6 +7,15 @@ services:
       - MYSQL_DATABASE=vendetodo
     ports:
       - 3306:3306
+  fastapi:
+    build:
+      context: fastapi-rutas/
+      dockerfile: Dockerfile
+    volumes:
+      - ./fastapi-rutas:/code
+    ports:
+      - 8001:8001
+    command: ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8001", '--reload']
   laravel:
     build:
       context: docker/
