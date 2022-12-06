@@ -18,7 +18,7 @@ class CreateOrdenesPreasignadasTable extends Migration
             $table->primary(['orden_id', 'surtidor_id', 'intento']);
 
             $table->foreign('orden_id')
-              ->on('orden')
+              ->on('ordenes')
               ->references('orden_id');
         });
     }

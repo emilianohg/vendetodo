@@ -17,7 +17,7 @@ class CreateDetalleOrdenTable extends Migration
             $table->primary(['orden_id','producto_id','proveedor_id']);
 
             $table->foreign('orden_id')
-            ->on('orden')
+            ->on('ordenes')
             ->references('orden_id');
 
             $table->foreign('producto_id')
