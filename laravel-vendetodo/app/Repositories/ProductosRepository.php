@@ -33,6 +33,21 @@ class ProductosRepository
     return ResumenProductosProveedor::fromArray(collect($resumen)->toArray());
   }
 
+  public function getResumenProductos()
+  {
+    $resumen = DB::table('proveedores_productos')->select([
+      'proveedores_productos.proveedor_id',
+      'proveedores.nombre as proveedor_nombre',
+      'proveedores_productos.producto_id',
+      'productos.nombre as producto_nombre',
+      'proveedores_productos.cantidad',
+      'proveedores_productos.cantidad_disponible'
+    ])->join('proveedores', 'proveedores_productos.proveedor_id', '=', 'proveedores.proveedor_id')
+      ->join('productos', 'proveedores_productos.producto_id', '=', 'productos.producto_id')
+      ->get();
+    return $resumen;
+  }
+
   public function consultarPorId($id)
   {
     $producto = ProductoBaseDatos::with(['marca'])->findOrFail($id);
