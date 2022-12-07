@@ -40,6 +40,7 @@ class ProductosRepository
       'proveedores.nombre as proveedor_nombre',
       'proveedores_productos.producto_id',
       'productos.nombre as producto_nombre',
+      'productos.imagen_url as producto_imagen',
       'proveedores_productos.cantidad',
       'proveedores_productos.cantidad_disponible'
     ])->join('proveedores', 'proveedores_productos.proveedor_id', '=', 'proveedores.proveedor_id')

@@ -87,6 +87,7 @@ class ProductosController extends Controller
   public function api()
   {
     $productosAJson = $this->dominio->postApi();
-    return response()->json($productosAJson);
+    $data = ['success' => true, 'data' => $productosAJson];
+    return response()->json($data, 200, []);
   }
 }
