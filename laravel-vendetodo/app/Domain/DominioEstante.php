@@ -5,6 +5,7 @@ namespace App\Domain;
 use App\Repositories\AlmacenRepository;
 use App\Repositories\ReportesVentasRepository;
 use App\Repositories\ReportesOrdenEstanteRepository;
+use Illuminate\Support\Str;
 
 class DominioEstante
 {
@@ -12,7 +13,7 @@ class DominioEstante
   private ReportesVentasRepository $reportesVentasRepository;
   private ReportesOrdenEstanteRepository $reportesOrdenEstanteRepository;
 
-  public function _construct()
+  public function __construct()
   {
     $this->almacenRepository = new AlmacenRepository();
     $this->reportesVentasRepository = new ReportesVentasRepository();
@@ -28,14 +29,17 @@ class DominioEstante
       now()->toAtomString(),
       $productosExcluidos,
       true,
+      config('almacen.numero_secciones'),
     );
+    $reporteOrden = new ReporteOrden(Str::uuid()->toString(), now()->toAtomString(), $estante_id);
+    
   }
 
   /**
-   * @param Estante[]
-   * @return Producto [] 
+   * @param Estante[] $estantes
+   * @return Producto[]
    */
-  public function obtenerIdProductosExcluidos($estantes, int $estante_id)
+  public function obtenerIdProductosExcluidos( array $estantes, int $estante_id): array
   {
     $productosExcluidosId = [];
     for ($numEstante = 0; $numEstante < count($estantes); $numEstante++) {

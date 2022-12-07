@@ -6,6 +6,7 @@ use App\Domain\Common\Pagination;
 use App\Domain\Usuario;
 use App\Models\User as UsuarioTable;
 use App\Repositories\AlmacenRepository;
+use App\Repositories\ReportesVentasRepository;
 use Illuminate\Console\Command;
 use App\Domain\DominioEstante;
 
@@ -24,11 +25,7 @@ class ConversionModeloLaravelCommand extends Command
   {
 
     $estante = new DominioEstante();
-    $reporEstante = new AlmacenRepository();
-    $estantes = $reporEstante->obtenerEstantes();
-    $productosExcluidos = $estante->obtenerIdProductosExcluidos($estantes, 1);
-
-    \Log::info($estantes);
+    $estante->obtenerOrdenProductos(1);
 
     return 0;
   }
