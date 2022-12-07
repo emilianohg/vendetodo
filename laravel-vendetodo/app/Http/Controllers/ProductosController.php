@@ -30,7 +30,7 @@ class ProductosController extends Controller
     $datos = $this->dominio->obtenerDetalleProducto($id);
     return view('products.individual', $datos);
   }
-  
+
   public function indexTienda(Request $request)
   {
     $busqueda = $request->get('busqueda');
@@ -82,5 +82,12 @@ class ProductosController extends Controller
 
     $this->dominio->actualizar($id, $datos, $imagen);
     return redirect()->route('tienda.index');
+  }
+
+  public function api()
+  {
+    $productosAJson = $this->dominio->postApi();
+    $data = ['success' => true, 'data' => $productosAJson];
+    return response()->json($data, 200, []);
   }
 }
