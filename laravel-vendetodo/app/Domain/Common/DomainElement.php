@@ -4,10 +4,12 @@ namespace App\Domain\Common;
 
 use ReflectionClass;
 use ReflectionMethod;
+use ReflectionParameter;
 use stdClass;
 
 abstract class DomainElement
 {
+
     public abstract static function from(array $values): self;
 
     /**
@@ -53,13 +55,21 @@ abstract class DomainElement
             // Si es un arreglo
             if ($typeParameter == 'array') {
                 $arrayOfClasses = $value[$parameter->getName()];
+
+                $classNameOfArray = self::getTypeByDocs($constructor, $parameter->getName());
+
+                if ($classNameOfArray == null) {
+                    $attributes[$parameter->getName()] = $arrayOfClasses;
+                    continue;
+                }
+
                 $arrayObjective = [];
 
                 foreach ($arrayOfClasses as $classOfArray) {
-                    $attributeClass = new ReflectionClass($classOfArray);
-                    if ($attributeClass->isSubclassOf(DomainElement::class)) { 
+                    $attributeClass = new ReflectionClass($classNameOfArray);
+                    if ($attributeClass->isSubclassOf(DomainElement::class)) {
                         $instance = $attributeClass->newInstanceWithoutConstructor();
-                        $arrayObjective[] = $instance->from($value[$parameter->getName()]);
+                        $arrayObjective[] = $instance->from($classOfArray);
                     }
                 }
 
@@ -84,6 +94,30 @@ abstract class DomainElement
 
     private static function isPrimitive(string $type) {
         return in_array($type, ['int', 'float', 'boolean', 'string', 'object']);
+    }
+
+    private static function getTypeByDocs(ReflectionMethod $method, string $paramName): ?string {
+
+        $comment = $method->getDocComment();
+
+        $starting_word = '@param';
+        $ending_word = '$' . $paramName;
+
+        foreach (preg_split("/\r\n|\n|\r/", $comment) as $line) {
+            if (!str_contains($line, $starting_word) || !str_contains($line, $ending_word)) {
+                continue;
+            }
+
+            $subtring_start = strpos($line, $starting_word);
+            $subtring_start += strlen($starting_word);
+            $size = strpos($line, $ending_word, $subtring_start) - $subtring_start;
+
+            $classNameArray = trim(substr($line, $subtring_start, $size));
+
+            return substr(str_replace('[]', '', $classNameArray), 1);
+        }
+
+        return null;
     }
 
 }

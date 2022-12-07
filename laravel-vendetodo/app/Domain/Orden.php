@@ -13,10 +13,10 @@ class Orden extends DomainElement
      * @param int $pago_id
      * @param string $fecha_creacion
      * @param int $direccion_envio_id
-     * @param DetalleOrden[] $detalle
      * @param Pago $pago
      * @param Direccion $direccion
      * @param Usuario $cliente
+     * @param \App\Domain\DetalleOrden[] $detalle
      * @param int|null $surtidor_id
      * @param Usuario|null $surtidor
      */
@@ -27,10 +27,10 @@ class Orden extends DomainElement
         private int $pago_id,
         private string $fecha_creacion,
         private int $direccion_envio_id,
-        private array $detalle,
         private Pago $pago,
         private Direccion $direccion,
         private Usuario $cliente,
+        private array $detalle,
         private ?int $surtidor_id = null,
         private ?Usuario $surtidor = null,
     ) { }

@@ -19,6 +19,7 @@ class DetalleOrden extends DomainElement
     /**
      * @param array $listValues
      * @return Pago[]
+     * @return DetalleOrden[]
      */
     public static function fromArray(array $listValues): array
     {
@@ -29,9 +30,9 @@ class DetalleOrden extends DomainElement
         return $items;
     }
 
-    public static function from(array $values): Pago
+    public static function from(array $values): DetalleOrden
     {
-        return self::make(Pago::class, $values);
+        return self::make(DetalleOrden::class, $values);
     }
 
     public function getOrdenId(): int
