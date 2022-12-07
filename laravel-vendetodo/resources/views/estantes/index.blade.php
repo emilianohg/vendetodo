@@ -1,1 +1,4 @@
-Aqui va la pagina principal del encargado de estantes
+
+<form action="">
+    <button type="submit">Obtener Ordenamiento</button>
+</form>

@@ -46,4 +46,14 @@ class Seccion
   {
     return $this->producto;
   }
+
+  public function getCantidadProductos(): int
+  {
+    $cantidadProductos = 0;
+    for ($paquete=0; $paquete < count($this->paquetes); $paquete++) { 
+      $cantidadProductos += $this->paquetes[$paquete]->getCantidad() ;
+    }
+    return $cantidadProductos;
+  }
+
 }

@@ -38,4 +38,12 @@ class Estante
   {
     return $this->habilitado;
   }
+
+  public function getSeccionPorProductoId(int $productoId): Seccion
+  {
+    $seccion = collect($this->secciones)->filter(function ($_seccion) use($productoId) {
+      return $_seccion->getProducto()->getId() == $productoId;
+    })->first();
+    return $seccion;
+  }
 }
