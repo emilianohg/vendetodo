@@ -13,7 +13,6 @@ class DetalleOrden extends DomainElement
         private int $cantidad,
         private int $precio,
         private Producto $producto,
-        private Proveedor $proveedor,
     ) { }
 
     /**
@@ -63,11 +62,6 @@ class DetalleOrden extends DomainElement
     public function getProducto(): Producto
     {
         return $this->producto;
-    }
-
-    public function getProveedor(): Proveedor
-    {
-        return $this->proveedor;
     }
 
 }

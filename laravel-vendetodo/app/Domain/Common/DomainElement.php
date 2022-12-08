@@ -87,8 +87,6 @@ abstract class DomainElement
 
         }
 
-        \Log::info($attributes);
-
         return $reflectionClass->newInstanceArgs($attributes);
     }
 

@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Repositories\OrdenesPreasignadasRepository;
 use App\Repositories\OrdenesRepository;
 use Illuminate\Console\Command;
 
@@ -14,8 +15,28 @@ class RepartirOrdenesASurtidoresCommand extends Command
     public function handle()
     {
         $ordenesRepository = new OrdenesRepository();
+        $ordenesPreasignadasRepository = new OrdenesPreasignadasRepository();
+
         $ordenes = $ordenesRepository->getOrdenesPendientes();
-        \Log::info($ordenes);
-        return 0;
+
+        $resumenSurtidores = $ordenesRepository->getSurtidoresDisponibles(
+            now()->startOfDay()->toISOString(),
+            now()->toISOString(),
+        );
+
+        foreach ($resumenSurtidores as $i => $resumenSurtidor) {
+
+            if (!isset($ordenes[$i])) {
+                break;
+            }
+
+            $orden = $ordenes[$i];
+
+            $ordenesPreasignadasRepository->registrar(
+                $orden->getOrdenId(),
+                $resumenSurtidor->getSurtidorId(),
+            );
+        }
+
     }
 }

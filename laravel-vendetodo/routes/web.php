@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PerfilController;
+use App\Http\Controllers\SurtidorController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductosController;
 use App\Http\Controllers\CarritoController;
@@ -19,3 +20,7 @@ Route::get('perfil', [PerfilController::class, 'index'])->name('perfil')->middle
 Route::get('carrito', [CarritoController::class, 'index'])->name('carrito');
 Route::post('carrito', [CarritoController::class, 'guardarLineaCarrito'])->name('carrito.guardarLinea');
 Route::delete('carrito/{id}', [CarritoController::class, 'borrarLineaCarrito'])->name('carrito.borrarLinea');
+
+Route::get('surtidor', [SurtidorController::class, 'home'])->name('surtidor.home');
+Route::post('surtidor/orden', [SurtidorController::class, 'aceptarOrden'])->name('surtidor.aceptarOrden');
+Route::get('surtidor/orden/{id}', [SurtidorController::class, 'orden'])->name('surtidor.orden');

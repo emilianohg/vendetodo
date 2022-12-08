@@ -6,6 +6,12 @@ use App\Domain\Common\DomainElement;
 
 class Rol extends DomainElement
 {
+    public const ADMINISTRADOR = 1;
+    public const SURTIDOR = 2;
+    public const ENCARGADO_ALMACEN = 3;
+    public const ENCARGADO_ESTANTE = 4;
+    public const CLIENTE = 5;
+
     public function __construct(
         private int $rol_id,
         private string $nombre,
