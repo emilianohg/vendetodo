@@ -34,8 +34,6 @@ class OrdenesRepository
 
         $ordenes = $ordenesQuery->get();
 
-        \Log::info($ordenes);
-
         return Orden::fromArray($ordenes->toArray());
     }
 }

@@ -2,11 +2,6 @@
 
 namespace App\Console\Commands;
 
-use App\Domain\Common\Pagination;
-use App\Domain\Usuario;
-use App\Models\User as UsuarioTable;
-use App\Repositories\AlmacenRepository;
-use App\Repositories\ReportesVentasRepository;
 use Illuminate\Console\Command;
 use App\Domain\DominioEstante;
 
@@ -24,9 +19,9 @@ class ConversionModeloLaravelCommand extends Command
   public function handle()
   {
 
-    $estante = new DominioEstante();
-    $estante->obtenerOrdenProductos(1);
-
+    $dominio = new DominioEstante();
+    $dominio->obtenerOrdenProductos(1);
+    
     return 0;
   }
 }

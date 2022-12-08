@@ -46,4 +46,26 @@ class Seccion
   {
     return $this->producto;
   }
+
+  public function getVolumenSeccion()
+  {
+    return config('almacen.volumen_seccion') * 100;
+  }
+
+  public function getCantidadProductos(): int
+  {
+    $cantidadProductos = 0;
+    foreach($this->paquetes as $paquete) { 
+      $cantidadProductos += $paquete->getCantidad() ;
+    }
+    return $cantidadProductos;
+  }
+
+  public function getCantidadProductosNecesarios(): int
+  {
+    $cantidadActualSeccion = $this->getCantidadProductos();
+    $CantidadTotalSeccion = floor(config('almacen.volumen_seccion')*100 / $this->getProducto()->getVolumen());
+    return $CantidadTotalSeccion - $cantidadActualSeccion;
+  }
+
 }

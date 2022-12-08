@@ -2,6 +2,8 @@
 
 namespace App\Repositories;
 
+use App\Domain\EncargadoEstante;
+use App\Models\EncargadoEstanteTable;
 use Illuminate\Support\Facades\DB;
 use App\Domain\Lote;
 use App\Domain\PaqueteLote;
@@ -12,6 +14,24 @@ use App\Models\AlmacenTable;
 
 class AlmacenRepository
 {
+    public function obtenerEncargado(int $encargadoId): EncargadoEstante
+    {
+        $encargado = EncargadoEstanteTable::query()
+            ->where('usuario_id', '=', $encargadoId)
+            ->with(['usuario', 'usuario.rol'])
+            ->first();
+
+        return EncargadoEstante::from($encargado->toArray());
+    }
+
+    /**
+     * @return EncargadoEstante[]
+     */
+    public function obtenerEncargados(): array
+    {
+        $encargados = EncargadoEstanteTable::query()->with(['usuario'])->get();
+        return EncargadoEstante::fromArray($encargados->toArray());
+    }
 
   /**
    * @return Estante[]
@@ -26,7 +46,7 @@ class AlmacenRepository
       'lotes.fecha',
       'lotes.proveedor_id',
       'lotes.cantidad',
-      'bodega.cantidad as cantidadBodega',
+      DB::raw('COALESCE(bodega.cantidad, 0) as cantidadBodega'),
       DB::raw('COALESCE(control_almacen.cantidad, 0) as cantidadAlmacen'),
     ])
       ->with(['producto', 'producto.marca'])
@@ -34,13 +54,13 @@ class AlmacenRepository
         $join->on('control_almacen.estante_id', '=', 'almacen.estante_id')
           ->on('control_almacen.seccion_id', '=', 'almacen.seccion_id');
       })
-      ->join('bodega', 'bodega.lote_id', '=', 'control_almacen.lote_id')
+      ->leftJoin('bodega', 'bodega.lote_id', '=', 'control_almacen.lote_id')
       ->join('lotes', 'lotes.lote_id', '=', 'control_almacen.lote_id')
       ->orderBy('almacen.estante_id')
       ->orderBy('almacen.seccion_id')
       ->get();
 
-    $seccionesList = AlmacenTable::query()->with(['producto', 'producto.marca'])->get();
+    $seccionesList = AlmacenTable::query()->with(['producto', 'producto.marca'])->orderBy('estante_id')->get();
 
 
     $lotesObj = Lote::fromArray($lotes->toArray());

@@ -29,24 +29,33 @@ class ReportesVentasRepository
             return $producto->getId();
         });
 
+        $subQuery = DB::table('proveedores_productos')->select([
+            'producto_id',
+            DB::raw('sum(cantidad) as cantidad')
+        ]) ->groupBy('producto_id');
         $detalleQuery = DetalleOrdenTable::query()->select([
             'detalle_orden.producto_id',
             DB::raw('sum(detalle_orden.cantidad) as cantidad'),
             DB::raw('sum(detalle_orden.cantidad*detalle_orden.precio) as importe'),
         ])
         ->join('ordenes','ordenes.orden_id','=','detalle_orden.orden_id')
-        ->join('proveedores_productos','detalle_orden.producto_id', '=', 'proveedores_productos.producto_id')
+        ->joinSub($subQuery, 'p_p', function ($join) {
+            $join->on('detalle_orden.producto_id', '=', 'p_p.producto_id');
+        })
         ->whereNotIn('detalle_orden.producto_id', $productosExcluidosId->toArray())
         ->whereBetween('ordenes.fecha_creacion',[$fechaInicial,$fechaFinal])
         ->with('producto')
         ->groupBy(['detalle_orden.producto_id'])
         ->orderByRaw('sum(detalle_orden.cantidad) desc');
+
         if($conExistencia){
-            $detalleQuery->havingRaw('SUM(proveedores_productos.cantidad) > 0');
+            $detalleQuery->havingRaw('SUM(p_p.cantidad) > 0');
         }
+
         if($limite != null){
             $detalleQuery->limit($limite);
         }
+
         $detalle = $detalleQuery->get();
 
         $detalleReporteVentas = DetalleReporteVentasProducto::fromArray($detalle->toArray());
