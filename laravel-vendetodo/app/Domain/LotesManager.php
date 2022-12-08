@@ -62,7 +62,7 @@ class LotesManager
                 {
                     //hay productos que tomar
                     $paquetesLote[] = new PaqueteLote(
-                        $lote->getId(),
+                        $lote->getLoteId(),
                         $lote,
                         $cantidadProporcionadaAlmacen, 
                         $lote->getEstanteId(),
@@ -77,7 +77,7 @@ class LotesManager
                 {
                     //hay productos que tomar
                     $paquetesLote[] = new PaqueteLote(
-                        $lote->getId(),
+                        $lote->getLoteId(),
                         $lote,
                         $cantidadProporcionadaBodega, 
                         null,

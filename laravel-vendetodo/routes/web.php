@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EncargadoEstanteController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PerfilController;
 use Illuminate\Support\Facades\Route;
@@ -19,3 +20,5 @@ Route::get('perfil', [PerfilController::class, 'index'])->name('perfil')->middle
 Route::get('carrito', [CarritoController::class, 'index'])->name('carrito');
 Route::post('carrito', [CarritoController::class, 'guardarLineaCarrito'])->name('carrito.guardarLinea');
 Route::delete('carrito/{id}', [CarritoController::class, 'borrarLineaCarrito'])->name('carrito.borrarLinea');
+
+Route::get('encargado-estante', [EncargadoEstanteController::class, 'home'])->name('encargado-estante.home');

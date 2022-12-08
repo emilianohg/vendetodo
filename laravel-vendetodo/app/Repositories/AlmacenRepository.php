@@ -2,6 +2,8 @@
 
 namespace App\Repositories;
 
+use App\Domain\EncargadoEstante;
+use App\Models\EncargadoEstanteTable;
 use Illuminate\Support\Facades\DB;
 use App\Domain\Lote;
 use App\Domain\PaqueteLote;
@@ -12,6 +14,24 @@ use App\Models\AlmacenTable;
 
 class AlmacenRepository
 {
+    public function obtenerEncargado(int $encargadoId): EncargadoEstante
+    {
+        $encargado = EncargadoEstanteTable::query()
+            ->where('usuario_id', '=', $encargadoId)
+            ->with(['usuario', 'usuario.rol'])
+            ->first();
+
+        return EncargadoEstante::from($encargado->toArray());
+    }
+
+    /**
+     * @return EncargadoEstante[]
+     */
+    public function obtenerEncargados(): array
+    {
+        $encargados = EncargadoEstanteTable::query()->with(['usuario'])->get();
+        return EncargadoEstante::fromArray($encargados->toArray());
+    }
 
   /**
    * @return Estante[]

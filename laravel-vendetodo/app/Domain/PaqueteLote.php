@@ -30,12 +30,12 @@ class PaqueteLote
     return $this->cantidad;
   }
 
-  public function getEstanteId(): int
+  public function getEstanteId(): ?int
   {
     return $this->estante_id;
   }
 
-  public function getSeccionId(): int
+  public function getSeccionId(): ?int
   {
     return $this->seccion_id;
   }

@@ -23,16 +23,32 @@ class DominioEstante
     $this->lotesManager = new LotesManager();
   }
 
-  public function obtenerOrdenProductos($estante_id): void
+  public function obtenerEstantePorEncargadoId(int $usuarioId): ?Estante
+  {
+    $encargado = $this->almacenRepository->obtenerEncargado($usuarioId);
+    return $this->obtenerEstante($encargado->getEstanteId());
+  }
+
+  public function obtenerEstante(int $estanteId): ?Estante
+  {
+      $estantes = $this->almacenRepository->obtenerEstantes();
+      return collect($estantes)
+          ->filter(fn ($_estante) => $_estante->getEstanteId() == $estanteId)
+          ->first();
+  }
+
+  public function obtenerOrdenProductos($estante_id): ReporteOrden
   {
     $estantes = $this->almacenRepository->obtenerEstantes();
     $productosExcluidos = $this->obtenerProductosExcluidos($estantes, $estante_id);
+    $numeroSecciones = config('almacen.numero_secciones');
+
     $reporteVentas = $this->reportesVentasRepository->generarReporteVentas(
       now()->subDays(7)->toAtomString(),
       now()->toAtomString(),
       $productosExcluidos,
       true,
-      config('almacen.numero_secciones'),
+      $numeroSecciones,
     );
     
     $reporteOrden = new ReporteOrden(Str::uuid()->toString(), now()->toAtomString(), $estante_id);
@@ -57,8 +73,20 @@ class DominioEstante
       }
       
       $paquetes = $this->lotesManager->getPaquetes($cantidadProductosNecesarios,$producto->getId());
+        \Log::info('---------------------------');
+        \Log::info('Producto: ' . $producto->getNombre());
+        \Log::info('---------------------------');
+
+      foreach ($paquetes as $paquete) {
+          \Log::info('Lote: ' . $paquete->getLoteId());
+          \Log::info('Cant: ' . $paquete->getCantidad());
+          \Log::info('Est: ' . $paquete->getEstanteId());
+          \Log::info('Secc: ' . $paquete->getSeccionId());
+      }
+
     }
-    
+
+    return $reporteOrden;
   }
 
   /**

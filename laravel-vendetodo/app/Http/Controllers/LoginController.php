@@ -26,7 +26,7 @@ class LoginController extends Controller
         }
         //encargado de estante
         if (auth()->user()->rol_id == 4){
-            return view('estantes.index');
+            return redirect()->route('encargado-estante.home');
         }
         //cliente
         if (auth()->user()->rol_id == 5){

@@ -2,16 +2,8 @@
 
 namespace App\Console\Commands;
 
-use App\Domain\Common\Pagination;
-use App\Domain\Usuario;
-use App\Models\User as UsuarioTable;
-use App\Repositories\AlmacenRepository;
-use App\Repositories\ReportesVentasRepository;
 use Illuminate\Console\Command;
 use App\Domain\DominioEstante;
-use App\Domain\DominioOrden;
-use App\Models\AlmacenTable;
-use App\Repositories\LotesRepository;
 
 class ConversionModeloLaravelCommand extends Command
 {
