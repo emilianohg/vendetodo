@@ -6,5 +6,8 @@
     "/css/productos-create.css": "/css/productos-create.css",
     "/css/perfil.css": "/css/perfil.css",
     "/css/login.css": "/css/login.css",
+    "/css/estante-orden.css": "/css/estante-orden.css",
+    "/css/estante.css": "/css/estante.css",
+    "/css/compra.css": "/css/compra.css",
     "/css/carrito.css": "/css/carrito.css"
 }

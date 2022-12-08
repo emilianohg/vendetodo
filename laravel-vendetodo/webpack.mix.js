@@ -8,4 +8,7 @@ mix.js('resources/js/app.js', 'public/js')
     .postCss('resources/css/pages/perfil.css', 'public/css', [])
     .postCss('resources/css/pages/productos-index.css', 'public/css', [])
     .postCss('resources/css/pages/productos-individual.css', 'public/css', [])
-    .postCss('resources/css/pages/carrito.css', 'public/css', []);
+    .postCss('resources/css/pages/carrito.css', 'public/css', [])
+    .postCss('resources/css/pages/compra.css', 'public/css', [])
+    .postCss('resources/css/pages/estante.css', 'public/css', [])
+    .postCss('resources/css/pages/estante-orden.css', 'public/css', []);

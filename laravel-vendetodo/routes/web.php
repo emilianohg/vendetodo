@@ -5,6 +5,8 @@ use App\Http\Controllers\PerfilController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductosController;
 use App\Http\Controllers\CarritoController;
+use App\Http\Controllers\EstanteController;
+use App\Http\Controllers\CompraController;
 
 Route::resource('productos',ProductosController::class);
 Route::get('/', [ProductosController::class,'index'])->name('products.index');
@@ -19,3 +21,8 @@ Route::get('perfil', [PerfilController::class, 'index'])->name('perfil')->middle
 Route::get('carrito', [CarritoController::class, 'index'])->name('carrito');
 Route::post('carrito', [CarritoController::class, 'guardarLineaCarrito'])->name('carrito.guardarLinea');
 Route::delete('carrito/{id}', [CarritoController::class, 'borrarLineaCarrito'])->name('carrito.borrarLinea');
+
+Route::get('comprar', [CompraController::class, 'index'])->name('compra.index');
+
+Route::get('estantes', [EstanteController::class, 'index'])->name('estantes.index');
+Route::get('ordenamiento', [EstanteController::class, 'orden'])->name('estantes.orden');

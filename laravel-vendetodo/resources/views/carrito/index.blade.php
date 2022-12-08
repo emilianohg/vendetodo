@@ -68,14 +68,14 @@
 		</div>
 
 		<div class="footer-carrito layout-inline" >
-			<form action="{{ route('products.index') }}">
-				<button type="submit" class="btn">Seguir comprando</button>
-			</form>
-			<form action="{{ route('products.index') }}">
+            <a href="{{route('products.index')}}">
+                <button type="submit" class="btn">Seguir comprando</button>
+            </a>
+			<form action="{{ route('compra.index') }}">
 				<button type="submit" class="btn" style="background: #abebc6 ">Pagar</button>
 			</Form>
 		</div>
-		
+
 	</div>
 	@else
 		<p style="padding: 25px">Tu carrito está vacío.<a href="{{ route('products.index') }}" class="keep-buying"> Continua comprando</a></p>

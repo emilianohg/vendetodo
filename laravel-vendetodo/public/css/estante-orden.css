@@ -1,0 +1,98 @@
+body {
+    font-family: source-sans-pro;
+    background-color: white;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    font-weight: 200;
+    color: black;
+    font-family: Arial;
+}
+
+.reporte {
+    text-align: left;
+    display: grid;
+    margin: 0 auto;
+    margin-top: 160px;
+    margin-bottom: 40px;
+    max-width: 95%;
+    font-size: 25px;
+}
+
+.cabezera {
+    background-color: #e5e7e9;
+    border: 2px solid #DDD;
+    padding: 5px 0;
+}
+
+.layout-inline>* {
+    padding-left: 20px;
+    display: inline-block;
+}
+
+.row>div {
+    vertical-align: middle;
+}
+
+.destino {
+    background-color: whitesmoke;
+    border-bottom: 2px solid #DDD;
+    border-left: 2px solid #DDD;
+    border-right: 2px solid #DDD;
+    padding-bottom: 10px;
+}
+
+.origen {
+    padding: 7px;
+    background-color: white;
+    width: 90%;
+    margin-left: 5%;
+    margin-bottom: 3px;
+    font-size: 20px;
+}
+
+.font-bold-big {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.font-bold {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.col-cant {
+    margin-left: 3px;
+    width: 100px;
+}
+
+.col-palabra {
+    margin-left: 3px;
+    width: 150px;
+}
+
+.col-img {
+    width: 200px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 2px;
+}
+
+.col-producto {
+    width: calc(100% - 600px);
+    padding-left: 10px;
+}
+
+.col-del {
+    width: 10px;
+    text-align: center;
+    margin-right: 20px;
+}
+
+.frameImg {
+    width: 200px;
+    height: 80px;
+    border-radius: 1em;
+    border: 2px solid #d5dbdb;
+}
