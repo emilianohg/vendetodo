@@ -98,5 +98,10 @@ class Producto extends DomainElement {
     {
         return $this->marca;
     }
+
+    public function getVolumen(): float
+    {
+        return $this->largo* $this->ancho * $this->alto;
+    }
     
 }

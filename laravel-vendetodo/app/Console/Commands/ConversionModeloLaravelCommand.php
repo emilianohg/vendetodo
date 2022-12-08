@@ -9,6 +9,9 @@ use App\Repositories\AlmacenRepository;
 use App\Repositories\ReportesVentasRepository;
 use Illuminate\Console\Command;
 use App\Domain\DominioEstante;
+use App\Domain\DominioOrden;
+use App\Models\AlmacenTable;
+use App\Repositories\LotesRepository;
 
 class ConversionModeloLaravelCommand extends Command
 {
@@ -24,9 +27,9 @@ class ConversionModeloLaravelCommand extends Command
   public function handle()
   {
 
-    $estante = new DominioEstante();
-    $estante->obtenerOrdenProductos(1);
-
+    $dominio = new DominioEstante();
+    $dominio->obtenerOrdenProductos(1);
+    
     return 0;
   }
 }

@@ -26,7 +26,7 @@ class DominioEstante
   public function obtenerOrdenProductos($estante_id): void
   {
     $estantes = $this->almacenRepository->obtenerEstantes();
-    $productosExcluidos = $this->obtenerIdProductosExcluidos($estantes, $estante_id);
+    $productosExcluidos = $this->obtenerProductosExcluidos($estantes, $estante_id);
     $reporteVentas = $this->reportesVentasRepository->generarReporteVentas(
       now()->subDays(7)->toAtomString(),
       now()->toAtomString(),
@@ -34,29 +34,26 @@ class DominioEstante
       true,
       config('almacen.numero_secciones'),
     );
+    
     $reporteOrden = new ReporteOrden(Str::uuid()->toString(), now()->toAtomString(), $estante_id);
     $detalles = $reporteVentas->getDetallesReporteVentasProducto();
 
     $estante = collect($estantes)
       ->filter(fn ($_estante) => $_estante->getEstanteId() == $estante_id)
       ->first();
+    
+    foreach($detalles as $detalle)
+    {
+      $producto = $detalle->getProducto();
+      $seccion = $estante->getSeccionPorProductoId($producto->getId());
 
-    for ($detalle=0; $detalle < count($detalles); $detalle++) {
-      $producto = $detalles[$detalle]->getProducto();
-
-      $seccion = collect($estante->getSecciones())
-      ->filter(fn ($_seccion) => $_seccion->getProducto()->getId() == $producto->getId())
-      ->first();
-      $volumenProducto = $producto->getAlto()*$producto->getAncho()*$producto->getLargo();
-
-      if($seccion == null){
-        $cantidadProductosNecesarios = ceil(config('almacen.volumen_seccion')*100 / $volumenProducto);
+      if($seccion == null)
+      {
+        $cantidadProductosNecesarios = floor(config('almacen.volumen_seccion')*100 / $producto->getVolumen());
       }
       else
       {
-        $cantidadProductosSeccion = $seccion->getCantidadProductos();
-        $CantidadSeccion = ceil(config('almacen.volumen_seccion')*100 / $volumenProducto);
-        $cantidadProductosNecesarios = $CantidadSeccion - $cantidadProductosSeccion;
+        $cantidadProductosNecesarios = $seccion->getCantidadProductosNecesarios();
       }
       
       $paquetes = $this->lotesManager->getPaquetes($cantidadProductosNecesarios,$producto->getId());
@@ -68,16 +65,16 @@ class DominioEstante
    * @param Estante[] $estantes
    * @return Producto[]
    */
-  public function obtenerIdProductosExcluidos( array $estantes, int $estante_id): array
+  public function obtenerProductosExcluidos( array $estantes, int $estante_id): array
   {
     $productosExcluidosId = [];
-    for ($numEstante = 0; $numEstante < count($estantes); $numEstante++) {
-      if ($estantes[$numEstante]->getEstanteId() == $estante_id) {
+    foreach ($estantes as $estante) {
+      if ($estante->getEstanteId() == $estante_id) {
         continue;
       }
-      $secciones = $estantes[$numEstante]->getSecciones();
-      for ($numSeccion = 0; $numSeccion < count($secciones); $numSeccion++) {
-        $producto = $secciones[$numSeccion]->getProducto();
+      $secciones = $estante->getSecciones();
+      foreach ($secciones as $seccion) {
+        $producto = $seccion->getProducto();
         if ($producto == null) {
           continue;
         }

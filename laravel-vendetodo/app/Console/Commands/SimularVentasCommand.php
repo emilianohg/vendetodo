@@ -18,7 +18,7 @@ class SimularVentasCommand extends Command
     {
         $totalVentas = $this->option('ordenes');
 
-        $productos = DB::table('proveedores_productos')
+        $productoslist = DB::table('proveedores_productos')
             ->select([
                 'proveedores_productos.producto_id',
                 'proveedores_productos.proveedor_id',
@@ -37,7 +37,7 @@ class SimularVentasCommand extends Command
 
         for ($i = 0; $i < $totalVentas; $i++) {
             $cliente = $usuarios->random();
-            $productos = $productos->random(10);
+            $productos = $productoslist->random(10);
 
 
             DB::transaction(function () use ($cliente, $productos) {
