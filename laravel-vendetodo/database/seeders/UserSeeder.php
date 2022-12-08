@@ -69,10 +69,17 @@ class UserSeeder extends Seeder
             ->state(['rol_id' => 3])
             ->create();
 
+        $numEstantes = config('almacen.numero_estantes', 20);
         // Encargado de estante
-        User::factory()->count(20)
+        User::factory()->count($numEstantes)
             ->state(['rol_id' => 4])
-            ->create();
+            ->create()
+            ->each(function ($usuario, $key) {
+                DB::table('encargados_estantes')->insert([
+                    'estante_id' => $key + 1,
+                    'usuario_id' => $usuario->usuario_id,
+                ]);
+            });
 
         // Clientes
         User::factory()->count(200)
