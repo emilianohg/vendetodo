@@ -21,8 +21,17 @@ class SurtidorController extends Controller
 
     public function home() {
         $usuarioId = auth()->user()->getAuthIdentifier();
+
         $preasignacionOrden = $this->dominioSurtidor->obtenerOrdenPreasignada($usuarioId);
-        return view('surtidor.home', ['preasignacionOrden' => $preasignacionOrden]);
+
+        $orden = $this->dominioSurtidor->obtenerOrdenActiva($usuarioId);
+
+        \Log::info((array) $orden);
+
+        return view('surtidor.home', [
+            'preasignacionOrden' => $preasignacionOrden,
+            'orden' => $orden,
+        ]);
     }
 
     public function orden(int $ordenId) {

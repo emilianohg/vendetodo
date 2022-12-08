@@ -9,3 +9,8 @@
     <button type="submit">Aceptar</button>
 </form>
 @endif
+
+
+@if ($orden != null)
+    <a href="{{ route('surtidor.orden', ['id' => $orden->getOrdenId()]) }}">Ir a orden</a>
+@endif

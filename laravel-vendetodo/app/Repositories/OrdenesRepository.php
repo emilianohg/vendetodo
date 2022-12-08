@@ -31,6 +31,49 @@ class OrdenesRepository
         return Orden::from($ordenRecord->toArray());
     }
 
+    public function buscarOrdenActivaSurtidor(int $surtidorId): ?Orden
+    {
+        $ordenes = $this->buscarPorSurtidorId($surtidorId, Orden::EN_PROCESO);
+
+        if (count($ordenes) == 0) {
+            return null;
+        }
+
+        return $ordenes[0];
+    }
+
+    /**
+     * @param int $surtidorId
+     * @param string|null $status
+     * @return Orden[]
+     */
+    public function buscarPorSurtidorId(int $surtidorId, ?string $status = null): array
+    {
+        $ordenQuery = OrdenTable::query()
+            ->select([
+                'ordenes.*',
+            ])
+            ->with([
+                'detalle',
+                'detalle.producto',
+                'direccion',
+                'cliente',
+                'cliente.rol',
+                'surtidor',
+                'surtidor.rol',
+                'pago',
+            ])
+            ->where('surtidor_id', '=', $surtidorId);
+
+        if ($status != null) {
+            $ordenQuery->where('status', '=', $status);
+        }
+
+        $ordenes = $ordenQuery->get();
+
+        return Orden::fromArray($ordenes->toArray());
+    }
+
     /**
      * Una orden pendiente es una orden que no se ha asignado a un surtidor
      *
