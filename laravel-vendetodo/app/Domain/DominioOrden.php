@@ -57,4 +57,9 @@ class DominioOrden
 
         return $orden;
     }
+
+    public function generarRuta(int $ordenId)
+    {
+        $orden = $this->ordenesRepository->buscarPorId($ordenId);
+    }
 }
