@@ -10,7 +10,7 @@
         <!--Patron NEWS-->
         <div class="news-pattern">
         <div class="news-pattern-content">
-            <img class="news-pattern-img" src="https://media.discordapp.net/attachments/1031018534416941168/1041184441772552282/Diseno_sin_titulo.jpg">
+            <img class="news-pattern-img" >
         </div>
         </div>
         <hr>

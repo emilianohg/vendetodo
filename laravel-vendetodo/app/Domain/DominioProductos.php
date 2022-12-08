@@ -41,6 +41,12 @@ class DominioProductos
     return ['producto' => $producto, 'resumen' => $resumenesProveedores];
   }
 
+  public function postApi()
+  {
+    $productosAJson = $this->productosRepository->getResumenProductos();
+    return $productosAJson;
+  }
+
   public function consultarPorId($productoId)
   {
     return $this->productosRepository->consultarPorId($productoId);
@@ -48,7 +54,6 @@ class DominioProductos
 
   public function getProveedorPorProductos($productoId)
   {
-    
   }
 
   public function crear($datos, ?File $imagen = null)
@@ -57,7 +62,7 @@ class DominioProductos
       $datos['imagen_url'] = $this->publicarImagen($imagen);
     }
 
-      ProductoBaseDatos::query()->create($datos);
+    ProductoBaseDatos::query()->create($datos);
   }
 
   public function eliminar($id)
@@ -66,21 +71,20 @@ class DominioProductos
     $producto->delete();
   }
 
-  
+
   public function getMarcas()
   {
     $marcas = MarcaBaseDatos::query()->orderBy('nombre')->get();
     return Marca::fromArray($marcas->toArray());
-
   }
 
   public function actualizar($id, $datos, ?File $imagen = null)
   {
-      if ($imagen != null) {
-        $datos['imagen_url'] = $this->publicarImagen($imagen);
-      }
+    if ($imagen != null) {
+      $datos['imagen_url'] = $this->publicarImagen($imagen);
+    }
 
-      ProductoBaseDatos::where('producto_id', '=', $id)->update($datos);
+    ProductoBaseDatos::where('producto_id', '=', $id)->update($datos);
   }
 
   private function publicarImagen(?File $imagen)
@@ -91,15 +95,14 @@ class DominioProductos
 
       $extension = '.jpg';
       if ($imagen->getMimeType() == 'image/png') {
-          $extension = '.png';
+        $extension = '.png';
       }
 
       $nombreArchivo = Uuid::uuid4() . $extension;
 
       Storage::putFileAs($carpeta, $imagen, $nombreArchivo);
       $imagen_url = Storage::url('productos/' . $nombreArchivo);
-
-  }
-  return $imagen_url;
+    }
+    return $imagen_url;
   }
 }

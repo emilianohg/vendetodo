@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EncargadoEstanteController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\SurtidorController;
@@ -26,4 +27,6 @@ Route::middleware('auth')->group(function () {
     Route::get('surtidor', [SurtidorController::class, 'home'])->name('surtidor.home');
     Route::post('surtidor/orden', [SurtidorController::class, 'aceptarOrden'])->name('surtidor.aceptarOrden');
     Route::get('surtidor/orden/{id}', [SurtidorController::class, 'orden'])->name('surtidor.orden');
+
+    Route::get('encargado-estante', [EncargadoEstanteController::class, 'home'])->name('encargado-estante.home');
 });

@@ -2,23 +2,26 @@
 
 namespace App\Console\Commands;
 
-use App\Domain\DominioOrden;
 use Illuminate\Console\Command;
+use App\Domain\DominioEstante;
 
 class ConversionModeloLaravelCommand extends Command
 {
-    protected $signature = 'demo:conversion';
+  protected $signature = 'demo:conversion';
 
-    protected $description = 'Demo Conversion';
+  protected $description = 'Demo Conversion';
 
-    public function __construct()
-    {
-        parent::__construct();
-    }
+  public function __construct()
+  {
+    parent::__construct();
+  }
 
-    public function handle()
-    {
-        (new DominioOrden())->asignarOrdenes();
-        return 0;
-    }
+  public function handle()
+  {
+
+    $dominio = new DominioEstante();
+    $dominio->obtenerOrdenProductos(1);
+    
+    return 0;
+  }
 }
