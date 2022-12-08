@@ -3,9 +3,20 @@
 namespace App\Domain;
 
 use App\Domain\Common\DomainElement;
+use App\Repositories\OrdenesPreasignadasRepository;
+use App\Repositories\OrdenesRepository;
+use Illuminate\Support\Facades\DB;
 
 class Orden extends DomainElement
 {
+    public const PENDIENTE = 'pendiente';
+    public const EN_PROCESO = 'en_proceso';
+    public const SURTIDA = 'surtida';
+    public const CANCELADA = 'cancelada';
+    public const FINALIZADA = 'finalizada';
+
+    private OrdenesRepository $ordenRepository;
+
     /**
      * @param int $orden_id
      * @param int $usuario_id
@@ -13,10 +24,10 @@ class Orden extends DomainElement
      * @param int $pago_id
      * @param string $fecha_creacion
      * @param int $direccion_envio_id
-     * @param DetalleOrden[] $detalle
      * @param Pago $pago
      * @param Direccion $direccion
      * @param Usuario $cliente
+     * @param \App\Domain\DetalleOrden[] $detalle
      * @param int|null $surtidor_id
      * @param Usuario|null $surtidor
      */
@@ -27,13 +38,15 @@ class Orden extends DomainElement
         private int $pago_id,
         private string $fecha_creacion,
         private int $direccion_envio_id,
-        private array $detalle,
         private Pago $pago,
         private Direccion $direccion,
         private Usuario $cliente,
+        private array $detalle,
         private ?int $surtidor_id = null,
         private ?Usuario $surtidor = null,
-    ) { }
+    ) {
+        $this->ordenRepository = new OrdenesRepository();
+    }
 
     /**
      * @param array $listValues
@@ -51,6 +64,13 @@ class Orden extends DomainElement
     public static function from(array $values): Orden
     {
         return self::make(Orden::class, $values);
+    }
+
+    public function asignarSurtidor(int $surtidorId) {
+        $this->surtidor_id = $surtidorId;
+        $this->status = Orden::EN_PROCESO;
+
+        $this->ordenRepository->asignarSurtidor($this->orden_id, $this->surtidor_id);
     }
 
     public function getOrdenId(): int

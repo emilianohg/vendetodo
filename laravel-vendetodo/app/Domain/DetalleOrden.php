@@ -13,12 +13,12 @@ class DetalleOrden extends DomainElement
         private int $cantidad,
         private int $precio,
         private Producto $producto,
-        private Proveedor $proveedor,
     ) { }
 
     /**
      * @param array $listValues
      * @return Pago[]
+     * @return DetalleOrden[]
      */
     public static function fromArray(array $listValues): array
     {
@@ -29,9 +29,9 @@ class DetalleOrden extends DomainElement
         return $items;
     }
 
-    public static function from(array $values): Pago
+    public static function from(array $values): DetalleOrden
     {
-        return self::make(Pago::class, $values);
+        return self::make(DetalleOrden::class, $values);
     }
 
     public function getOrdenId(): int
@@ -62,11 +62,6 @@ class DetalleOrden extends DomainElement
     public function getProducto(): Producto
     {
         return $this->producto;
-    }
-
-    public function getProveedor(): Proveedor
-    {
-        return $this->proveedor;
     }
 
 }

@@ -9,10 +9,7 @@ class Proveedor extends DomainElement {
     public function __construct(
         private int $proveedor_id,
         private string $nombre,
-    )
-    {
-        
-    }
+    ) { }
 
     /**
      * @param array $listValues
