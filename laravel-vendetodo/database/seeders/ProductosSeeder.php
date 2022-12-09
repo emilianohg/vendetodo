@@ -29,6 +29,11 @@ class ProductosSeeder extends Seeder
         $imagenes = collect($recordsImagenes)->keyBy('producto_id');
 
         foreach ($recordsProductos as $record) {
+
+            if ($record['largo'] == 0 || $record['ancho'] == 0 || $record['alto'] == 0) {
+                continue;
+            }
+
             $marca = Marca::query()->where('nombre', '=', $record['marca'])->first();
 
             if ($marca == null) {

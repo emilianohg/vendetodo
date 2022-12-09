@@ -64,7 +64,7 @@ class Seccion
   public function getCantidadProductosNecesarios(): int
   {
     $cantidadActualSeccion = $this->getCantidadProductos();
-    $CantidadTotalSeccion = floor(config('almacen.volumen_seccion')*100 / $this->getProducto()->getVolumen());
+    $CantidadTotalSeccion = floor((config('almacen.volumen_seccion') * 1000000) / $this->getProducto()->getVolumen());
     return $CantidadTotalSeccion - $cantidadActualSeccion;
   }
 

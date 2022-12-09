@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             ProductosSeeder::class,
             ProveedoresSeeder::class,
             LotesSeeder::class,
+            InicializarAlmacenSeeder::class,
         ]);
     }
 }
