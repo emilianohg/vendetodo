@@ -47,7 +47,7 @@ class DominioEstante
       $numeroSecciones,
     );
     
-    $reporteOrdenEstante = new ReporteOrdenEstante(Str::uuid()->toString(), now()->toAtomString(), $estante_id);
+    $reporteOrdenEstante = new ReporteOrdenEstante(Str::uuid()->toString(), now(), $estante_id);
     $detalles = $reporteVentas->getDetallesReporteVentasProducto();
 
     $estante = collect($estantes)
@@ -72,6 +72,7 @@ class DominioEstante
 
       $reporteOrdenEstante->agregarPaquetes($seccion_id+1,$paquetes);
     }
+    $reporteOrdenEstante->guardar();
 
     return  $reporteOrdenEstante;
   }

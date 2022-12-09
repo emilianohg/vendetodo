@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateReportesOrdenEstantesTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('reportes_orden_estantes', function (Blueprint $table) {
@@ -24,11 +19,6 @@ class CreateReportesOrdenEstantesTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('reportes_orden_estantes');
