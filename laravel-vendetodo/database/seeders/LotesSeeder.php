@@ -14,20 +14,23 @@ class LotesSeeder extends Seeder
         for ($i = 0; $i < count($proveedoresProductos); $i += 2) {
 
           $vendedorProducto = $proveedoresProductos[$i];
-          $cantidad = 50 + rand(0, 25) * 5;
 
-          $loteId = DB::table('lotes')->insertGetId([
-            'proveedor_id' => $vendedorProducto->proveedor_id,
-            'producto_id' => $vendedorProducto->producto_id,
-            'cantidad' => $cantidad,
-            'fecha' => now()->subDays(rand(1, 30))->subHours(rand(0, 23))->subMinutes(rand(0, 59))->setSecond(0),
-          ]);
+          for ($j = 0; $j < rand(1, 4); $j++) {
+              $cantidad = 30 + rand(0, 25) * 8;
 
-          DB::table('bodega')->insertGetId([
-            'lote_id' => $loteId,
-            'cantidad' => $cantidad,
-            'cantidad_disponible' => $cantidad,
-          ]);
+              $loteId = DB::table('lotes')->insertGetId([
+                  'proveedor_id' => $vendedorProducto->proveedor_id,
+                  'producto_id' => $vendedorProducto->producto_id,
+                  'cantidad' => $cantidad,
+                  'fecha' => now()->subDays(rand(1, 30))->subHours(rand(0, 23))->subMinutes(rand(0, 59))->setSecond(0),
+              ]);
+
+              DB::table('bodega')->insertGetId([
+                  'lote_id' => $loteId,
+                  'cantidad' => $cantidad,
+                  'cantidad_disponible' => $cantidad,
+              ]);
+          }
 
         }
 
@@ -53,7 +56,6 @@ class LotesSeeder extends Seeder
               'cantidad' => $resumen->cantidad,
               'cantidad_disponible' => $resumen->cantidad,
             ]);
-
         }
 
     }

@@ -15,12 +15,16 @@ class LotesManager
     /**
     * @return PaqueteLote[]
     */
-    public function getPaquetes(int $cantidadProductosNecesarios, int $producto_id): array
+    public function getPaquetes(int $cantidadProductosNecesarios, int $productoId, ?int $proveedorId = null): array
     {
-        $lotes = $this->lotesRepository->buscarPorProductoId($producto_id);
-        $paquetes = $this->generarPaquetes($lotes,$cantidadProductosNecesarios);
+        $lotes = [];
+        if ($proveedorId == null) {
+            $lotes = $this->lotesRepository->buscarPorProductoId($productoId);
+        } else {
+            $lotes = $this->lotesRepository->buscarPorProductoProveedorId($productoId, $proveedorId);
+        }
 
-        return $paquetes;
+        return $this->generarPaquetes($lotes,$cantidadProductosNecesarios);
     }
 
     /**
