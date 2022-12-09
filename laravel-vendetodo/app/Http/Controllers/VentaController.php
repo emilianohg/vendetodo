@@ -27,6 +27,8 @@ class VentaController extends Controller
 
   public function confirm()
   {
-    return view('compra.confirm');
+    $carrito = $this->dominioCarrito->obtenerCarrito(auth()->user()->getAuthIdentifier());
+    $usuario = $this->dominioUsuarios->consultarPerfil(auth()->user()->getAuthIdentifier());
+    return view('compra.confirm', ['carrito' => $carrito], ['usuario' => $usuario]);
   }
 }
