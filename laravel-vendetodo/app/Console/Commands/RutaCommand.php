@@ -19,8 +19,8 @@ class RutaCommand extends Command
     public function handle()
     {
         $dominioOrden = new DominioOrden();
-        $dominioOrden->generarRuta(1);
-
+        $ruta = $dominioOrden->verRuta(4);
+        \Log::info((array) $ruta);
         return 0;
     }
 }

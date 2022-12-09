@@ -26,6 +26,6 @@ class CreateEncargadoEstantesTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('encargado_estantes');
+        Schema::dropIfExists('encargados_estantes');
     }
 }

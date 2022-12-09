@@ -6,25 +6,25 @@ class Ruta
 {
     /**
      * @param int $orden_id
-     * @param int $surtidor_id
+     * @param string $fecha
      * @param UbicacionProducto[] $ubicaciones
-     * @param array|null $camino
+     * @param string|null $camino
      */
     public function __construct(
         private int $orden_id,
-        private int $surtidor_id,
+        private string $fecha,
         private array $ubicaciones,
-        private ?array $camino = [],
-    ) { }
+        private ?string $camino = '',
+    ) {}
 
     public function getOrdenId(): int
     {
         return $this->orden_id;
     }
 
-    public function getSurtidorId(): int
+    public function getFecha(): string
     {
-        return $this->surtidor_id;
+        return $this->fecha;
     }
 
     /**
@@ -35,7 +35,7 @@ class Ruta
         return $this->ubicaciones;
     }
 
-    public function getCamino(): ?array
+    public function getCamino(): string
     {
         return $this->camino;
     }

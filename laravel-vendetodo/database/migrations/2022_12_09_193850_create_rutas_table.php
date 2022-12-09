@@ -14,12 +14,13 @@ class CreateRutasTable extends Migration
             $table->unsignedInteger('estante_id')->nullable();
             $table->unsignedInteger('seccion_id')->nullable();
             $table->foreignId('lote_id');
+            $table->integer('cantidad');
             $table->tinyInteger('esta_en_bodega')->default(0);
             $table->dateTime('fecha_recogido')->nullable();
             $table->primary(['orden_id','orden']);
 
             $table->foreign('orden_id')
-            ->on('ordenes')
+            ->on('reportes_rutas')
             ->references('orden_id');
 
             $table->foreign('lote_id')

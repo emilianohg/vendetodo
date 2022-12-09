@@ -5,6 +5,7 @@ namespace App\Domain;
 use App\Repositories\AlmacenRepository;
 use App\Repositories\OrdenesPreasignadasRepository;
 use App\Repositories\OrdenesRepository;
+use App\Repositories\RutasRepository;
 use App\Services\RutasService;
 
 class DominioOrden
@@ -14,6 +15,7 @@ class DominioOrden
     private AlmacenRepository $almacenRepository;
     private LotesManager $lotesManager;
     private RutasService $rutasService;
+    private RutasRepository $rutasRepository;
 
     public function __construct()
     {
@@ -22,6 +24,7 @@ class DominioOrden
         $this->lotesManager = new LotesManager();
         $this->rutasService = new RutasService();
         $this->almacenRepository = new AlmacenRepository();
+        $this->rutasRepository = new RutasRepository();
     }
 
     public function obtenerOrden(int $id): Orden
@@ -66,10 +69,12 @@ class DominioOrden
         return $orden;
     }
 
-    public function generarRuta(int $ordenId)
+    public function generarRuta(int $ordenId): Ruta
     {
         $orden = $this->ordenesRepository->buscarPorId($ordenId);
+
         $paquetes = [];
+
         foreach ($orden->getDetalle() as $detalleOrden) {
 
             $paquetesDetalle = $this->lotesManager->getPaquetes(
@@ -81,12 +86,6 @@ class DominioOrden
             $paquetes = array_merge($paquetes, $paquetesDetalle);
         }
 
-        foreach ($paquetes as $paquete) {
-            \Log::info($paquete->getCantidad());
-            \Log::info($paquete->getLote()->getProveedorId());
-            \Log::info($paquete->getLote()->getProducto()->getNombre());
-        }
-
         $estanteId = $this->almacenRepository->obtenerEstanteIdPorSurtidorId($orden->getSurtidorId());
 
         $ruta = $this->rutasService->generar(
@@ -94,5 +93,14 @@ class DominioOrden
             $estanteId,
             $paquetes
         );
+
+        $this->rutasRepository->guardar($ruta);
+
+        return $ruta;
+    }
+
+    public function verRuta(int $ordenId): Ruta
+    {
+        return $this->rutasRepository->buscarPorId($ordenId);
     }
 }
