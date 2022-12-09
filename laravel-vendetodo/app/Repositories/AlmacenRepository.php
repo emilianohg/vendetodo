@@ -14,6 +14,19 @@ use App\Models\AlmacenTable;
 
 class AlmacenRepository
 {
+    public function obtenerEstanteIdPorSurtidorId(int $surtidorId): ?int
+    {
+        $surtidor = DB::table('surtidores')
+            ->where('surtidor_id', '=', $surtidorId)
+            ->first();
+
+        if ($surtidor == null) {
+            return null;
+        }
+
+        return $surtidor->estante_id;
+    }
+
     public function obtenerEncargado(int $encargadoId): EncargadoEstante
     {
         $encargado = EncargadoEstanteTable::query()

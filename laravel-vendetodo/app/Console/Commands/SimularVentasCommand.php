@@ -11,7 +11,7 @@ use Ramsey\Uuid\Uuid;
 
 class SimularVentasCommand extends Command
 {
-    protected $signature = 'simular:ventas {--ordenes=10 : Numero de ordenes a crear} {--status= : Status de las ordenes}';
+    protected $signature = 'simular:ventas {--ordenes=10 : Numero de ordenes a crear}';
 
     protected $description = 'Agrega ordenes';
 
