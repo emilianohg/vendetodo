@@ -26,7 +26,7 @@
             <td class="tg-0pky" colspan="5">Seccion {{$seccion->getSeccionId()}}</td>
           </tr>
           <tr>
-            <td class="tg-0pky" rowspan="5">
+            <td class="tg-0pky" rowspan="{{count($seccion->getPaquetes())+2}}">
               @if($seccion->getProducto()->getImagenUrl() == null)
               <div class="card-image card-image-not-found"></div>
               @else
@@ -38,8 +38,8 @@
             <td class="tg-0pky" colspan="2">Lotes</td>
           </tr>
           <tr>
-            <td class="tg-0lax" rowspan="4">{{ $seccion->getProducto()->getNombre() }}</td>
-            <td class="tg-0lax" rowspan="4">{{ $seccion->getCantidadProductos() }}</td>
+            <td class="tg-0lax" rowspan="{{count($seccion->getPaquetes())+1}}">{{ $seccion->getProducto()->getNombre() }}</td>
+            <td class="tg-0lax" rowspan="{{count($seccion->getPaquetes())+1}}">{{ $seccion->getCantidadProductos() }}</td>
             <td class="tg-0lax">Cantidad</td>
             <td class="tg-0lax">Num. lotes</td>
           </tr>
@@ -48,7 +48,12 @@
                   <td class="tg-0lax">{{$paquete->getCantidad()}}</td>
                   <td class="tg-0lax">{{$paquete->getLoteId()}}</td>
                 </tr>
-            @endforeach  
+            @endforeach
+          <tfoot>
+            <tr>
+              <td class="tg-0pky" colspan="5">Espacio disponible: {{$seccion->getCantidadProductosNecesarios()}} productos.</td>
+            </tr>
+          </tfoot>   
         </tbody>
       </table>
       <br>
