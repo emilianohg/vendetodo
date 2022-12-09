@@ -33,6 +33,7 @@ class ReportesVentasRepository
             'producto_id',
             DB::raw('sum(cantidad) as cantidad')
         ]) ->groupBy('producto_id');
+        
         $detalleQuery = DetalleOrdenTable::query()->select([
             'detalle_orden.producto_id',
             DB::raw('sum(detalle_orden.cantidad) as cantidad'),
@@ -44,6 +45,7 @@ class ReportesVentasRepository
         })
         ->whereNotIn('detalle_orden.producto_id', $productosExcluidosId->toArray())
         ->whereBetween('ordenes.fecha_creacion',[$fechaInicial,$fechaFinal])
+        ->where('ordenes.status', '=', 'finalizada')
         ->with('producto')
         ->groupBy(['detalle_orden.producto_id'])
         ->orderByRaw('sum(detalle_orden.cantidad) desc');

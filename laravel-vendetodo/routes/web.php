@@ -30,5 +30,6 @@ Route::middleware('auth')->group(function () {
   Route::get('surtidor/orden/{id}', [SurtidorController::class, 'orden'])->name('surtidor.orden');
 
   Route::get('encargado-estante', [EncargadoEstanteController::class, 'home'])->name('encargado-estante.home');
+  Route::get('acomodo/estante/{id}', [EncargadoEstanteController::class, 'obtenerOrdenProductos'])->name('encargado.obtenerOrden');
 });
 Route::get('ventas', [VentaController::class, 'index'])->name('ventas.index');
