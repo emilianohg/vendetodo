@@ -19,8 +19,7 @@ class ConversionModeloLaravelCommand extends Command
   public function handle()
   {
 
-    $dominioOrden = new DominioOrden();
-    $dominioOrden->generarRuta(1);
+
     return 0;
   }
 }

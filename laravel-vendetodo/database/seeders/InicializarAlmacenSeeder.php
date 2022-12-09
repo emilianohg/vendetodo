@@ -15,16 +15,18 @@ class InicializarAlmacenSeeder extends Seeder
         $lotesManager = new LotesManager();
 
         $proveedoresProductos = DB::table('proveedores_productos')
+            ->select(['proveedores_productos.producto_id'])
             ->where('cantidad_disponible', '>', 0)
+            ->groupBy(['proveedores_productos.producto_id'])
             ->get();
 
-        $productosId = [];
+        $numEstantes = config('almacen.numero_estantes', 20);
+        $numSecciones = config('almacen.numero_secciones', 30);
 
-        foreach ($proveedoresProductos as $proveedoresProducto) {
-            if(!collect($productosId)->search($proveedoresProducto->producto_id)) {
-                $productosId[] = $proveedoresProducto->producto_id;
-            }
-        }
+        $productosId = $proveedoresProductos
+            ->random($numEstantes * $numSecciones)
+            ->map(fn ($prov) => $prov->producto_id)
+            ->toArray();
 
         $estantes = $almacenRepository->obtenerEstantes();
 
