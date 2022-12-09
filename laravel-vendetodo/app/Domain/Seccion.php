@@ -47,9 +47,9 @@ class Seccion
     return $this->producto;
   }
 
-  public function getVolumenSeccion()
+  public static function getVolumenSeccion()
   {
-    return config('almacen.volumen_seccion') * 100;
+    return config('almacen.volumen_seccion') * 1000000;
   }
 
   public function getCantidadProductos(): int
@@ -64,7 +64,7 @@ class Seccion
   public function getCantidadProductosNecesarios(): int
   {
     $cantidadActualSeccion = $this->getCantidadProductos();
-    $CantidadTotalSeccion = floor(config('almacen.volumen_seccion')*100 / $this->getProducto()->getVolumen());
+    $CantidadTotalSeccion = floor(Seccion::getVolumenSeccion() / $this->getProducto()->getVolumen());
     return $CantidadTotalSeccion - $cantidadActualSeccion;
   }
 

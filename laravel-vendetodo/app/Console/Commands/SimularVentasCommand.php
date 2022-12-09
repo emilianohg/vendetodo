@@ -42,7 +42,7 @@ class SimularVentasCommand extends Command
 
             DB::transaction(function () use ($cliente, $productos) {
 
-                $detallesOrdenes = $productos->random(10)->map(function ($producto) {
+                $detallesOrdenes = $productos->map(function ($producto) {
 
                     $cantidad = rand(1, min($producto->cantidad_disponible, 10));
 
