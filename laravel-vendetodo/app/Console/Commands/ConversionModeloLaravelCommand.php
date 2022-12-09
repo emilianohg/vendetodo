@@ -2,8 +2,8 @@
 
 namespace App\Console\Commands;
 
+use App\Domain\DominioOrden;
 use Illuminate\Console\Command;
-use App\Domain\DominioEstante;
 
 class ConversionModeloLaravelCommand extends Command
 {
@@ -19,9 +19,8 @@ class ConversionModeloLaravelCommand extends Command
   public function handle()
   {
 
-    $dominio = new DominioEstante();
-    $dominio->obtenerOrdenProductos(1);
-    
+    $dominioOrden = new DominioOrden();
+    $dominioOrden->generarRuta(1);
     return 0;
   }
 }

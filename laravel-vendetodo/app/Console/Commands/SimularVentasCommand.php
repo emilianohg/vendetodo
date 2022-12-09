@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Domain\Orden;
 use App\Models\OrdenTable;
 use App\Models\PagoTable;
 use Illuminate\Console\Command;
@@ -10,13 +11,34 @@ use Ramsey\Uuid\Uuid;
 
 class SimularVentasCommand extends Command
 {
-    protected $signature = 'simular:ventas {--ordenes=10 : Numero de ordenes a crear}';
+    protected $signature = 'simular:ventas {--ordenes=10 : Numero de ordenes a crear} {--status= : Status de las ordenes}';
 
     protected $description = 'Agrega ordenes';
 
     public function handle()
     {
         $totalVentas = $this->option('ordenes');
+
+        $status = null;
+        if ($this->hasOption('status')) {
+            $statusValido = collect([
+                Orden::EN_PROCESO,
+                Orden::PENDIENTE,
+                Orden::SURTIDA,
+                Orden::FINALIZADA,
+                Orden::CANCELADA,
+            ])
+                ->search($this->option('status'));
+
+            if (!$statusValido) {
+                $this->error('ESCRIBE BIEN!!! Ese status no es valido');
+                return 1;
+            }
+
+            $status = $this->option('status');
+        }
+
+        $surtidores = DB::table('surtidores')->get();
 
         $productoslist = DB::table('proveedores_productos')
             ->select([
@@ -36,11 +58,28 @@ class SimularVentasCommand extends Command
             ->get();
 
         for ($i = 0; $i < $totalVentas; $i++) {
-            $cliente = $usuarios->random();
-            $productos = $productoslist->random(rand(1, 10));
 
+            DB::transaction(function () use ($usuarios, $productoslist, $status, $surtidores) {
 
-            DB::transaction(function () use ($cliente, $productos) {
+                $statusList = [Orden::EN_PROCESO, Orden::PENDIENTE, Orden::SURTIDA, Orden::FINALIZADA];
+
+                $cliente = $usuarios->random();
+                $numeroProductos = rand(1, 10);
+                $productos = $productoslist->random($numeroProductos);
+
+                if ($status == null) {
+                    $status = $statusList[rand(0, count($statusList) - 1)];
+
+                    $probCancelada = rand(0, 100);
+                    if ($probCancelada > 95) {
+                        $status = Orden::CANCELADA;
+                    }
+                }
+
+                $surtidorId = null;
+                if ($status != Orden::PENDIENTE) {
+                    $surtidorId = $surtidores->random()->surtidor_id;
+                }
 
                 $detallesOrdenes = $productos->map(function ($producto) {
 
@@ -62,8 +101,8 @@ class SimularVentasCommand extends Command
 
                 $orden = OrdenTable::query()->create([
                     'usuario_id' => $cliente->usuario_id,
-                    'surtidor_id' => null,
-                    'status' => 'pendiente',
+                    'surtidor_id' => $surtidorId,
+                    'status' => $status,
                     'pago_id' => $pago->pago_id,
                     'fecha_creacion' => now(),
                     'direccion_envio_id' => $cliente->direccion_id,
