@@ -21,8 +21,12 @@ class VentaController extends Controller
   public function index()
   {
     $carrito = $this->dominioCarrito->obtenerCarrito(auth()->user()->getAuthIdentifier());
-    $usuarioId = auth()->user()->getAuthIdentifier();
-    $usuario = $this->dominioUsuarios->consultarPerfil($usuarioId);
+    $usuario = $this->dominioUsuarios->consultarPerfil(auth()->user()->getAuthIdentifier());
     return view('compra.details', ['carrito' => $carrito], ['usuario' => $usuario]);
+  }
+
+  public function confirm()
+  {
+    return view('compra.confirm');
   }
 }

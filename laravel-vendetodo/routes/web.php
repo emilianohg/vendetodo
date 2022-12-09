@@ -33,3 +33,4 @@ Route::middleware('auth')->group(function () {
   Route::get('acomodo/estante/{id}', [EncargadoEstanteController::class, 'obtenerOrdenProductos'])->name('encargado.obtenerOrden');
 });
 Route::get('ventas', [VentaController::class, 'index'])->name('ventas.index');
+Route::get('ventas/confirm', [VentaController::class, 'confirm'])->name('ventas.confirm');
