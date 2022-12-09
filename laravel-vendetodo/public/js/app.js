@@ -19364,6 +19364,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/css/pages/compra-success.css":
+/*!************************************************!*\
+  !*** ./resources/css/pages/compra-success.css ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./resources/css/app.css":
 /*!*******************************!*\
   !*** ./resources/css/app.css ***!
@@ -19749,6 +19762,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 			"css/productos-index": 0,
 /******/ 			"css/productos-individual": 0,
 /******/ 			"css/productos-create": 0,
+/******/ 			"css/compra-success": 0,
 /******/ 			"css/perfil": 0,
 /******/ 			"css/login": 0,
 /******/ 			"css/compra-detalle": 0,
@@ -19803,16 +19817,17 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/productos-index","css/productos-individual","css/productos-create","css/perfil","css/login","css/compra-detalle","css/estante-dashboard","css/carrito"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/productos-index","css/productos-individual","css/productos-create","css/perfil","css/login","css/compra-detalle","css/estante-dashboard","css/carrito"], () => (__webpack_require__("./resources/css/app.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/productos-index","css/productos-individual","css/productos-create","css/perfil","css/login","css/compra-detalle","css/estante-dashboard","css/carrito"], () => (__webpack_require__("./resources/css/pages/productos-create.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/productos-index","css/productos-individual","css/productos-create","css/perfil","css/login","css/compra-detalle","css/estante-dashboard","css/carrito"], () => (__webpack_require__("./resources/css/pages/login.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/productos-index","css/productos-individual","css/productos-create","css/perfil","css/login","css/compra-detalle","css/estante-dashboard","css/carrito"], () => (__webpack_require__("./resources/css/pages/perfil.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/productos-index","css/productos-individual","css/productos-create","css/perfil","css/login","css/compra-detalle","css/estante-dashboard","css/carrito"], () => (__webpack_require__("./resources/css/pages/productos-index.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/productos-index","css/productos-individual","css/productos-create","css/perfil","css/login","css/compra-detalle","css/estante-dashboard","css/carrito"], () => (__webpack_require__("./resources/css/pages/productos-individual.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/productos-index","css/productos-individual","css/productos-create","css/perfil","css/login","css/compra-detalle","css/estante-dashboard","css/carrito"], () => (__webpack_require__("./resources/css/pages/carrito.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/productos-index","css/productos-individual","css/productos-create","css/perfil","css/login","css/compra-detalle","css/estante-dashboard","css/carrito"], () => (__webpack_require__("./resources/css/pages/estante-dashboard.css")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app","css/productos-index","css/productos-individual","css/productos-create","css/perfil","css/login","css/compra-detalle","css/estante-dashboard","css/carrito"], () => (__webpack_require__("./resources/css/pages/compra-detalle.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/productos-index","css/productos-individual","css/productos-create","css/compra-success","css/perfil","css/login","css/compra-detalle","css/estante-dashboard","css/carrito"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/productos-index","css/productos-individual","css/productos-create","css/compra-success","css/perfil","css/login","css/compra-detalle","css/estante-dashboard","css/carrito"], () => (__webpack_require__("./resources/css/app.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/productos-index","css/productos-individual","css/productos-create","css/compra-success","css/perfil","css/login","css/compra-detalle","css/estante-dashboard","css/carrito"], () => (__webpack_require__("./resources/css/pages/productos-create.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/productos-index","css/productos-individual","css/productos-create","css/compra-success","css/perfil","css/login","css/compra-detalle","css/estante-dashboard","css/carrito"], () => (__webpack_require__("./resources/css/pages/login.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/productos-index","css/productos-individual","css/productos-create","css/compra-success","css/perfil","css/login","css/compra-detalle","css/estante-dashboard","css/carrito"], () => (__webpack_require__("./resources/css/pages/perfil.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/productos-index","css/productos-individual","css/productos-create","css/compra-success","css/perfil","css/login","css/compra-detalle","css/estante-dashboard","css/carrito"], () => (__webpack_require__("./resources/css/pages/productos-index.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/productos-index","css/productos-individual","css/productos-create","css/compra-success","css/perfil","css/login","css/compra-detalle","css/estante-dashboard","css/carrito"], () => (__webpack_require__("./resources/css/pages/productos-individual.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/productos-index","css/productos-individual","css/productos-create","css/compra-success","css/perfil","css/login","css/compra-detalle","css/estante-dashboard","css/carrito"], () => (__webpack_require__("./resources/css/pages/carrito.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/productos-index","css/productos-individual","css/productos-create","css/compra-success","css/perfil","css/login","css/compra-detalle","css/estante-dashboard","css/carrito"], () => (__webpack_require__("./resources/css/pages/estante-dashboard.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/productos-index","css/productos-individual","css/productos-create","css/compra-success","css/perfil","css/login","css/compra-detalle","css/estante-dashboard","css/carrito"], () => (__webpack_require__("./resources/css/pages/compra-detalle.css")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app","css/productos-index","css/productos-individual","css/productos-create","css/compra-success","css/perfil","css/login","css/compra-detalle","css/estante-dashboard","css/carrito"], () => (__webpack_require__("./resources/css/pages/compra-success.css")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/css/app.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://kit.fontawesome.com/d62c51cf16.js" crossorigin="anonymous"></script>
+
   </head>
   <body>
       @yield('style')
@@ -46,5 +47,6 @@
     <main class="main-container">
           @yield('content')
     </main>
+    
   </body>
 </html>

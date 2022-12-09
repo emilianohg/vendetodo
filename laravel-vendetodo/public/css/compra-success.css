@@ -1,0 +1,144 @@
+@import url(https://fonts.googleapis.com/css2?family=Inter);
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+.divider {
+  padding-top: 50px;
+}
+
+.tittle-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 100px;
+  top: 280px;
+  background-color: #00bb00;
+  border-radius: 10px;
+}
+
+h4 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+.sale-head-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 5px;
+}
+
+span {
+  font-weight: 800;
+}
+
+.tittle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #FFFf;
+  text-align: center;
+  top: 280px;
+  justify-content: center;
+  align-items: center;
+}
+
+.sale-container {
+  display: grid;
+  justify-content: center;
+  align-items: unset;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.sale-table {
+  border-collapse: collapse;
+  margin-bottom: 8px;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+i {
+  font-size: 20px;
+}
+
+img {
+  width: 120px;
+  height: 120px;
+  border-radius: 10px;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 10px;
+}
+
+.price {
+  color: red;
+  font-weight: 800;
+}
+
+.sale-table thead tr {
+  background-color: #608aeb;
+  color: #ffffff;
+  text-align: left;
+
+}
+
+.sale-table th,
+.sale-table td {
+  padding: 12px 15px;
+}
+
+.sale-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.sale-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.sale-table tbody tr:last-of-type {
+  border-bottom: 2px solid #608aeb;
+}
+
+.amount-sale {
+  display: list-item;
+  list-style: none;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-return {
+  width: 100px;
+  margin-top: 20px;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #608aeb;
+  text-align: center;
+  padding: 6px;
+  border-radius: 10px;
+  box-shadow: 1 1 20px rgba(0, 0, 0, 0.15);
+}
+
+.btn-return:hover {
+  transition: 0.5s;
+  background-color: #009EFF;
+}

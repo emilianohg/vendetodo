@@ -30,7 +30,7 @@
           </tr>
         </table>
       </div>
-      <form action="" method="post">
+      <!-- AQUI VA EL FORMULARIO -->
              <div class="address-container">
         <div class="subtittle-tittle-container">
           <h2 class="sub-tittle">Dirección de envío</h2>
@@ -63,8 +63,10 @@
             </div>
         </div>
         <div class="btn-container">
+          <form action="{{ route('ventas.confirm') }}">
           <input type="submit" value="Confirmar compra" class="btnSubmit">
+          </form>
         </div>
-      </form>
+      
     </div>
 @endsection

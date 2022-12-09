@@ -32,3 +32,4 @@ Route::middleware('auth')->group(function () {
   Route::get('encargado-estante', [EncargadoEstanteController::class, 'home'])->name('encargado-estante.home');
 });
 Route::get('ventas', [VentaController::class, 'index'])->name('ventas.index');
+Route::get('ventas/confirm', [VentaController::class, 'confirm'])->name('ventas.confirm');
