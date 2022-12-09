@@ -4,22 +4,18 @@ namespace App\Domain;
 
 use App\Repositories\AlmacenRepository;
 use App\Repositories\ReportesVentasRepository;
-use App\Repositories\ReportesOrdenEstanteRepository;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 
 class DominioEstante
 {
   private AlmacenRepository $almacenRepository;
   private ReportesVentasRepository $reportesVentasRepository;
-  private ReportesOrdenEstanteRepository $reportesOrdenEstanteRepository;
   private LotesManager $lotesManager;
 
   public function __construct()
   {
     $this->almacenRepository = new AlmacenRepository();
     $this->reportesVentasRepository = new ReportesVentasRepository();
-    $this->reportesOrdenEstanteRepository = new ReportesOrdenEstanteRepository();
     $this->lotesManager = new LotesManager();
   }
 
@@ -37,7 +33,7 @@ class DominioEstante
           ->first();
   }
 
-  public function obtenerOrdenProductos($estante_id): ReporteOrden
+  public function obtenerOrdenProductos($estante_id): ReporteOrdenEstante
   {
     $estantes = $this->almacenRepository->obtenerEstantes();
     $productosExcluidos = $this->obtenerProductosExcluidos($estantes, $estante_id);
@@ -51,21 +47,21 @@ class DominioEstante
       $numeroSecciones,
     );
     
-    $reporteOrden = new ReporteOrden(Str::uuid()->toString(), now()->toAtomString(), $estante_id);
+    $reporteOrdenEstante = new ReporteOrdenEstante(Str::uuid()->toString(), now()->toAtomString(), $estante_id);
     $detalles = $reporteVentas->getDetallesReporteVentasProducto();
 
     $estante = collect($estantes)
       ->filter(fn ($_estante) => $_estante->getEstanteId() == $estante_id)
       ->first();
     
-    foreach($detalles as $detalle)
+    foreach($detalles as $seccion_id => $detalle)
     {
       $producto = $detalle->getProducto();
       $seccion = $estante->getSeccionPorProductoId($producto->getId());
 
       if($seccion == null)
       {
-        $cantidadProductosNecesarios = floor(config('almacen.volumen_seccion')*100 / $producto->getVolumen());
+        $cantidadProductosNecesarios = floor(Seccion::getVolumenSeccion() / $producto->getVolumen());
       }
       else
       {
@@ -73,20 +69,11 @@ class DominioEstante
       }
       
       $paquetes = $this->lotesManager->getPaquetes($cantidadProductosNecesarios,$producto->getId());
-        \Log::info('---------------------------');
-        \Log::info('Producto: ' . $producto->getNombre());
-        \Log::info('---------------------------');
 
-      foreach ($paquetes as $paquete) {
-          \Log::info('Lote: ' . $paquete->getLoteId());
-          \Log::info('Cant: ' . $paquete->getCantidad());
-          \Log::info('Est: ' . $paquete->getEstanteId());
-          \Log::info('Secc: ' . $paquete->getSeccionId());
-      }
-
+      $reporteOrdenEstante->agregarPaquetes($seccion_id+1,$paquetes);
     }
 
-    return $reporteOrden;
+    return  $reporteOrdenEstante;
   }
 
   /**
