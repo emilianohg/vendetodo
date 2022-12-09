@@ -101,7 +101,7 @@ class Producto extends DomainElement {
 
     public function getVolumen(): float
     {
-        return $this->largo* $this->ancho * $this->alto;
+        return $this->largo * $this->ancho * $this->alto;
     }
     
 }
