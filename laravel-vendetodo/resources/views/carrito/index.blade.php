@@ -71,7 +71,7 @@
 			<form action="{{ route('products.index') }}">
 				<button type="submit" class="btn">Seguir comprando</button>
 			</form>
-			<form action="{{ route('products.index') }}">
+			<form action="{{ route('ventas.index') }}">
 				<button type="submit" class="btn" style="background: #abebc6 ">Pagar</button>
 			</Form>
 		</div>

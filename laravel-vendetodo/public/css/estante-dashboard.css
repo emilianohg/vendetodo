@@ -1,0 +1,135 @@
+body {
+  font-family: "Popins", sans-serif;
+}
+
+.tittle {
+  top: 120;
+  font-size: 24px;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #009EFF;
+  height: 100%;
+  border-radius: 10px;
+  text-align: center;
+  margin-top: 15px;
+}
+
+.sub-tittle {
+  font-size: 20px;
+  font-weight: 600;
+  color: black;
+  height: 100%;
+  border-radius: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: center;
+}
+
+.sidenav {
+  height: 100%;
+  width: 140px;
+  position: fixed;
+  z-index: 1;
+  top: 80;
+  left: 0;
+  background-color: #009EFF;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidevar-option {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  font-weight: 800;
+  color: #ffffff;
+  display: block;
+  margin-left: 10px;
+  margin-top: 30px;
+  margin-bottom: 40px;
+  background-color: #015c94;
+  border-top-left-radius: 30px 30px;
+  border-bottom-left-radius: 30px 30px;
+  cursor: pointer;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+}
+
+.sidevar-option:hover {
+  background-color: #608aeb;
+  transition: 0.5s;
+}
+
+.rack-container {
+  margin-left: 160px;
+  padding: 0px 10px;
+}
+
+.rack-details {
+  margin: top 10px;
+  width: 100%;
+  max-width: 1200px;
+  background-color: #ffffff;
+  margin-top: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.table-tittle {
+  margin-top: 10px;
+  background-color: #009EFF;
+  font-weight: 600;
+  color: red;
+}
+
+.img-producto {
+  width: 100px;
+  max-width: 100px;
+  height: 100px;
+  max-height: 100px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px #B1B2FF solid;
+  border-radius: 10px;
+}
+
+th {
+  text-align: center;
+  padding: 8px;
+  background-color: #9AD0EC;
+  border: 1px #B1B2FF solid;
+}
+
+td {
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px #B1B2FF solid;
+}
+
+tr {
+  align-items: center;
+  text-align: center;
+}
+
+tr:nth-child(even) {
+  background-color: #D6E5FA;
+}
+
+br {
+  padding: 10px;
+}
+
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+
+  .sidenav a {
+    font-size: 18px;
+  }
+}
