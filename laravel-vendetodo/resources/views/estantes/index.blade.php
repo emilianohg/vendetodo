@@ -6,9 +6,9 @@
 @section('content')
     <div class="sidenav">
       <form >
-        <a class="sidevar-option" href="{{ route('products.index') }}">Ordenar</i></a>
-        <a class="sidevar-option" href="{{ route('products.index') }}">Tienda</i></a>
+        <a class="sidevar-option" href="{{ route('encargado.obtenerOrden',['id' => $estante->getEstanteid()]) }}">Ordenar</i></a>
       </form>
+        <a class="sidevar-option" href="{{ route('products.index') }}">Tienda</i></a>
     </div>
   <div class="rack-container">
     <h2 class="tittle">Encargado de estante</h2>
