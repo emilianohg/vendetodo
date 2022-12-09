@@ -20,6 +20,7 @@ class SimularVentasCommand extends Command
         $totalVentas = $this->option('ordenes');
 
         $status = null;
+/*
         if ($this->hasOption('status')) {
             $statusValido = collect([
                 Orden::EN_PROCESO,
@@ -37,6 +38,7 @@ class SimularVentasCommand extends Command
 
             $status = $this->option('status');
         }
+* */
 
         $surtidores = DB::table('surtidores')->get();
 

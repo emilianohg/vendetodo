@@ -3,7 +3,7 @@
 namespace App\Domain;
 
 use App\Repositories\ReportesOrdenEstanteRepository;
-use Illuminate\Support\Str;
+use Ramsey\Uuid\Uuid;
 
 class ReporteOrdenEstante
 {
@@ -55,7 +55,7 @@ class ReporteOrdenEstante
             return;
         }
         $producto = $paquetes[0]->getLote()->getProducto();
-        $detalle = new DetalleReporteOrdenEstante(Str::uuid()->toString(),$seccion_id,$producto,$paquetes);
+        $detalle = new DetalleReporteOrdenEstante($seccion_id,$producto,$paquetes);
         $this->detalles[] = $detalle;
     }
 

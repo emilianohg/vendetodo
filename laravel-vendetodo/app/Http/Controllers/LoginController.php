@@ -23,7 +23,7 @@ class LoginController extends Controller
 
         $route = match (auth()->user()->rol_id) {
             Rol::SURTIDOR => 'surtidor.home',
-            Rol::ENCARGADO_ESTANTE => 'estantes.index',
+            Rol::ENCARGADO_ESTANTE => 'encargado-estante.home',
             Rol::CLIENTE => 'products.index',
             Rol::ADMINISTRADOR => 'surtidor.index',
             default => 'products.index',

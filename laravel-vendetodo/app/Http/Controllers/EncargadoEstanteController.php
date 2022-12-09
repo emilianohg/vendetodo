@@ -20,4 +20,10 @@ class EncargadoEstanteController extends Controller
         $estante = $this->dominioEstante->obtenerEstantePorEncargadoId($usuarioId);
         return view('estantes.index', ['estante' => $estante]);
     }
+
+    public function obtenerOrdenProductos($id)
+    {
+        $reporte = $this->dominioEstante->obtenerOrdenProductos($id);
+        return view('estantes.reporte', ['reporte' => $reporte]);
+    }
 }

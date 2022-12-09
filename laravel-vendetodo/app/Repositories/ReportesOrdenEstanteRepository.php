@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Domain\ReporteOrdenEstante;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 
 class ReportesOrdenEstanteRepository
@@ -22,8 +23,6 @@ class ReportesOrdenEstanteRepository
             'estante_id' => $reporteOrdenEstante->getEstanteId(),
         ]);
         foreach ($reporteOrdenEstante->getDetalles() as $detalle) {
-            $reporte_detalle_uuid = $detalle->getDetalleId();
-            $seccion_id = $detalle->getSeccionId();
 
             foreach ($detalle->getPaquetes() as $paquete) {
                 $esta_en_almacen = 0;
@@ -39,11 +38,10 @@ class ReportesOrdenEstanteRepository
                 DB::table('detalles_reportes_orden_estantes')
                 ->insert([
                     'reporte_uuid' => $reporteOrdenEstante->getReporteUuid(),
-                    'reporte_detalle_uuid' => $reporte_detalle_uuid,
                     'estante_id' => $reporteOrdenEstante->getEstanteId(),
-                    'seccion_id' => $seccion_id,
+                    'seccion_id' => $detalle->getSeccionId(),
                     'lote_id' =>    $paquete->getLoteId(),
-                    'está_en_almacen' => $esta_en_almacen,
+                    'esta_en_almacen' => $esta_en_almacen,
                     'estante_origen_id' => $estante_origen_id,
                     'seccion_origen_id' => $seccion_origen_id,
                     'cantidad' => $paquete->getCantidad(),
