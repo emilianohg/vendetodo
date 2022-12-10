@@ -1,10 +1,11 @@
 @extends('layouts.dashboard')
-
+@section('style')
+  <link rel="stylesheet" href="/css/surtidor-orden.css">
+@endsection
 @section('content')
-<h1>Orden</h1>
-
-{{ $orden->getOrdenId() }}
-
+<p>
+    Orden {{ $orden->getOrdenId() }}
+</p>
 <table>
     <thead>
         <tr>
@@ -20,7 +21,8 @@
                     <div class="card-image card-image-not-found"></div>
                 @else
                     <div class="col-img">
-                        <img src="{{ $detalle->getProducto()->getImagenUrl() }}" alt="{{ $detalle->getProducto()->getNombre() }}" class="frameImg">
+                        <img class="col-img" src="{{ $detalle->getProducto()->getImagenUrl() }}"
+                        alt="{{ $detalle->getProducto()->getNombre() }}" >
                     </div>
                 @endif
             </td>

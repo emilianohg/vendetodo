@@ -1,0 +1,72 @@
+h1 {
+    margin-left: 10px;
+    padding: 10px 20px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+p {
+    font-size: 20px;
+}
+
+button.btn {
+    margin-left: 10px;
+    padding: 10px 20px;
+    border: 2px solid #d5dbdb;
+    border-radius: 30px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #d6eaf8;
+}
+
+.layout-inline>* {
+    display: inline-block;
+}
+
+.move-right {
+    margin-left: 4%;
+}
+
+.table-tittle {
+    margin-top: 10px;
+    background-color: #009EFF;
+}
+
+.col-img {
+    width: 200px;
+    height: 150px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+    border: 1px #B1B2FF solid;
+    border-radius: 10px;
+}
+
+th {
+    text-align: center;
+    padding: 8px;
+    font-size: 20px;
+    background-color: #9AD0EC;
+    border: 3px #B1B2FF solid;
+    border-left: 2px #B1B2FF solid;
+    border-right: 2px #B1B2FF solid;
+}
+
+td {
+    font-size: 20px;
+    padding: 8px;
+    margin-top: 5px;
+    border: 2px #B1B2FF solid;
+}
+
+tr {
+    align-items: center;
+    text-align: center;
+}

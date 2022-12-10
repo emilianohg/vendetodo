@@ -51,4 +51,16 @@ class SurtidorController extends Controller
 
         return redirect()->route('surtidor.orden', ['id' => $ordenId]);
     }
+
+    public function generarRuta(int $ordenId){
+        $ruta = $this->dominioOrden->generarRuta($ordenId);
+        return back();
+    }
+
+    public function verRuta(int $ordenId){
+        $ruta = $this->dominioOrden->verRuta($ordenId);
+        return view('surtidor.ruta', [
+            'ruta' => $ruta,
+        ]);
+    }
 }
