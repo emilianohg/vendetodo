@@ -14,6 +14,7 @@
             <th>Foto</th>
             <th>Nombre</th>
             <th>Cantidad</th>
+            <th>Lote</th>
             <th>Ubicación</th>
         </tr>
     </thead>
@@ -29,6 +30,7 @@
             </td>
             <td>{{ $detalle->getPaqueteLote()->getLote()->getProducto()->getNombre() }}</td>
             <td>{{ $detalle->getPaqueteLote()->getCantidad() }}</td>
+            <td>{{ $detalle->getPaqueteLote()->getLote()->getLoteId() }}</td>
             <td>@if ($detalle->getPaqueteLote()->getEstanteId()!=null)
                     <p>Estante: {{ $detalle->getPaqueteLote()->getEstanteId() }}</p>
                     <p>Sección: {{ $detalle->getPaqueteLote()->getSeccionId() }}</p>
