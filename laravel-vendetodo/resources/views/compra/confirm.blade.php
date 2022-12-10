@@ -29,7 +29,14 @@
           COL. {{ $orden->getDireccion()->getColonia() }} C.P. {{ $orden->getDireccion()->getCodigoPostal() }}
           {{ $orden->getDireccion()->getMunicipio() }}, {{ $orden->getDireccion()->getEstado() }}.
         </td>
-        <td><i class="ri-paypal-fill"></i> ****9999</td>
+        <td>
+          @if($orden->getPago()->getMetodoPagoId() == 1)
+            <i class="ri-paypal-fill"></i>
+          @else
+            <i class="ri-bank-card-2-fill"></i>
+          @endif
+          <span>**** 9999</span>
+        </td>
         <td>
           <div class="amount-sale">
             <p>Subtotal: <span>${{ number_format($orden->getTotal(), 2) }}</span></p>
