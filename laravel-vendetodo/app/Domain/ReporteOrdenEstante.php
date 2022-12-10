@@ -48,14 +48,14 @@ class ReporteOrdenEstante
     /**
      * @param PaqueteLote[] $paquetes
      */
-    public function agregarPaquetes($seccion_id,$paquetes)
+    public function agregarPaquetes($seccion_id, $paquetes)
     {
         if(count($paquetes) == 0)
         {
             return;
         }
         $producto = $paquetes[0]->getLote()->getProducto();
-        $detalle = new DetalleReporteOrdenEstante($seccion_id,$producto,$paquetes);
+        $detalle = new DetalleReporteOrdenEstante($seccion_id, $producto, $paquetes);
         $this->detalles[] = $detalle;
     }
 

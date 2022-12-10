@@ -64,27 +64,16 @@ class DominioEstante
     );
     
     $reporteOrdenEstante = new ReporteOrdenEstante(Str::uuid()->toString(), now(), $estante_id);
+    
     $detalles = $reporteVentas->getDetallesReporteVentasProducto();
 
-    $estante = collect($estantes)
-      ->filter(fn ($_estante) => $_estante->getEstanteId() == $estante_id)
-      ->first();
-    
     foreach($detalles as $seccion_id => $detalle)
     {
       $producto = $detalle->getProducto();
-      $seccion = $estante->getSeccionPorProductoId($producto->getId());
 
-      if($seccion == null)
-      {
-        $cantidadProductosNecesarios = floor(Seccion::getVolumenSeccion() / $producto->getVolumen());
-      }
-      else
-      {
-        $cantidadProductosNecesarios = $seccion->getCantidadProductosNecesarios();
-      }
-      
-      $paquetes = $this->lotesManager->getPaquetes($cantidadProductosNecesarios,$producto->getId());
+      $cantidadProductosNecesarios = floor(Seccion::getVolumenSeccion() / $producto->getVolumen());
+
+      $paquetes = $this->lotesManager->getPaquetes($cantidadProductosNecesarios, $producto->getId());
 
       $reporteOrdenEstante->agregarPaquetes($seccion_id+1,$paquetes);
     }
