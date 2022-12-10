@@ -7,6 +7,21 @@ use App\Domain\Common\DomainElement;
 class Usuario extends DomainElement
 {
 
+    /**
+     * Usuario constructor.
+     * @param int $usuario_id
+     * @param string $nombre
+     * @param string $email
+     * @param int $rol_id
+     * @param int $metodo_pago_id
+     * @param int $direccion_id
+     * @param string $created_at
+     * @param string $updated_at
+     * @param Rol $rol
+     * @param \App\Domain\Direccion[] $direcciones
+     * @param Direccion|null $direccion
+     * @param MetodoPago|null $metodo_pago
+     */
     public function __construct(
         private int $usuario_id,
         private string $nombre,
@@ -17,6 +32,7 @@ class Usuario extends DomainElement
         private string $created_at,
         private string $updated_at,
         private Rol $rol,
+        private ?array $direcciones = [],
         private ?Direccion $direccion = null,
         private ?MetodoPago $metodo_pago = null,
     ) {}
@@ -92,6 +108,14 @@ class Usuario extends DomainElement
     public function getMetodoPago(): ?MetodoPago
     {
         return $this->metodo_pago;
+    }
+
+    /**
+     * @return Direccion[]|null
+     */
+    public function getDirecciones(): ?array
+    {
+        return $this->direcciones;
     }
 
 }

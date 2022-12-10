@@ -49,4 +49,12 @@ class CarritosRepository
         $linea_carrito = LineaCarritoBD::query()->findOrFail($linea_carrito_id);
         $linea_carrito->delete();
     }
+
+    public function bloquear(int $usuarioId)
+    {
+        DB::table('usuarios_bloqueados')->insert([
+            'usuario_id' => $usuarioId,
+            'fecha' => now(),
+        ]);
+    }
 }
