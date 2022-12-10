@@ -6,6 +6,8 @@
   <div class="sidenav">
     <a class="sidevar-option" href="{{route('encargado.regresar', ['id' => $reporte->getEstanteId()])}}">Regresar</a>
     <a class="sidevar-option" href="{{route('encargado.comenzar', ['id' => $reporte->getEstanteId()])}}">Comenzar</a>
+    <a class="sidevar-option" href="{{route('encargado.terminar', ['id' => $reporte->getEstanteId()])}}">Terminar</a>
+    <a class="sidevar-option" href="{{route('encargado.cancelar', ['id' => $reporte->getEstanteId()])}}">Cancelar</a>
   </div>
   <div class="report-container">
     <div class="head-report">

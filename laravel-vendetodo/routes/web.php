@@ -36,6 +36,8 @@ Route::middleware('auth')->group(function () {
   Route::get('acomodo/estante/{id}', [EncargadoEstanteController::class, 'obtenerOrdenProductos'])->name('encargado.obtenerOrden');
   Route::get('encargado-estante/{id}', [EncargadoEstanteController::class, 'descartarReporteOrden'])->name('encargado.regresar');
   Route::get('acomodo/estante/iniciado/{id}', [EncargadoEstanteController::class, 'comenzarOrdenamiento'])->name('encargado.comenzar');
+  Route::get('acomodo/estante/terminado/{id}', [EncargadoEstanteController::class, 'terminarOrdenamiento'])->name('encargado.terminar');
+  Route::get('acomodo/estante/cancelado/{id}', [EncargadoEstanteController::class, 'cancelarOrdenamiento'])->name('encargado.cancelar');
 
   Route::get('ventas', [VentaController::class, 'index'])->name('ventas.index');
   Route::post('ventas', [VentaController::class, 'realizarVenta'])->name('ventas.realizar');

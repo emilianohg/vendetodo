@@ -86,7 +86,7 @@ class AlmacenRepository
           }
         }
 
-      $lotes = DB::table('almacen')->select([
+      $lotes = DB::table('control_almacen')->select([
         'lote_id',
         'cantidad',
         'cantidad_disponible',
@@ -118,11 +118,10 @@ class AlmacenRepository
         }
 
         DB::table('control_almacen')->where('estante_id', '=', $estante_id)->delete();
-        DB::table('almacen')->where('estante_id', '=', $estante_id)->delete();
         foreach($detalles as $detalle)
         {
         DB::table('control_almacen')
-          ->insert([
+          ->updateOrInsert([
               'estante_id' => $detalle->estante_id,
               'seccion_id' => $detalle->seccion_id,
               'lote_id' =>  $detalle->lote_id,
