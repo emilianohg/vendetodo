@@ -25,6 +25,11 @@ class CarritosRepository
         return LineaCarrito::from($lineaCarrito->toArray());
     }
 
+    public function limpiar(int $usuarioId): void
+    {
+        LineaCarritoBD::query()->where('usuario_id', '=', $usuarioId)->delete();
+    }
+
     public function actualizarLineaCarrito(LineaCarrito $lineaCarrito): void
     { 
         LineaCarritoBD::where('linea_carrito_id', '=', $lineaCarrito->getId())
@@ -35,7 +40,7 @@ class CarritosRepository
     {
         $lineasCarritoArray = LineaCarritoBD::query()
             ->where('usuario_id', '=', $usuario_id)
-            ->with(['producto','proveedor'])
+            ->with(['producto','proveedor', 'producto.marca'])
             ->get();
         
         $lineasCarritoObj = LineaCarrito::fromArray($lineasCarritoArray->toArray());
@@ -56,5 +61,21 @@ class CarritosRepository
             'usuario_id' => $usuarioId,
             'fecha' => now(),
         ]);
+    }
+
+    public function desbloquear(int $usuarioId)
+    {
+        DB::table('usuarios_bloqueados')
+            ->where('usuario_id', '=', $usuarioId)
+            ->delete();
+    }
+
+    public function getUsuariosIdBloqueadosPorTiempo(int $minutos): array
+    {
+        $usuariosBloqueados = DB::table('usuarios_bloqueados')
+            ->whereRaw('fecha < now() - INTERVAL ? MINUTE', [$minutos])
+            ->get();
+
+        return collect($usuariosBloqueados)->map(fn ($u) => $u->usuario_id)->values()->toArray();
     }
 }

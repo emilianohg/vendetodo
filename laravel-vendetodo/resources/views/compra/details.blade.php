@@ -44,7 +44,7 @@
                 <div class="options">
                   <input
                     type="radio"
-                    name="address"
+                    name="direccion_id"
                     class="radioBtn-address"
                     id="direccion-{{$direccion->getDireccionId()}}"
                     value="{{$direccion->getDireccionId()}}"
@@ -72,7 +72,7 @@
                 <div class="options">
                   <input
                     type="radio"
-                    name="payment"
+                    name="metodo_pago_id"
                     class="radioBtn-payment"
                     value="{{$metodo_pago->getMetodoPagoId()}}"
                     @if($usuario->getMetodoPago()->getMetodoPagoId()) checked @endif

@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Domain\ResumenProductosProveedor;
 use App\Models\Lote as LoteTable;
 use App\Domain\Lote;
 use Illuminate\Support\Facades\DB;
@@ -48,6 +49,49 @@ class LotesRepository
         $lotes = $lotesQuery->get();
 
         return Lote::fromArray($lotes->toArray());
+    }
+
+    public function obtenerResumen(int $proveedorId, int $productoId): ResumenProductosProveedor
+    {
+        $proveedorProducto = DB::table('proveedores_productos')
+            ->select([
+                'proveedores_productos.proveedor_id',
+                'proveedores.nombre as proveedor_nombre',
+                'proveedores_productos.producto_id',
+                'productos.nombre as producto_nombre',
+                'proveedores_productos.cantidad',
+                'proveedores_productos.cantidad_disponible',
+            ])
+            ->join('productos', 'productos.producto_id', '=', 'proveedores_productos.producto_id')
+            ->join('proveedores', 'proveedores.proveedor_id', '=', 'proveedores_productos.proveedor_id')
+            ->where('proveedores_productos.proveedor_id', '=', $proveedorId)
+            ->where('proveedores_productos.producto_id', '=', $productoId)
+            ->first();
+
+        return new ResumenProductosProveedor(
+            proveedor_id: $proveedorProducto->proveedor_id,
+            proveedor_nombre: $proveedorProducto->proveedor_nombre,
+            producto_id: $proveedorProducto->producto_id,
+            producto_nombre: $proveedorProducto->producto_nombre,
+            cantidad: $proveedorProducto->cantidad,
+            cantidad_disponible: $proveedorProducto->cantidad_disponible,
+        );
+    }
+
+    public function apartar(int $proveedorId, int $productoId, int $cantidad): void
+    {
+        DB::table('proveedores_productos')
+            ->where('proveedores_productos.proveedor_id', '=', $proveedorId)
+            ->where('proveedores_productos.producto_id', '=', $productoId)
+            ->decrement('proveedores_productos.cantidad_disponible', $cantidad);
+    }
+
+    public function desapartar(int $proveedorId, int $productoId, int $cantidad): void
+    {
+        DB::table('proveedores_productos')
+            ->where('proveedores_productos.proveedor_id', '=', $proveedorId)
+            ->where('proveedores_productos.producto_id', '=', $productoId)
+            ->increment('proveedores_productos.cantidad_disponible', $cantidad);
     }
 
 }

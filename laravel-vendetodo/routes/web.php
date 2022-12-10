@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\EncargadoEstanteController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PagoController;
 use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\SurtidorController;
 use Illuminate\Support\Facades\Route;
@@ -39,6 +40,9 @@ Route::middleware('auth')->group(function () {
 
   Route::get('ventas', [VentaController::class, 'index'])->name('ventas.index');
   Route::post('ventas', [VentaController::class, 'realizarVenta'])->name('ventas.realizar');
+
+  Route::post('pago/confirmar', [VentaController::class, 'confirmarPago'])->name('ventas.confirmarPago');
+  Route::get('pago/{referencia}', [PagoController::class, 'show'])->name('pago');
 });
 
 Route::get('ventas', [VentaController::class, 'index'])->name('ventas.index');

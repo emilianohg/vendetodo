@@ -66,11 +66,34 @@ class Orden extends DomainElement
         return self::make(Orden::class, $values);
     }
 
+    public function agregarDetalle(LineaCarrito $linea):void
+    {
+        $this->detalle[] = $this->ordenRepository->agregarDetalle($this->getOrdenId(), $linea);
+    }
+
     public function asignarSurtidor(int $surtidorId) {
         $this->surtidor_id = $surtidorId;
         $this->status = Orden::EN_PROCESO;
 
         $this->ordenRepository->asignarSurtidor($this->orden_id, $this->surtidor_id);
+    }
+
+    public function getTotal(): float
+    {
+        $total = 0;
+        foreach ($this->getDetalle() as $detalleOrden) {
+            $total += $detalleOrden->getCantidad() * $detalleOrden->getPrecio();
+        }
+        return $total;
+    }
+
+    public function getCantidadProductos(): int
+    {
+        $total = 0;
+        foreach ($this->getDetalle() as $detalleOrden) {
+            $total += $detalleOrden->getCantidad();
+        }
+        return $total;
     }
 
     public function getOrdenId(): int

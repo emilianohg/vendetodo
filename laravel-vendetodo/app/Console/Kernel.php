@@ -10,6 +10,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('ordenes:surtir')->everyMinute();
+        $schedule->command('pagos:cancelar')->everyMinute();
     }
 
     protected function commands()

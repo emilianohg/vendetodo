@@ -17,7 +17,11 @@ class PagoTable extends Model
         'pago_id',
         'metodo_pago_id',
         'referencia',
-        'fecha',
+        'usuario_id',
+        'status',
+        'importe',
+        'fecha_solicitud',
+        'fecha_pago',
     ];
 
     public $timestamps = false;
