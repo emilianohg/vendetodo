@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Domain\DominioEstante;
+use App\Repositories\AlmacenRepository;
 
 use Illuminate\Console\Command;
 
@@ -21,8 +22,8 @@ class ConversionModeloLaravelCommand extends Command
   {
 
 
-    $dominio = new DominioEstante();
-    $dominio->obtenerOrdenProductos(1);
+    $repository = new AlmacenRepository();
+    $repository->guardarCambios(1);
     return 0;
   }
 }

@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Domain\EncargadoEstante;
 use App\Models\EncargadoEstanteTable;
+use App\Models\Lote as LoteDB;
 use Illuminate\Support\Facades\DB;
 use App\Domain\Lote;
 use App\Domain\PaqueteLote;
@@ -11,6 +12,7 @@ use App\Domain\Seccion;
 use App\Domain\Estante;
 use App\Domain\Producto;
 use App\Models\AlmacenTable;
+use SebastianBergmann\CodeCoverage\Driver\Selector;
 
 class AlmacenRepository
 {
@@ -44,6 +46,104 @@ class AlmacenRepository
     {
         $encargados = EncargadoEstanteTable::query()->with(['usuario'])->get();
         return EncargadoEstante::fromArray($encargados->toArray());
+    }
+
+    public function bloquearEstante(int $estante_id)
+    {
+        DB::table('control_almacen')
+        ->where('estante_id', $estante_id)
+        ->update(['status' => 'ordenando']);
+    }
+
+    public function desbloquearEstante(int $estante_id)
+    {
+        DB::table('control_almacen')
+        ->where('estante_id', $estante_id)
+        ->update(['status' => 'libre']);
+    }
+
+    public function guardarCambios(int $estante_id){
+
+      DB::transaction(function () use ($estante_id) {
+
+        $detalles = DB::table('detalles_reportes_orden_estantes')
+        ->where('estante_id', '=', $estante_id)
+        ->orderBy('seccion_id')
+        ->get();
+
+        foreach($detalles as $detalle)
+        {
+          //pasar de bodega a almacen
+          if($detalle->esta_en_almacen == 0)
+          {
+            DB::table('bodega')
+            ->where('lote_id', '=', $detalle->lote_id)
+            ->decrement('cantidad', $detalle->cantidad);
+
+            DB::table('bodega')
+            ->where('lote_id', '=', $detalle->lote_id)
+            ->decrement('cantidad_disponible', $detalle->cantidad);
+          }
+        }
+
+      $lotes = DB::table('almacen')->select([
+        'lote_id',
+        'cantidad',
+        'cantidad_disponible',
+        'seccion_id',
+      ])->where('estante_id', '=', $estante_id)
+        ->get();
+
+        foreach($lotes as $lote)
+        {
+          $res = $detalles->contains(function ($detalle) use ($lote) {
+            return $detalle->lote_id = $lote->lote_id;
+          });
+
+          //pasar de almacen a bodega
+          if(!$res)
+          {
+              DB::table('bodega')
+              ->where('lote_id', '=', $lote->lote_id)
+              ->increment('cantidad', $lote->cantidad);
+
+              DB::table('bodega')
+              ->where('lote_id', '=', $lote->lote_id)
+              ->increment('cantidad_disponible', $lote->cantidad_disponible);
+              continue;
+          }
+
+          $lotesQuedanEnAlmacen[] = $lote;
+
+        }
+
+        DB::table('control_almacen')->where('estante_id', '=', $estante_id)->delete();
+        DB::table('almacen')->where('estante_id', '=', $estante_id)->delete();
+        foreach($detalles as $detalle)
+        {
+        DB::table('control_almacen')
+          ->insert([
+              'estante_id' => $detalle->estante_id,
+              'seccion_id' => $detalle->seccion_id,
+              'lote_id' =>  $detalle->lote_id,
+              'cantidad' => $detalle->cantidad,
+              'cantidad_disponible' => $detalle->cantidad, //calcular la cantidad y cant disp
+              'status' => 'libre',
+          ]);
+        }
+
+        DB::table('detalles_reportes_orden_estantes')->where('estante_id', '=', $estante_id)->delete();
+        DB::table('reportes_orden_estantes')->where('estante_id', '=', $estante_id)->delete();
+
+      });
+
+    }
+
+    public function descartarReporteOrdenEstante(int $estante_id)
+    {
+      DB::table('detalles_reportes_orden_estantes')->where('estante_id', '=', $estante_id)->delete();
+      DB::table('reportes_orden_estantes')->where('estante_id', '=', $estante_id)->delete();
+      $this->desbloquearEstante($estante_id);
     }
 
   /**
