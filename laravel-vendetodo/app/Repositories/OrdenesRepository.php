@@ -2,13 +2,51 @@
 
 namespace App\Repositories;
 
+use App\Domain\DetalleOrden;
+use App\Domain\LineaCarrito;
 use App\Domain\Orden;
+use App\Domain\Pago;
 use App\Domain\ResumenOrdenSurtidor;
+use App\Domain\Usuario;
+use App\Models\DetalleOrdenTable;
 use App\Models\OrdenTable;
 use Illuminate\Support\Facades\DB;
 
 class OrdenesRepository
 {
+    public function crear(Usuario $usuario, Pago $pago): Orden
+    {
+        $orden = OrdenTable::query()->create([
+            'usuario_id' => $usuario->getUsuarioId(),
+            'status' => Orden::PENDIENTE,
+            'pago_id' => $pago->getPagoId(),
+            'fecha_creacion' => now(),
+            'direccion_envio_id' => $usuario->getDireccion()->getDireccionId(),
+        ]);
+
+        return $this->buscarPorId($orden->orden_id);
+    }
+
+    public function agregarDetalle(int $ordenId, LineaCarrito $lineaCarrito): DetalleOrden
+    {
+        DetalleOrdenTable::query()->create([
+            'orden_id' => $ordenId,
+            'producto_id' => $lineaCarrito->getProductoId(),
+            'proveedor_id' => $lineaCarrito->getProveedorId(),
+            'cantidad' => $lineaCarrito->getCantidad(),
+            'precio' => $lineaCarrito->getProducto()->getPrecio(),
+        ]);
+
+        return new DetalleOrden(
+            orden_id: $ordenId,
+            producto_id: $lineaCarrito->getProductoId(),
+            proveedor_id: $lineaCarrito->getProveedorId(),
+            cantidad: $lineaCarrito->getCantidad(),
+            precio: $lineaCarrito->getProducto()->getPrecio(),
+            producto: $lineaCarrito->getProducto(),
+        );
+    }
+
     public function buscarPorId(int $ordenId): Orden
     {
         $ordenRecord = OrdenTable::query()

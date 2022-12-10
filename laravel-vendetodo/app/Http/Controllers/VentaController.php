@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Domain\DominioCarrito;
 use App\Domain\DominioVenta;
+use App\Domain\PagoNoHabilitadoException;
+use App\Domain\ProductoAgotadoException;
 use Illuminate\Http\Request;
 use App\Domain\DominioUsuarios;
 
@@ -13,16 +15,13 @@ class VentaController extends Controller
 
   function __construct()
   {
-    $this->dominioCarrito = new DominioCarrito();
-    $this->dominioUsuarios = new DominioUsuarios();
     $this->dominioVenta = new DominioVenta();
   }
 
   public function index()
   {
-
     $usuarioId = auth()->user()->getAuthIdentifier();
-    return view('compra.details', $this->dominioVenta->confirmar($usuarioId));
+    return view('compra.details', $this->dominioVenta->visualizar($usuarioId));
   }
 
   public function realizarVenta(Request $request)
@@ -30,13 +29,26 @@ class VentaController extends Controller
       $usuarioId = auth()->user()->getAuthIdentifier();
       $metodoPagoId = $request->get('metodo_pago_id');
       $direccionId = $request->get('direccion_id');
-      $this->dominioVenta->realizarVenta($usuarioId, $metodoPagoId, $direccionId);
+
+      try {
+          $pago = $this->dominioVenta->realizarVenta($usuarioId, $metodoPagoId, $direccionId);
+
+          return redirect()->route('pago', ['referencia' => $pago->getReferencia()]);
+      } catch (ProductoAgotadoException $e) {
+          return redirect()->route('carrito')->with($e->getMessage());
+      }
   }
 
-  public function confirm()
+  public function confirmarPago(Request $request)
   {
-    $carrito = $this->dominioCarrito->obtenerCarrito(auth()->user()->getAuthIdentifier());
-    $usuario = $this->dominioUsuarios->consultarPerfil(auth()->user()->getAuthIdentifier());
-    return view('compra.confirm', ['carrito' => $carrito], ['usuario' => $usuario]);
+      $referencia = $request->get('referencia');
+
+      try {
+          $orden = $this->dominioVenta->confirmar($referencia);
+          return view('compra.confirm', ['orden' => $orden]);
+      } catch (PagoNoHabilitadoException $e) {
+          return redirect()->back()->with('error_message', $e->getMessage());
+      }
   }
+
 }

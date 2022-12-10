@@ -95,10 +95,16 @@ class SimularVentasCommand extends Command
                     ];
                 });
 
+                $precioTotal = $detallesOrdenes->sum('precio');
+
                 $pago = PagoTable::query()->create([
                     'metodo_pago_id' => 1,
                     'referencia' => Uuid::uuid4(),
                     'fecha' => now(),
+                    'usuario_id' => $cliente->usuario_id,
+                    'fecha_pago' => now()->addMinute(),
+                    'status' => 'pagado',
+                    'importe' => $precioTotal,
                 ]);
 
                 $orden = OrdenTable::query()->create([

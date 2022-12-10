@@ -11,7 +11,7 @@
 </div>
 <h4>Detalle de la compra:</h4>
 <div class="sale-head-container">
-  <p>Folio de compra: <span>XXXXXXXXXXXXXXXXXX</span></p>
+  <p>Folio de compra: <span>{{ $orden->getOrdenId() }}</span></p>
 </div>
 <div class="sale-container">
   <table class="sale-table">
@@ -24,13 +24,24 @@
     </thead>
     <tbody>
       <tr>
-        <td>Girasoles #4213, Molino de Flores, Culiacán, Sinaloa</td>
-        <td><i class="ri-paypal-fill"></i> ****9999</td>
+        <td>
+          C. {{ $orden->getDireccion()->getCalle() }} # {{ $orden->getDireccion()->getNumeroExt() }}
+          COL. {{ $orden->getDireccion()->getColonia() }} C.P. {{ $orden->getDireccion()->getCodigoPostal() }}
+          {{ $orden->getDireccion()->getMunicipio() }}, {{ $orden->getDireccion()->getEstado() }}.
+        </td>
+        <td>
+          @if($orden->getPago()->getMetodoPagoId() == 1)
+            <i class="ri-paypal-fill"></i>
+          @else
+            <i class="ri-bank-card-2-fill"></i>
+          @endif
+          <span>**** 9999</span>
+        </td>
         <td>
           <div class="amount-sale">
-            <p>Subtotal: <span>$ 17,000.00</span></p>
+            <p>Subtotal: <span>${{ number_format($orden->getTotal(), 2) }}</span></p>
             <p>Envío: <span>$ 0.00</span></p>
-            <p>Total: <span>$ 17,000.00</span></p>
+            <p>Total: <span>${{ number_format($orden->getTotal(), 2) }}</span></p>
           </div>
         </td>
       </tr>
@@ -42,39 +53,21 @@
           </tr>
         </thead>
         <tbody>
+          @foreach($orden->getDetalle() as $detalle)
           <tr>
-            <td><img src="https://assets.sams.com.mx/image/upload/f_auto,q_auto:eco,w_350,c_scale,dpr_auto/mx/images/product-images/img_medium/980023266m.jpg" alt=""></td>
+            <td>
+              <img src="{{ $detalle->getProducto()->getImagenUrl() }}" alt="{{ $detalle->getProducto()->getNombre() }}">
+            </td>
             <td>
               <ul>
-                <li>Xbox series X consola de videojuegos en alta definición.</li>
-                <li class="price">$17,000</li>
-                <li>Cantidad: 1</li>
-                <li>Proveedor: Microsoft México</li>
+                <li>{{ $detalle->getProducto()->getNombre() }}</li>
+                <li class="price">${{ number_format($detalle->getProducto()->getPrecio(), 2) }}</li>
+                <li>Cantidad: {{ $detalle->getCantidad() }}</li>
+                <li>Proveedor: {{ $detalle->getProducto()->getMarca()->getNombre() }}</li>
               </ul>
             </td>
           </tr>
-          <tr>
-            <td><img src="https://assets.sams.com.mx/image/upload/f_auto,q_auto:eco,w_350,c_scale,dpr_auto/mx/images/product-images/img_medium/980023266m.jpg" alt=""></td>
-            <td>
-              <ul>
-                <li>Xbox series X consola de videojuegos en alta definición.</li>
-                <li class="price">$17,000</li>
-                <li>Cantidad: 1</li>
-                <li>Proveedor: Microsoft México</li>
-              </ul>
-            </td>
-          </tr>
-          <tr>
-            <td><img src="https://assets.sams.com.mx/image/upload/f_auto,q_auto:eco,w_350,c_scale,dpr_auto/mx/images/product-images/img_medium/980023266m.jpg" alt=""></td>
-            <td>
-              <ul>
-                <li>Xbox series X consola de videojuegos en alta definición.</li>
-                <li class="price">$17,000</li>
-                <li>Cantidad: 1</li>
-                <li>Proveedor: Microsoft México</li>
-              </ul>
-            </td>
-          </tr>
+          @endforeach
       </table>
       <div class="btn-container">
         <a class="btn-return" href="{{ route('products.index') }}">Regresar a tienda</a>

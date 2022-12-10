@@ -53,7 +53,14 @@ class Carrito
 
     public function bloquear(): void
     {
-        $this->carritosRepository->bloquear($carritoId);
+        $this->carritosRepository->bloquear($this->usuario_id);
+        $this->bloqueado = true;
+    }
+
+    public function desbloquear(): void
+    {
+        $this->carritosRepository->desbloquear($this->usuario_id);
+        $this->bloqueado = false;
     }
 
     public function estaBloqueado(): bool
@@ -90,5 +97,18 @@ class Carrito
             $total += $linea->getSubtotal();
         }
         return $total;
+    }
+
+    public function getUsuarioId(): int
+    {
+        return $this->usuario_id;
+    }
+
+    public function limpiar(): void
+    {
+        if($this->estaBloqueado()) {
+            return;
+        }
+        $this->carritosRepository->limpiar($this->getUsuarioId());
     }
 }
