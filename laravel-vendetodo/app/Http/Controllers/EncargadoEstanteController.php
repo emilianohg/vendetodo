@@ -26,4 +26,16 @@ class EncargadoEstanteController extends Controller
         $reporte = $this->dominioEstante->obtenerOrdenProductos($id);
         return view('estantes.reporte', ['reporte' => $reporte]);
     }
+
+    public function comenzarOrdenamiento($id)
+    {
+        $this->dominioEstante->comenzarOrdenamiento($id);
+        return back();
+    }
+
+    public function descartarReporteOrden($id)
+    {
+        $this->dominioEstante->cancelarOrdenamiento($id);
+        return redirect()->route('encargado-estante.home');
+    }
 }

@@ -4,7 +4,8 @@
 @endsection
 @section('content')
   <div class="sidenav">
-    <a class="sidevar-option" href="{{route('encargado-estante.home')}}">Regresar</a>
+    <a class="sidevar-option" href="{{route('encargado.regresar', ['id' => $reporte->getEstanteId()])}}">Regresar</a>
+    <a class="sidevar-option" href="{{route('encargado.comenzar', ['id' => $reporte->getEstanteId()])}}">Comenzar</a>
   </div>
   <div class="report-container">
     <div class="head-report">

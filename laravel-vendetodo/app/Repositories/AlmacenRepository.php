@@ -51,14 +51,14 @@ class AlmacenRepository
     public function bloquearEstante(int $estante_id)
     {
         DB::table('control_almacen')
-        ->where('estante_id', $estante_id)
+        ->where('estante_id', '=', $estante_id)
         ->update(['status' => 'ordenando']);
     }
 
     public function desbloquearEstante(int $estante_id)
     {
         DB::table('control_almacen')
-        ->where('estante_id', $estante_id)
+        ->where('estante_id', '=',  $estante_id)
         ->update(['status' => 'libre']);
     }
 
