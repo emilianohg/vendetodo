@@ -8,7 +8,7 @@
   </div>
   <div class="report-container">
     <div class="head-report">
-      <h2>Encargado de estante</h2>
+      <h2 class="tittle">Reporte de ordenamiento generado.</h2>
       <button></button>
     </div>
 
