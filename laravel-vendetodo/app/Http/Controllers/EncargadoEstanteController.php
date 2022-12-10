@@ -21,27 +21,37 @@ class EncargadoEstanteController extends Controller
         return view('estantes.index', ['estante' => $estante]);
     }
 
-    public function obtenerOrdenProductos($id)
+    public function generarOrdenProductos()
     {
-        $reporte = $this->dominioEstante->obtenerOrdenProductos($id);
+        $usuarioId = auth()->user()->getAuthIdentifier();
+        $this->dominioEstante->generarOrdenProductos($usuarioId);
+        return redirect()->route('encargado.obtenerOrden');
+    }
+
+    public function obtenerOrdenProductos() {
+        $usuarioId = auth()->user()->getAuthIdentifier();
+        $reporte = $this->dominioEstante->obtenerOrdenProductos($usuarioId);
         return view('estantes.reporte', ['reporte' => $reporte]);
     }
 
-    public function comenzarOrdenamiento($id)
+    public function comenzarOrdenamiento()
     {
-        $this->dominioEstante->comenzarOrdenamiento($id);
-        return back();
+        $usuarioId = auth()->user()->getAuthIdentifier();
+        $this->dominioEstante->comenzarOrdenamiento($usuarioId);
+        return redirect()->route('encargado.obtenerOrden');
     }
 
-    public function terminarOrdenamiento($id)
+    public function terminarOrdenamiento()
     {
-        $this->dominioEstante->terminarOrdenamiento($id);
+        $usuarioId = auth()->user()->getAuthIdentifier();
+        $this->dominioEstante->terminarOrdenamiento($usuarioId);
         return redirect()->route('encargado-estante.home');
     }
 
-    public function cancelarOrdenamiento($id)
+    public function cancelarOrdenamiento()
     {
-        $this->dominioEstante->cancelarOrdenamiento($id);
+        $usuarioId = auth()->user()->getAuthIdentifier();
+        $this->dominioEstante->cancelarOrdenamiento($usuarioId);
         return redirect()->route('encargado-estante.home');
     }
 

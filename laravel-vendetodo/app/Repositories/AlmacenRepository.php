@@ -2,9 +2,12 @@
 
 namespace App\Repositories;
 
+use App\Domain\DetalleReporteOrdenEstante;
 use App\Domain\EncargadoEstante;
+use App\Domain\ReporteOrdenEstante;
 use App\Models\EncargadoEstanteTable;
 use App\Models\Lote as LoteDB;
+use App\Models\Lote as LoteTable;
 use Illuminate\Support\Facades\DB;
 use App\Domain\Lote;
 use App\Domain\PaqueteLote;
@@ -51,15 +54,15 @@ class AlmacenRepository
     public function bloquearEstante(int $estante_id)
     {
         DB::table('control_almacen')
-        ->where('estante_id', '=', $estante_id)
-        ->update(['status' => 'ordenando']);
+            ->where('estante_id', '=', $estante_id)
+            ->update(['status' => 'ordenando']);
     }
 
     public function desbloquearEstante(int $estante_id)
     {
         DB::table('control_almacen')
-        ->where('estante_id', '=',  $estante_id)
-        ->update(['status' => 'libre']);
+            ->where('estante_id', '=',  $estante_id)
+            ->update(['status' => 'libre']);
     }
 
     public function guardarCambios(int $estante_id){
@@ -67,9 +70,9 @@ class AlmacenRepository
       DB::transaction(function () use ($estante_id) {
 
         $detalles = DB::table('detalles_reportes_orden_estantes')
-        ->where('estante_id', '=', $estante_id)
-        ->orderBy('seccion_id')
-        ->get();
+            ->where('estante_id', '=', $estante_id)
+            ->orderBy('seccion_id')
+            ->get();
 
         foreach($detalles as $detalle)
         {
@@ -118,18 +121,37 @@ class AlmacenRepository
         }
 
         DB::table('control_almacen')->where('estante_id', '=', $estante_id)->delete();
+
         foreach($detalles as $detalle)
         {
-        DB::table('control_almacen')
-          ->updateOrInsert([
-              'estante_id' => $detalle->estante_id,
-              'seccion_id' => $detalle->seccion_id,
-              'lote_id' =>  $detalle->lote_id,
-              'cantidad' => $detalle->cantidad,
-              'cantidad_disponible' => $detalle->cantidad, //calcular la cantidad y cant disp
-              'status' => 'libre',
-          ]);
+          $lote = collect($lotes)
+            ->filter(fn($_lote) => $_lote->lote_id = $detalle->lote_id)
+            ->first();
+
+          DB::table('control_almacen')
+            ->updateOrInsert([
+                'estante_id' => $detalle->estante_id,
+                'seccion_id' => $detalle->seccion_id,
+                'lote_id' =>  $detalle->lote_id,
+              ], [
+                'estante_id' => $detalle->estante_id,
+                'seccion_id' => $detalle->seccion_id,
+                'lote_id' =>  $detalle->lote_id,
+                'cantidad' => $detalle->cantidad,
+                'cantidad_disponible' => $detalle->cantidad, //calcular la cantidad y cant disp
+                'status' => 'libre',
+            ]);
+
+          $__lote = DB::table('lotes')->where('lote_id', '=', $detalle->lote_id)->first();
+
+          DB::table('almacen')
+            ->where('estante_id', '=', $detalle->estante_id)
+            ->where('seccion_id', '=', $detalle->seccion_id)
+            ->update([
+              'producto_id' => $__lote->producto_id,
+            ]);
         }
+
 
         DB::table('detalles_reportes_orden_estantes')->where('estante_id', '=', $estante_id)->delete();
         DB::table('reportes_orden_estantes')->where('estante_id', '=', $estante_id)->delete();

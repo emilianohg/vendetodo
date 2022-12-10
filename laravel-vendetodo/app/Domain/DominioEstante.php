@@ -3,6 +3,7 @@
 namespace App\Domain;
 
 use App\Repositories\AlmacenRepository;
+use App\Repositories\ReportesOrdenEstanteRepository;
 use App\Repositories\ReportesVentasRepository;
 use Illuminate\Support\Str;
 
@@ -11,12 +12,14 @@ class DominioEstante
   private AlmacenRepository $almacenRepository;
   private ReportesVentasRepository $reportesVentasRepository;
   private LotesManager $lotesManager;
+  private ReportesOrdenEstanteRepository $reportesOrdenEstanteRepository;
 
   public function __construct()
   {
     $this->almacenRepository = new AlmacenRepository();
     $this->reportesVentasRepository = new ReportesVentasRepository();
     $this->lotesManager = new LotesManager();
+    $this->reportesOrdenEstanteRepository = new ReportesOrdenEstanteRepository();
   }
 
   public function obtenerEstantePorEncargadoId(int $usuarioId): ?Estante
@@ -33,26 +36,45 @@ class DominioEstante
           ->first();
   }
 
-  public function comenzarOrdenamiento(int $estante_id)
+  public function comenzarOrdenamiento(int $usuarioId)
   {
-    $this->almacenRepository->bloquearEstante($estante_id);
+    $encargado = $this->almacenRepository->obtenerEncargado($usuarioId);
+    $estanteId = $encargado->getEstanteId();
+    $this->almacenRepository->bloquearEstante($estanteId);
   }
 
-  public function terminarOrdenamiento(int $estante_id)
+  public function terminarOrdenamiento(int $usuarioId)
   {
-    $this->almacenRepository->guardarCambios($estante_id);
-    $this->almacenRepository->desbloquearEstante($estante_id);
+    $encargado = $this->almacenRepository->obtenerEncargado($usuarioId);
+    $estanteId = $encargado->getEstanteId();
+    $this->almacenRepository->guardarCambios($estanteId);
+    $this->almacenRepository->desbloquearEstante($estanteId);
   }
 
-  public function cancelarOrdenamiento(int $estante_id)
+  public function cancelarOrdenamiento(int $usuarioId)
   {
-    $this->almacenRepository->descartarReporteOrdenEstante($estante_id);
+    $encargado = $this->almacenRepository->obtenerEncargado($usuarioId);
+    $estanteId = $encargado->getEstanteId();
+    $this->almacenRepository->descartarReporteOrdenEstante($estanteId);
   }
 
-  public function obtenerOrdenProductos($estante_id): ReporteOrdenEstante
+  public function obtenerOrdenProductos(int $usuarioId): ReporteOrdenEstante
+  {
+      $encargado = $this->almacenRepository->obtenerEncargado($usuarioId);
+      $estanteId = $encargado->getEstanteId();
+      return $this->reportesOrdenEstanteRepository->obtenerOrdenProductosPorEstanteId($estanteId);
+  }
+
+
+  public function generarOrdenProductos(int $usuarioId): ReporteOrdenEstante
   {
     $estantes = $this->almacenRepository->obtenerEstantes();
-    $productosExcluidos = $this->obtenerProductosExcluidos($estantes, $estante_id);
+    $encargado = $this->almacenRepository->obtenerEncargado($usuarioId);
+    $estanteId = $encargado->getEstanteId();
+
+    $this->almacenRepository->descartarReporteOrdenEstante($estanteId);
+
+    $productosExcluidos = $this->obtenerProductosExcluidos($estantes, $estanteId);
     $numeroSecciones = config('almacen.numero_secciones');
 
     $reporteVentas = $this->reportesVentasRepository->generarReporteVentas(
@@ -63,7 +85,7 @@ class DominioEstante
       $numeroSecciones,
     );
     
-    $reporteOrdenEstante = new ReporteOrdenEstante(Str::uuid()->toString(), now(), $estante_id);
+    $reporteOrdenEstante = new ReporteOrdenEstante(Str::uuid()->toString(), now(), $estanteId);
     
     $detalles = $reporteVentas->getDetallesReporteVentasProducto();
 

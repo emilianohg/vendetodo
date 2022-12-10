@@ -34,11 +34,11 @@ Route::middleware('auth')->group(function () {
   Route::get('surtidor/orden/{id}/ruta', [SurtidorController::class, 'verRuta'])->name('surtidor.verRuta');
 
   Route::get('encargado-estante', [EncargadoEstanteController::class, 'home'])->name('encargado-estante.home');
-  Route::get('acomodo/estante/{id}', [EncargadoEstanteController::class, 'obtenerOrdenProductos'])->name('encargado.obtenerOrden');
-  Route::get('encargado-estante/{id}', [EncargadoEstanteController::class, 'descartarReporteOrden'])->name('encargado.regresar');
-  Route::get('acomodo/estante/iniciado/{id}', [EncargadoEstanteController::class, 'comenzarOrdenamiento'])->name('encargado.comenzar');
-  Route::get('acomodo/estante/terminado/{id}', [EncargadoEstanteController::class, 'terminarOrdenamiento'])->name('encargado.terminar');
-  Route::get('acomodo/estante/cancelado/{id}', [EncargadoEstanteController::class, 'cancelarOrdenamiento'])->name('encargado.cancelar');
+  Route::get('acomodo/estante', [EncargadoEstanteController::class, 'obtenerOrdenProductos'])->name('encargado.obtenerOrden');
+  Route::post('acomodo/estante', [EncargadoEstanteController::class, 'generarOrdenProductos'])->name('encargado.generarOrden');
+  Route::post('acomodo/estante/iniciar', [EncargadoEstanteController::class, 'comenzarOrdenamiento'])->name('encargado.comenzar');
+  Route::post('acomodo/estante/terminar', [EncargadoEstanteController::class, 'terminarOrdenamiento'])->name('encargado.terminar');
+  Route::post('acomodo/estante/cancelar', [EncargadoEstanteController::class, 'cancelarOrdenamiento'])->name('encargado.cancelar');
 
   Route::get('ventas', [VentaController::class, 'index'])->name('ventas.index');
   Route::post('ventas', [VentaController::class, 'realizarVenta'])->name('ventas.realizar');

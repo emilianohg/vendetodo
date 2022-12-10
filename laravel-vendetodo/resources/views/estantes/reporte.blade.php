@@ -4,14 +4,24 @@
 @endsection
 @section('content')
   <div class="sidenav">
-    <a class="sidevar-option" href="{{route('encargado.regresar', ['id' => $reporte->getEstanteId()])}}">Regresar</a>
-    <a class="sidevar-option" href="{{route('encargado.comenzar', ['id' => $reporte->getEstanteId()])}}">Comenzar</a>
-    <a class="sidevar-option" href="{{route('encargado.terminar', ['id' => $reporte->getEstanteId()])}}">Terminar</a>
-    <a class="sidevar-option" href="{{route('encargado.cancelar', ['id' => $reporte->getEstanteId()])}}">Cancelar</a>
+    <a class="sidevar-option" href="{{ route('encargado-estante.home') }}">Regresar</a>
+    <form method="POST" action="{{ route('encargado.comenzar') }}">
+      @csrf
+      <button class="sidevar-option">Comenzar</button>
+    </form>
+    <form method="POST" action="{{ route('encargado.terminar') }}">
+      @csrf
+      <button class="sidevar-option">Terminar</button>
+    </form>
+    <form method="POST" action="{{ route('encargado.cancelar') }}">
+      @csrf
+      <button class="sidevar-option">Cancelar</button>
+    </form>
   </div>
   <div class="report-container">
     <div class="head-report">
       <h2 class="tittle">Reporte de orden del estante #{{$reporte->getEstanteId()}}</h2>
+      <h4>Fecha de generación: {{ $reporte->getFecha() }}</h4>
       <button></button>
     </div>
 
