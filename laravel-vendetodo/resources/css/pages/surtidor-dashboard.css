@@ -1,0 +1,20 @@
+p {
+    margin-left: 10px;
+    padding: 10px 20px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+button.btn {
+    margin-left: 10px;
+    padding: 10px 20px;
+    border: 2px solid #d5dbdb;
+    border-radius: 30px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #d6eaf8;
+}
+
+.layout-inline>* {
+    display: inline-block;
+}
