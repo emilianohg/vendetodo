@@ -103,6 +103,7 @@ class SimularVentasCommand extends Command
                     'fecha' => now(),
                     'usuario_id' => $cliente->usuario_id,
                     'fecha_pago' => now()->addMinute(),
+                    'fecha_solicitud' => now(),
                     'status' => 'pagado',
                     'importe' => $precioTotal,
                 ]);

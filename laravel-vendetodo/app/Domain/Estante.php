@@ -41,12 +41,13 @@ class Estante
 
   public function getSeccionPorProductoId(int $productoId): ?Seccion
   {
-    $seccion = collect($this->secciones)->filter(function ($_seccion) use($productoId) {
-      if($_seccion->getProducto() != null){
-        return $_seccion->getProducto()->getId() == $productoId;
-      }
-    })->first();
-    return $seccion;
+      return collect($this->secciones)
+          ->filter(function ($_seccion) use($productoId) {
+            if($_seccion->getProducto() != null){
+              return $_seccion->getProducto()->getId() == $productoId;
+            }
+            return false;
+          })->first();
   }
 
 }

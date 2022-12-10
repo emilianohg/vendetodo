@@ -11,30 +11,29 @@ class ReportesOrdenEstanteRepository
 
     public function guardar(ReporteOrdenEstante $reporteOrdenEstante)
     {
-        if($reporteOrdenEstante->getDetalles() == null)
-        {
-            return;
-        }
-
         DB::table('reportes_orden_estantes')
-        ->insert([
-            'reporte_uuid' => $reporteOrdenEstante->getReporteUuid(),
-            'fecha' => $reporteOrdenEstante->getFecha(),
-            'estante_id' => $reporteOrdenEstante->getEstanteId(),
-        ]);
+            ->insert([
+                'reporte_uuid' => $reporteOrdenEstante->getReporteUuid(),
+                'fecha' => $reporteOrdenEstante->getFecha(),
+                'estante_id' => $reporteOrdenEstante->getEstanteId(),
+            ]);
+
+
         foreach ($reporteOrdenEstante->getDetalles() as $detalle) {
 
             foreach ($detalle->getPaquetes() as $paquete) {
+
                 $esta_en_almacen = 0;
                 $estante_origen_id = null;
                 $seccion_origen_id = null;
-                $cantidadAlmacen = $paquete->getLote()->getCantidadAlmacen();
-                if($cantidadAlmacen > 0)
+
+                if($paquete->estaEnAlmacen())
                 {
                     $esta_en_almacen = 1;
-                    $estante_origen_id = $paquete->getLote()->getEstanteId();
-                    $seccion_origen_id = $paquete->getLote()->getSeccionId();
+                    $estante_origen_id = $paquete->getEstanteId();
+                    $seccion_origen_id = $paquete->getSeccionId();
                 }
+
                 DB::table('detalles_reportes_orden_estantes')
                 ->insert([
                     'reporte_uuid' => $reporteOrdenEstante->getReporteUuid(),
