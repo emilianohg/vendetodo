@@ -33,6 +33,22 @@ class DominioEstante
           ->first();
   }
 
+  public function comenzarOrdenamiento(int $estante_id)
+  {
+    $this->almacenRepository->bloquearEstante($estante_id);
+  }
+
+  public function terminarOrdenamiento(int $estante_id)
+  {
+    $this->almacenRepository->guardarCambios($estante_id);
+    $this->almacenRepository->desbloquearEstante($estante_id);
+  }
+
+  public function cancelarOrdenamiento(int $estante_id)
+  {
+    $this->almacenRepository->descartarReporteOrdenEstante($estante_id);
+  }
+
   public function obtenerOrdenProductos($estante_id): ReporteOrdenEstante
   {
     $estantes = $this->almacenRepository->obtenerEstantes();
