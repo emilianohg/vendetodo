@@ -3,26 +3,34 @@
 namespace App\Http\Controllers;
 
 use App\Domain\DominioCarrito;
-use App\Http\Controllers\Controller;
+use App\Domain\DominioVenta;
 use Illuminate\Http\Request;
 use App\Domain\DominioUsuarios;
 
 class VentaController extends Controller
 {
-  private $dominioCarrito;
-  private DominioUsuarios $dominioUsuarios;
+  private DominioVenta $dominioVenta;
 
   function __construct()
   {
     $this->dominioCarrito = new DominioCarrito();
     $this->dominioUsuarios = new DominioUsuarios();
+    $this->dominioVenta = new DominioVenta();
   }
 
   public function index()
   {
-    $carrito = $this->dominioCarrito->obtenerCarrito(auth()->user()->getAuthIdentifier());
-    $usuario = $this->dominioUsuarios->consultarPerfil(auth()->user()->getAuthIdentifier());
-    return view('compra.details', ['carrito' => $carrito], ['usuario' => $usuario]);
+
+    $usuarioId = auth()->user()->getAuthIdentifier();
+    return view('compra.details', $this->dominioVenta->confirmar($usuarioId));
+  }
+
+  public function realizarVenta(Request $request)
+  {
+      $usuarioId = auth()->user()->getAuthIdentifier();
+      $metodoPagoId = $request->get('metodo_pago_id');
+      $direccionId = $request->get('direccion_id');
+      $this->dominioVenta->realizarVenta($usuarioId, $metodoPagoId, $direccionId);
   }
 
   public function confirm()

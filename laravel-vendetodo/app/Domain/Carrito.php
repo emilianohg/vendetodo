@@ -51,6 +51,11 @@ class Carrito
 
     }
 
+    public function bloquear(): void
+    {
+        $this->carritosRepository->bloquear($carritoId);
+    }
+
     public function estaBloqueado(): bool
     {   
         return $this->bloqueado;

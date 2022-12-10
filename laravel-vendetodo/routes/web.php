@@ -18,6 +18,7 @@ Route::post('login', [LoginController::class, 'store'])->name('login.store');
 Route::post('logout', [LoginController::class, 'logout'])->name('login.logout');
 
 
+// TODO: NO FUNCIONA SI NO ESTA AUTENTICADO
 Route::get('carrito', [CarritoController::class, 'index'])->name('carrito');
 Route::post('carrito', [CarritoController::class, 'guardarLineaCarrito'])->name('carrito.guardarLinea');
 Route::delete('carrito/{id}', [CarritoController::class, 'borrarLineaCarrito'])->name('carrito.borrarLinea');
@@ -31,6 +32,10 @@ Route::middleware('auth')->group(function () {
 
   Route::get('encargado-estante', [EncargadoEstanteController::class, 'home'])->name('encargado-estante.home');
   Route::get('acomodo/estante/{id}', [EncargadoEstanteController::class, 'obtenerOrdenProductos'])->name('encargado.obtenerOrden');
+
+  Route::get('ventas', [VentaController::class, 'index'])->name('ventas.index');
+  Route::post('ventas', [VentaController::class, 'realizarVenta'])->name('ventas.realizar');
 });
+
 Route::get('ventas', [VentaController::class, 'index'])->name('ventas.index');
 Route::get('ventas/confirm', [VentaController::class, 'confirm'])->name('ventas.confirm');

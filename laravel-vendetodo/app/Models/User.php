@@ -48,7 +48,26 @@ class User extends Authenticatable
                 'estados.nombre as estado',
                 'municipios.nombre as municipio',
             ])
+            ->where('status', '=', 'activa')
             ->join('estados', 'direcciones.estado_id', '=', 'estados.estado_id')
-            ->join('municipios', 'direcciones.municipio_id', '=', 'municipios.municipio_id');
+            ->join('municipios', function ($join) {
+                $join->on('direcciones.estado_id', '=', 'estados.estado_id')
+                    ->on('direcciones.municipio_id', '=', 'municipios.municipio_id');
+            });
+    }
+
+    public function direcciones() {
+        return $this->hasMany(Direccion::class, 'usuario_id', 'usuario_id')
+            ->select([
+                'direcciones.*',
+                'estados.nombre as estado',
+                'municipios.nombre as municipio',
+            ])
+            ->where('status', '=', 'activa')
+            ->join('estados', 'direcciones.estado_id', '=', 'estados.estado_id')
+            ->join('municipios', function ($join) {
+                $join->on('direcciones.estado_id', '=', 'municipios.estado_id')
+                    ->on('direcciones.municipio_id', '=', 'municipios.municipio_id');
+            });
     }
 }
