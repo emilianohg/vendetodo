@@ -3,12 +3,15 @@
 namespace App\Domain;
 
 use App\Domain\Common\DomainElement;
+use App\Repositories\PagosRepository;
 
 class Pago extends DomainElement
 {
     public const PAGADO = 'pagado';
     public const CANCELADO = 'cancelado';
     public const PENDIENTE = 'pendiente';
+
+    private PagosRepository $pagosRepository;
 
     public function __construct(
         private int $pago_id,
@@ -19,7 +22,9 @@ class Pago extends DomainElement
         private float $importe,
         private string $fecha_solicitud,
         private ?string $fecha_pago = null,
-    ) { }
+    ) {
+        $this->pagosRepository = new PagosRepository();
+    }
 
     /**
      * @param array $listValues
@@ -37,6 +42,12 @@ class Pago extends DomainElement
     public static function from(array $values): Pago
     {
         return self::make(Pago::class, $values);
+    }
+
+    public function confirmar(): void
+    {
+        $this->pagosRepository->confirmar($this->referencia);
+        $this->status = Pago::PAGADO;
     }
 
     public function getPagoId(): int

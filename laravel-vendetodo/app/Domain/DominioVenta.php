@@ -88,8 +88,8 @@ class DominioVenta
             throw new PagoNoHabilitadoException($pago);
         }
 
-        return DB::transaction(function () use ($referencia) {
-            $pago = $this->pagosRepository->confirmar($referencia);
+        return DB::transaction(function () use ($referencia, $pago) {
+            $pago->confirmar();
             $carrito = $this->carritosRepository->buscarCarrito($pago->getUsuarioId());
             return $this->ordenManager->generar($carrito, $pago);
         });

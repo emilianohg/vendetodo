@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Domain\DominioPago;
 use App\Domain\MetodoPago;
-use Illuminate\Http\Request;
 
 class PagoController extends Controller
 {
@@ -23,13 +22,5 @@ class PagoController extends Controller
         }
 
         return view('pagos.tarjetas', ['pago' => $pago]);
-    }
-
-    public function confirmar(Request $request)
-    {
-        $referencia = $request->get('referencia');
-        $pago = $this->dominioPago->confirmar($referencia);
-        //
-        return redirect()->route('compra.confirm');
     }
 }

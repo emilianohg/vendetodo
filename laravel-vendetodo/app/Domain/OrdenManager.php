@@ -23,9 +23,11 @@ class OrdenManager
      */
     public function registrar(Carrito $carrito)
     {
-        if (!$carrito->estaBloqueado()) {
-            $carrito->bloquear();
+        if ($carrito->estaBloqueado()) {
+            return;
         }
+
+        $carrito->bloquear();
 
         foreach ($carrito->getLineasCarrito() as $lineaCarrito) {
             $puedoComprar = $this->lotesManager->puedoComprar(
@@ -44,6 +46,7 @@ class OrdenManager
                 $lineaCarrito->getCantidad()
             );
         }
+
     }
 
     public function generar(Carrito $carrito, Pago $pago): Orden
