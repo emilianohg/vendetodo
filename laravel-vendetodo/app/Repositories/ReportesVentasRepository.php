@@ -24,7 +24,6 @@ class ReportesVentasRepository
         int $limite,
     )
     {
-
         $productosExcluidosId = collect($productosExcluidos)->map(function ($producto) {
             return $producto->getId();
         });
@@ -37,7 +36,7 @@ class ReportesVentasRepository
         $detalleQuery = DetalleOrdenTable::query()->select([
             'detalle_orden.producto_id',
             DB::raw('sum(detalle_orden.cantidad) as cantidad'),
-            DB::raw('sum(detalle_orden.cantidad*detalle_orden.precio) as importe'),
+            DB::raw('sum(detalle_orden.cantidad * detalle_orden.precio) as importe'),
         ])
         ->join('ordenes','ordenes.orden_id','=','detalle_orden.orden_id')
         ->joinSub($subQuery, 'p_p', function ($join) {

@@ -3,15 +3,28 @@
 namespace App\Domain;
 
 use App\Domain\Common\DomainElement;
+use App\Repositories\PagosRepository;
 
 class Pago extends DomainElement
 {
+    public const PAGADO = 'pagado';
+    public const CANCELADO = 'cancelado';
+    public const PENDIENTE = 'pendiente';
+
+    private PagosRepository $pagosRepository;
+
     public function __construct(
         private int $pago_id,
         private int $metodo_pago_id,
         private string $referencia,
-        private string $fecha,
-    ) { }
+        private int $usuario_id,
+        private string $status,
+        private float $importe,
+        private string $fecha_solicitud,
+        private ?string $fecha_pago = null,
+    ) {
+        $this->pagosRepository = new PagosRepository();
+    }
 
     /**
      * @param array $listValues
@@ -31,6 +44,12 @@ class Pago extends DomainElement
         return self::make(Pago::class, $values);
     }
 
+    public function confirmar(): void
+    {
+        $this->pagosRepository->confirmar($this->referencia);
+        $this->status = Pago::PAGADO;
+    }
+
     public function getPagoId(): int
     {
         return $this->pago_id;
@@ -46,8 +65,29 @@ class Pago extends DomainElement
         return $this->referencia;
     }
 
-    public function getFecha(): string
+    public function getUsuarioId(): int
     {
-        return $this->fecha;
+        return $this->usuario_id;
     }
+
+    public function getStatus(): string
+    {
+        return $this->status;
+    }
+
+    public function getFechaSolicitud(): string
+    {
+        return $this->fecha_solicitud;
+    }
+
+    public function getFechaPago(): ?string
+    {
+        return $this->fecha_pago;
+    }
+
+    public function getImporte(): float
+    {
+        return $this->importe;
+    }
+
 }

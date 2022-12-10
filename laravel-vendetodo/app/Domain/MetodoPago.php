@@ -6,6 +6,9 @@ use App\Domain\Common\DomainElement;
 
 class MetodoPago extends DomainElement
 {
+    public const PAYPAL = 1;
+    public const TARJETA = 2;
+
     public function __construct(
         private int $metodo_pago_id,
         private string $nombre,

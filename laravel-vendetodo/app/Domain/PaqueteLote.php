@@ -44,4 +44,9 @@ class PaqueteLote
   {
       return $this->estante_id == null || $this->seccion_id == null;
   }
+
+  public function estaEnAlmacen(): bool
+  {
+      return !$this->estaEnBodega();
+  }
 }

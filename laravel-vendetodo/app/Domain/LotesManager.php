@@ -12,6 +12,17 @@ class LotesManager
         $this->lotesRepository = new LotesRepository();
     }
 
+    public function apartar(int $proveedorId, int $productoId, int $cantidad): void
+    {
+        $this->lotesRepository->apartar($proveedorId, $productoId, $cantidad);
+    }
+
+    public function puedoComprar(int $proveedorId, int $productoId, int $cantidad): bool
+    {
+        $resumen = $this->lotesRepository->obtenerResumen($proveedorId, $productoId);
+        return $cantidad <= $resumen->getCantidadDisponible();
+    }
+
     /**
     * @return PaqueteLote[]
     */
