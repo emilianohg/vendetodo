@@ -16,6 +16,7 @@
             <th>Cantidad</th>
             <th>Lote</th>
             <th>Ubicación</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -38,9 +39,29 @@
                     <p> En bodega </p>
                 @endif
             </td>
+            <td>
+                @if($detalle->recogido())
+                    Recogido
+                @else
+                <form method="POST" action="{{ route('surtidor.recogerProducto') }}">
+                    <input type="hidden" name="orden_id" value="{{ $ruta->getOrdenId() }}">
+                    <input type="hidden" name="orden" value="{{ $detalle->getOrden() }}">
+                    @csrf
+                    <button type="submit">+</button>
+                </form>
+                @endif
+            </td>
         </tr>
         @endforeach
     </tbody>
 </table>
+
+    <div>
+        <form method="POST" action="{{ route('surtidor.terminarSurtido') }}">
+            <input type="hidden" name="orden_id" value="{{ $ruta->getOrdenId() }}">
+            @csrf
+            <button type="submit">Terminar</button>
+        </form>
+    </div>
 
 @endsection

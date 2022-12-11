@@ -30,7 +30,8 @@ Route::middleware('auth')->group(function () {
   Route::get('surtidor', [SurtidorController::class, 'home'])->name('surtidor.home');
   Route::post('surtidor/orden', [SurtidorController::class, 'aceptarOrden'])->name('surtidor.aceptarOrden');
   Route::get('surtidor/orden/{id}', [SurtidorController::class, 'orden'])->name('surtidor.orden');
-  Route::get('{id}/ruta', [SurtidorController::class, 'generarRuta'])->name('surtidor.generarRuta');
+  Route::post('surtidor/orden/recoger-producto', [SurtidorController::class, 'recogerProducto'])->name('surtidor.recogerProducto');
+  Route::post('surtidor/orden/terminar', [SurtidorController::class, 'terminarSurtido'])->name('surtidor.terminarSurtido');
   Route::get('surtidor/orden/{id}/ruta', [SurtidorController::class, 'verRuta'])->name('surtidor.verRuta');
 
   Route::get('encargado-estante', [EncargadoEstanteController::class, 'home'])->name('encargado-estante.home');

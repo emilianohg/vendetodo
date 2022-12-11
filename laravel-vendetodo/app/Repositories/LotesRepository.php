@@ -67,6 +67,7 @@ class LotesRepository
             ->leftJoin('control_almacen', 'control_almacen.lote_id','=', 'lotes.lote_id')
             ->leftJoin('bodega', 'bodega.lote_id', '=', 'lotes.lote_id')
             ->where('lotes.producto_id','=',$productoId)
+            ->lockForUpdate()
             ->whereRaw('COALESCE(bodega.cantidad_disponible, 0) + COALESCE(control_almacen.cantidad_disponible, 0) > 0');
 
         if ($proveedorId != null) {
@@ -89,6 +90,7 @@ class LotesRepository
                 'proveedores_productos.cantidad',
                 'proveedores_productos.cantidad_disponible',
             ])
+            ->lockForUpdate()
             ->join('productos', 'productos.producto_id', '=', 'proveedores_productos.producto_id')
             ->join('proveedores', 'proveedores.proveedor_id', '=', 'proveedores_productos.proveedor_id')
             ->where('proveedores_productos.proveedor_id', '=', $proveedorId)
@@ -119,6 +121,38 @@ class LotesRepository
             ->where('proveedores_productos.proveedor_id', '=', $proveedorId)
             ->where('proveedores_productos.producto_id', '=', $productoId)
             ->increment('proveedores_productos.cantidad_disponible', $cantidad);
+    }
+
+    public function reservarPaqueteAlmacen(int $estanteId, int $seccionId, int $loteId, int $cantidad): void
+    {
+        DB::table('control_almacen')
+            ->where('estante_id', '=', $estanteId)
+            ->where('seccion_id', '=', $seccionId)
+            ->where('lote_id', '=', $loteId)
+            ->decrement('cantidad_disponible', $cantidad);
+    }
+
+    public function reservarPaqueteBodega(int $loteId, int $cantidad): void
+    {
+        DB::table('bodega')
+            ->where('lote_id', '=', $loteId)
+            ->decrement('cantidad_disponible', $cantidad);
+    }
+
+    public function surtirPaqueteAlmacen(int $estanteId, int $seccionId, int $loteId, int $cantidad): void
+    {
+        DB::table('control_almacen')
+            ->where('estante_id', '=', $estanteId)
+            ->where('seccion_id', '=', $seccionId)
+            ->where('lote_id', '=', $loteId)
+            ->decrement('cantidad', $cantidad);
+    }
+
+    public function surtirPaqueteBodega(int $loteId, int $cantidad): void
+    {
+        DB::table('bodega')
+            ->where('lote_id', '=', $loteId)
+            ->decrement('cantidad', $cantidad);
     }
 
 }

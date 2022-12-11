@@ -159,4 +159,10 @@ class Orden extends DomainElement
         return $this->detalle;
     }
 
+    public function surtida(): void
+    {
+        $this->ordenRepository->surtir($this->orden_id);
+        $this->status = Orden::SURTIDA;
+    }
+
 }

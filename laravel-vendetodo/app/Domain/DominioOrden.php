@@ -7,6 +7,7 @@ use App\Repositories\OrdenesPreasignadasRepository;
 use App\Repositories\OrdenesRepository;
 use App\Repositories\RutasRepository;
 use App\Services\RutasService;
+use Illuminate\Support\Facades\DB;
 
 class DominioOrden
 {
@@ -75,6 +76,8 @@ class DominioOrden
 
         $paquetes = [];
 
+        DB::beginTransaction();
+
         foreach ($orden->getDetalle() as $detalleOrden) {
 
             $paquetesDetalle = $this->lotesManager->getPaquetes(
@@ -94,13 +97,55 @@ class DominioOrden
             $paquetes
         );
 
+        foreach ($ruta->getUbicaciones() as $ubicacion) {
+            $this->lotesManager->reservarParaSurtir($ubicacion->getPaqueteLote());
+        }
+
         $this->rutasRepository->guardar($ruta);
+
+        DB::commit();
 
         return $ruta;
     }
 
     public function verRuta(int $ordenId): Ruta
     {
-        return $this->rutasRepository->buscarPorId($ordenId);
+        $ruta = $this->rutasRepository->buscarPorId($ordenId);
+        if ($ruta == null) {
+            $ruta = $this->generarRuta($ordenId);
+        }
+        return $ruta;
+    }
+
+    public function recogerProducto(int $ordenId, int $orden)
+    {
+        $this->rutasRepository->recogerProducto($ordenId, $orden);
+    }
+
+    public function regresarProducto(int $ordenId, int $orden)
+    {
+        $this->rutasRepository->recogerProducto($ordenId, $orden);
+    }
+
+    /**
+     * @param int $ordenId
+     * @return Orden
+     * @throws ProductoSinRecogerException
+     */
+    public function terminarSurtido(int $ordenId): Orden
+    {
+        $orden = $this->ordenesRepository->buscarPorId($ordenId);
+        $ruta = $this->rutasRepository->buscarPorId($ordenId);
+        DB::beginTransaction();
+        foreach ($ruta->getUbicaciones() as $ubicacion) {
+            if (!$ubicacion->recogido()) {
+                DB::rollBack();
+                throw new ProductoSinRecogerException($ubicacion->getPaqueteLote()->getLote()->getProducto());
+            }
+            $this->lotesManager->surtir($ubicacion->getPaqueteLote());
+        }
+        $orden->surtida();
+        DB::commit();
+        return $orden;
     }
 }

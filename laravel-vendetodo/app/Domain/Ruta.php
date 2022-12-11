@@ -40,4 +40,27 @@ class Ruta
         return $this->camino;
     }
 
+    public function getUbicacionesAlmacen(): array
+    {
+        $ubicacionAlmacen = [];
+        foreach ($this->ubicaciones as $ubicacion) {
+            if($ubicacion->getPaqueteLote()->estaEnAlmacen()) {
+                $ubicacionAlmacen[] = $ubicacion;
+            }
+        }
+        return $ubicacionAlmacen;
+    }
+
+    public function getUbicacionesBodega(): array
+    {
+        $ubicacionBodega = [];
+        foreach ($this->ubicaciones as $ubicacion) {
+            if(!$ubicacion->getPaqueteLote()->estaEnAlmacen()) {
+                $ubicacionBodega[] = $ubicacion;
+            }
+        }
+        return $ubicacionBodega;
+    }
+
+
 }
