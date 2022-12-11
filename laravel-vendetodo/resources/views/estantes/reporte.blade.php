@@ -7,15 +7,15 @@
     <a class="sidevar-option" href="{{ route('encargado-estante.home') }}">Regresar</a>
     <form method="POST" action="{{ route('encargado.comenzar') }}">
       @csrf
-      <button class="sidevar-option">Comenzar</button>
+      <button class="sidevar-option" id="btnComenzar">Comenzar</button>
     </form>
-    <form method="POST" action="{{ route('encargado.terminar') }}">
+    <form method="POST" action="{{ route('encargado.terminar') }}" >
       @csrf
-      <button class="sidevar-option">Terminar</button>
+      <button class="sidevar-option" id="btnTerminar">Terminar</button>
     </form>
     <form method="POST" action="{{ route('encargado.cancelar') }}">
       @csrf
-      <button class="sidevar-option">Cancelar</button>
+      <button class="sidevar-option" id="btnCancelar">Cancelar</button>
     </form>
   </div>
   <div class="report-container">
@@ -73,4 +73,18 @@
       @endforeach
     </div>
   </div>
+  <script>
+    const btnComenzar=document.getElementById('btnComenzar');
+    const btnTerminar=document.getElementById('btnTerminar');
+    const btnCancelar=document.getElementById('btnCancelar');
+
+    btnTerminar.style.visibility = "hidden"; 
+    btnCancelar.style.visibility = "hidden"; 
+    btnComenzar.addEventListener('click',()=>{
+      btnComenzar.disabled=true;
+      btnTerminar.style.visibility = "visible";
+      btnCancelar.style.visibility = "visible";
+    });
+
+  </script>
 @endsection
