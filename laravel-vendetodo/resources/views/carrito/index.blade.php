@@ -51,8 +51,8 @@
 					<form action="{{route('carrito.borrarLinea', [ 'id' => $lineaCarrito->getId() ])}}"  method="POST">
 					@csrf
 					{{method_field('DELETE')}}
-						<div class="col-del">
-							<button type="submit" class="fa-sharp fa-solid fa-trash-can"></button>
+						<div class="col-del font-bold">
+							<button type="submit">X</button>
 						</div>
 					</form>
 
