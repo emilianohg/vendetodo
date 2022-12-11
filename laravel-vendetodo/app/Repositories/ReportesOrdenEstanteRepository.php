@@ -41,7 +41,7 @@ class ReportesOrdenEstanteRepository
       foreach ($detallesRecord as $detalle) {
 
         $lote = collect($lotes)
-          ->filter(fn($_lote) => $_lote->getLoteId() == $detalle->lote_id)
+          ->filter(fn ($_lote) => $_lote->getLoteId() == $detalle->lote_id)
           ->first();
 
         $paquetes[] = new PaqueteLote(
@@ -65,46 +65,47 @@ class ReportesOrdenEstanteRepository
       fecha: $reporteOrdenEstanteRecord->fecha,
       estante_id: $reporteOrdenEstanteRecord->estante_id,
       detalles: $detalles,
+      comenzado: 0,
     );
   }
 
 
-    public function guardar(ReporteOrdenEstante $reporteOrdenEstante)
-    {
-        DB::table('reportes_orden_estantes')
-            ->insert([
-                'reporte_uuid' => $reporteOrdenEstante->getReporteUuid(),
-                'fecha' => $reporteOrdenEstante->getFecha(),
-                'estante_id' => $reporteOrdenEstante->getEstanteId(),
-            ]);
+  public function guardar(ReporteOrdenEstante $reporteOrdenEstante)
+  {
+    DB::table('reportes_orden_estantes')
+      ->insert([
+        'reporte_uuid' => $reporteOrdenEstante->getReporteUuid(),
+        'fecha' => $reporteOrdenEstante->getFecha(),
+        'estante_id' => $reporteOrdenEstante->getEstanteId(),
+        'comenzado' => 0,
+      ]);
 
-        foreach ($reporteOrdenEstante->getDetalles() as $detalle) {
+    foreach ($reporteOrdenEstante->getDetalles() as $detalle) {
 
-            foreach ($detalle->getPaquetes() as $paquete) {
+      foreach ($detalle->getPaquetes() as $paquete) {
 
-                $esta_en_almacen = 0;
-                $estante_origen_id = null;
-                $seccion_origen_id = null;
+        $esta_en_almacen = 0;
+        $estante_origen_id = null;
+        $seccion_origen_id = null;
 
-                if($paquete->estaEnAlmacen())
-                {
-                    $esta_en_almacen = 1;
-                    $estante_origen_id = $paquete->getEstanteId();
-                    $seccion_origen_id = $paquete->getSeccionId();
-                }
-
-                DB::table('detalles_reportes_orden_estantes')
-                ->insert([
-                    'reporte_uuid' => $reporteOrdenEstante->getReporteUuid(),
-                    'estante_id' => $reporteOrdenEstante->getEstanteId(),
-                    'seccion_id' => $detalle->getSeccionId(),
-                    'lote_id' =>    $paquete->getLoteId(),
-                    'esta_en_almacen' => $esta_en_almacen,
-                    'estante_origen_id' => $estante_origen_id,
-                    'seccion_origen_id' => $seccion_origen_id,
-                    'cantidad' => $paquete->getCantidad(),
-                ]);
-            }
+        if ($paquete->estaEnAlmacen()) {
+          $esta_en_almacen = 1;
+          $estante_origen_id = $paquete->getEstanteId();
+          $seccion_origen_id = $paquete->getSeccionId();
         }
+
+        DB::table('detalles_reportes_orden_estantes')
+          ->insert([
+            'reporte_uuid' => $reporteOrdenEstante->getReporteUuid(),
+            'estante_id' => $reporteOrdenEstante->getEstanteId(),
+            'seccion_id' => $detalle->getSeccionId(),
+            'lote_id' =>    $paquete->getLoteId(),
+            'esta_en_almacen' => $esta_en_almacen,
+            'estante_origen_id' => $estante_origen_id,
+            'seccion_origen_id' => $seccion_origen_id,
+            'cantidad' => $paquete->getCantidad(),
+          ]);
+      }
     }
+  }
 }
