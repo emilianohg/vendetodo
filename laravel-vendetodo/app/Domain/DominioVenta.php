@@ -52,8 +52,6 @@ class DominioVenta
      */
     public function realizarVenta(int $usuarioId, int $metodoPagoId, int $direccionId): Pago
     {
-        DB::beginTransaction();
-
         $carrito = $this->carritosRepository->buscarCarrito($usuarioId);
 
         try {
@@ -70,11 +68,7 @@ class DominioVenta
 
         $this->pagosService->setStrategy($strategy);
 
-        $pago = $this->pagosService->generar($usuarioId, $carrito->getTotal());
-
-        DB::commit();
-
-        return $pago;
+        return $this->pagosService->generar($usuarioId, $carrito->getTotal());
     }
 
     /**
