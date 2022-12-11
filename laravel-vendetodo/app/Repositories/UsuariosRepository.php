@@ -16,4 +16,12 @@ class UsuariosRepository
         ])->find($usuarioId);
         return Usuario::from($usuarioTable->toArray());
     }
+
+    public function actualizarDireccion(int $usuarioId, int $direccionId) {
+        UsuarioTable::query()
+            ->where('usuario_id', '=', $usuarioId)
+            ->update([
+               'direccion_id' => $direccionId,
+            ]);
+    }
 }

@@ -53,6 +53,7 @@ class DominioVenta
     public function realizarVenta(int $usuarioId, int $metodoPagoId, int $direccionId): Pago
     {
         $carrito = $this->carritosRepository->buscarCarrito($usuarioId);
+        $this->usuariosRepository->actualizarDireccion($usuarioId, $direccionId);
 
         try {
             $this->ordenManager->registrar($carrito);
