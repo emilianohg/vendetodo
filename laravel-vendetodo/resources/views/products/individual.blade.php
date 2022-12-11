@@ -37,7 +37,7 @@
                 </div>
                 <div>
                     @if(count($resumen) > 0)
-                    <form action="{{route('carrito.guardarLinea')}}" method="POST">
+                    <form action="{{route('carrito.guardarLinea')}}" method="POST" onsubmit="return checkForm(this);">
                         @csrf
                         <label class="info">Proveedor:</label>
                         <select id="select-proveedor" name = "proveedor_id" class="form-select">
@@ -50,20 +50,35 @@
                             @endforeach
                         </select>
                         <p>Disponible: <span id="cantidad-disponible">{{ $resumen[0]->getCantidadDisponible() }}</span></p>
+                        <br>
+                        <div>
+                            <label for="cantidad" class="info">Cantidad:</label>
+                            <div class="inc-dec">
+                                <button id="btn-dec" class="btn-control-number">-</button>
+                                <input type="number" id="cantidad" name="cantidad" value="1" pattern="[0-9]+" required>
+                                <button id="btn-inc" class="btn-control-number">+</button>
+                            </div>
+                        </div>
 
-                        <label class="info">Cantidad:</label>
-                        <select name="cantidad" class="form-select">
-                            <option value="1" selected>1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
                         <input type="hidden" name="producto_id" value="{{$producto->getId()}}">
                         <button type="submit" class="btn btn-primary">Agregar al carrito</button>
                     </form>
  
                     <script>
+                        function checkForm() {
+                            $cantidadDisponibleParagraph = document.getElementById('cantidad-disponible');
+                            const cantidadMaxima = +$cantidadDisponibleParagraph.innerText;
+
+                            $inputCantidad = document.getElementById('cantidad');
+                            const cantidad = +$inputCantidad.value;
+
+                            if (cantidad > cantidadMaxima) {
+                                alert('La cantidad seleccionada supera la cantidad disponible');
+                            }
+
+                            return cantidad <= cantidadMaxima;
+                        }
+
                         $selectProveedor = document.getElementById('select-proveedor');
                         $cantidadDisponibleParagraph = document.getElementById('cantidad-disponible');
 
@@ -72,15 +87,52 @@
                             $cantidadDisponibleParagraph.innerText = optionSelected.dataset.cantidad;
                         }
 
+                        $btnDec = document.getElementById('btn-dec');
+                        $btnInc = document.getElementById('btn-inc');
+
+                        document.querySelector("#cantidad").addEventListener("keypress", function (evt) {
+                            if (evt.which !== 8 && evt.which !== 0 && evt.which < 48 || evt.which > 57) {
+                                evt.preventDefault();
+                            }
+                        });
+
+                        function cantidadIncDec(event) {
+                            event.preventDefault();
+                            $inputCantidad = document.getElementById('cantidad');
+                            let value = +$inputCantidad.value;
+                            if (isNaN(value)) {
+                                $inputCantidad.value = 1;
+                                return;
+                            }
+
+                            const btnActivated = event.target.id;
+
+
+                            if (btnActivated === 'btn-dec') {
+                                value = value - 1;
+                            } else {
+                                value = value + 1;
+                            }
+
+                            if (value <= 0) {
+                                value = 1;
+                            }
+
+                            $inputCantidad.value = value;
+                        }
+
+                        $btnDec.onclick = cantidadIncDec;
+                        $btnInc.onclick = cantidadIncDec;
+
                         items=document.getElementById("select-proveedor").options;
                         cantidadDisponible=document.getElementById("cantidad-disponible");
-                        opciones=new Array();
-                        for(i=0;i<items.length;i++){
+                        opciones = [];
+                        for(let i=0; i<items.length; i++){
                             opciones[i]=items[i].dataset.cantidad;
                             opciones.sort(function(a, b){return b - a});
                         }
-                        for(i=0;i<items.length;i++){
-                            if(items[i].dataset.cantidad==opciones[0]){
+                        for(let i = 0; i<items.length; i++){
+                            if(items[i].dataset.cantidad == opciones[0]){
                                 items[i].selected=true;
                             }
                             cantidadDisponible.innerText=opciones[0];

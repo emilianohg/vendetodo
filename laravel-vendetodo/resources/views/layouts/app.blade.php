@@ -33,7 +33,7 @@
               <div class="btn-user-panel">
                   <a href="{{ route('perfil') }}" class="btn-user">
                       <i class="fa fa-user"></i>
-                      <span class="user-name-login">Hola, {{ auth()->user()->nombre }}</span>
+                      <span class="nowrap user-name-login">Hola, {{ auth()->user()->nombre }}</span>
                   </a>
               </div>
             @endif
@@ -63,9 +63,11 @@
       <script>
           $messageMain = document.getElementById('message-main');
           $messageMainClose = document.getElementById('message-main-close');
-          $messageMainClose.addEventListener('click', function (event) {
-              $messageMain.remove();
-          })
+          if ($messageMainClose != null) {
+              $messageMainClose.addEventListener('click', function (event) {
+                  $messageMain.remove();
+              })
+          }
       </script>
     
   </body>

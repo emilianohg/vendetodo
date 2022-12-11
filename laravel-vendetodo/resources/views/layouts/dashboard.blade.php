@@ -19,6 +19,15 @@
         <a href="{{route('productos.index')}}" class="logo">Vende Todo</a>
         @endif
     </div>
+    <div class="controls-products"></div>
+    <div class="right-side-navbar-content">
+        <div class="btn-user-panel">
+            <a href="{{ route('perfil') }}" class="btn-user">
+                <i class="fa fa-user"></i>
+                <span class="nowrap user-name-login">Hola, {{ auth()->user()->nombre }}</span>
+            </a>
+        </div>
+    </div>
 </nav>
 <main class="main-container">
     @if(session()->has('message-error'))
@@ -38,9 +47,11 @@
 <script>
     $messageMain = document.getElementById('message-main');
     $messageMainClose = document.getElementById('message-main-close');
-    $messageMainClose.addEventListener('click', function (event) {
-        $messageMain.remove();
-    })
+    if ($messageMainClose != null) {
+        $messageMainClose.addEventListener('click', function (event) {
+            $messageMain.remove();
+        })
+    }
 </script>
 </body>
 </html>

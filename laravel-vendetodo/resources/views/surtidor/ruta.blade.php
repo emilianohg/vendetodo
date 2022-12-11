@@ -43,12 +43,28 @@
                 @if($detalle->recogido())
                     Recogido
                 @else
-                <form method="POST" action="{{ route('surtidor.recogerProducto') }}">
+                <form
+                    method="POST"
+                    action="{{ route('surtidor.recogerProducto') }}"
+                    data-lote="{{ $detalle->getPaqueteLote()->getLote()->getLoteId() }}"
+                    onsubmit="return checkForm(this);"
+                >
                     <input type="hidden" name="orden_id" value="{{ $ruta->getOrdenId() }}">
                     <input type="hidden" name="orden" value="{{ $detalle->getOrden() }}">
                     @csrf
-                    <button type="submit">+</button>
+                    <button type="submit" >+</button>
                 </form>
+                <script>
+                    function checkForm(form) {
+                        loteId = form.dataset.lote;
+                        const value = prompt('Introduce el numero de lote para confirmar:');
+
+                        if (value !== loteId) {
+                            alert('El lote ingresado no coincide, asegurate que tomaste el artículo correcto');
+                        }
+                        return value === loteId;
+                    }
+                </script>
                 @endif
             </td>
         </tr>
@@ -60,7 +76,7 @@
         <form method="POST" action="{{ route('surtidor.terminarSurtido') }}">
             <input type="hidden" name="orden_id" value="{{ $ruta->getOrdenId() }}">
             @csrf
-            <button type="submit">Terminar</button>
+            <button class="btn" type="submit">Terminar</button>
         </form>
     </div>
 

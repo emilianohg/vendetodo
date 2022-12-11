@@ -52,7 +52,7 @@
 					@csrf
 					{{method_field('DELETE')}}
 						<div class="col-del font-bold">
-							<button type="submit">X</button>
+							<button type="submit">×</button>
 						</div>
 					</form>
 

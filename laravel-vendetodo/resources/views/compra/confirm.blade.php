@@ -5,7 +5,6 @@
 @endsection
 
 @section('content')
-<div class="divider"></div>
 <div class="tittle-container">
   <h2 class="tittle">Compra satisfactoria.</h2>
 </div>

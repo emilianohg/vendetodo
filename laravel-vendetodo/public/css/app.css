@@ -75,6 +75,20 @@ textarea:focus {
   align-items: center;
   font-size: 1.2rem;
 }
+
+.inc-dec {
+  display: inline-grid;
+  grid-template-columns: 20px 40px 20px;
+  text-align: center;
+  background-color: #D2DAFF;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.inc-dec input {
+  text-align: center;
+  background-color: #D2DAFF;
+}
 .mt-4 {
     margin-top: 1rem;
 }
@@ -93,6 +107,10 @@ textarea:focus {
 .error {
     color: #f00;
     font-size: 0.8rem;
+}
+
+.nowrap {
+    white-space: nowrap ;
 }
 .main-navbar {
   background: #608aeb;
