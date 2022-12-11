@@ -6,6 +6,7 @@ class UbicacionProducto
 {
     private PaqueteLote $paqueteLote;
     private int $orden;
+    private bool $recogido;
 
     /**
      * @param PaqueteLote $paqueteLote
@@ -14,10 +15,12 @@ class UbicacionProducto
     public function __construct(
         PaqueteLote $paqueteLote,
         int $orden,
+        bool $recogido = false,
     )
     {
         $this->paqueteLote = $paqueteLote;
         $this->orden = $orden;
+        $this->recogido = $recogido;
     }
 
     public function getPaqueteLote(): PaqueteLote
@@ -28,6 +31,11 @@ class UbicacionProducto
     public function getOrden(): int
     {
         return $this->orden;
+    }
+
+    public function recogido(): bool
+    {
+        return $this->recogido;
     }
 
 }

@@ -4,6 +4,7 @@ namespace App\Domain;
 
 use App\Repositories\OrdenesRepository;
 use App\Repositories\UsuariosRepository;
+use Illuminate\Support\Facades\DB;
 
 class OrdenManager
 {
@@ -27,6 +28,8 @@ class OrdenManager
             return;
         }
 
+        DB::beginTransaction();
+
         $carrito->bloquear();
 
         foreach ($carrito->getLineasCarrito() as $lineaCarrito) {
@@ -37,6 +40,7 @@ class OrdenManager
             );
 
             if (!$puedoComprar) {
+                DB::rollBack();
                 throw new ProductoAgotadoException($lineaCarrito->getProducto());
             }
 
@@ -46,6 +50,8 @@ class OrdenManager
                 $lineaCarrito->getCantidad()
             );
         }
+
+        DB::commit();
 
     }
 

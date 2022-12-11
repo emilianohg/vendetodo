@@ -83,6 +83,9 @@ class RutasService:
 
         for i in range(len(path) - 1):
 
+            if (path[i] == path[i + 1]):
+                continue
+
             record = self.df_paths[
                 (self.df_paths['from'] == path[i]) & (self.df_paths['to'] == path[i + 1])
             ].iloc[0]
