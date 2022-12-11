@@ -5,10 +5,11 @@
 
 @section('content')
     <div class="sidenav">
-      <form >
-        <a class="sidevar-option" href="{{ route('encargado.obtenerOrden',['id' => $estante->getEstanteid()]) }}">Ordenar</i></a>
+      <form method="POST" action="{{ route('encargado.generarOrden', ['id' => $estante->getEstanteid()]) }}">
+        @csrf
+        <button class="sidevar-option">Ordenar</button>
       </form>
-        <a class="sidevar-option" href="{{ route('products.index') }}">Tienda</i></a>
+        <a class="sidevar-option" href="{{ route('products.index') }}">Tienda</a>
     </div>
   <div class="rack-container">
     <h2 class="tittle">Encargado de estante</h2>

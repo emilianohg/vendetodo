@@ -2,9 +2,7 @@
 
 namespace App\Console\Commands;
 
-use App\Domain\DominioEstante;
-use App\Repositories\AlmacenRepository;
-
+use App\Repositories\LotesRepository;
 use Illuminate\Console\Command;
 
 class ConversionModeloLaravelCommand extends Command
@@ -22,8 +20,12 @@ class ConversionModeloLaravelCommand extends Command
   {
 
 
-    $repository = new AlmacenRepository();
-    $repository->guardarCambios(1);
+    $lotesRepository = new LotesRepository();
+    $lotes = $lotesRepository->getLotes([1074, 1075]);
+    foreach ($lotes as $lote) {
+        \Log::info($lote->getLoteId());
+        \Log::info($lote->getProducto()->getNombre());
+    }
     return 0;
   }
 }

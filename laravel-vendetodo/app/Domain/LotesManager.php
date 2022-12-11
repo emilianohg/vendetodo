@@ -35,7 +35,7 @@ class LotesManager
             $lotes = $this->lotesRepository->buscarPorProductoProveedorId($productoId, $proveedorId);
         }
 
-        return $this->generarPaquetes($lotes,$cantidadProductosNecesarios);
+        return $this->generarPaquetes($lotes, $cantidadProductosNecesarios);
     }
 
     /**
