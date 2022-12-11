@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Domain\DominioOrden;
 use App\Domain\DominioSurtidor;
 use App\Domain\OrdenNoAsignadaException;
+use App\Domain\ProductoSinRecogerException;
 use App\Repositories\OrdenesRepository;
 use Illuminate\Http\Request;
 
@@ -49,12 +50,7 @@ class SurtidorController extends Controller
             return redirect()->back()->with('message-error', $e->getMessage());
         }
 
-        return redirect()->route('surtidor.orden', ['id' => $ordenId]);
-    }
-
-    public function generarRuta(int $ordenId){
-        $ruta = $this->dominioOrden->generarRuta($ordenId);
-        return back();
+        return redirect()->route('surtidor.home');
     }
 
     public function verRuta(int $ordenId){
@@ -62,5 +58,25 @@ class SurtidorController extends Controller
         return view('surtidor.ruta', [
             'ruta' => $ruta,
         ]);
+    }
+
+    public function recogerProducto(Request $request)
+    {
+        $ordenId = $request->get('orden_id');
+        $orden = $request->get('orden');
+        $this->dominioOrden->recogerProducto($ordenId, $orden);
+        return redirect()->route('surtidor.verRuta', ['id' => $ordenId]);
+    }
+
+    public function terminarSurtido(Request $request)
+    {
+        $ordenId = $request->get('orden_id');
+        try {
+            $orden = $this->dominioOrden->terminarSurtido($ordenId);
+            return redirect()->route('surtidor.home')
+                ->with('message-info', 'Terminaste exitosamente la orden #' . $orden->getOrdenId());
+        } catch (ProductoSinRecogerException $e) {
+            return redirect()->back()->with('message-error', $e->getMessage());
+        }
     }
 }

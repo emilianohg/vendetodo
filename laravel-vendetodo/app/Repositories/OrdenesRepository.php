@@ -211,4 +211,24 @@ class OrdenesRepository
                 ]);
         });
     }
+
+    public function actualizarStatus(int $ordenId, string $status)
+    {
+        OrdenTable::query()
+            ->where('orden_id', '=', $ordenId)
+            ->update([
+                'status' => $status,
+            ]);
+    }
+
+    public function surtir(int $ordenId) {
+        $detalles = DB::table('detalle_orden')->where('orden_id', '=', $ordenId)->get();
+        foreach ($detalles as $detalle) {
+            DB::table('proveedores_productos')
+                ->where('producto_id', '=', $detalle->producto_id)
+                ->where('proveedor_id', '=', $detalle->proveedor_id)
+                ->decrement('cantidad', $detalle->cantidad);
+        }
+        $this->actualizarStatus($ordenId, Orden::SURTIDA);
+    }
 }

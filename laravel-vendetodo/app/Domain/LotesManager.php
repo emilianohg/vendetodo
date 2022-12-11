@@ -7,6 +7,7 @@ use App\Repositories\LotesRepository;
 class LotesManager
 {
     private LotesRepository $lotesRepository;
+
     public function __construct()
     {
         $this->lotesRepository = new LotesRepository();
@@ -109,5 +110,39 @@ class LotesManager
             }  
         }
         return $paquetesLote;
+    }
+
+    public function reservarParaSurtir(PaqueteLote $paquete): void
+    {
+        if ($paquete->estaEnAlmacen()) {
+            $this->lotesRepository->reservarPaqueteAlmacen(
+                $paquete->getEstanteId(),
+                $paquete->getSeccionId(),
+                $paquete->getLoteId(),
+                $paquete->getCantidad(),
+            );
+        } else {
+            $this->lotesRepository->reservarPaqueteBodega(
+                $paquete->getLoteId(),
+                $paquete->getCantidad(),
+            );
+        }
+    }
+
+    public function surtir(PaqueteLote $paquete): void
+    {
+        if ($paquete->estaEnAlmacen()) {
+            $this->lotesRepository->surtirPaqueteAlmacen(
+                $paquete->getEstanteId(),
+                $paquete->getSeccionId(),
+                $paquete->getLoteId(),
+                $paquete->getCantidad(),
+            );
+        } else {
+            $this->lotesRepository->surtirPaqueteBodega(
+                $paquete->getLoteId(),
+                $paquete->getCantidad(),
+            );
+        }
     }
 }

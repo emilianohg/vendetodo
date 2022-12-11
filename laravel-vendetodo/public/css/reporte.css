@@ -38,7 +38,7 @@ span {
   width: 150px;
   position: fixed;
   z-index: 1;
-  top: 80;
+  top: 80px;
   left: 0;
   background-color: #009EFF;
   overflow-x: hidden;

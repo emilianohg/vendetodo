@@ -1,29 +1,24 @@
 .main-navbar {
   background: #608aeb;
-  display: flex;
+  display: grid;
+  grid-template-columns: 240px minmax(300px, 600px) 1fr;
   box-shadow: 1px 1px 5px #cfcfcf;
   user-select: none;
   position: fixed;
   z-index: 100;
   width: 100%;
   top: 0;
+  height: 80px;
 }
 
 .controls-products {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1000px;
-  margin: 0 auto;
+  width: 100%;
 }
 
 .main-navbar-content {
   display: flex;
-  max-width: 1000px;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  margin-left: 20px;
-  margin-right: 20px;
 }
 
 .logo-img {
@@ -34,7 +29,7 @@
 
 .logo {
   font-weight: bold;
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: white;
 }
 
@@ -48,19 +43,16 @@
 
 .right-side-navbar-content {
   display: flex;
-  margin-right: 50px;
-  margin-top: 25px;
   justify-content: flex-end;
+  align-items: center;
+  margin-right: 10px;
 }
 
 .btn-user-panel {
-  margin: 15px;
   font-size: 1.1rem;
-
 }
 
 .btn-shoppingcart {
-  margin: 15px;
   font-size: 1.1rem;
 }
 
@@ -75,8 +67,7 @@
 }
 
 .btn-user:hover {
-  background: rgb(44, 33, 196);
-  scale: 1.1;
+  background: #2c21c438;
   transition: .8s;
 }
 
@@ -88,7 +79,6 @@
 }
 
 .btn-shoppingcart-icon:hover {
-  background: rgb(44, 33, 196);
-  scale: 1.1;
+  background: #2c21c438;
   transition: .8s;
 }

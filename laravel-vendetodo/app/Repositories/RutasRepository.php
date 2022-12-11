@@ -11,9 +11,34 @@ use Illuminate\Support\Facades\DB;
 
 class RutasRepository
 {
-
-    public function buscarPorId(int $ordenId)
+    public function recogerProducto(int $ordenId, int $orden)
     {
+        DB::table('rutas')
+            ->where('orden_id', '=', $ordenId)
+            ->where('orden', '=', $orden)
+            ->update([
+                'fecha_recogido' => now(),
+            ]);
+    }
+
+    public function regresarProducto(int $ordenId, int $orden)
+    {
+        DB::table('rutas')
+            ->where('orden_id', '=', $ordenId)
+            ->where('orden', '=', $orden)
+            ->update([
+                'fecha_recogido' => null,
+            ]);
+    }
+
+    public function buscarPorId(int $ordenId): ?Ruta
+    {
+        $numeroUbicaciones = DB::table('rutas')->where('orden_id', '=', $ordenId)->count();
+
+        if ($numeroUbicaciones == 0) {
+            return null;
+        }
+
         $lotesList = LoteTable::query()->select([
             'lotes.lote_id',
             'lotes.producto_id',
@@ -39,15 +64,12 @@ class RutasRepository
             ->where('rutas.orden_id','=',$ordenId)
             ->get();
 
-        \Log::info($lotesList);
-
         $lotes = Lote::fromArray($lotesList->toArray());
 
         $ubicaciones = [];
 
         foreach ($lotesList as $i => $record) {
             $lote = $lotes[$i];
-            \Log::info($lote->getLoteId());
 
             $paquete = new PaqueteLote(
                 $lote->getLoteId(),
@@ -57,7 +79,7 @@ class RutasRepository
                 $record->seccion_id_recoger,
             );
 
-            $ubicaciones[] = new UbicacionProducto($paquete, $record->orden);
+            $ubicaciones[] = new UbicacionProducto($paquete, $record->orden, $record->fecha_recogido != null);
         }
 
         $reporteRuta = DB::table('reportes_rutas')
