@@ -5,25 +5,30 @@
 @section('content')
   <div class="sidenav">
     <a class="sidevar-option" href="{{ route('encargado-estante.home') }}">Regresar</a>
-    <form method="POST" action="{{ route('encargado.comenzar') }}">
+    @if (!$reporte->estaComenzado())
+      <form method="POST" action="{{ route('encargado.comenzar') }}">
       @csrf
       <button class="sidevar-option" id="btnComenzar">Comenzar</button>
     </form>
-    <form method="POST" action="{{ route('encargado.terminar') }}" >
+    @else
+      <form method="POST" action="{{ route('encargado.terminar') }}" >
       @csrf
       <button class="sidevar-option" id="btnTerminar">Terminar</button>
-    </form>
-    <form method="POST" action="{{ route('encargado.cancelar') }}">
-      @csrf
-      <button class="sidevar-option" id="btnCancelar">Cancelar</button>
-    </form>
+      </form>
+      <form method="POST" action="{{ route('encargado.cancelar') }}">
+        @csrf
+        <button class="sidevar-option" id="btnCancelar">Cancelar</button>
+      </form>
+    @endif
   </div>
   <div class="report-container">
     <div class="head-report">
       <h2 class="tittle">Reporte de orden del estante #{{$reporte->getEstanteId()}}</h2>
       <h4 class="result">Fecha de generación: {{ $reporte->getFecha() }}</h4>
-      @if ($reporte->estaComenzado() == 0)
-        <h4 class="result">Estado: <span class="estado">En proceso</span></h4>          
+      @if ($reporte->estaComenzado() == 1)
+        <h4 class="result">Estado: <span class="estado">En proceso</span></h4>
+      @else
+        <h4 class="result">Estado: <span class="estado">Pendiente</span></h4>           
       @endif
       <button></button>
     </div>
