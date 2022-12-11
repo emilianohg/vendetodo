@@ -68,7 +68,8 @@ class ReportesOrdenEstanteRepository
     );
   }
 
-  public function guardar(ReporteOrdenEstante $reporteOrdenEstante)
+
+    public function guardar(ReporteOrdenEstante $reporteOrdenEstante)
     {
         DB::table('reportes_orden_estantes')
             ->insert([
@@ -79,20 +80,20 @@ class ReportesOrdenEstanteRepository
 
         foreach ($reporteOrdenEstante->getDetalles() as $detalle) {
 
-          foreach ($detalle->getPaquetes() as $paquete) {
+            foreach ($detalle->getPaquetes() as $paquete) {
 
-            $esta_en_almacen = 0;
-            $estante_origen_id = null;
-            $seccion_origen_id = null;
+                $esta_en_almacen = 0;
+                $estante_origen_id = null;
+                $seccion_origen_id = null;
 
-            if($paquete->estaEnAlmacen())
-            {
-                $esta_en_almacen = 1;
-                $estante_origen_id = $paquete->getEstanteId();
-                $seccion_origen_id = $paquete->getSeccionId();
-            }
+                if($paquete->estaEnAlmacen())
+                {
+                    $esta_en_almacen = 1;
+                    $estante_origen_id = $paquete->getEstanteId();
+                    $seccion_origen_id = $paquete->getSeccionId();
+                }
 
-            DB::table('detalles_reportes_orden_estantes')
+                DB::table('detalles_reportes_orden_estantes')
                 ->insert([
                     'reporte_uuid' => $reporteOrdenEstante->getReporteUuid(),
                     'estante_id' => $reporteOrdenEstante->getEstanteId(),

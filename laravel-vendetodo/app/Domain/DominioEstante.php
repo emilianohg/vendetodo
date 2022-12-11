@@ -87,7 +87,7 @@ class DominioEstante
     );
     
     $reporteOrdenEstante = new ReporteOrdenEstante(Str::uuid()->toString(), now(), $estanteId);
-    
+
     $detalles = $reporteVentas->getDetallesReporteVentasProducto();
 
     foreach($detalles as $seccion_id => $detalle)
@@ -104,15 +104,11 @@ class DominioEstante
     foreach ($estante->getSecciones() as $seccion) {
       $seccionesCubiertas = count($reporteOrdenEstante->getDetalles());
 
-      \Log::info($seccionesCubiertas);
-
       if ($seccionesCubiertas >= $numeroSecciones) {
         break;
       }
 
       $producto = $seccion->getProducto();
-
-      \Log::info($producto->getNombre());
 
       $coincidencias = collect($reporteOrdenEstante->getDetalles())
         ->filter(fn ($_detalleOrden) => $_detalleOrden->getProducto()->getId() == $producto->getId())
@@ -128,22 +124,6 @@ class DominioEstante
 
       $reporteOrdenEstante->agregarPaquetes($seccionesCubiertas + 1, $paquetes);
     }
-
-    foreach ($reporteOrdenEstante->getDetalles() as $detalle) {
-      \Log::info('============================');
-      \Log::info('Seccion: ' . $detalle->getSeccionId());
-      \Log::info('============================');
-
-      foreach ($detalle->getPaquetes() as $paquete) {
-        \Log::info('Lote: ' . $paquete->getLote()->getLoteId());
-        \Log::info('Cantidad: ' . $paquete->getCantidad());
-        \Log::info('Seccion: ' . $paquete->getSeccionId());
-        \Log::info('Estante: ' . $paquete->getEstanteId());
-        \Log::info('En bodega: ' . $paquete->estaEnBodega());
-        \Log::info('Producto: ' . $paquete->getLote()->getProducto()->getNombre());
-      }
-    }
-
 
     $reporteOrdenEstante->guardar();
 
