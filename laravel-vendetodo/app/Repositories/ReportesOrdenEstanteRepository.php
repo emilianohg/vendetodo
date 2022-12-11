@@ -65,7 +65,7 @@ class ReportesOrdenEstanteRepository
       fecha: $reporteOrdenEstanteRecord->fecha,
       estante_id: $reporteOrdenEstanteRecord->estante_id,
       detalles: $detalles,
-      comenzado: 0,
+      comenzado: $reporteOrdenEstanteRecord->comenzado,
     );
   }
 

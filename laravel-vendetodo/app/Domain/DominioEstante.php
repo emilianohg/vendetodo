@@ -30,10 +30,10 @@ class DominioEstante
 
   public function obtenerEstante(int $estanteId): ?Estante
   {
-      $estantes = $this->almacenRepository->obtenerEstantes();
-      return collect($estantes)
-          ->filter(fn ($_estante) => $_estante->getEstanteId() == $estanteId)
-          ->first();
+    $estantes = $this->almacenRepository->obtenerEstantes();
+    return collect($estantes)
+      ->filter(fn ($_estante) => $_estante->getEstanteId() == $estanteId)
+      ->first();
   }
 
   public function comenzarOrdenamiento(int $usuarioId)
@@ -60,9 +60,9 @@ class DominioEstante
 
   public function obtenerOrdenProductos(int $usuarioId): ReporteOrdenEstante
   {
-      $encargado = $this->almacenRepository->obtenerEncargado($usuarioId);
-      $estanteId = $encargado->getEstanteId();
-      return $this->reportesOrdenEstanteRepository->obtenerOrdenProductosPorEstanteId($estanteId);
+    $encargado = $this->almacenRepository->obtenerEncargado($usuarioId);
+    $estanteId = $encargado->getEstanteId();
+    return $this->reportesOrdenEstanteRepository->obtenerOrdenProductosPorEstanteId($estanteId);
   }
 
 
@@ -85,20 +85,19 @@ class DominioEstante
       true,
       $numeroSecciones,
     );
-    
+
     $reporteOrdenEstante = new ReporteOrdenEstante(Str::uuid()->toString(), now(), $estanteId);
 
     $detalles = $reporteVentas->getDetallesReporteVentasProducto();
 
-    foreach($detalles as $seccion_id => $detalle)
-    {
+    foreach ($detalles as $seccion_id => $detalle) {
       $producto = $detalle->getProducto();
 
       $cantidadProductosNecesarios = floor(Seccion::getVolumenSeccion() / $producto->getVolumen());
 
       $paquetes = $this->lotesManager->getPaquetes($cantidadProductosNecesarios, $producto->getId());
 
-      $reporteOrdenEstante->agregarPaquetes($seccion_id+1,$paquetes);
+      $reporteOrdenEstante->agregarPaquetes($seccion_id + 1, $paquetes);
     }
 
     foreach ($estante->getSecciones() as $seccion) {
@@ -134,7 +133,7 @@ class DominioEstante
    * @param Estante[] $estantes
    * @return Producto[]
    */
-  public function obtenerProductosExcluidos( array $estantes, int $estante_id): array
+  public function obtenerProductosExcluidos(array $estantes, int $estante_id): array
   {
     $productosExcluidosId = [];
     foreach ($estantes as $estante) {
