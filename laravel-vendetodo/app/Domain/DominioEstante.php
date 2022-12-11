@@ -71,6 +71,7 @@ class DominioEstante
     $estantes = $this->almacenRepository->obtenerEstantes();
     $encargado = $this->almacenRepository->obtenerEncargado($usuarioId);
     $estanteId = $encargado->getEstanteId();
+    $estante = collect($estantes)->first(fn ($_estante) => $_estante->getEstanteId() == $estanteId);
 
     $this->almacenRepository->descartarReporteOrdenEstante($estanteId);
 
@@ -99,6 +100,51 @@ class DominioEstante
 
       $reporteOrdenEstante->agregarPaquetes($seccion_id+1,$paquetes);
     }
+
+    foreach ($estante->getSecciones() as $seccion) {
+      $seccionesCubiertas = count($reporteOrdenEstante->getDetalles());
+
+      \Log::info($seccionesCubiertas);
+
+      if ($seccionesCubiertas >= $numeroSecciones) {
+        break;
+      }
+
+      $producto = $seccion->getProducto();
+
+      \Log::info($producto->getNombre());
+
+      $coincidencias = collect($reporteOrdenEstante->getDetalles())
+        ->filter(fn ($_detalleOrden) => $_detalleOrden->getProducto()->getId() == $producto->getId())
+        ->count();
+
+      if ($coincidencias > 0) {
+        continue;
+      }
+
+      $cantidadProductosNecesarios = floor(Seccion::getVolumenSeccion() / $producto->getVolumen());
+
+      $paquetes = $this->lotesManager->getPaquetes($cantidadProductosNecesarios, $producto->getId());
+
+      $reporteOrdenEstante->agregarPaquetes($seccionesCubiertas + 1, $paquetes);
+    }
+
+    foreach ($reporteOrdenEstante->getDetalles() as $detalle) {
+      \Log::info('============================');
+      \Log::info('Seccion: ' . $detalle->getSeccionId());
+      \Log::info('============================');
+
+      foreach ($detalle->getPaquetes() as $paquete) {
+        \Log::info('Lote: ' . $paquete->getLote()->getLoteId());
+        \Log::info('Cantidad: ' . $paquete->getCantidad());
+        \Log::info('Seccion: ' . $paquete->getSeccionId());
+        \Log::info('Estante: ' . $paquete->getEstanteId());
+        \Log::info('En bodega: ' . $paquete->estaEnBodega());
+        \Log::info('Producto: ' . $paquete->getLote()->getProducto()->getNombre());
+      }
+    }
+
+
     $reporteOrdenEstante->guardar();
 
     return  $reporteOrdenEstante;

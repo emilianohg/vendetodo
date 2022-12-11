@@ -77,45 +77,32 @@ class ReportesOrdenEstanteRepository
                 'estante_id' => $reporteOrdenEstante->getEstanteId(),
             ]);
 
-
-
         foreach ($reporteOrdenEstante->getDetalles() as $detalle) {
-
-          \Log::info('============================');
-          \Log::info($detalle->getSeccionId());
-          \Log::info('============================');
 
           foreach ($detalle->getPaquetes() as $paquete) {
 
-            \Log::info($paquete->getEstanteId());
-            \Log::info($paquete->getSeccionId());
-            \Log::info($paquete->getLoteId());
-            \Log::info($paquete->estaEnAlmacen());
-
-            \Log::info('=============!!!!=============');
-
             $esta_en_almacen = 0;
-                $estante_origen_id = null;
-                $seccion_origen_id = null;
+            $estante_origen_id = null;
+            $seccion_origen_id = null;
 
-                if($paquete->estaEnAlmacen())
-                {
-                    $esta_en_almacen = 1;
-                    $estante_origen_id = $paquete->getEstanteId();
-                    $seccion_origen_id = $paquete->getSeccionId();
-                }
+            if($paquete->estaEnAlmacen())
+            {
+                $esta_en_almacen = 1;
+                $estante_origen_id = $paquete->getEstanteId();
+                $seccion_origen_id = $paquete->getSeccionId();
+            }
 
-                DB::table('detalles_reportes_orden_estantes')
-                    ->insert([
-                        'reporte_uuid' => $reporteOrdenEstante->getReporteUuid(),
-                        'estante_id' => $reporteOrdenEstante->getEstanteId(),
-                        'seccion_id' => $detalle->getSeccionId(),
-                        'lote_id' =>    $paquete->getLoteId(),
-                        'esta_en_almacen' => $esta_en_almacen,
-                        'estante_origen_id' => $estante_origen_id,
-                        'seccion_origen_id' => $seccion_origen_id,
-                        'cantidad' => $paquete->getCantidad(),
-                    ]);
+            DB::table('detalles_reportes_orden_estantes')
+                ->insert([
+                    'reporte_uuid' => $reporteOrdenEstante->getReporteUuid(),
+                    'estante_id' => $reporteOrdenEstante->getEstanteId(),
+                    'seccion_id' => $detalle->getSeccionId(),
+                    'lote_id' =>    $paquete->getLoteId(),
+                    'esta_en_almacen' => $esta_en_almacen,
+                    'estante_origen_id' => $estante_origen_id,
+                    'seccion_origen_id' => $seccion_origen_id,
+                    'cantidad' => $paquete->getCantidad(),
+                ]);
             }
         }
     }

@@ -89,22 +89,22 @@ class AlmacenRepository
           }
         }
 
-      $lotes = DB::table('control_almacen')->select([
-        'lote_id',
-        'cantidad',
-        'cantidad_disponible',
-        'seccion_id',
-      ])->where('estante_id', '=', $estante_id)
-        ->get();
+        $lotes = DB::table('control_almacen')->select([
+          'lote_id',
+          'cantidad',
+          'cantidad_disponible',
+          'seccion_id',
+        ])->where('estante_id', '=', $estante_id)
+          ->get();
 
         foreach($lotes as $lote)
         {
-          $res = $detalles->contains(function ($detalle) use ($lote) {
-            return $detalle->lote_id = $lote->lote_id;
+          $permaneceEnAlmacen = $detalles->contains(function ($detalle) use ($lote) {
+            return $detalle->lote_id == $lote->lote_id;
           });
 
           //pasar de almacen a bodega
-          if(!$res)
+          if(!$permaneceEnAlmacen)
           {
               DB::table('bodega')
               ->where('lote_id', '=', $lote->lote_id)
@@ -113,10 +113,7 @@ class AlmacenRepository
               DB::table('bodega')
               ->where('lote_id', '=', $lote->lote_id)
               ->increment('cantidad_disponible', $lote->cantidad_disponible);
-              continue;
           }
-
-          $lotesQuedanEnAlmacen[] = $lote;
 
         }
 
@@ -124,16 +121,8 @@ class AlmacenRepository
 
         foreach($detalles as $detalle)
         {
-          $lote = collect($lotes)
-            ->filter(fn($_lote) => $_lote->lote_id = $detalle->lote_id)
-            ->first();
-
           DB::table('control_almacen')
-            ->updateOrInsert([
-                'estante_id' => $detalle->estante_id,
-                'seccion_id' => $detalle->seccion_id,
-                'lote_id' =>  $detalle->lote_id,
-              ], [
+            ->insert([
                 'estante_id' => $detalle->estante_id,
                 'seccion_id' => $detalle->seccion_id,
                 'lote_id' =>  $detalle->lote_id,
