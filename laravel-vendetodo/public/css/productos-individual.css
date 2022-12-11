@@ -124,6 +124,11 @@ body {
   background-color: #dae0fb;
 }
 
+.divider-individual{
+  padding-top: 80px;
+}
+
+
 .servicios {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

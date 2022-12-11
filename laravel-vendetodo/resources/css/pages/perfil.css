@@ -45,6 +45,18 @@ body {
 
 }
 
+.btn-user-dashboard {
+  background-color: rgb(19, 192, 19);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  outline: none;
+  margin-top: 20px;
+}
+
 .btn-user-logout {
   background-color: rgb(192, 19, 19);
   color: #fff;
@@ -60,4 +72,9 @@ body {
 .btn-user-logout:hover {
   transition: 0.5s;
   background-color: rgb(235, 74, 74);
+}
+
+.btn-user-dashboard:hover {
+  transition: 0.5s;
+  background-color: rgb(74, 235, 74);
 }

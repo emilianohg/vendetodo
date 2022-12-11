@@ -23,8 +23,15 @@
           <h2 class="tittle">Rol:</h2>
           <p>{{ $usuario->getRol()->getNombre() }}</p>
         </div>
+
         <div class="btn-container">
+              @if ($usuario->getRolId() == 4)
+                <a class="btn-user-dashboard" href="{{ route('encargado-estante.home' )}}">Estante</a>
+              @elseif ($usuario->getRolId() == 2)
+                <a class="btn-user-dashboard" href="{{ route('surtidor.home' )}}">Surtidor</a>
+              @endif
               <form action="{{ route('login.logout') }}" method="POST">
+                
               @csrf
                 <button class="btn-user-logout" type="submit">Cerrar sesión</button>
               </form>

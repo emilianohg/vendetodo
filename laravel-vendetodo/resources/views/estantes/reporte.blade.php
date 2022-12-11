@@ -21,7 +21,10 @@
   <div class="report-container">
     <div class="head-report">
       <h2 class="tittle">Reporte de orden del estante #{{$reporte->getEstanteId()}}</h2>
-      <h4>Fecha de generación: {{ $reporte->getFecha() }}</h4>
+      <h4 class="result">Fecha de generación: {{ $reporte->getFecha() }}</h4>
+      @if ($reporte->estaComenzado() == 0)
+        <h4 class="result">Estado: <span class="estado">En proceso</span></h4>          
+      @endif
       <button></button>
     </div>
 
@@ -73,18 +76,4 @@
       @endforeach
     </div>
   </div>
-  <script>
-    const btnComenzar=document.getElementById('btnComenzar');
-    const btnTerminar=document.getElementById('btnTerminar');
-    const btnCancelar=document.getElementById('btnCancelar');
-
-    btnTerminar.style.visibility = "hidden"; 
-    btnCancelar.style.visibility = "hidden"; 
-    btnComenzar.addEventListener('click',()=>{
-      btnComenzar.disabled=true;
-      btnTerminar.style.visibility = "visible";
-      btnCancelar.style.visibility = "visible";
-    });
-
-  </script>
 @endsection

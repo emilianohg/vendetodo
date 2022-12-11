@@ -7,60 +7,64 @@ use Ramsey\Uuid\Uuid;
 
 class ReporteOrdenEstante
 {
-    private ReportesOrdenEstanteRepository $reportesOrdenEstanteRepository;
+  private ReportesOrdenEstanteRepository $reportesOrdenEstanteRepository;
 
-    /**
-    * @param DetalleReporteOrdenEstante[] $detalle
-    **/
-    public function __construct(
-        private string $reporte_uuid,
-        private string $fecha,
-        private int $estante_id,
-        private array $detalles = [],
-    )
-    {
-        $this->reportesOrdenEstanteRepository = new ReportesOrdenEstanteRepository();
-    }
+  /**
+   * @param DetalleReporteOrdenEstante[] $detalle
+   **/
+  public function __construct(
+    private string $reporte_uuid,
+    private string $fecha,
+    private int $estante_id,
+    private array $detalles = [],
+    private int $comenzado = 0,
+  ) {
+    $this->reportesOrdenEstanteRepository = new ReportesOrdenEstanteRepository();
+  }
 
-    public function getReporteUuid(): string
-    {
-        return $this->reporte_uuid;
-    }
+  public function getReporteUuid(): string
+  {
+    return $this->reporte_uuid;
+  }
 
-    public function getFecha(): string
-    {
-        return $this->fecha;
-    }
+  public function getFecha(): string
+  {
+    return $this->fecha;
+  }
 
-    public function getEstanteId(): int
-    {
-        return $this->estante_id;
-    }
+  public function getEstanteId(): int
+  {
+    return $this->estante_id;
+  }
 
-    /**
-    * @return DetalleReporteOrdenEstante[]
-    */
-    public function getDetalles(): array
-    {
-        return $this->detalles;
-    }
+  /**
+   * @return DetalleReporteOrdenEstante[]
+   */
+  public function getDetalles(): array
+  {
+    return $this->detalles;
+  }
 
-    /**
-     * @param PaqueteLote[] $paquetes
-     */
-    public function agregarPaquetes($seccion_id, $paquetes)
-    {
-        if(count($paquetes) == 0)
-        {
-            return;
-        }
-        $producto = $paquetes[0]->getLote()->getProducto();
-        $detalle = new DetalleReporteOrdenEstante($seccion_id, $producto, $paquetes);
-        $this->detalles[] = $detalle;
-    }
+  public function estaComenzado(): bool
+  {
+    return $this->comenzado == 1;
+  }
 
-    public function guardar()
-    {
-        $this->reportesOrdenEstanteRepository->guardar($this);
+  /**
+   * @param PaqueteLote[] $paquetes
+   */
+  public function agregarPaquetes($seccion_id, $paquetes)
+  {
+    if (count($paquetes) == 0) {
+      return;
     }
+    $producto = $paquetes[0]->getLote()->getProducto();
+    $detalle = new DetalleReporteOrdenEstante($seccion_id, $producto, $paquetes);
+    $this->detalles[] = $detalle;
+  }
+
+  public function guardar()
+  {
+    $this->reportesOrdenEstanteRepository->guardar($this);
+  }
 }
