@@ -32,18 +32,16 @@
 						</div>
 					@endif
 
-					<div class="col-producto">{{$lineaCarrito->getProducto()->getNombre()}}</div>
+					<div class="col-producto">
+                        <a href="{{route('productos.show', [ 'producto' => $lineaCarrito->getProducto()->getId() ])}}">
+                            {{$lineaCarrito->getProducto()->getNombre()}}
+                        </a>
+                    </div>
 
 					<div class="col-proveedor">{{$lineaCarrito->getProveedor()->getNombre()}}</div>
 
 					<div class="col-cant layout-inline">
-						<button type="submit" class="btn-qty">
-							<i class="fa-sharp fa-solid fa-circle-minus"></i>
-						</button>
 						<input type="numeric" class="cant" value="{{$lineaCarrito->getCantidad()}}" />
-						<button type="submit" class="btn-qty">
-							<i class="fa-sharp fa-solid fa-circle-plus"></i>
-						</button>
 					</div>
 
 					<div class="col-num">{{number_format($lineaCarrito->getProducto()->getPrecio(),2)}}</div>
@@ -53,8 +51,8 @@
 					<form action="{{route('carrito.borrarLinea', [ 'id' => $lineaCarrito->getId() ])}}"  method="POST">
 					@csrf
 					{{method_field('DELETE')}}
-						<div class="col-del">
-							<button type="submit" class="fa-sharp fa-solid fa-trash-can"></button>
+						<div class="col-del font-bold">
+							<button type="submit">X</button>
 						</div>
 					</form>
 
@@ -75,7 +73,7 @@
 				<button type="submit" class="btn" style="background: #abebc6 ">Pagar</button>
 			</Form>
 		</div>
-		
+
 	</div>
 	@else
 		<p style="padding: 25px">Tu carrito está vacío.<a href="{{ route('products.index') }}" class="keep-buying"> Continua comprando</a></p>
