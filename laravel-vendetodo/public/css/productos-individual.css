@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   gap: 15px;
-  min-width: 700px;
+  min-width: 300px;
   background: #fff;
   padding: 5px 10px;
   border-radius: 100px;
@@ -14,12 +14,6 @@
   width: 50%;
   border-color: #DFE9F3;
   box-shadow: 1px 1px 5px #929191;
-}
-
-.navbar:hover {
-  background: #fff;
-  scale: 1.125;
-  transition: 1s;
 }
 
 .navbar input {
@@ -130,17 +124,12 @@ body {
   background-color: #dae0fb;
 }
 
-.divider-individual{
-  padding-top: 80px;
-}
-
-
 .servicios {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
   margin: 0 auto;
-  margin-top: 60px;
+  margin-top: 40px;
   margin-bottom: 50px;
   max-width: 70%;
   background-color: #fff;

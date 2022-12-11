@@ -4,7 +4,7 @@
 }
 
 .main-container {
-  margin-top: 60px;
+  margin-top: 100px;
 }
 
 input::-webkit-outer-spin-button,
@@ -42,8 +42,38 @@ textarea:focus {
   color: #fff;
 }
 
-.divider {
-  padding-top: 140px;
+.message {
+  position: relative;
+  margin: 0 auto;
+  max-width: 90%;
+  padding: 25px 40px 25px 25px;
+  border-radius: 15px;
+
+  box-shadow: 0 0 10px 0 #b5dde1;
+  color: #1c6b72;
+  background-color: #e8fcff;
+  border-color: #f2fffb;
+}
+
+.message-error {
+  box-shadow: 0 0 10px 0 #721c24;
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
+.message-close {
+  top: 10px;
+  right: 10px;
+  position: absolute;
+  cursor: pointer;
+  height: 20px;
+  width: 20px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
 }
 .mt-4 {
     margin-top: 1rem;
@@ -197,7 +227,7 @@ textarea:focus {
   justify-content: center;
   align-items: center;
   gap: 15px;
-  min-width: 700px;
+  min-width: 300px;
   background: #fff;
   padding: 5px 10px;
   border-radius: 100px;
@@ -208,12 +238,6 @@ textarea:focus {
   width: 50%;
   border-color: #DFE9F3;
   box-shadow: 1px 1px 5px #929191;
-}
-
-.navbar:hover {
-  background: #fff;
-  scale: 1.125;
-  transition: 1s;
 }
 
 .navbar input {

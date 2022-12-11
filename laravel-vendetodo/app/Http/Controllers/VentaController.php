@@ -35,7 +35,7 @@ class VentaController extends Controller
 
           return redirect()->route('pago', ['referencia' => $pago->getReferencia()]);
       } catch (ProductoAgotadoException $e) {
-          return redirect()->route('carrito')->with($e->getMessage());
+          return redirect()->route('carrito')->with('message-error', $e->getMessage());
       }
   }
 
@@ -47,7 +47,7 @@ class VentaController extends Controller
           $orden = $this->dominioVenta->confirmar($referencia);
           return view('compra.confirm', ['orden' => $orden]);
       } catch (PagoNoHabilitadoException $e) {
-          return redirect()->back()->with('error_message', $e->getMessage());
+          return redirect()->back()->with('message-error', $e->getMessage());
       }
   }
 

@@ -45,8 +45,28 @@
           </div>
         </nav>
     <main class="main-container">
+        @if(session()->has('message-error'))
+        <div id="message-main" class="message message-error">
+            <p>{{ session()->get('message-error') }}</p>
+            <span id="message-main-close" class="message-close">×</span>
+        </div>
+        @endif
+        @if(session()->has('message-info'))
+            <div id="message-main" class="message message-info">
+                <p>{{ session()->get('message-info') }}</p>
+                <span id="message-main-close" class="message-close">×</span>
+            </div>
+        @endif
           @yield('content')
     </main>
+
+      <script>
+          $messageMain = document.getElementById('message-main');
+          $messageMainClose = document.getElementById('message-main-close');
+          $messageMainClose.addEventListener('click', function (event) {
+              $messageMain.remove();
+          })
+      </script>
     
   </body>
 </html>

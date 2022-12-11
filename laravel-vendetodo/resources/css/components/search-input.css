@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   gap: 15px;
-  min-width: 700px;
+  min-width: 300px;
   background: #fff;
   padding: 5px 10px;
   border-radius: 100px;
@@ -14,12 +14,6 @@
   width: 50%;
   border-color: #DFE9F3;
   box-shadow: 1px 1px 5px #929191;
-}
-
-.navbar:hover {
-  background: #fff;
-  scale: 1.125;
-  transition: 1s;
 }
 
 .navbar input {

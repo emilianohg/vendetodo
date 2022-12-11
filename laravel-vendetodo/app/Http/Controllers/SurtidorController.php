@@ -46,7 +46,7 @@ class SurtidorController extends Controller
         try {
             $this->dominioOrden->aceptarOrden($usuarioId, $ordenId);
         } catch (OrdenNoAsignadaException $e) {
-            return redirect()->back()->with('error_message', $e->getMessage());
+            return redirect()->back()->with('message-error', $e->getMessage());
         }
 
         return redirect()->route('surtidor.orden', ['id' => $ordenId]);
