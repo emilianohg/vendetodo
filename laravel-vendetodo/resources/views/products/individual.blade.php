@@ -71,6 +71,20 @@
                             const optionSelected = document.querySelector('#select-proveedor option[value="'+ event.target.value +'"]');
                             $cantidadDisponibleParagraph.innerText = optionSelected.dataset.cantidad;
                         }
+
+                        items=document.getElementById("select-proveedor").options;
+                        cantidadDisponible=document.getElementById("cantidad-disponible");
+                        opciones=new Array();
+                        for(i=0;i<items.length;i++){
+                            opciones[i]=items[i].dataset.cantidad;
+                            opciones.sort(function(a, b){return b - a});
+                        }
+                        for(i=0;i<items.length;i++){
+                            if(items[i].dataset.cantidad==opciones[0]){
+                                items[i].selected=true;
+                            }
+                            cantidadDisponible.innerText=opciones[0];
+                        }
                     </script>
                     @else
                         <p>Producto no disponible actualmente</p>
