@@ -14,4 +14,6 @@ mix.js('resources/js/app.js', 'public/js')
     .postCss('resources/css/pages/reporte.css', 'public/css', [])
     .postCss('resources/css/pages/compra-success.css', 'public/css', [])
     .postCss('resources/css/pages/surtidor-dashboard.css', 'public/css', [])
-    .postCss('resources/css/pages/surtidor-orden.css', 'public/css', []);
+    .postCss('resources/css/pages/surtidor-orden.css', 'public/css', [])
+    .postCss('resources/css/pages/paypal.css', 'public/css', [])
+    .postCss('resources/css/pages/tarjeta.css', 'public/css', []);
