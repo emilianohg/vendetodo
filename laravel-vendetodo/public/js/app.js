@@ -19416,6 +19416,32 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/css/pages/paypal.css":
+/*!****************************************!*\
+  !*** ./resources/css/pages/paypal.css ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/css/pages/tarjeta.css":
+/*!*****************************************!*\
+  !*** ./resources/css/pages/tarjeta.css ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./resources/css/app.css":
 /*!*******************************!*\
   !*** ./resources/css/app.css ***!
@@ -19804,6 +19830,8 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 			"css/compra-success": 0,
 /******/ 			"css/perfil": 0,
 /******/ 			"css/login": 0,
+/******/ 			"css/tarjeta": 0,
+/******/ 			"css/paypal": 0,
 /******/ 			"css/surtidor-orden": 0,
 /******/ 			"css/surtidor-dashboard": 0,
 /******/ 			"css/reporte": 0,
@@ -19859,20 +19887,22 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/productos-index","css/productos-individual","css/productos-create","css/compra-success","css/perfil","css/login","css/surtidor-orden","css/surtidor-dashboard","css/reporte","css/compra-detalle","css/estante-dashboard","css/carrito"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/productos-index","css/productos-individual","css/productos-create","css/compra-success","css/perfil","css/login","css/surtidor-orden","css/surtidor-dashboard","css/reporte","css/compra-detalle","css/estante-dashboard","css/carrito"], () => (__webpack_require__("./resources/css/app.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/productos-index","css/productos-individual","css/productos-create","css/compra-success","css/perfil","css/login","css/surtidor-orden","css/surtidor-dashboard","css/reporte","css/compra-detalle","css/estante-dashboard","css/carrito"], () => (__webpack_require__("./resources/css/pages/productos-create.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/productos-index","css/productos-individual","css/productos-create","css/compra-success","css/perfil","css/login","css/surtidor-orden","css/surtidor-dashboard","css/reporte","css/compra-detalle","css/estante-dashboard","css/carrito"], () => (__webpack_require__("./resources/css/pages/login.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/productos-index","css/productos-individual","css/productos-create","css/compra-success","css/perfil","css/login","css/surtidor-orden","css/surtidor-dashboard","css/reporte","css/compra-detalle","css/estante-dashboard","css/carrito"], () => (__webpack_require__("./resources/css/pages/perfil.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/productos-index","css/productos-individual","css/productos-create","css/compra-success","css/perfil","css/login","css/surtidor-orden","css/surtidor-dashboard","css/reporte","css/compra-detalle","css/estante-dashboard","css/carrito"], () => (__webpack_require__("./resources/css/pages/productos-index.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/productos-index","css/productos-individual","css/productos-create","css/compra-success","css/perfil","css/login","css/surtidor-orden","css/surtidor-dashboard","css/reporte","css/compra-detalle","css/estante-dashboard","css/carrito"], () => (__webpack_require__("./resources/css/pages/productos-individual.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/productos-index","css/productos-individual","css/productos-create","css/compra-success","css/perfil","css/login","css/surtidor-orden","css/surtidor-dashboard","css/reporte","css/compra-detalle","css/estante-dashboard","css/carrito"], () => (__webpack_require__("./resources/css/pages/carrito.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/productos-index","css/productos-individual","css/productos-create","css/compra-success","css/perfil","css/login","css/surtidor-orden","css/surtidor-dashboard","css/reporte","css/compra-detalle","css/estante-dashboard","css/carrito"], () => (__webpack_require__("./resources/css/pages/estante-dashboard.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/productos-index","css/productos-individual","css/productos-create","css/compra-success","css/perfil","css/login","css/surtidor-orden","css/surtidor-dashboard","css/reporte","css/compra-detalle","css/estante-dashboard","css/carrito"], () => (__webpack_require__("./resources/css/pages/compra-detalle.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/productos-index","css/productos-individual","css/productos-create","css/compra-success","css/perfil","css/login","css/surtidor-orden","css/surtidor-dashboard","css/reporte","css/compra-detalle","css/estante-dashboard","css/carrito"], () => (__webpack_require__("./resources/css/pages/reporte.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/productos-index","css/productos-individual","css/productos-create","css/compra-success","css/perfil","css/login","css/surtidor-orden","css/surtidor-dashboard","css/reporte","css/compra-detalle","css/estante-dashboard","css/carrito"], () => (__webpack_require__("./resources/css/pages/compra-success.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/productos-index","css/productos-individual","css/productos-create","css/compra-success","css/perfil","css/login","css/surtidor-orden","css/surtidor-dashboard","css/reporte","css/compra-detalle","css/estante-dashboard","css/carrito"], () => (__webpack_require__("./resources/css/pages/surtidor-dashboard.css")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app","css/productos-index","css/productos-individual","css/productos-create","css/compra-success","css/perfil","css/login","css/surtidor-orden","css/surtidor-dashboard","css/reporte","css/compra-detalle","css/estante-dashboard","css/carrito"], () => (__webpack_require__("./resources/css/pages/surtidor-orden.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/productos-index","css/productos-individual","css/productos-create","css/compra-success","css/perfil","css/login","css/tarjeta","css/paypal","css/surtidor-orden","css/surtidor-dashboard","css/reporte","css/compra-detalle","css/estante-dashboard","css/carrito"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/productos-index","css/productos-individual","css/productos-create","css/compra-success","css/perfil","css/login","css/tarjeta","css/paypal","css/surtidor-orden","css/surtidor-dashboard","css/reporte","css/compra-detalle","css/estante-dashboard","css/carrito"], () => (__webpack_require__("./resources/css/app.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/productos-index","css/productos-individual","css/productos-create","css/compra-success","css/perfil","css/login","css/tarjeta","css/paypal","css/surtidor-orden","css/surtidor-dashboard","css/reporte","css/compra-detalle","css/estante-dashboard","css/carrito"], () => (__webpack_require__("./resources/css/pages/productos-create.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/productos-index","css/productos-individual","css/productos-create","css/compra-success","css/perfil","css/login","css/tarjeta","css/paypal","css/surtidor-orden","css/surtidor-dashboard","css/reporte","css/compra-detalle","css/estante-dashboard","css/carrito"], () => (__webpack_require__("./resources/css/pages/login.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/productos-index","css/productos-individual","css/productos-create","css/compra-success","css/perfil","css/login","css/tarjeta","css/paypal","css/surtidor-orden","css/surtidor-dashboard","css/reporte","css/compra-detalle","css/estante-dashboard","css/carrito"], () => (__webpack_require__("./resources/css/pages/perfil.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/productos-index","css/productos-individual","css/productos-create","css/compra-success","css/perfil","css/login","css/tarjeta","css/paypal","css/surtidor-orden","css/surtidor-dashboard","css/reporte","css/compra-detalle","css/estante-dashboard","css/carrito"], () => (__webpack_require__("./resources/css/pages/productos-index.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/productos-index","css/productos-individual","css/productos-create","css/compra-success","css/perfil","css/login","css/tarjeta","css/paypal","css/surtidor-orden","css/surtidor-dashboard","css/reporte","css/compra-detalle","css/estante-dashboard","css/carrito"], () => (__webpack_require__("./resources/css/pages/productos-individual.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/productos-index","css/productos-individual","css/productos-create","css/compra-success","css/perfil","css/login","css/tarjeta","css/paypal","css/surtidor-orden","css/surtidor-dashboard","css/reporte","css/compra-detalle","css/estante-dashboard","css/carrito"], () => (__webpack_require__("./resources/css/pages/carrito.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/productos-index","css/productos-individual","css/productos-create","css/compra-success","css/perfil","css/login","css/tarjeta","css/paypal","css/surtidor-orden","css/surtidor-dashboard","css/reporte","css/compra-detalle","css/estante-dashboard","css/carrito"], () => (__webpack_require__("./resources/css/pages/estante-dashboard.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/productos-index","css/productos-individual","css/productos-create","css/compra-success","css/perfil","css/login","css/tarjeta","css/paypal","css/surtidor-orden","css/surtidor-dashboard","css/reporte","css/compra-detalle","css/estante-dashboard","css/carrito"], () => (__webpack_require__("./resources/css/pages/compra-detalle.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/productos-index","css/productos-individual","css/productos-create","css/compra-success","css/perfil","css/login","css/tarjeta","css/paypal","css/surtidor-orden","css/surtidor-dashboard","css/reporte","css/compra-detalle","css/estante-dashboard","css/carrito"], () => (__webpack_require__("./resources/css/pages/reporte.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/productos-index","css/productos-individual","css/productos-create","css/compra-success","css/perfil","css/login","css/tarjeta","css/paypal","css/surtidor-orden","css/surtidor-dashboard","css/reporte","css/compra-detalle","css/estante-dashboard","css/carrito"], () => (__webpack_require__("./resources/css/pages/compra-success.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/productos-index","css/productos-individual","css/productos-create","css/compra-success","css/perfil","css/login","css/tarjeta","css/paypal","css/surtidor-orden","css/surtidor-dashboard","css/reporte","css/compra-detalle","css/estante-dashboard","css/carrito"], () => (__webpack_require__("./resources/css/pages/surtidor-dashboard.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/productos-index","css/productos-individual","css/productos-create","css/compra-success","css/perfil","css/login","css/tarjeta","css/paypal","css/surtidor-orden","css/surtidor-dashboard","css/reporte","css/compra-detalle","css/estante-dashboard","css/carrito"], () => (__webpack_require__("./resources/css/pages/surtidor-orden.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/productos-index","css/productos-individual","css/productos-create","css/compra-success","css/perfil","css/login","css/tarjeta","css/paypal","css/surtidor-orden","css/surtidor-dashboard","css/reporte","css/compra-detalle","css/estante-dashboard","css/carrito"], () => (__webpack_require__("./resources/css/pages/paypal.css")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app","css/productos-index","css/productos-individual","css/productos-create","css/compra-success","css/perfil","css/login","css/tarjeta","css/paypal","css/surtidor-orden","css/surtidor-dashboard","css/reporte","css/compra-detalle","css/estante-dashboard","css/carrito"], () => (__webpack_require__("./resources/css/pages/tarjeta.css")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
