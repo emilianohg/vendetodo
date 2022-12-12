@@ -60,18 +60,17 @@ body {
 }
 
 .rack-container {
-  margin-left: 160px;
+  margin: 0 auto;
   padding: 0px 10px;
+  max-width: 1200px;
 }
 
 .rack-details {
-  margin: top 10px;
   width: 100%;
-  max-width: 1200px;
   background-color: #ffffff;
-  margin-top: 10px;
   align-items: center;
   justify-content: center;
+  margin: 0 auto;
 }
 
 .table-tittle {
@@ -132,4 +131,8 @@ br {
   .sidenav a {
     font-size: 18px;
   }
+}
+
+.controls {
+  margin: 10px 0;
 }

@@ -6,25 +6,27 @@
     <title>Vende Todo | Dashboard</title>
     <link rel="stylesheet" href="/css/app.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://kit.fontawesome.com/d62c51cf16.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 @yield('style')
 <nav class="main-navbar">
     <div class="main-navbar-content">
         <img src="https://media.discordapp.net/attachments/1031018534416941168/1035346439989117049/logo.png?width=472&height=472" class="logo-img">
-        @if(auth()->user()->rol_id == 2)
-        <a href="{{route('surtidor.home')}}" class="logo">Vende Todo</a>
-        @else
-        <a href="{{route('productos.index')}}" class="logo">Vende Todo</a>
-        @endif
+        <a href="{{route('products.index')}}" class="logo">Vende Todo</a>
     </div>
     <div class="controls-products"></div>
     <div class="right-side-navbar-content">
         <div class="btn-user-panel">
+            <a class="btn-user" href="{{route('products.index')}}">
+                <i class="fa-solid fa-store"></i>
+            Tienda
+            </a>
+        </div>
+        <div class="btn-user-panel">
             <a href="{{ route('perfil') }}" class="btn-user">
                 <i class="fa fa-user"></i>
-                <span class="nowrap user-name-login">Hola, {{ auth()->user()->nombre }}</span>
+                <span class="nowrap user-name-login">{{ auth()->user()->nombre }}</span>
             </a>
         </div>
     </div>

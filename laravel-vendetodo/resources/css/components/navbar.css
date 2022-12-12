@@ -1,7 +1,7 @@
 .main-navbar {
   background: #608aeb;
   display: grid;
-  grid-template-columns: 240px minmax(300px, 600px) 1fr;
+  grid-template-columns: 240px 400px 1fr;
   box-shadow: 1px 1px 5px #cfcfcf;
   user-select: none;
   position: fixed;
@@ -46,6 +46,7 @@
   justify-content: flex-end;
   align-items: center;
   margin-right: 10px;
+  color: #fff;
 }
 
 .btn-user-panel {
@@ -54,10 +55,6 @@
 
 .btn-shoppingcart {
   font-size: 1.1rem;
-}
-
-.user-name-login {
-  color: #fff;
 }
 
 .btn-user {

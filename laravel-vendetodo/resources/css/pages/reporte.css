@@ -24,15 +24,6 @@ body {
   text-align: center;
 }
 
-span {
-  background-color: rgb(5, 177, 5);
-  padding: 8px;
-  border-radius: 10px;
-  font-weight: 800;
-  color: #ffffff;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-}
-
 .sidenav {
   height: 100%;
   width: 150px;
@@ -69,16 +60,15 @@ span {
 }
 
 .report-container {
-  margin-left: 160px;
-  padding: 0px 10px;
+  max-width: 1200px;
+  padding: 0 10px;
+  margin: 0 auto;
 }
 
 .report-details {
-  margin: top 10px;
-  width: 100%;
-  max-width: 1200px;
-  background-color: #ffffff;
   margin-top: 10px;
+  width: 100%;
+  background-color: #ffffff;
 }
 
 .table-tittle {
@@ -150,4 +140,9 @@ tr:nth-child(even) {
   border-radius: 10px;
   padding: 10px;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
 }
