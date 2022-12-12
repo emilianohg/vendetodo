@@ -1,6 +1,4 @@
 h1 {
-    margin-left: 10px;
-    padding: 10px 20px;
     font-size: 30px;
     font-weight: bold;
 }
@@ -33,17 +31,14 @@ button.btn {
 }
 
 .col-img {
-    width: 200px;
-    height: 150px;
+    max-width: 100px;
+    max-height: 100px;
     margin-left: auto;
     margin-right: auto;
 }
 
 table {
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 20px;
+    margin: 20px auto;
     border-collapse: collapse;
     border: 1px #B1B2FF solid;
     border-radius: 10px;
@@ -69,4 +64,49 @@ td {
 tr {
     align-items: center;
     text-align: center;
+}
+
+.card {
+    margin: 15px 20px 20px;
+    padding: 15px;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px #929191;
+    background-color: #fff;
+}
+
+.controls {
+    margin: 20px 0;
+}
+
+.container {
+    margin: 0 auto;
+}
+
+#camino {
+    margin: 0 auto;
+    box-shadow: 1px 1px 8px #bdbdbd;
+    border-radius: 10px
+}
+
+.btn-view {
+    width: 90px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn-view button {
+    width: 100%;
+    height: 100%;
+}
+.main-section {
+    margin-bottom: 10px;
+}
+
+.btn-selected {
+    background-color: #c7c7c7;
+}
+.btn-action {
+    padding: 5px 20px;
 }

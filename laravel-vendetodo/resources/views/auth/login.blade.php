@@ -24,7 +24,7 @@
             @endif
         </div>
         @if(session()->has('message'))
-            <div class="message-error">
+            <div class="messageerror">
                 <span class="error">{{ session()->get('message') }}</span>
             </div>
         @endif
