@@ -13,13 +13,17 @@ class DominioCarrito
         $this->carritosRepository = new CarritosRepository();
     }
 
+    /**
+     * @throws CarritoBloqueadoException
+     */
     public function agregarProductoCarrito(int $usuario_id, int $producto_id, int $proveedor_id, int $cantidad)
     {
         $carrito = $this->carritosRepository->buscarCarrito($usuario_id);
-        if(!$carrito->estaBloqueado())
+        if($carrito->estaBloqueado())
         {
-            $carrito->agregarLineaCarrito($producto_id, $proveedor_id, $cantidad);
+            throw new CarritoBloqueadoException();
         }
+        $carrito->agregarLineaCarrito($producto_id, $proveedor_id, $cantidad);
     }
 
     public function obtenerCarrito(int $usuario_id): Carrito
@@ -27,8 +31,15 @@ class DominioCarrito
         return $this->carritosRepository->buscarCarrito($usuario_id);
     }
 
-    public function borrarLineaCarrito(int $linea_carrito_id): void
+    /**
+     * @throws CarritoBloqueadoException
+     */
+    public function borrarLineaCarrito(int $usuarioId, int $linea_carrito_id): void
     {
+        $carrito = $this->carritosRepository->buscarCarrito($usuarioId);
+        if ($carrito->estaBloqueado()) {
+            throw new CarritoBloqueadoException();
+        }
         $this->carritosRepository->borrarLineaCarrito($linea_carrito_id);
     }
 }
