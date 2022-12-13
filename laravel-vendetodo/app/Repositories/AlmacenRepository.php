@@ -119,14 +119,19 @@ class AlmacenRepository
 
       DB::table('control_almacen')->where('estante_id', '=', $estante_id)->delete();
 
-      foreach ($detalles as $detalle) {
+      $detallesPorLote = collect($detalles)->groupBy('lote_id');
+      foreach ($detallesPorLote as $detalles) {
+
+        $detalle = $detalles->first();
+        $cantidad = $detalles->sum('cantidad');
+
         DB::table('control_almacen')
           ->insert([
             'estante_id' => $detalle->estante_id,
             'seccion_id' => $detalle->seccion_id,
             'lote_id' =>  $detalle->lote_id,
-            'cantidad' => $detalle->cantidad,
-            'cantidad_disponible' => $detalle->cantidad, //calcular la cantidad y cant disp
+            'cantidad' => $cantidad,
+            'cantidad_disponible' => $cantidad,
             'status' => 'libre',
           ]);
 
